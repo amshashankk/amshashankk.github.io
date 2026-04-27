@@ -450,6 +450,106 @@
       }, 400);
     }
 
+    // ==========================================================
+    // H. CASE STUDY FILTER CHIPS
+    // Wires up .filter-chip buttons on case-studies.html.
+    // Tags are stored in data-tags on .case and .featured-card.
+    // Active chip updates URL hash for bookmark/share support.
+    // Newly shown items get a quick anime.js fade-in stagger.
+    // ==========================================================
+    (function () {
+      var chips    = document.querySelectorAll('.filter-chip');
+      var cases    = document.querySelectorAll('.case[data-tags], .featured-card[data-tags]');
+      if (!chips.length || !cases.length) return;
+
+      function getActive() {
+        var active = document.querySelector('.filter-chip--active');
+        return active ? active.getAttribute('data-filter') : 'all';
+      }
+
+      function applyFilter(tag) {
+        var toShow = [];
+        var toHide = [];
+
+        cases.forEach(function (el) {
+          var tags = (el.getAttribute('data-tags') || '').split(' ');
+          var show = (tag === 'all') || tags.indexOf(tag) !== -1;
+          if (show) {
+            toShow.push(el);
+          } else {
+            toHide.push(el);
+          }
+        });
+
+        // Hide non-matching immediately
+        toHide.forEach(function (el) {
+          el.style.display = 'none';
+          el.classList.add('case--filtered-out');
+        });
+
+        // Show matching with anime stagger if available
+        toShow.forEach(function (el) {
+          el.style.display = '';
+          el.classList.remove('case--filtered-out');
+          if (!reducedMotion) {
+            el.style.opacity = '0';
+          }
+        });
+
+        if (!reducedMotion && toShow.length) {
+          anime({
+            targets:  toShow,
+            opacity:  [0, 1],
+            translateY: [8, 0],
+            delay:    anime.stagger(50),
+            duration: 350,
+            easing:   'easeOutCubic',
+            complete: function () {
+              toShow.forEach(function (el) { el.style.transform = ''; });
+            }
+          });
+        } else {
+          toShow.forEach(function (el) { el.style.opacity = ''; });
+        }
+      }
+
+      function setChip(filterValue) {
+        chips.forEach(function (chip) {
+          var isTarget = chip.getAttribute('data-filter') === filterValue;
+          chip.classList.toggle('filter-chip--active', isTarget);
+          chip.setAttribute('aria-pressed', isTarget ? 'true' : 'false');
+        });
+        applyFilter(filterValue);
+      }
+
+      // Wire up chip clicks
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          var tag = chip.getAttribute('data-filter');
+          setChip(tag);
+          // URL hash sync
+          if (tag === 'all') {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          } else {
+            history.replaceState(null, '', '#filter=' + tag);
+          }
+        });
+      });
+
+      // On load: check hash and apply
+      var hash = window.location.hash;
+      var initialFilter = 'all';
+      if (hash && hash.startsWith('#filter=')) {
+        var hashTag = hash.replace('#filter=', '');
+        // Validate against known chips
+        var chipExists = Array.from(chips).some(function (c) {
+          return c.getAttribute('data-filter') === hashTag;
+        });
+        if (chipExists) initialFilter = hashTag;
+      }
+      setChip(initialFilter);
+    }());
+
   }); // end DOMContentLoaded
 
 })();

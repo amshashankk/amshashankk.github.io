@@ -23,6 +23,7 @@
       <a href="index.html">Home</a>
       <a href="work.html">Work</a>
       <a href="case-studies.html" aria-current="page">Case Studies</a>
+      <a href="approach.html">Approach</a>
       <a href="about.html">About</a>
       <a href="index.html#contact">Contact</a>
       <span class="nav__indicator" aria-hidden="true"></span>
@@ -59,50 +60,59 @@
       </div>
 
       <div class="featured-grid">
-        <a href="case-study.html" class="featured-card">
-          <div class="featured-card__top">
-            <span class="tag">Scale &amp; Impact</span>
-            <span class="featured-card__year">2024</span>
-          </div>
-          <h3 class="featured-card__title">Re-architecting onboarding for a fintech serving 10M+ users</h3>
-          <p class="featured-card__desc">A 7-step KYC flow was leaking 47% of users at step 3. I led research, design, and rollout of a progressive onboarding system — shipped in 9 weeks under tight regulatory constraints.</p>
-          <div class="featured-card__metrics">
-            <div>
-              <strong>+32%</strong>
-              <span>completion rate</span>
-            </div>
-            <div>
-              <strong>−41%</strong>
-              <span>KYC drop-off</span>
-            </div>
-            <div>
-              <strong>9 wks</strong>
-              <span>research to ship</span>
-            </div>
-          </div>
-          <span class="featured-card__arrow" aria-hidden="true">Read the case →</span>
-        </a>
-
-        <a href="case-study.html" class="featured-card">
+        <a href="case-study-1.html" class="featured-card" data-tags="design-systems b2b">
           <div class="featured-card__top">
             <span class="tag">Systems Thinking</span>
             <span class="featured-card__year">2023</span>
           </div>
-          <h3 class="featured-card__title">Building a token-first design system across 4 product surfaces</h3>
-          <p class="featured-card__desc">Led a cross-functional team of 6 designers and 12 engineers to unify fragmented UI patterns. Governance model, semantic token architecture, and a Figma-to-code pipeline that actually stuck.</p>
+          <h3 class="featured-card__title">Building a design system from scratch</h3>
+          <p class="featured-card__desc">Scattered Sketch files, no tokens, no shared components. I built the full foundation — semantic token architecture, component library, governance model — over 6 months while the product kept shipping.</p>
           <div class="featured-card__metrics">
             <div>
-              <strong>68%</strong>
-              <span>faster handoff</span>
+              <strong>50%</strong>
+              <span>faster iteration</span>
             </div>
             <div>
               <strong>120+</strong>
               <span>tokens shipped</span>
             </div>
             <div>
-              <strong>4</strong>
-              <span>surfaces unified</span>
+              <strong>6 mo</strong>
+              <span>foundation to adoption</span>
             </div>
+          </div>
+          <div class="tag-row">
+            <span class="tag tag--mini">Design Systems</span>
+            <span class="tag tag--mini">B2B</span>
+          </div>
+          <span class="featured-card__arrow" aria-hidden="true">Read the case →</span>
+        </a>
+
+        <a href="case-study-2.html" class="featured-card" data-tags="retention consumer engagement">
+          <div class="featured-card__top">
+            <span class="tag">Retention</span>
+            <span class="featured-card__year">2024</span>
+          </div>
+          <h3 class="featured-card__title">Redesigning the membership page to cut churn at SpeakX</h3>
+          <p class="featured-card__desc">20% of subscribers cancelled on Day 0. I redesigned the membership page to surface learning progress, clarify subscription value, and give users a reason to stay.</p>
+          <div class="featured-card__metrics">
+            <div>
+              <strong>−8%</strong>
+              <span>in-app cancellations</span>
+            </div>
+            <div>
+              <strong>−3%</strong>
+              <span>Day-0 cancellations</span>
+            </div>
+            <div>
+              <strong>+1%</strong>
+              <span>Day-0 engagement</span>
+            </div>
+          </div>
+          <div class="tag-row">
+            <span class="tag tag--mini">Retention</span>
+            <span class="tag tag--mini">Consumer</span>
+            <span class="tag tag--mini">Engagement</span>
           </div>
           <span class="featured-card__arrow" aria-hidden="true">Read the case →</span>
         </a>
@@ -119,105 +129,95 @@
       <!-- FILTER CHIPS -->
       <div class="filters" role="group" aria-label="Filter by domain">
         <button class="filter-chip filter-chip--active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="design-systems">Design Systems</button>
+        <button class="filter-chip" data-filter="conversion">Conversion</button>
+        <button class="filter-chip" data-filter="retention">Retention</button>
+        <button class="filter-chip" data-filter="engagement">Engagement</button>
+        <button class="filter-chip" data-filter="zero-to-one">0→1</button>
         <button class="filter-chip" data-filter="fintech">Fintech</button>
         <button class="filter-chip" data-filter="consumer">Consumer</button>
-        <button class="filter-chip" data-filter="0-to-1">0→1</button>
-        <button class="filter-chip" data-filter="systems">Systems</button>
         <button class="filter-chip" data-filter="growth">Growth</button>
+        <button class="filter-chip" data-filter="bharat-scale">Bharat Scale</button>
+        <button class="filter-chip" data-filter="b2b">B2B</button>
       </div>
 
       <!-- CASE LIST -->
-      <a href="case-study.html" class="case">
-        <div class="case__meta">
-          <span class="tag">Scale &amp; Impact</span>
-          <span class="case__year">2024</span>
-        </div>
-        <div class="case__body">
-          <h3>Re-architecting onboarding for a fintech serving 10M+ users</h3>
-          <p>Progressive KYC redesign that addressed distrust — not friction — as the root cause of a 47% step-3 drop-off.</p>
-          <div class="case__stats">
-            <div><strong>+32%</strong><span>completion</span></div>
-            <div><strong>−41%</strong><span>drop-off at KYC</span></div>
-            <div><strong>9 wks</strong><span>research to ship</span></div>
-          </div>
-        </div>
-        <div class="case__arrow" aria-hidden="true">→</div>
-      </a>
-
-      <a href="case-study.html" class="case">
-        <div class="case__meta">
-          <span class="tag">0 → 1</span>
-          <span class="case__year">2023</span>
-        </div>
-        <div class="case__body">
-          <h3>A vernacular learning loop for Bharat's next 100M</h3>
-          <p>Low-bandwidth, voice-first learning for tier-2/3 users on ₹5k Android devices. Shipped in Hindi, Tamil, Marathi.</p>
-          <div class="case__stats">
-            <div><strong>2.1×</strong><span>D7 retention</span></div>
-            <div><strong>3</strong><span>languages at launch</span></div>
-            <div><strong>&lt;40MB</strong><span>app footprint</span></div>
-          </div>
-        </div>
-        <div class="case__arrow" aria-hidden="true">→</div>
-      </a>
-
-      <a href="case-study.html" class="case">
+      <a href="case-study-1.html" class="case" data-tags="design-systems b2b">
         <div class="case__meta">
           <span class="tag">Systems Thinking</span>
           <span class="case__year">2023</span>
         </div>
         <div class="case__body">
-          <h3>Building a token-first design system across 4 product surfaces</h3>
-          <p>Led a cross-functional team of 6 designers and 12 engineers to unify fragmented UI patterns. Governance, tokens, Figma-to-code pipeline.</p>
+          <h3>Building a design system from scratch</h3>
+          <p>Scattered Sketch files, inconsistent tokens, no shared components. Token-first architecture built over 6 months — foundation, component library, governance — while the product kept shipping.</p>
           <div class="case__stats">
-            <div><strong>68%</strong><span>faster handoff</span></div>
+            <div><strong>50%</strong><span>faster iteration</span></div>
             <div><strong>120+</strong><span>tokens shipped</span></div>
-            <div><strong>4</strong><span>surfaces unified</span></div>
+            <div><strong>6 mo</strong><span>foundation to adoption</span></div>
+          </div>
+          <div class="tag-row">
+            <span class="tag tag--mini">Design Systems</span>
+            <span class="tag tag--mini">B2B</span>
           </div>
         </div>
         <div class="case__arrow" aria-hidden="true">→</div>
       </a>
 
-      <a href="case-study.html" class="case">
+      <a href="case-study-2.html" class="case" data-tags="retention consumer engagement">
         <div class="case__meta">
-          <span class="tag">Growth</span>
-          <span class="case__year">2023</span>
+          <span class="tag">Retention</span>
+          <span class="case__year">2024</span>
         </div>
         <div class="case__body">
-          <h3>Redesigning the core transaction surface for a mobile-first fintech</h3>
-          <p>Simplified a fragmented payment UX into a unified surface with contextual progressive disclosure, targeting daily active usage.</p>
+          <h3>Redesigning the membership page to cut churn at SpeakX</h3>
+          <p>20% of subscribers cancelled on Day 0 — before completing a single lesson. Redesigned to surface learning progress and clarify subscription value, making the case to stay before the cancel button.</p>
           <div class="case__stats">
-            <div><strong>[+X%]</strong><span>DAU lift</span></div>
-            <div><strong>[X wks]</strong><span>to ship</span></div>
+            <div><strong>−8%</strong><span>in-app cancellations</span></div>
+            <div><strong>−3%</strong><span>Day-0 cancellations</span></div>
+            <div><strong>+1%</strong><span>Day-0 engagement</span></div>
+          </div>
+          <div class="tag-row">
+            <span class="tag tag--mini">Retention</span>
+            <span class="tag tag--mini">Consumer</span>
+            <span class="tag tag--mini">Engagement</span>
           </div>
         </div>
         <div class="case__arrow" aria-hidden="true">→</div>
       </a>
 
-      <a href="case-study.html" class="case">
+      <a href="case-study-3.html" class="case" data-tags="zero-to-one fintech growth">
         <div class="case__meta">
-          <span class="tag">Consumer</span>
-          <span class="case__year">2022</span>
+          <span class="tag">0 → 1</span>
+          <span class="case__year">[Year]</span>
         </div>
         <div class="case__body">
-          <h3>In-session engagement cues for a low-literacy learning app</h3>
-          <p>Micro-interactions and progress signals designed for users with limited digital literacy. No text labels. No assumed conventions.</p>
+          <h3>Empowering high-street retailers with affordable digital payments</h3>
+          <p>Small independent retailers had no digital payment infrastructure. Designed Voilo's QR payment + loyalty platform from zero — cutting transaction costs 90% and giving merchants tools to bring customers back.</p>
           <div class="case__stats">
-            <div><strong>[+X%]</strong><span>lesson completion</span></div>
-            <div><strong>[X]</strong><span>sessions tested</span></div>
+            <div><strong>90%</strong><span>lower transaction cost</span></div>
+            <div><strong>[X]</strong><span>merchants at launch</span></div>
+          </div>
+          <div class="tag-row">
+            <span class="tag tag--mini">0→1</span>
+            <span class="tag tag--mini">Fintech</span>
+            <span class="tag tag--mini">Growth</span>
           </div>
         </div>
         <div class="case__arrow" aria-hidden="true">→</div>
       </a>
 
-      <a href="case-study.html" class="case case--muted">
+      <a href="case-study.html" class="case case--muted" data-tags="growth retention">
         <div class="case__meta">
-          <span class="tag tag--muted">What I'd do differently</span>
-          <span class="case__year">2022</span>
+          <span class="tag tag--muted">Coming soon</span>
+          <span class="case__year">2025</span>
         </div>
         <div class="case__body">
-          <h3>The referral loop that didn't work — and what it taught me</h3>
-          <p>Shipped a well-crafted referral system. It flopped. Here's the honest teardown of what I missed and what I'd do differently today.</p>
+          <h3>More case studies in progress</h3>
+          <p>Two additional write-ups are being finalised — covering growth loops and a Bharat-scale consumer engagement project. Check back soon.</p>
+          <div class="tag-row">
+            <span class="tag tag--mini">Growth</span>
+            <span class="tag tag--mini">Consumer</span>
+          </div>
         </div>
         <div class="case__arrow" aria-hidden="true">→</div>
       </a>

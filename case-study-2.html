@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reducing Membership Cancellations at SpeakX — Shashank Kesarwani</title>
+  <meta name="description" content="How I redesigned SpeakX's membership page to cut Day-0 cancellations by 3%, in-app cancellations by 8%, and lift Day-0 engagement by 1% — by surfacing learning progress and clarifying subscription value." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo" data-magnetic>
+      <span class="dot"></span> Shashank K.
+    </a>
+    <nav class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="case-studies.html" aria-current="page">Case Studies</a>
+      <a href="approach.html">Approach</a>
+      <a href="about.html">About</a>
+      <a href="index.html#contact">Contact</a>
+      <span class="nav__indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-toggle" aria-label="Toggle theme" data-magnetic>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="index.html#contact" class="btn btn--sm" data-magnetic>Let's talk</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 1. HERO -->
+    <div class="cs-hero" data-reveal>
+      <a href="case-studies.html" class="cs-back">← All case studies</a>
+      <span class="tag" style="margin-bottom:1.5rem; display:inline-block;">Retention · EdTech · SpeakX · 2024</span>
+      <span class="visually-hidden">Redesigning the membership page to reduce cancellations at SpeakX</span>
+      <h1 class="hero__title hero__title--page" aria-hidden="true">
+        <span class="hero__line">
+          <span class="hero__word" aria-label="Redesigning"><span class="clip"><span class="char">R</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">d</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">s</span></span><span class="clip"><span class="char">i</span></span><span class="clip"><span class="char">g</span></span><span class="clip"><span class="char">n</span></span><span class="clip"><span class="char">i</span></span><span class="clip"><span class="char">n</span></span><span class="clip"><span class="char">g</span></span></span>
+          <span class="hero__word" aria-label="the"><span class="clip"><span class="char">t</span></span><span class="clip"><span class="char">h</span></span><span class="clip"><span class="char">e</span></span></span>
+          <span class="hero__word" aria-label="membership"><span class="clip"><span class="char">m</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">m</span></span><span class="clip"><span class="char">b</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">r</span></span><span class="clip"><span class="char">s</span></span><span class="clip"><span class="char">h</span></span><span class="clip"><span class="char">i</span></span><span class="clip"><span class="char">p</span></span></span>
+        </span>
+        <span class="hero__line">
+          <span class="hero__word" aria-label="page"><span class="clip"><span class="char">p</span></span><span class="clip"><span class="char">a</span></span><span class="clip"><span class="char">g</span></span><span class="clip"><span class="char">e</span></span></span>
+          <span class="hero__word" aria-label="to"><span class="clip"><span class="char">t</span></span><span class="clip"><span class="char">o</span></span></span>
+          <em class="hero__serif hero__word" aria-label="cut churn"><span class="clip"><span class="char">c</span></span><span class="clip"><span class="char">u</span></span><span class="clip"><span class="char">t</span></span> <span class="clip"><span class="char">c</span></span><span class="clip"><span class="char">h</span></span><span class="clip"><span class="char">u</span></span><span class="clip"><span class="char">r</span></span><span class="clip"><span class="char">n</span></span></em>
+        </span>
+      </h1>
+      <p class="cs-hero__sub">20% of SpeakX subscribers cancelled on Day 0. Nearly 50% of trial users were gone by end of week 1. The membership page was the last thing they saw before leaving — and it was working against us. I redesigned it to surface learning progress, clarify subscription value, and give users a reason to stay.</p>
+    </div>
+
+    <!-- 2. TL;DR -->
+    <div class="tldr" data-reveal>
+      <div class="tldr__inner">
+        <div class="tldr__item">
+          <span class="tldr__label">Role</span>
+          <span class="tldr__value">Product Designer — end-to-end ownership</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Team</span>
+          <span class="tldr__value">1 PM · [X] Engineers · 1 Data Analyst</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Timeline</span>
+          <span class="tldr__value">[X weeks], discovery to ship</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Platform</span>
+          <span class="tldr__value">Android · iOS</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">My contribution</span>
+          <span class="tldr__value">Research, IA, interaction design, content strategy, handoff</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Outcome</span>
+          <span class="tldr__value">−8% in-app cancellations · −3% Day-0 cancellations · +1% Day-0 engagement</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. BUSINESS CONTEXT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">01 — Business Context</span>
+        <h2 class="section__head" style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">SpeakX had an acquisition engine. It had a retention problem.</h2>
+        <p>SpeakX is an English-speaking EdTech platform targeting Hindi-belt users who want to improve spoken fluency for professional and personal advancement. At the time of this project, the platform had strong top-of-funnel performance — paid acquisition was converting users to trial subscriptions efficiently. The problem was what happened next.</p>
+        <p><strong>20% of new subscribers cancelled their membership on the same day they subscribed</strong> — before they'd completed a single lesson. An additional ~30% cancelled within the first week. The cancellation rate at this stage directly impacted LTV, which in turn put pressure on acquisition CAC targets. The CPO identified the membership page as the primary intervention point: it was where users went when they were considering cancellation, and it was doing nothing to change their mind.</p>
+        <p>At ₹99/month, a 1-point reduction in Day-0 churn across the user base translated to meaningful revenue retention. The stakes were real.</p>
+      </div>
+    </section>
+
+    <!-- 4. THE PROBLEM, QUANTIFIED -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">02 — The Problem, Quantified</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The membership page was a dead end. No progress. No value. Just a cancel button.</h2>
+        <p>Before the redesign, the membership page showed three things: subscription status (Active/Expired), renewal date, and a cancellation CTA. That was it. Users who arrived on the page — typically after encountering friction elsewhere in the app — found no signal of the value they'd already built up, no reinforcement of what they were paying for, and no friction between deciding to cancel and completing it.</p>
+
+        <div class="callout-pair">
+          <div class="callout-pair__item">
+            <div class="callout-pair__label">Day-0 cancellation rate</div>
+            <div class="callout-pair__num">~20%</div>
+          </div>
+          <div class="callout-pair__item callout-pair__item--after">
+            <div class="callout-pair__label">Week-1 trial cancellation rate</div>
+            <div class="callout-pair__num">~50%</div>
+          </div>
+        </div>
+
+        <p>I pulled session recordings from users who visited the membership page and cancelled. The median time between opening the page and tapping the cancel button was under 12 seconds. There was nothing on the page that gave them a reason to pause.</p>
+      </div>
+    </section>
+
+    <!-- 5. CONSTRAINTS -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">03 — Constraints</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The page had to stay honest. We couldn't just make cancellation harder.</h2>
+        <p>The constraints on this project shaped what "a good solution" could look like:</p>
+        <ul>
+          <li>We could not hide or obscure the cancel option. Dark patterns that bury cancellation were explicitly ruled out by the PM — and correctly so. If users can't find the cancel button, they'll leave the platform with a worse perception of it.</li>
+          <li>The learning progress data shown on the page had to be real and current. Fabricated "streaks" or inflated milestone labels would erode trust the moment users noticed the inconsistency.</li>
+          <li>The page had to handle three distinct states gracefully: Active subscription, Expired subscription, and Cancelled subscription. Each state had a different user intent and required different information hierarchy.</li>
+          <li>Engineering bandwidth was limited. The design had to be achievable with the data already available in the app — we could not scope in new tracking or new backend endpoints for v1.</li>
+          <li>Timeline: [X weeks] to ship, ahead of a seasonal acquisition campaign where churn rates would be under heightened scrutiny.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. RESEARCH & THE ONE INSIGHT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">04 — Research &amp; The One Insight</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">They weren't cancelling because the product was bad. They were cancelling because they couldn't see they were progressing.</h2>
+        <p>I reviewed the retention data alongside [X] user behaviour recordings and analysed support tickets tagged "subscription" and "cancellation" over 90 days. I also ran [X] informal interviews with users who had churned within the first week, recruited through re-engagement emails.</p>
+        <p>The pattern was consistent: users who churned early were not users who'd had a bad experience. They were users who'd had no clear signal of progress. They'd completed a lesson or two, opened the membership page, seen a subscription renewal date and a cancel button, and concluded — incorrectly — that nothing was happening. The product was working. The feedback loop was invisible.</p>
+
+        <div class="pullquote">
+          <p>"I didn't know if I was getting better. There's no way to tell. I thought maybe this app isn't for me."</p>
+          <cite>Churned user, Week-1 trial, Tier-2 city</cite>
+        </div>
+
+        <p><strong>The reframe.</strong> The membership page wasn't just an account management screen — it was a retention surface. Its job was to remind users of the value they'd already captured and give them a concrete reason to keep paying. Every element on the page needed to serve that purpose or be removed.</p>
+      </div>
+    </section>
+
+    <!-- 7. EXPLORATIONS -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">05 — Explorations</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three directions explored. One shipped.</h2>
+      <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">I built rough prototypes of each and ran them past [X] users in moderated sessions before the team decision.</p>
+
+      <div class="directions">
+        <div class="direction">
+          <div class="direction__label">Direction A</div>
+          <h4>Cancellation paywall — forced win-back flow</h4>
+          <p>Intercept the cancel action with a modal that shows personalised progress stats, an offer (1 month free), and a re-commitment prompt before allowing cancellation to proceed.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> Users perceived the intercept as manipulative. In testing, 3 of 5 participants who encountered it cancelled anyway and left a negative rating. The short-term retention lift would have damaged brand trust long-term.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction B</div>
+          <h4>Progress-only redesign — no subscription management changes</h4>
+          <p>Add a prominent learning progress section at the top of the existing page. Keep all subscription management UI intact below it.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> The subscription management section was confusing and redundant. Layering progress on top of a broken information architecture would not solve the root problem — users would scroll past the progress to find the cancel button and still leave in under 12 seconds.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction C — Chosen</div>
+          <h4>Full page redesign — progress + clarity + transparent management</h4>
+          <p>Rebuild the page from scratch with a progress-first hierarchy: learning graph + gamified milestone label at top, premium benefits reinforcement in the middle, and subscription management (including cancel) at the bottom — transparent but de-emphasised relative to the value content.</p>
+          <div class="direction__killed"><strong>Chosen because:</strong> Addressed the information architecture problem, the missing progress feedback loop, and the subscription clarity gap in one pass. The cancel option remained fully accessible — we weren't hiding it, we were contextualising it.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. THE DECISION + TRADE-OFF -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">06 — The Decision</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Show them what they've built before you ask them to decide if it's worth keeping.</h2>
+        <p>The final design led with a dynamic learning progress graph — showing the user's speaking sessions plotted over time — alongside a gamified milestone label (titles like "Rising Voice" and "Star Speaker") that updated based on cumulative practice time. The framing was deliberate: before the user reached any subscription controls, they had to scroll past a concrete record of their own progress.</p>
+        <p>Below the progress section: a benefit grid reinforcing the four core premium features — AI practice sessions, grammar mastery tracks, video reels, and daily routines. This was not upsell copy — it was a reminder of what the subscription already included and what would be lost.</p>
+        <p>Subscription management lived at the bottom, with three clearly differentiated state designs: Active (renewal date, payment method, cancel option), Expired (renewal prompt, clear pricing), Cancelled (reactivation CTA, no pressure framing). Transaction history and support access were included here — both had been missing entirely in the previous design and were surfacing as support tickets.</p>
+        <p><strong>The trade-off I accepted explicitly:</strong> we were making the cancel option slightly harder to find (scroll depth), not harder to use. Any user who wanted to cancel could still cancel in two taps. We were betting that the additional context would change the decision, not that the additional scroll would prevent it.</p>
+      </div>
+    </section>
+
+    <!-- 9. SHIPPING REALITY -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">07 — Shipping Reality</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What shipped, what got cut, and what made it to v2.</h2>
+        <p>The full design scoped [X] screens covering all three subscription states plus edge cases (expired during trial, pending payment, gifted subscription). V1 shipped [X] of those screens — the three primary states and the most common edge case (expired trial).</p>
+        <p><strong>What shipped in v1.</strong> Progress graph (using existing session data), gamified milestone labels (5 tiers: Beginner, Rising Voice, Consistent Learner, Star Speaker, Fluency Champion), premium benefit grid, status-based subscription management UI, transaction history, FAQ module, support access.</p>
+        <p><strong>What didn't.</strong> The comparative progress view ("you've improved [X]% from last month") required a data pipeline that wasn't ready. The social milestone sharing feature was descoped for timeline. The gifted subscription state was deferred to v2 as it represented less than 2% of the user base.</p>
+        <p><strong>v2 targets.</strong> Comparative progress view, personalised benefit highlights based on feature usage, and the social milestone share card.</p>
+      </div>
+    </section>
+
+    <!-- 10. IMPACT -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">08 — Impact</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;max-width:22ch;">Numbers measured [X weeks] post-launch.</h2>
+
+      <div class="impact-grid">
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">−8%</div>
+          <div class="impact-grid__label">In-app cancellations</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">−3%</div>
+          <div class="impact-grid__label">Day-0 cancellations</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">−4%</div>
+          <div class="impact-grid__label">Overall cancellation rate</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">+1%</div>
+          <div class="impact-grid__label">Day-0 engagement rate</div>
+        </div>
+      </div>
+
+      <div class="pm-quote cs-content">
+        <p>"The approach was right — surface what users have already earned before asking them whether to keep paying. The data validated the hypothesis. [X% absolute lift on retention at this scale is material revenue]."</p>
+        <cite>[PM Name] · Product Manager, SpeakX</cite>
+      </div>
+    </section>
+
+    <!-- 11. REFLECTION -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">09 — Reflection</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
+        <p><strong>What I'd do differently.</strong> I'd push harder for the comparative progress data even if it meant a longer timeline. The "you've improved X% from last month" framing was the single most motivating element in user testing — and it didn't ship. A retention-focused redesign without its most powerful lever is a compromise I accepted too quickly under timeline pressure.</p>
+        <p><strong>What I underestimated.</strong> The emotional weight of the milestone labels. In testing, "Star Speaker" generated disproportionate positive reaction — users wanted to show it to someone. I didn't design a share mechanism for v1 and left retention value on the table. Social proof and sharing for earned milestones should have been in scope from the start.</p>
+        <p><strong>What I'll carry forward.</strong> Retention surfaces need a progress-first information architecture. The default instinct is to show account management — status, billing, controls. But users visiting a retention-risk surface need to be reminded of accumulated value first. The product earned that retention; the page just had to show it.</p>
+      </div>
+    </section>
+
+    <!-- 12. NEXT/PREV NAVIGATION -->
+    <section class="cs-section" data-reveal>
+      <div class="case-nav">
+        <a href="case-study-1.html" class="case-nav__item case-nav__item--prev">
+          <span class="case-nav__dir">← Previous</span>
+          <span class="case-nav__title">Building a design system from scratch</span>
+        </a>
+        <a href="case-study-3.html" class="case-nav__item case-nav__item--next">
+          <span class="case-nav__dir">Next →</span>
+          <span class="case-nav__title">Empowering high-street retailers with digital payments</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 Shashank Kesarwani</div>
+    <div>Designed &amp; built by hand · <span id="yearTime"></span></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="anime-fx.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

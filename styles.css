@@ -2695,6 +2695,214 @@ em.hero__word {
 .hero__i-clip { overflow: visible !important; }
 .hero__line { overflow: visible !important; }
 
+/* ============================================================
+   TAG PILLS — .tag--mini (read-only, used inside cards)
+   ============================================================ */
+
+.tag--mini {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--glass-bg);
+  color: var(--text-muted);
+  display: inline-block;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Allow hover color shift on parent hover — cards only, not self-click */
+a:hover .tag--mini,
+.featured-card:hover .tag--mini,
+.carousel__card:hover .tag--mini,
+.case:hover .tag--mini {
+  color: #c7ff4a;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-top: 0.5rem;
+}
+
+/* ============================================================
+   FILTER VISIBILITY — controlled by JS filter logic
+   ============================================================ */
+
+.case[data-tags],
+.featured-card[data-tags] {
+  transition: opacity 0.25s ease;
+}
+
+.case--filtered-out,
+.featured-card--filtered-out {
+  display: none;
+}
+
+/* ============================================================
+   APPROACH PAGE — .approach-step, .approach-callout
+   ============================================================ */
+
+.approach-section {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 5vw, 3rem);
+  border-top: 1px solid var(--border);
+}
+
+.approach-section__inner {
+  max-width: 720px;
+}
+
+.approach-section h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.approach-section p {
+  font-size: 1.0625rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 1.125rem;
+}
+
+.approach-section p strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.approach-steps {
+  list-style: none;
+  counter-reset: approach-step;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin-block: 1.75rem;
+}
+
+.approach-step {
+  counter-increment: approach-step;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  font-size: 1.0625rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.approach-step::before {
+  content: counter(approach-step, decimal-leading-zero);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  padding-top: 0.2em;
+  min-width: 2.25rem;
+}
+
+.approach-callout {
+  border: 1px solid var(--glass-border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 1.5rem 1.75rem;
+  background: var(--glass-bg);
+  box-shadow: inset 0 1px 0 var(--glass-highlight);
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .approach-callout {
+    backdrop-filter: blur(14px) saturate(150%);
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+  }
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .approach-callout { background: var(--surface); }
+}
+
+.approach-callout__label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.approach-callout__title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+
+.approach-callout__metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem 1.25rem;
+  margin-top: 0.375rem;
+}
+
+.approach-callout__metrics span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.approach-callout__metrics strong {
+  color: var(--text);
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.approach-callout a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-top: 0.25rem;
+  transition: text-decoration 0.15s ease;
+}
+
+.approach-callout a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.approach-pullquote {
+  border-left: 2px solid var(--border-accent);
+  padding: 0.875rem 1.25rem;
+  margin-top: 1.5rem;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case[data-tags],
+  .featured-card[data-tags] { transition: none; }
+}
+
+/* ============================================================
+   END APPROACH / TAG ADDITIONS
+   ============================================================ */
+
 /* Bump the star size so it reads clearly as a sparkle,
    nestled close to the top of the "ı" (~20px gap). */
 .hero__flair--i {

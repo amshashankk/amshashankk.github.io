@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How I Work — Shashank Kesarwani</title>
+  <meta name="description" content="Four areas I've shipped real outcomes in. Each section is a defensible POV — the framework I use, why I use it, and one shipped example." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo" data-magnetic>
+      <span class="dot"></span> Shashank K.
+    </a>
+    <nav class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="approach.html" aria-current="page">Approach</a>
+      <a href="about.html">About</a>
+      <a href="index.html#contact">Contact</a>
+      <span class="nav__indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-toggle" aria-label="Toggle theme" data-magnetic>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="index.html#contact" class="btn btn--sm" data-magnetic>Let's talk</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE INTRO -->
+    <div class="page-intro">
+      <span class="eyebrow">— Approach</span>
+      <span class="visually-hidden">How I work — frameworks I use, defended in interviews.</span>
+      <h1 class="hero__title hero__title--page" aria-hidden="true">
+        <span class="hero__line">
+          <span class="hero__word" aria-label="How"><span class="clip"><span class="char">H</span></span><span class="clip"><span class="char">o</span></span><span class="clip"><span class="char">w</span></span></span>
+          <span class="hero__word" aria-label="I"><span class="clip"><span class="char">I</span></span></span>
+          <span class="hero__word" aria-label="work"><span class="clip"><span class="char">w</span></span><span class="clip"><span class="char">o</span></span><span class="clip"><span class="char">r</span></span><span class="clip"><span class="char">k</span></span></span>
+        </span>
+        <span class="hero__line">
+          <em class="hero__serif hero__word" aria-label="frameworks"><span class="clip"><span class="char">f</span></span><span class="clip"><span class="char">r</span></span><span class="clip"><span class="char">a</span></span><span class="clip"><span class="char">m</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">w</span></span><span class="clip"><span class="char">o</span></span><span class="clip"><span class="char">r</span></span><span class="clip"><span class="char">k</span></span><span class="clip"><span class="char">s</span></span></em>
+          <span class="hero__word" aria-label="defended"><span class="clip"><span class="char">d</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">f</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">n</span></span><span class="clip"><span class="char">d</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">d</span></span></span>
+          <span class="hero__word" aria-label="in"><span class="clip"><span class="char">i</span></span><span class="clip"><span class="char">n</span></span></span>
+          <span class="hero__word" aria-label="interviews."><span class="clip"><span class="char">i</span></span><span class="clip"><span class="char">n</span></span><span class="clip"><span class="char">t</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">r</span></span><span class="clip"><span class="char">v</span></span><span class="clip"><span class="char">i</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">w</span></span><span class="clip"><span class="char">s</span></span><span class="clip"><span class="char">.</span></span></span>
+        </span>
+      </h1>
+      <p class="page-intro__sub">Four areas I've shipped real outcomes in. Each section is a defensible POV — the framework I use, why I use it, and one shipped example.</p>
+    </div>
+
+    <!-- SECTION 01: DESIGN SYSTEMS -->
+    <section class="approach-section" data-reveal>
+      <div class="approach-section__inner">
+        <span class="eyebrow">01 — Design Systems</span>
+        <h2>Tokens are decisions. Components are defaults. Governance is everything.</h2>
+
+        <p>Most design systems fail not at the component level but at the governance level. Teams build a component library, publish it to Figma, and then watch it drift within six months as individual contributors make one-off decisions under deadline pressure. The system decays because no one owns the contract.</p>
+
+        <p>My POV: a design system is not a UI kit. It is a decision framework made tangible. Every token is an encoded design decision — "this is our primary surface background at rest." Every component is a default that saves a designer from making that decision again under pressure. Governance is the process that keeps decisions from silently forking.</p>
+
+        <p><strong>The order matters.</strong> You cannot build robust components without a sound token layer, and you cannot ship a token layer without an audit that maps existing values to semantic roles. Skip the audit and you're encoding the mess.</p>
+
+        <ol class="approach-steps">
+          <li class="approach-step">Audit — Catalog all existing visual values and map them to semantic roles. Expose every divergence.</li>
+          <li class="approach-step">Tokens — Define a semantic token layer (primitive → semantic → component). Document the decision behind every token, not just the value.</li>
+          <li class="approach-step">Primitives — Build base components that consume tokens and nothing else. No hardcoded hex values, ever.</li>
+          <li class="approach-step">Patterns — Compose primitives into opinionated patterns that encode product-specific decisions (e.g. how a form validates, not just how an input looks).</li>
+          <li class="approach-step">Governance — Establish a contribution model, a deprecation protocol, and a weekly sync. Assign an owner per surface. Without this, repeat from step one in six months.</li>
+        </ol>
+
+        <div class="approach-callout">
+          <span class="approach-callout__label">Shipped Example</span>
+          <span class="approach-callout__title">Token-first design system across 4 product surfaces — Dalvoy</span>
+          <div class="approach-callout__metrics">
+            <span><strong>68%</strong> faster design-to-handoff</span>
+            <span><strong>120+</strong> tokens shipped</span>
+            <span><strong>6</strong> designers, <strong>12</strong> engineers adopted</span>
+          </div>
+          <a href="case-study.html" class="link-arrow">Read the case study →</a>
+        </div>
+
+        <p class="approach-pullquote">"A token layer without a decision rationale is just a spreadsheet. The rationale is the system."</p>
+      </div>
+    </section>
+
+    <!-- SECTION 02: CONVERSION -->
+    <section class="approach-section" data-reveal>
+      <div class="approach-section__inner">
+        <span class="eyebrow">02 — Conversion</span>
+        <h2>Friction is a tax on intent. Every screen past 90 seconds costs you 3%.</h2>
+
+        <p>Conversion problems are almost never what they appear to be. Teams look at a leaky funnel step and reach for the obvious fix — shorten the form, reduce the fields, add a progress bar. Sometimes that works. More often it doesn't, because the friction isn't the cause. It's a symptom.</p>
+
+        <p>My process is to go upstream before I go to Figma. I spend the first days in the funnel data, support tickets, and user sessions — looking for the pattern in the drop-off. Is it a specific device type? A time-of-day cluster? A specific error state hitting 12% of users? The root cause shapes the intervention. You cannot design your way out of a trust problem by shortening a form.</p>
+
+        <p><strong>The framework I use:</strong> Funnel analysis to locate the cliff. Hypothesis formation to name the root cause. Variant design to address the root cause, not the symptom. Measurement against a pre-agreed metric with a clearly defined minimum detectable effect. If you don't agree on the metric before you design, you'll argue about it after.</p>
+
+        <ol class="approach-steps">
+          <li class="approach-step">Funnel — Map the drop-off precisely. Which step, which device, which segment. Don't skip this.</li>
+          <li class="approach-step">Hypothesis — Name the root cause in one sentence. "Users are dropping because they distrust the app with their documents, not because the flow has too many steps."</li>
+          <li class="approach-step">Variant — Design the intervention that addresses the hypothesis. Keep it surgically targeted. One variable per test when possible.</li>
+          <li class="approach-step">Measurement — Agree on the primary metric, the minimum detectable effect, and the sample size before any pixel is committed to code.</li>
+        </ol>
+
+        <div class="approach-callout">
+          <span class="approach-callout__label">Shipped Example</span>
+          <span class="approach-callout__title">KYC onboarding redesign — Dalvoy</span>
+          <div class="approach-callout__metrics">
+            <span><strong>+32%</strong> onboarding completion</span>
+            <span><strong>−41%</strong> drop-off at step 3</span>
+          </div>
+          <a href="case-study.html" class="link-arrow">Read the case study →</a>
+        </div>
+
+        <p class="approach-pullquote">"The root cause was distrust, not friction. Shortening the form would have moved the metric by 3%. Addressing trust moved it by 32%."</p>
+      </div>
+    </section>
+
+    <!-- SECTION 03: RETENTION -->
+    <section class="approach-section" data-reveal>
+      <div class="approach-section__inner">
+        <span class="eyebrow">03 — Retention</span>
+        <h2>Retention is a story problem, not a notification problem.</h2>
+
+        <p>The most common retention play is a push notification campaign. It is also the most frequently wrong one. Notifications do not create habits — they interrupt users who have already stopped caring, which makes the problem worse over time as users opt out or tune out entirely.</p>
+
+        <p>Real retention is earned at the product level. It is a function of whether the product reliably delivers on its core value loop fast enough, clearly enough, and often enough to become part of a user's existing routine. If D7 retention is poor, the problem is almost always in the activation experience — users never reached the aha moment, so there is no habit to retain.</p>
+
+        <p><strong>The habit loop framework:</strong> Trigger (the cue that prompts action), Action (the simplest behavior in anticipation of reward), Variable Reward (the reward that keeps users returning — it must be variable, not constant), Investment (the user puts something into the product that makes future value greater). Every low-retention product I've worked on has a broken link in this chain. Find the break; fix the break.</p>
+
+        <ol class="approach-steps">
+          <li class="approach-step">Map the habit loop — Draw the trigger, action, reward, and investment for your core loop. Be specific about what each is for your actual users.</li>
+          <li class="approach-step">Diagnose the break — Where does the chain fail? Missing trigger? Too much friction before reward? No investment mechanism? Session replay and cohort analysis reveal this faster than surveys.</li>
+          <li class="approach-step">Intervene at the break — Don't redesign the whole product. Precisely address the single weakest link. One intervention, one metric.</li>
+          <li class="approach-step">Measure D1, D7, D30 — Retention curves tell a different story at each horizon. A D1 lift that vanishes by D7 means the problem shifted downstream.</li>
+        </ol>
+
+        <div class="approach-callout">
+          <span class="approach-callout__label">Shipped Example</span>
+          <span class="approach-callout__title">Vernacular learning loop — SpeakX</span>
+          <div class="approach-callout__metrics">
+            <span><strong>2.1×</strong> D7 retention versus previous interface</span>
+            <span><strong>3</strong> languages at launch</span>
+          </div>
+          <a href="case-study.html" class="link-arrow">Read the case study →</a>
+        </div>
+
+        <p class="approach-pullquote">"Notifications are a tax on trust. If you're sending them to rescue a retention metric, the problem is upstream."</p>
+      </div>
+    </section>
+
+    <!-- SECTION 04: ENGAGEMENT -->
+    <section class="approach-section" data-reveal>
+      <div class="approach-section__inner">
+        <span class="eyebrow">04 — Engagement</span>
+        <h2>Engagement without intent is vanity. DAU is not a strategy.</h2>
+
+        <p>DAU is a metric that tells you how many people opened your app. It tells you almost nothing about whether those people did something meaningful. Engagement design that chases raw session counts produces dark patterns — infinite scroll, notification spam, artificially induced urgency. These inflate the number and erode the product.</p>
+
+        <p>The engagement I care about is intentional engagement: users returning to do the thing the product exists to help them do, and doing it more successfully over time. That requires designing the path from first session to activated user — from "I just downloaded this" to "this is now part of how I work."</p>
+
+        <p><strong>The activation-to-habit arc:</strong> Activation (first meaningful action — the one that proves to the user the product can deliver). Aha moment (the specific moment the user understands the core value promise). Habit formation (the user builds a predictable pattern of use). Loop (the product creates triggers that sustain the pattern without feeling manipulative).</p>
+
+        <ol class="approach-steps">
+          <li class="approach-step">Define activation — What is the single action that signals a user has experienced the core value? Make this the north star metric for engagement design.</li>
+          <li class="approach-step">Instrument the aha moment — Track time-to-aha and correlation with long-term retention. If users who reach aha within 3 minutes retain at 2× the rate, design everything to accelerate that path.</li>
+          <li class="approach-step">Design for habit — Reduce friction on the core action. Introduce the variable reward. Build the investment mechanism. Remove everything that doesn't serve the loop.</li>
+          <li class="approach-step">Audit for dark patterns — Before shipping, ask: if this feature were removed, would real users notice and complain? If not, it's probably inflation, not engagement.</li>
+        </ol>
+
+        <div class="approach-callout">
+          <span class="approach-callout__label">Shipped Example</span>
+          <span class="approach-callout__title">In-session engagement cues — SpeakX</span>
+          <div class="approach-callout__metrics">
+            <span>Lesson completion lift via redesigned progress indicators</span>
+            <span>Designed for users with limited digital literacy</span>
+          </div>
+          <a href="case-study.html" class="link-arrow">Read the case study →</a>
+        </div>
+
+        <p class="approach-pullquote">"If the engagement is real, removing the prompt doesn't change the behaviour. That's the test."</p>
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="section contact" id="contact">
+      <span class="eyebrow">— Let's go deeper</span>
+      <h2 class="contact__title">Want to dig deeper into any of these?</h2>
+      <p class="contact__sub">I'm happy to walk through frameworks, trade-offs, and specific decisions in a conversation. Email is the fastest way in.</p>
+      <div class="contact__actions">
+        <a href="mailto:amshashankk@gmail.com" class="btn btn--primary btn--lg" data-magnetic>amshashankk@gmail.com</a>
+        <a href="case-studies.html" class="btn btn--ghost btn--lg" data-magnetic>See case studies →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 Shashank Kesarwani</div>
+    <div>Designed &amp; built by hand · <span id="yearTime"></span></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="anime-fx.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

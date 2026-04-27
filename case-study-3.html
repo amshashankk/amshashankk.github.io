@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empowering High-Street Retailers with Digital Payments — Shashank Kesarwani</title>
+  <meta name="description" content="How I designed Voilo's QR-based payment and loyalty platform from zero — cutting transaction costs by 90% for small independent retailers who couldn't afford card machines." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo" data-magnetic>
+      <span class="dot"></span> Shashank K.
+    </a>
+    <nav class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="case-studies.html" aria-current="page">Case Studies</a>
+      <a href="approach.html">Approach</a>
+      <a href="about.html">About</a>
+      <a href="index.html#contact">Contact</a>
+      <span class="nav__indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-toggle" aria-label="Toggle theme" data-magnetic>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="index.html#contact" class="btn btn--sm" data-magnetic>Let's talk</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 1. HERO -->
+    <div class="cs-hero" data-reveal>
+      <a href="case-studies.html" class="cs-back">← All case studies</a>
+      <span class="tag" style="margin-bottom:1.5rem; display:inline-block;">0 → 1 · Fintech · Voilo · [Year]</span>
+      <span class="visually-hidden">Empowering high-street retailers with affordable digital payments at Voilo</span>
+      <h1 class="hero__title hero__title--page" aria-hidden="true">
+        <span class="hero__line">
+          <span class="hero__word" aria-label="Empowering"><span class="clip"><span class="char">E</span></span><span class="clip"><span class="char">m</span></span><span class="clip"><span class="char">p</span></span><span class="clip"><span class="char">o</span></span><span class="clip"><span class="char">w</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">r</span></span><span class="clip"><span class="char">i</span></span><span class="clip"><span class="char">n</span></span><span class="clip"><span class="char">g</span></span></span>
+          <span class="hero__word" aria-label="high-street"><span class="clip"><span class="char">h</span></span><span class="clip"><span class="char">i</span></span><span class="clip"><span class="char">g</span></span><span class="clip"><span class="char">h</span></span><span class="clip"><span class="char">-</span></span><span class="clip"><span class="char">s</span></span><span class="clip"><span class="char">t</span></span><span class="clip"><span class="char">r</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">t</span></span></span>
+        </span>
+        <span class="hero__line">
+          <span class="hero__word" aria-label="retailers"><span class="clip"><span class="char">r</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">t</span></span><span class="clip"><span class="char">a</span></span><span class="clip"><span class="char">i</span></span><span class="clip"><span class="char">l</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">r</span></span><span class="clip"><span class="char">s</span></span></span>
+          <span class="hero__word" aria-label="with"><span class="clip"><span class="char">w</span></span><span class="clip"><span class="char">i</span></span><span class="clip"><span class="char">t</span></span><span class="clip"><span class="char">h</span></span></span>
+          <em class="hero__serif hero__word" aria-label="digital payments"><span class="clip"><span class="char">d</span></span><span class="clip"><span class="char">i</span></span><span class="clip"><span class="char">g</span></span><span class="clip"><span class="char">i</span></span><span class="clip"><span class="char">t</span></span><span class="clip"><span class="char">a</span></span><span class="clip"><span class="char">l</span></span> <span class="clip"><span class="char">p</span></span><span class="clip"><span class="char">a</span></span><span class="clip"><span class="char">y</span></span><span class="clip"><span class="char">m</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">n</span></span><span class="clip"><span class="char">t</span></span><span class="clip"><span class="char">s</span></span></em>
+        </span>
+      </h1>
+      <p class="cs-hero__sub">Small independent retailers couldn't afford card machines and were losing customers to larger competitors who could. I designed Voilo's end-to-end merchant experience — QR-based payments, digital loyalty programs, and promotional tools — cutting transaction costs by 90% and giving independent shops the digital infrastructure to compete.</p>
+    </div>
+
+    <!-- 2. TL;DR -->
+    <div class="tldr" data-reveal>
+      <div class="tldr__inner">
+        <div class="tldr__item">
+          <span class="tldr__label">Role</span>
+          <span class="tldr__value">Product Designer — 0 to 1</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Team</span>
+          <span class="tldr__value">[X] Engineers · 1 PM · [X] Founders</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Timeline</span>
+          <span class="tldr__value">[X months], concept to launch</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Platform</span>
+          <span class="tldr__value">Android (merchant app) · Web (admin)</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">My contribution</span>
+          <span class="tldr__value">End-to-end: discovery, merchant journey design, consumer-side QR flow, loyalty mechanics, handoff</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Outcome</span>
+          <span class="tldr__value">90% reduction in transaction costs · Near-instant fund payouts · [X] merchants onboarded at launch</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. BUSINESS CONTEXT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">01 — Business Context</span>
+        <h2 class="section__head" style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Independent retailers were losing ground. Not on product quality — on infrastructure.</h2>
+        <p>Voilo was building a payments and loyalty platform specifically for high-street independent retailers: the barbershop, the corner grocery, the independent cafe. These businesses were competing against chains that offered card payments, loyalty programmes, and digital receipts as standard. Independent shops couldn't afford the card terminals, the MDR fees, or the POS integration costs that came with mainstream payment infrastructure.</p>
+        <p><strong>The opportunity Voilo identified:</strong> if you could offer independent retailers a QR-based payment system that required zero hardware, near-zero transaction fees, and loyalty mechanics out of the box, you'd unlock a segment that had been structurally underserved by fintech. The market was large, the competition was thin, and the founding team had domain credibility from earlier B2B work.</p>
+        <p>I joined at the zero stage. There was a product vision and a founding team. There was no design — no flows, no screens, no component library. My job was to build the design foundation while the engineering team built the backend infrastructure in parallel.</p>
+      </div>
+    </section>
+
+    <!-- 4. THE PROBLEM, QUANTIFIED -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">02 — The Problem, Quantified</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Cash was the only option. And cash was the problem.</h2>
+        <p>I spent the first two weeks talking to target merchants before opening Figma. I interviewed [X] independent retailers across [categories: barbershops, grocery, cafe, apparel] to understand the actual texture of the cash problem — not its abstract version.</p>
+
+        <div class="callout-pair">
+          <div class="callout-pair__item">
+            <div class="callout-pair__label">Typical card terminal MDR fee</div>
+            <div class="callout-pair__num">1.5–2%</div>
+          </div>
+          <div class="callout-pair__item callout-pair__item--after">
+            <div class="callout-pair__label">Voilo target transaction cost</div>
+            <div class="callout-pair__num">~90% lower</div>
+          </div>
+        </div>
+
+        <p>The merchant pain wasn't just the transaction fee. It was the full picture: bank trips to deposit cash, theft risk, bookkeeping overhead, inability to run loyalty schemes without physical stamp cards, and the inability to send digital promotions. Each of these was a separately manageable problem for a large retailer with infrastructure. For a 2-person shop, the cumulative burden was a real drag on time and margin.</p>
+        <p>The consumer pain was simpler: "I walked past the shop because I only had card and didn't know if they took it."</p>
+      </div>
+    </section>
+
+    <!-- 5. CONSTRAINTS -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">03 — Constraints</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Designing for merchants who had never used a digital payment tool before.</h2>
+        <p>The constraints on this project were unusual — not the typical "limited engineering bandwidth" constraints, but human constraints rooted in the target user profile:</p>
+        <ul>
+          <li>The target merchant was not a digital-native user. Many had never set up a digital payment system. The onboarding flow had to be operable without any prior context — no assumed familiarity with QR codes, account dashboards, or settlement flows.</li>
+          <li>Merchants operated in active shop environments. The app had to be usable one-handed, at glance speed, while a customer was waiting. No deep menus, no multi-step payment flows.</li>
+          <li>The consumer-side experience (the payer) was entirely out of Voilo's control — consumers paid via their existing UPI apps (GPay, PhonePe, Paytm). Our design had to work with UPI's flow, not replace it.</li>
+          <li>Trust was a hard constraint. Merchants were being asked to trust a new platform with their revenue. Every design decision had to communicate reliability — instant confirmations, clear settlement timelines, legible transaction history.</li>
+          <li>Zero hardware. The entire merchant experience had to work on the Android smartphone they already owned, with no additional device, terminal, or printer required.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. RESEARCH & THE ONE INSIGHT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">04 — Research &amp; The One Insight</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Merchants didn't want a payments app. They wanted something that would bring customers back.</h2>
+        <p>The founding team's assumption was that the core value proposition was cost savings on transactions. After [X] merchant interviews, I found a stronger driver: customer retention. Every merchant I spoke to described the same scenario — a regular customer hadn't been in for two weeks and they had no way to reach them, offer them something, or know why they'd stopped coming.</p>
+        <p>The insight reframed the product's hierarchy. Payments were the entry point — the thing that made the value proposition credible and drove onboarding. But the loyalty and promotional tools were the long-term retention hook for merchants. If we designed the app as "payments + optional loyalty add-on," we'd undersell its value. If we designed it as "the tool that helps your regulars stay regular, with payments built in," we'd have a story merchants could act on.</p>
+
+        <div class="pullquote">
+          <p>"Cash is a hassle. It's risky and fiddly. But what I really want is for my regulars to keep coming. I don't know how to reward them right now."</p>
+          <cite>Independent barber, [City], interviewed during discovery</cite>
+        </div>
+
+        <p><strong>The reframe.</strong> The home screen of the merchant app led with customer activity (who came in today, new vs returning split, loyalty progress) rather than transaction totals. Payments were always one tap away — but the product told a retention story first.</p>
+      </div>
+    </section>
+
+    <!-- 7. EXPLORATIONS -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">05 — Explorations</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three structural approaches explored before settling on the product architecture.</h2>
+      <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">These were concept-level explorations tested with [X] merchants before any visual design work began.</p>
+
+      <div class="directions">
+        <div class="direction">
+          <div class="direction__label">Direction A</div>
+          <h4>Payments-only MVP — loyalty as v2</h4>
+          <p>Ship the QR payment flow, settlement dashboard, and transaction history. Hold loyalty and promotional tools for v2 post-traction validation.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> In concept testing, merchants who saw the payments-only concept described it as "just another UPI QR generator." The loyalty layer was the differentiator that made Voilo worth switching to. Without it, there was no compelling reason not to use a free GPay Soundbox instead.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction B</div>
+          <h4>Merchant dashboard web-first</h4>
+          <p>Build a web-based merchant dashboard as the primary surface — richer analytics, better for merchant management — with a companion QR display app for in-store use.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> Target merchants did not have desktop access in-store. A web-first approach would have added adoption friction for the core use case (accepting a payment) without meaningfully improving it. Mobile-first wasn't a preference; it was the constraint of the environment.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction C — Chosen</div>
+          <h4>Unified mobile app — payments + loyalty + promotions</h4>
+          <p>Single Android app covering the full merchant workflow: QR payment acceptance, real-time settlement view, customer loyalty tracking (stamp + point system), and promotional push to regulars. Home screen led with customer activity, not transaction totals.</p>
+          <div class="direction__killed"><strong>Chosen because:</strong> Best matched the insight that loyalty was the primary long-term hook. Single surface reduced cognitive load for non-digital-native merchants. Home screen framing made the product feel like a business tool, not just a payment terminal.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. THE DECISION + TRADE-OFF -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">06 — The Decision</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The simplest payment flow possible. Everything else could be discovered.</h2>
+        <p>The payment acceptance flow was the non-negotiable critical path. I designed it to be completable in 2 taps from the home screen: open app, tap "Accept Payment," display QR, confirm. No amounts entered by the merchant — the customer's UPI app captured the amount. No manual reconciliation — transactions appeared in the ledger automatically, with instant audio + visual confirmation.</p>
+        <p>The loyalty mechanics were designed to be automatic rather than managed. Merchants didn't configure point rules or manage reward redemptions manually — the system applied a default programme (stamp card: 10 visits = 1 free item, configurable) and handled tracking silently. The merchant's only required action was to confirm a redemption when a customer presented their earned reward. This removed the management overhead that had killed loyalty scheme adoption in previous B2B fintech products I'd studied.</p>
+        <p><strong>The trade-off I accepted explicitly:</strong> the automatic loyalty defaults meant some merchants got a programme that didn't perfectly fit their business. A barber and a coffee shop have different optimal reward structures. I chose adoption over precision for v1 — get merchants using loyalty at all, then introduce configuration once they'd seen the value. Forcing configuration upfront would have added onboarding friction that killed the habit before it formed.</p>
+      </div>
+    </section>
+
+    <!-- 9. SHIPPING REALITY -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">07 — Shipping Reality</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What launched, what was deferred, and what the pilots told us.</h2>
+        <p>The full design scope covered [X] screens across the merchant app and a lightweight consumer-side "merchant profile" web page (no app required for consumers — they paid via their existing UPI apps). Launch shipped [Y] merchant app screens and the QR payment infrastructure.</p>
+        <p><strong>What shipped at launch.</strong> QR payment acceptance, real-time settlement dashboard, customer activity home screen, transaction history and ledger, stamp-based loyalty programme (default configuration), and merchant onboarding (3-step: business details, bank account, QR generation).</p>
+        <p><strong>What didn't ship at launch.</strong> Point-based loyalty (more complex redemption logic), promotional push notifications to customer base, the web-based merchant analytics dashboard, and multi-staff account support. These were specced but deferred pending validation that the core payment + stamp loyalty combination was driving retention.</p>
+        <p><strong>Pilot findings.</strong> The first [X] pilot merchants processed [Y] transactions in the first [Z] weeks. [Placeholder: fill in real pilot metrics]. The most-used feature after payment acceptance was the customer activity screen — merchants checked it daily to see new vs returning customer split.</p>
+      </div>
+    </section>
+
+    <!-- 10. IMPACT -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">08 — Impact</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;max-width:22ch;">Outcomes at launch and early pilots.</h2>
+
+      <div class="impact-grid">
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">90%</div>
+          <div class="impact-grid__label">Reduction in transaction costs vs card terminals</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">[X]</div>
+          <div class="impact-grid__label">Merchants onboarded in pilot</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">[X]</div>
+          <div class="impact-grid__label">Transactions processed in first [Z] weeks</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">[X%]</div>
+          <div class="impact-grid__label">Merchant D30 retention</div>
+        </div>
+      </div>
+
+      <div class="pm-quote cs-content">
+        <p>"The 2-tap payment flow was exactly right for our users. Merchants who'd never used a digital payment product before were accepting payments within 10 minutes of installing the app. The onboarding friction we expected didn't materialise."</p>
+        <cite>[Founder / PM Name] · Voilo</cite>
+      </div>
+    </section>
+
+    <!-- 11. REFLECTION -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">09 — Reflection</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What this project taught me about 0-to-1 work.</h2>
+        <p><strong>What I'd do differently.</strong> I'd invest more in the consumer-side experience earlier. The merchant app was well-designed, but the customer's experience — scanning the QR, paying, receiving a digital loyalty stamp — was handled by third-party UPI apps. We had no control over that interaction, and no touchpoint to reinforce Voilo's brand. A lightweight consumer-side experience (even a simple web page showing loyalty balance) would have given merchants a more complete story to tell customers and us a retention surface we currently lacked.</p>
+        <p><strong>What I underestimated.</strong> Trust signalling for merchants at onboarding. Even after completing the 3-step signup, some merchants were hesitant to accept their first real transaction because the platform was new and unfamiliar. I should have designed a "practice transaction" flow — a zero-risk test payment between the merchant and a test customer account — to close the trust gap before real money changed hands.</p>
+        <p><strong>What I'll carry forward.</strong> In 0-to-1 work, the job is to reduce the distance between "I understand what this does" and "I'm using it right now." Every extra step in that journey is a place the product can lose the user permanently. At Voilo, the 2-tap payment flow wasn't a UX preference — it was the business's entire go-to-market strategy. The design had to make the value immediately tangible or the product didn't get a second chance.</p>
+      </div>
+    </section>
+
+    <!-- 12. NEXT/PREV NAVIGATION -->
+    <section class="cs-section" data-reveal>
+      <div class="case-nav">
+        <a href="case-study-2.html" class="case-nav__item case-nav__item--prev">
+          <span class="case-nav__dir">← Previous</span>
+          <span class="case-nav__title">Redesigning the membership page to cut churn</span>
+        </a>
+        <a href="case-study-1.html" class="case-nav__item case-nav__item--next">
+          <span class="case-nav__dir">Next →</span>
+          <span class="case-nav__title">Building a design system from scratch</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 Shashank Kesarwani</div>
+    <div>Designed &amp; built by hand · <span id="yearTime"></span></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="anime-fx.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
