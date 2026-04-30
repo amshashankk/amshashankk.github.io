@@ -7,6 +7,17 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ============================================================
+   LENIS smooth-scroll setup classes (auto-applied by lib).
+   Disables native scroll-behavior so it doesn't fight Lenis;
+   lets Lenis own scroll position via JS.
+   ============================================================ */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+
 /* --- Design Tokens --- */
 :root {
   /* RGB triplet for #c7ff4a — use as rgba(var(--hover-glow), 0.6) */
@@ -44,41 +55,36 @@ html {
 
   /* Text — near-black for AAA contrast, darker muted for readability */
   --text: #0a0a0b;
-  --text-muted: #52525b;          /* was #6b6b75 — too pale; bumped to slate-600 */
+  --text-muted: #52525b;
 
-  /* Accent — kept the lime brand identity (was dull olive #5a8a00).
-     For body text uses we provide a separate `--accent-on-text` darker
-     variant so things like links / metric numbers retain AAA contrast,
-     while the brand lime gets used as a HIGHLIGHTER background. */
-  --accent: #4a7300;              /* deeper olive — AA contrast on white for text usage */
-  --accent-text: #0a0a0b;         /* black sits on lime, not white */
-  --accent-brand: #c7ff4a;        /* lime — used as highlighter / button bg / glow */
-  --accent-brand-deep: #84cc16;   /* darker lime for borders / hover states */
+  /* ===== ACCENT — single brand color, no variants =====
+     Every accent / brand / "deep" / hover uses #ff7100 only.
+     Hover differentiation comes from box-shadow + opacity, not color shift. */
+  --accent: #ff7100;
+  --accent-text: #ffffff;         /* white text on orange button */
+  --accent-brand: #ff7100;
+  --accent-brand-deep: #ff7100;   /* same hex — no darker variant */
 
-  /* Borders — was 8% black (invisible). Bumped to 14% for actual definition. */
   --border: rgba(0, 0, 0, 0.14);
-  --border-accent: rgba(74, 115, 0, 0.55);
+  --border-accent: rgba(255, 113, 0, 0.55);
 
-  /* Nav — slightly more opaque so it doesn't fade into the page */
   --nav-bg: rgba(255, 255, 255, 0.92);
 
-  /* Ambient blob gradient — keep brand lime visible in light too */
-  --neon-1: #c7ff4a;
-  --neon-2: #a3e635;
-  --neon-3: #84cc16;
-  --neon-ambient-opacity: 0.16;   /* lower so it doesn't muddy the page */
+  /* Ambient blob gradient — single tone, no variants */
+  --neon-1: #ff7100;
+  --neon-2: #ff7100;
+  --neon-3: #ff7100;
+  --neon-ambient-opacity: 0.14;
   --neon-blend: multiply;
 
-  /* Glass — was 55% translucent white (vanishing on white bg).
-     Now solid white with a defined border + soft elevation shadow. */
   --glass-bg: #ffffff;
   --glass-border: rgba(0, 0, 0, 0.10);
   --glass-highlight: rgba(0, 0, 0, 0.04);
 
-  /* The hover-glow stays lime so the timeline rail still glows lime,
-     and a subtle warm shadow gives cards real depth on white. */
-  --hover-glow: 199, 255, 74;
-  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+  /* HOVER GLOW = orange RGB triplet, used everywhere as rgba(var(--hover-glow), X).
+     This single change cascades to every glow/halo/shadow that uses the var. */
+  --hover-glow: 255, 113, 0;
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(255, 113, 0, 0.08);
 }
 
 /* ============================================================
@@ -516,9 +522,9 @@ body.cursor--lg .cursor {
 }
 
 .hero__title {
-  font-size: clamp(2.5rem, 7vw, 6rem);
+  font-size: clamp(2rem, 9vw, 6rem);
   font-weight: 600;
-  line-height: 1.02;
+  line-height: 1.05;
   letter-spacing: -0.03em;
   margin-bottom: 1.75rem;
   max-width: 18ch;
@@ -1964,7 +1970,7 @@ main.page--leaving {
 .essay a:hover,
 .footer a:hover,
 .cs-back:hover {
-  color: #c7ff4a;
+  color: var(--accent);
   text-shadow:
     0 0 8px rgba(var(--hover-glow), 0.6),
     0 0 20px rgba(var(--hover-glow), 0.3);
@@ -1972,7 +1978,7 @@ main.page--leaving {
 
 /* link-arrow glow */
 .link-arrow:hover {
-  color: #c7ff4a;
+  color: var(--accent);
   text-shadow:
     0 0 8px rgba(var(--hover-glow), 0.6),
     0 0 20px rgba(var(--hover-glow), 0.3);
@@ -1989,8 +1995,8 @@ main.page--leaving {
 /* btn--ghost and btn--sm: box-shadow + border glow */
 .btn--ghost:hover,
 .btn--sm:hover {
-  color: #c7ff4a;
-  border-color: #c7ff4a;
+  color: var(--accent);
+  border-color: var(--accent);
   text-shadow:
     0 0 8px rgba(var(--hover-glow), 0.6),
     0 0 20px rgba(var(--hover-glow), 0.3);
@@ -2058,7 +2064,7 @@ main.page--leaving {
 
 .theme-toggle:hover {
   color: var(--text);
-  border-color: #c7ff4a;
+  border-color: var(--accent);
   box-shadow:
     0 0 0 1px #c7ff4a,
     0 0 24px rgba(var(--hover-glow),0.55),
@@ -2696,7 +2702,7 @@ em.hero__word {
   --accent-flair: #c7ff4a;
 }
 [data-theme="light"] {
-  --accent-flair: #a3d628;
+  --accent-flair: #ff7100;
 }
 
 /* ---- Decorative SVG flairs ---- */
@@ -2985,7 +2991,7 @@ a:hover .tag--mini,
 .featured-card:hover .tag--mini,
 .carousel__card:hover .tag--mini,
 .case:hover .tag--mini {
-  color: #c7ff4a;
+  color: var(--accent);
 }
 
 .tag-row {
@@ -3291,7 +3297,7 @@ a:hover .tag--mini,
 /* --- Mobile: hero headline doesn't break ugly --- */
 @media (max-width: 480px) {
   .hero__title {
-    font-size: clamp(2rem, 11vw, 2.75rem);
+    font-size: clamp(1.75rem, 8.5vw, 2.5rem);
     letter-spacing: -0.025em;
   }
 
@@ -3608,8 +3614,8 @@ body:has(.not-found) .footer {
 [data-theme="light"] .nf-star__core {
   background: var(--accent-brand-deep);
   box-shadow:
-    0 0 0 2px rgba(132, 204, 22, 0.25),
-    0 0 12px rgba(132, 204, 22, 0.6),
+    0 0 0 2px rgba(255, 113, 0, 0.25),
+    0 0 12px rgba(255, 113, 0, 0.6),
     0 0 28px rgba(199, 255, 74, 0.5);
 }
 [data-theme="light"] .nf-star__label {
@@ -3881,22 +3887,19 @@ body:has(.not-found) .footer {
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.05),
     0 12px 32px rgba(0, 0, 0, 0.10),
-    0 0 0 1px rgba(132, 204, 22, 0.18);
+    0 0 0 1px rgba(255, 113, 0, 0.18);
   transform: translateY(-2px);
 }
 
-/* TIMELINE metric pills → highlighter style on light.
-   Lime brand color as background, black text on top. Pops on white
-   without sacrificing readability. */
+/* TIMELINE metric pills → orange bg with WHITE text on light */
 [data-theme="light"] .timeline__bullets strong {
   background: var(--accent-brand);
-  color: #0a0a0b;
+  color: #ffffff;
   padding: 0.05em 0.35em;
   border-radius: 3px;
   text-shadow: none;
   font-weight: 700;
-  /* Fine outline so the pill has a defined edge against white */
-  box-shadow: inset 0 0 0 1px rgba(132, 204, 22, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(255, 113, 0, 0.45);
 }
 
 /* Proof bar numbers — solid black + lime suffix for contrast */
@@ -3945,7 +3948,7 @@ body:has(.not-found) .footer {
 [data-theme="light"] .featured-card:hover .tag--mini,
 [data-theme="light"] .carousel__card:hover .tag--mini,
 [data-theme="light"] .case:hover .tag--mini {
-  color: #0a0a0b;
+  color: #ffffff;
   background: var(--accent-brand);
   border-color: var(--accent-brand-deep);
 }
@@ -3960,21 +3963,21 @@ body:has(.not-found) .footer {
 [data-theme="light"] .filter-chip.is-active {
   background: var(--accent-brand);
   border-color: var(--accent-brand-deep);
-  color: #0a0a0b;
+  color: #ffffff;
 }
 
-/* Buttons — primary uses brand lime with black text (great contrast) */
+/* Buttons — primary uses brand orange with WHITE text (high contrast on #ff7100) */
 [data-theme="light"] .btn--primary {
   background: var(--accent-brand);
-  color: #0a0a0b;
+  color: #ffffff;
   border-color: var(--accent-brand-deep);
 }
 [data-theme="light"] .btn--primary:hover {
   background: var(--accent-brand-deep);
-  color: #0a0a0b;
+  color: #ffffff;
   box-shadow:
-    0 0 24px rgba(132, 204, 22, 0.35),
-    0 6px 16px rgba(0, 0, 0, 0.10);
+    0 0 24px rgba(255, 113, 0, 0.4),
+    0 6px 16px rgba(0, 0, 0, 0.12);
 }
 [data-theme="light"] .btn--ghost {
   background: var(--surface);
@@ -4026,7 +4029,7 @@ body:has(.not-found) .footer {
     var(--accent-brand) 0%,
     var(--accent-brand-deep) 100%
   );
-  box-shadow: 0 0 8px rgba(132, 204, 22, 0.45);
+  box-shadow: 0 0 8px rgba(255, 113, 0, 0.45);
 }
 
 /* Photo portrait — visible border + warm shadow on white */
@@ -4057,7 +4060,7 @@ body:has(.not-found) .footer {
 [data-theme="light"] .pulse,
 [data-theme="light"] .nav__logo .dot {
   background: var(--accent-brand-deep);
-  box-shadow: 0 0 0 4px rgba(132, 204, 22, 0.18);
+  box-shadow: 0 0 0 4px rgba(255, 113, 0, 0.18);
 }
 
 /* ============================================================
@@ -4220,13 +4223,13 @@ body:has(.not-found) .footer {
 [data-theme="light"] .store-badge:hover {
   background: var(--accent-brand);
   border-color: var(--accent-brand-deep);
-  color: #0a0a0b;
+  color: #ffffff;
   box-shadow:
     0 0 22px rgba(var(--hover-glow), 0.55),
     0 6px 18px rgba(0, 0, 0, 0.10);
 }
 [data-theme="light"] .store-badge:hover .store-badge__icon {
-  color: #0a0a0b;
+  color: #ffffff;
 }
 
 /* ============================================================

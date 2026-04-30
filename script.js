@@ -7,6 +7,57 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const touchOnly = window.matchMedia('(hover: none)').matches;
 
+  // ============================================================
+  // LENIS SMOOTH-SCROLL — buttery scroll lag (MindMarket-style).
+  // Wait for the CDN script to actually be loaded; defer scripts can
+  // execute slightly out of order on some browsers, so poll briefly.
+  // ============================================================
+  function initLenis() {
+    if (typeof window.Lenis === 'undefined') return false;
+    if (reducedMotion) return true; // bail silently — no smooth needed
+    try {
+      var lenis = new window.Lenis({
+        // lerp = how smooth (lower = smoother + laggier). 0.1 is the sweet spot.
+        lerp: 0.09,
+        wheelMultiplier: 1.0,
+        smoothWheel: true,
+        syncTouch: false           // touch keeps native momentum
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+      window.__lenis = lenis;
+      document.documentElement.classList.add('lenis-active');
+      console.log('[Lenis] active, lerp=0.09');
+
+      // Anchor smooth-scroll
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        var href = a.getAttribute('href');
+        if (!href || href === '#' || href.length < 2) return;
+        var target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        lenis.scrollTo(target, { offset: -88, duration: 1.4 });
+      });
+      return true;
+    } catch (err) {
+      console.warn('[Lenis] init failed:', err);
+      return true;
+    }
+  }
+  // Try now, otherwise poll for up to 2 seconds
+  if (!initLenis()) {
+    var lenisTries = 0;
+    var lenisPoll = setInterval(function () {
+      lenisTries++;
+      if (initLenis() || lenisTries > 40) clearInterval(lenisPoll);
+    }, 50);
+  }
+
   // --- Theme toggle ---
   const html = document.documentElement;
   const themeBtn = document.querySelector('.theme-toggle');
