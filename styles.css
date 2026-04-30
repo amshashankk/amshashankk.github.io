@@ -2590,12 +2590,12 @@ main.page--leaving {
    own. Markup left intact so they can be re-enabled later by
    removing the rules below.
    ============================================================ */
-/* Hide all decorative flair (star, dots, bolt, underline)…
-   …EXCEPT hero__flair--i which is functional: it provides the dot for
-   the dotless-ı in "Designer". We keep that one but strip its star/spin
-   and render it as a plain typographic dot. */
-[class*="hero__flair"]:not(.hero__flair--i),
-.hero__title.is-ready [class*="hero__flair"]:not(.hero__flair--i) {
+/* Hide all decorative flair site-wide. The "i" in "Designer" now uses a
+   regular `i` character which the font dots itself, so we no longer need
+   any special exception. Wildcard catches every variant: --star, --dots,
+   --bolt, --underline, --i, future ones. */
+[class*="hero__flair"],
+.hero__title.is-ready [class*="hero__flair"] {
   display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
@@ -2604,39 +2604,6 @@ main.page--leaving {
   height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
-}
-
-/* The "i" dot — kill the SVG star, draw a plain dot in its place.
-   Sized + positioned to look like Inter's native lowercase-i tittle. */
-.hero__flair--i {
-  /* Override prior !important rules from the variant blocks */
-  position: absolute !important;
-  left: 50% !important;
-  top: auto !important;
-  right: auto !important;
-  bottom: 100% !important;
-  width: 0.14em !important;
-  height: 0.14em !important;
-  margin-bottom: 0.06em !important;
-  transform: translate(-50%, 0) !important;
-  background: currentColor !important;
-  border-radius: 50% !important;
-  opacity: 1 !important;
-  /* Kill any spin / pop animations from the original star */
-  animation: none !important;
-  pointer-events: none;
-}
-/* Hide the SVG inside the i-flair so only the CSS dot shows */
-.hero__flair--i > svg,
-.hero__flair--i path,
-.hero__flair--i * {
-  display: none !important;
-}
-/* Re-affirm on the .is-ready state which had its own animation rule */
-.hero__title.is-ready .hero__flair--i {
-  animation: none !important;
-  opacity: 1 !important;
-  transform: translate(-50%, 0) !important;
 }
 
 /* em words (serif) keep em semantics but become inline-block too;
@@ -3481,42 +3448,6 @@ button:focus-visible {
 
 /* Selection — already accent-colored elsewhere, just ensure inverted text reads */
 ::selection { color: var(--accent-text, #0a0a0b); }
-
-/* ============================================================
-   FINAL LOCK — i-dot in "Designer".
-   Earlier in the file there are 3 rules (lines ~2912, 2925, 3167)
-   from the original spinning-star design that try to size the
-   flair as 0.55em / 0.9em. Those produce a giant white pill above
-   the i. This block, placed last, wins by virtue of source order.
-   ============================================================ */
-.hero__title .hero__word[aria-label="Designer"] .hero__flair--i,
-.hero__title.is-ready .hero__word[aria-label="Designer"] .hero__flair--i {
-  position: absolute !important;
-  left: 50% !important;
-  top: auto !important;
-  right: auto !important;
-  bottom: 102% !important;       /* sit just above the dotless ı */
-  width: 0.13em !important;       /* small typographic tittle */
-  height: 0.13em !important;
-  margin: 0 0 0.04em 0 !important;
-  padding: 0 !important;
-  transform: translate(-50%, 0) !important;
-  background: currentColor !important;
-  border-radius: 50% !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: inline-block !important;
-  animation: none !important;
-  pointer-events: none !important;
-  /* Kill any inherited filter/glow from the original star design */
-  filter: none !important;
-  box-shadow: none !important;
-}
-/* Hide every child node of the i-flair (the SVG star, paths, gradients) */
-.hero__title .hero__word[aria-label="Designer"] .hero__flair--i > *,
-.hero__title.is-ready .hero__word[aria-label="Designer"] .hero__flair--i > * {
-  display: none !important;
-}
 
 /* ============================================================
    LIGHT MODE COMPONENT POLISH — applied LAST so it wins.
