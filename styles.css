@@ -833,6 +833,50 @@ body.cursor--lg .cursor {
   color: var(--accent-text);
 }
 
+/* Real portrait — 4:5 aspect, monochrome-friendly framing.
+   Subtle accent ring + soft shadow so it sits on either theme. */
+.photo-portrait {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 4 / 5;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 1px 0 var(--glass-highlight) inset,
+    0 12px 40px rgba(0, 0, 0, 0.35);
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1),
+              box-shadow 0.5s cubic-bezier(0.76, 0, 0.24, 1),
+              border-color 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.photo-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  /* Force monochrome at the CSS layer so even a colour upload renders B&W.
+     Remove `filter` if you upload a true B&W file and want it pure. */
+  filter: grayscale(1) contrast(1.05);
+  transition: filter 0.6s cubic-bezier(0.76, 0, 0.24, 1),
+              transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.photo-portrait:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-accent);
+  box-shadow:
+    0 1px 0 var(--glass-highlight) inset,
+    0 16px 50px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(var(--hover-glow), 0.18);
+}
+.photo-portrait:hover img {
+  filter: grayscale(0.85) contrast(1.05);
+  transform: scale(1.02);
+}
+
 .about__body p {
   font-size: 1rem;
   line-height: 1.7;
@@ -1342,29 +1386,136 @@ main.page--leaving {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 0.375rem;
+  padding-top: 0.625rem;
 }
 
 .timeline__dot {
   width: 10px;
   height: 10px;
-  background: var(--accent);
+  background: var(--border);
+  border: 1.5px solid var(--border);
   border-radius: 50%;
   flex-shrink: 0;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  /* Match the dark/light toggle's signature curve: cubic-bezier(0.76,0,0.24,1) at 500ms.
+     Slow ease-in, fast middle, slow ease-out — feels weighted, not snappy. */
+  transition:
+    background 500ms cubic-bezier(0.76, 0, 0.24, 1),
+    border-color 500ms cubic-bezier(0.76, 0, 0.24, 1),
+    box-shadow 500ms cubic-bezier(0.76, 0, 0.24, 1),
+    transform 500ms cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.timeline__entry.is-active .timeline__dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.15);
+  box-shadow:
+    0 0 0 4px rgba(var(--hover-glow, 110, 231, 183), 0.18),
+    0 0 18px 3px rgba(var(--hover-glow, 110, 231, 183), 0.55);
+  animation: timelineDotPulse 2.4s ease-in-out infinite;
+}
+
+.timeline__entry.is-active.is-current .timeline__dot {
+  animation: timelineDotPulseCurrent 1.8s ease-in-out infinite;
+}
+
+@keyframes timelineDotPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 4px rgba(var(--hover-glow, 110, 231, 183), 0.18),
+      0 0 18px 3px rgba(var(--hover-glow, 110, 231, 183), 0.55);
+  }
+  50% {
+    box-shadow:
+      0 0 0 8px rgba(var(--hover-glow, 110, 231, 183), 0.06),
+      0 0 24px 5px rgba(var(--hover-glow, 110, 231, 183), 0.45);
+  }
+}
+
+@keyframes timelineDotPulseCurrent {
+  0%, 100% {
+    box-shadow:
+      0 0 0 4px rgba(var(--hover-glow, 110, 231, 183), 0.22),
+      0 0 22px 5px rgba(var(--hover-glow, 110, 231, 183), 0.6);
+  }
+  50% {
+    box-shadow:
+      0 0 0 14px rgba(var(--hover-glow, 110, 231, 183), 0),
+      0 0 28px 7px rgba(var(--hover-glow, 110, 231, 183), 0.5);
+  }
 }
 
 .timeline__dot--start {
-  background: var(--text-muted);
+  background: var(--border);
+  border-color: var(--border);
+}
+.timeline__entry.is-active .timeline__dot--start {
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .timeline__line {
   flex: 1;
-  width: 1px;
+  width: 2px;
   background: var(--border);
-  margin-top: 6px;
+  margin-top: 8px;
   min-height: 40px;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* The animated fill — height is driven directly by scroll progress in JS
+   via the custom property --fill (0 → 1). No snap, no easing curve — it
+   tracks the user's scroll 1:1 so the line literally "draws" with the wheel. */
+.timeline__line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: calc(var(--fill, 0) * 100%);
+  background: linear-gradient(
+    180deg,
+    var(--accent) 0%,
+    rgba(var(--hover-glow, 110, 231, 183), 0.6) 100%
+  );
+  border-radius: 2px;
+  /* Tiny smoothing so rAF jitter doesn't show — but small enough that
+     the line still feels glued to the scroll wheel */
+  transition: height 0.18s linear;
+  box-shadow: 0 0 10px rgba(var(--hover-glow, 110, 231, 183), 0.35);
+  will-change: height;
+}
+
+/* Card subtle entrance when entry connects */
+.timeline__card {
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline__entry:not(.is-active) .timeline__card {
+  opacity: 0.55;
+  transform: translateY(8px);
+}
+
+.timeline__entry.is-active .timeline__card {
+  opacity: 1;
+  transform: translateY(0);
+  border-color: var(--border-accent, var(--glass-border));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline__entry.is-active .timeline__dot { animation: none; }
+  .timeline__line::after { transition: none; }
+  .timeline__entry:not(.is-active) .timeline__card {
+    opacity: 1; transform: none;
+  }
 }
 
 .timeline__card {
@@ -1398,20 +1549,27 @@ main.page--leaving {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 0.5rem 1.25rem;
-  margin-bottom: 1rem;
+  gap: 0.375rem 1.25rem;
+  margin-bottom: 1.125rem;
+  padding-bottom: 1.125rem;
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .timeline__role {
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   font-weight: 600;
   letter-spacing: -0.01em;
+  color: var(--text);
+  /* role takes its own line on small screens, sits inline on wider */
+  flex: 0 0 auto;
 }
 
 .timeline__period {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.75rem;
   color: var(--text-muted);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .timeline__location {
@@ -1420,41 +1578,68 @@ main.page--leaving {
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  /* push to right side on wider screens for a clean two-end alignment */
+  margin-left: auto;
+}
+
+@media (max-width: 640px) {
+  .timeline__location { margin-left: 0; }
 }
 
 .timeline__summary {
   font-size: 0.9375rem;
   color: var(--text-muted);
   line-height: 1.65;
-  margin-bottom: 1.25rem;
+  margin: 0 0 1.5rem;
+  text-wrap: pretty;
+  max-width: 65ch;
 }
 
 .timeline__bullets {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
-  margin-bottom: 1.5rem;
+  gap: 0.875rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
 }
 
 .timeline__bullets li {
-  display: flex;
-  gap: 0.75rem;
+  position: relative;
+  padding-left: 1.5rem;
   font-size: 0.9375rem;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.65;
+  /* keep words flowing naturally — never break inline pills onto their own visual columns */
+  text-wrap: pretty;
 }
 
 .timeline__bullets li::before {
   content: '—';
+  position: absolute;
+  left: 0;
+  top: 0;
   font-family: 'JetBrains Mono', monospace;
   color: var(--accent);
-  flex-shrink: 0;
+  line-height: 1.65;
+  font-size: 0.9375rem;
 }
 
 .timeline__bullets strong {
-  color: var(--text);
-  font-weight: 500;
+  color: var(--accent);
+  font-weight: 600;
+  /* prevent metric phrases from wrapping mid-number (e.g. "+38.8%") */
+  white-space: nowrap;
+  /* tabular numerals so 6.01% / 38.8% / 50k+ align cleanly across bullets */
+  font-variant-numeric: tabular-nums;
+  /* subtle text-shadow gives the lime a soft glow on dark, harmless on light */
+  text-shadow: 0 0 18px rgba(var(--hover-glow), 0.25);
+}
+
+/* Light theme: accent is darker olive (#5a8a00) — drop the glow so it
+   reads as a solid coloured highlight rather than washed-out. */
+[data-theme="light"] .timeline__bullets strong {
+  text-shadow: none;
 }
 
 .timeline__tags {
@@ -2331,18 +2516,26 @@ main.page--leaving {
 .page-intro .hero__title--page {
   font-size: clamp(2.25rem, 6vw, 5rem);
   font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
   margin-bottom: 1.5rem;
-  max-width: 22ch;
+  max-width: 26ch;
+  /* Modern browsers: balance line lengths so we don't get an orphan word
+     dangling on its own line (the "Four \n companies." problem). */
+  text-wrap: balance;
+  /* Hard cap word-spacing so margin between hero__word elements never
+     gets stretched by justification or container quirks. */
+  word-spacing: -0.02em;
 }
 
 .cs-hero .hero__title--page {
   font-size: clamp(2rem, 5vw, 4rem);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
   margin-bottom: 1rem;
-  max-width: 22ch;
+  max-width: 26ch;
+  text-wrap: balance;
+  word-spacing: -0.02em;
 }
 
 /* Each line of the headline */
@@ -2350,12 +2543,78 @@ main.page--leaving {
   display: block;
 }
 
-/* Each word group — inline-block so words stay together, space from margin */
+/* Each word group — inline-block so word stays together as a unit.
+   Margin-right creates the inter-word space (no real spaces in HTML).
+   0.18em reads as a tight, normal single space at large display sizes
+   and matches what Inter renders for a real space character. */
 .hero__word {
   display: inline-block;
   position: relative;
   white-space: nowrap;
-  margin-right: 0.28em;
+  margin-right: 0.18em;
+  vertical-align: baseline;
+}
+
+/* Last word of a line — no trailing margin so the next line starts flush */
+.hero__line .hero__word:last-child {
+  margin-right: 0;
+}
+
+/* ============================================================
+   FLAIR ELEMENTS — disabled site-wide.
+   The decorative star / dots / bolt / underline that float around
+   headlines were reading as visual noise (looked like dust specks
+   over the type). Hiding them everywhere — the type stands on its
+   own. Markup left intact so they can be re-enabled later by
+   removing the rules below.
+   ============================================================ */
+/* Hide all decorative flair (star, dots, bolt, underline)…
+   …EXCEPT hero__flair--i which is functional: it provides the dot for
+   the dotless-ı in "Designer". We keep that one but strip its star/spin
+   and render it as a plain typographic dot. */
+[class*="hero__flair"]:not(.hero__flair--i),
+.hero__title.is-ready [class*="hero__flair"]:not(.hero__flair--i) {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* The "i" dot — kill the SVG star, draw a plain dot in its place.
+   Sized + positioned to look like Inter's native lowercase-i tittle. */
+.hero__flair--i {
+  /* Override prior !important rules from the variant blocks */
+  position: absolute !important;
+  left: 50% !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: 100% !important;
+  width: 0.14em !important;
+  height: 0.14em !important;
+  margin-bottom: 0.06em !important;
+  transform: translate(-50%, 0) !important;
+  background: currentColor !important;
+  border-radius: 50% !important;
+  opacity: 1 !important;
+  /* Kill any spin / pop animations from the original star */
+  animation: none !important;
+  pointer-events: none;
+}
+/* Hide the SVG inside the i-flair so only the CSS dot shows */
+.hero__flair--i > svg,
+.hero__flair--i path,
+.hero__flair--i * {
+  display: none !important;
+}
+/* Re-affirm on the .is-ready state which had its own animation rule */
+.hero__title.is-ready .hero__flair--i {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: translate(-50%, 0) !important;
 }
 
 /* em words (serif) keep em semantics but become inline-block too;
@@ -3084,3 +3343,119 @@ a:hover .tag--mini,
 /* ============================================================
    END POLISH
    ============================================================ */
+
+/* ============================================================
+   Light theme: swap the i-dot sparkle star to solid black so it
+   reads against the cream background instead of fading out.
+   ============================================================ */
+[data-theme="light"] .hero__flair--i path {
+  fill: #0a0a0b !important;
+}
+[data-theme="light"] .hero__flair--i filter feGaussianBlur {
+  stdDeviation: 1.2;
+}
+
+/* ============================================================
+   GLOBAL TYPOGRAPHY & SPACING HYGIENE — site-wide pass.
+   Applied last so it overrides earlier rules. Goals:
+   1. No more orphan words on display headlines
+   2. Consistent prose measure (60–65ch) so paragraphs don't go
+      ear-to-ear on wide screens
+   3. Better default line-heights and balance/pretty wrapping
+   4. Tighter, predictable letter-spacing on display type
+   ============================================================ */
+
+/* All display headlines — balance line breaks, gentler tracking */
+h1, h2, h3,
+.hero__title,
+.hero__title--page,
+.section__head h2,
+.contact__title,
+.featured-card__title,
+.carousel__card-title,
+.cs-hero h1 {
+  text-wrap: balance;
+  letter-spacing: -0.022em;
+}
+
+/* Loosen the too-tight 22ch caps that were causing one-word lines */
+.section__head h2,
+.page-intro h1,
+.page-intro .hero__title--page {
+  max-width: 28ch;
+}
+
+/* Body prose — readable measure + smarter wrapping (no widow words) */
+p, li, .timeline__summary, .page-intro__sub, .cs-hero__sub,
+.about__body p, .approach-step, .essay p {
+  text-wrap: pretty;
+}
+
+p, .about__body p, .approach-section p {
+  max-width: 65ch;
+}
+
+/* Vertical rhythm — section heads always have breathing room */
+.section__head {
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+}
+
+/* Eyebrow labels — consistent size + spacing across all pages */
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.875rem;
+  letter-spacing: 0.08em;
+}
+
+/* Tags — predictable sizing, never crammed */
+.tag {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+
+/* Tighter list spacing on long bulleted sections */
+ul, ol {
+  padding-left: 0;
+}
+ul li + li, ol li + li {
+  margin-top: 0.25rem;
+}
+
+/* Buttons — vertical alignment fix when icons sit beside text */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  line-height: 1;
+}
+
+/* Footer — stop text running edge to edge on widescreens */
+.footer {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.25rem, 5vw, 3rem);
+}
+
+/* Cards everywhere — never let internal text get crushed */
+.timeline__card,
+.featured-card,
+.carousel__card,
+.essay,
+.approach-callout {
+  /* if any of these had no padding rule earlier, give them a sane default */
+  padding-block: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+/* Anchor focus state — accessibility hygiene that was missing */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Selection — already accent-colored elsewhere, just ensure inverted text reads */
+::selection { color: var(--accent-text, #0a0a0b); }

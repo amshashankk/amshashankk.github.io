@@ -60,19 +60,36 @@
     <section class="section">
       <div class="about">
         <div class="about__photo">
-          <div class="photo-placeholder">SK</div>
+          <!-- Drop your monochrome portrait at: assets/shashank-portrait.jpg
+               Recommended specs: 800×1000 (4:5), B&W, neutral charcoal bg.
+               If the file is missing the SK initials placeholder shows. -->
+          <picture class="photo-portrait">
+            <source srcset="assets/shashank-portrait.webp" type="image/webp" />
+            <img
+              src="assets/shashank-portrait.jpg"
+              alt="Shashank Kesarwani — Product Designer"
+              loading="lazy"
+              decoding="async"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="photo-placeholder" style="display:none;">SK</div>
+          </picture>
         </div>
         <div class="about__body" data-reveal>
           <p><strong>I believe</strong> the best product design is invisible on the surface and obsessive underneath. My job isn't to make things pretty — it's to move business metrics without compromising the people on the other side of the screen.</p>
+          <p>Five years across four companies: <strong>Mobcoder</strong> (agency, client mobile work), <strong>Vaipratech</strong> (multimodal services agency, cross-platform delivery), <strong>SpeakX</strong> (EdTech, vernacular consumer at Bharat scale), and currently <strong>Dalvoy</strong> (EdTech, onboarding, growth). Each leg built on the last.</p>
           <p><strong>How I work.</strong> I partner tight with PM and engineering from day one. I prototype in Figma, validate cheaply, and sweat the edge cases. I write as much as I design — briefs, decision memos, post-ship teardowns. The written artifact often does more alignment work than any presentation.</p>
           <p><strong>What I'm optimising for next.</strong> A senior IC seat at a product company where craft, ambiguity, and measurable impact are all taken seriously. Companies like Tide, Amazon, Flipkart, or Google — places where design has real strategic weight and the problems are genuinely hard.</p>
 
           <div class="about__grid">
             <div><span class="k">Based</span><span class="v">India · Open to relocation</span></div>
             <div><span class="k">Stack</span><span class="v">Figma · FigJam · Principle · Notion</span></div>
-            <div><span class="k">Domains</span><span class="v">Fintech · Consumer · EdTech</span></div>
+            <div><span class="k">Domains</span><span class="v">EdTech · Consumer · Services</span></div>
             <div><span class="k">Strengths</span><span class="v">0→1 · Growth · Systems</span></div>
-            <div><span class="k">Education</span><span class="v">[Degree, University, Year]</span></div>
+            <!-- TODO: replace with your degree, e.g. "B.Tech · KIET Group of Institutions · 2020"
+                 — leaving a generic placeholder isn't recruiter-safe so the row is hidden
+                 until you provide the real value. -->
+            <div hidden><span class="k">Education</span><span class="v">—</span></div>
             <div><span class="k">Languages</span><span class="v">Hindi · English</span></div>
           </div>
         </div>
