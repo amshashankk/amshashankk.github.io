@@ -37,26 +37,48 @@ html {
 }
 
 [data-theme="light"] {
-  --bg: #f7f7f5;
+  /* Surfaces — true white page with subtly off-white cards for layering depth */
+  --bg: #fbfbf9;
   --surface: #ffffff;
-  --surface-hover: #f0f0ee;
+  --surface-hover: #f4f4f1;
+
+  /* Text — near-black for AAA contrast, darker muted for readability */
   --text: #0a0a0b;
-  --text-muted: #6b6b75;
-  --accent: #5a8a00;
-  --accent-text: #ffffff;
-  --border: rgba(0, 0, 0, 0.08);
-  --border-accent: rgba(90, 138, 0, 0.4);
-  --nav-bg: rgba(247, 247, 245, 0.72);
-  /* Neon green gradient tokens */
-  --neon-1: #52d68a;
-  --neon-2: #6fcf97;
-  --neon-3: #a8e6c3;
-  --neon-ambient-opacity: 0.35;
+  --text-muted: #52525b;          /* was #6b6b75 — too pale; bumped to slate-600 */
+
+  /* Accent — kept the lime brand identity (was dull olive #5a8a00).
+     For body text uses we provide a separate `--accent-on-text` darker
+     variant so things like links / metric numbers retain AAA contrast,
+     while the brand lime gets used as a HIGHLIGHTER background. */
+  --accent: #4a7300;              /* deeper olive — AA contrast on white for text usage */
+  --accent-text: #0a0a0b;         /* black sits on lime, not white */
+  --accent-brand: #c7ff4a;        /* lime — used as highlighter / button bg / glow */
+  --accent-brand-deep: #84cc16;   /* darker lime for borders / hover states */
+
+  /* Borders — was 8% black (invisible). Bumped to 14% for actual definition. */
+  --border: rgba(0, 0, 0, 0.14);
+  --border-accent: rgba(74, 115, 0, 0.55);
+
+  /* Nav — slightly more opaque so it doesn't fade into the page */
+  --nav-bg: rgba(255, 255, 255, 0.92);
+
+  /* Ambient blob gradient — keep brand lime visible in light too */
+  --neon-1: #c7ff4a;
+  --neon-2: #a3e635;
+  --neon-3: #84cc16;
+  --neon-ambient-opacity: 0.16;   /* lower so it doesn't muddy the page */
   --neon-blend: multiply;
-  /* Glass tokens */
-  --glass-bg: rgba(255, 255, 255, 0.55);
-  --glass-border: rgba(0, 0, 0, 0.07);
-  --glass-highlight: rgba(255, 255, 255, 0.80);
+
+  /* Glass — was 55% translucent white (vanishing on white bg).
+     Now solid white with a defined border + soft elevation shadow. */
+  --glass-bg: #ffffff;
+  --glass-border: rgba(0, 0, 0, 0.10);
+  --glass-highlight: rgba(0, 0, 0, 0.04);
+
+  /* The hover-glow stays lime so the timeline rail still glows lime,
+     and a subtle warm shadow gives cards real depth on white. */
+  --hover-glow: 199, 255, 74;
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 /* ============================================================
@@ -3459,3 +3481,305 @@ button:focus-visible {
 
 /* Selection — already accent-colored elsewhere, just ensure inverted text reads */
 ::selection { color: var(--accent-text, #0a0a0b); }
+
+/* ============================================================
+   FINAL LOCK — i-dot in "Designer".
+   Earlier in the file there are 3 rules (lines ~2912, 2925, 3167)
+   from the original spinning-star design that try to size the
+   flair as 0.55em / 0.9em. Those produce a giant white pill above
+   the i. This block, placed last, wins by virtue of source order.
+   ============================================================ */
+.hero__title .hero__word[aria-label="Designer"] .hero__flair--i,
+.hero__title.is-ready .hero__word[aria-label="Designer"] .hero__flair--i {
+  position: absolute !important;
+  left: 50% !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: 102% !important;       /* sit just above the dotless ı */
+  width: 0.13em !important;       /* small typographic tittle */
+  height: 0.13em !important;
+  margin: 0 0 0.04em 0 !important;
+  padding: 0 !important;
+  transform: translate(-50%, 0) !important;
+  background: currentColor !important;
+  border-radius: 50% !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+  animation: none !important;
+  pointer-events: none !important;
+  /* Kill any inherited filter/glow from the original star design */
+  filter: none !important;
+  box-shadow: none !important;
+}
+/* Hide every child node of the i-flair (the SVG star, paths, gradients) */
+.hero__title .hero__word[aria-label="Designer"] .hero__flair--i > *,
+.hero__title.is-ready .hero__word[aria-label="Designer"] .hero__flair--i > * {
+  display: none !important;
+}
+
+/* ============================================================
+   LIGHT MODE COMPONENT POLISH — applied LAST so it wins.
+   Fixes the "faded away" issue:
+   - Solid card backgrounds (no more invisible glass)
+   - Real shadows for elevation
+   - Highlighter-style metric pills (lime bg + black text)
+   - Visible borders
+   - Stronger button states
+   ============================================================ */
+
+[data-theme="light"] body {
+  background: var(--bg);
+}
+
+/* Cards everywhere — solid white with shadow, not translucent */
+[data-theme="light"] .timeline__card,
+[data-theme="light"] .panel,
+[data-theme="light"] .principle,
+[data-theme="light"] .featured-card,
+[data-theme="light"] .carousel__card,
+[data-theme="light"] .case,
+[data-theme="light"] .approach-callout,
+[data-theme="light"] .essay,
+[data-theme="light"] .photo-portrait {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--card-shadow);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+[data-theme="light"] .timeline__card:hover,
+[data-theme="light"] .panel:hover,
+[data-theme="light"] .featured-card:hover,
+[data-theme="light"] .carousel__card:hover,
+[data-theme="light"] .case:hover {
+  border-color: var(--border-accent) !important;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 12px 32px rgba(0, 0, 0, 0.10),
+    0 0 0 1px rgba(132, 204, 22, 0.18);
+  transform: translateY(-2px);
+}
+
+/* TIMELINE metric pills → highlighter style on light.
+   Lime brand color as background, black text on top. Pops on white
+   without sacrificing readability. */
+[data-theme="light"] .timeline__bullets strong {
+  background: var(--accent-brand);
+  color: #0a0a0b;
+  padding: 0.05em 0.35em;
+  border-radius: 3px;
+  text-shadow: none;
+  font-weight: 700;
+  /* Fine outline so the pill has a defined edge against white */
+  box-shadow: inset 0 0 0 1px rgba(132, 204, 22, 0.45);
+}
+
+/* Proof bar numbers — solid black + lime suffix for contrast */
+[data-theme="light"] .proof__num {
+  color: var(--text);
+}
+[data-theme="light"] .proof__suffix {
+  color: var(--accent);
+  font-weight: 600;
+}
+[data-theme="light"] .proof__label {
+  color: var(--text-muted);
+}
+
+/* Hero serif accents (the italic lime words like "Millions," "outcomes.") —
+   in light mode the lime drops to dark olive which loses the brand pop.
+   Override to keep the brand lime, with a darker stroke for legibility. */
+[data-theme="light"] .hero__serif,
+[data-theme="light"] .hero__title em,
+[data-theme="light"] .page-intro h1 em,
+[data-theme="light"] .page-intro .hero__title--page em {
+  color: var(--accent-brand-deep);
+}
+
+/* Tag chips — solid bg + visible border on light */
+[data-theme="light"] .tag {
+  background: #f4f4f1;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+[data-theme="light"] .tag--mini {
+  background: var(--surface);
+}
+[data-theme="light"] .tag--muted {
+  background: #f0f0ee;
+  color: var(--text-muted);
+}
+
+/* Filter chips on case-studies page */
+[data-theme="light"] .filter-chip {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+[data-theme="light"] .filter-chip:hover,
+[data-theme="light"] .filter-chip.is-active {
+  background: var(--accent-brand);
+  border-color: var(--accent-brand-deep);
+  color: #0a0a0b;
+}
+
+/* Buttons — primary uses brand lime with black text (great contrast) */
+[data-theme="light"] .btn--primary {
+  background: var(--accent-brand);
+  color: #0a0a0b;
+  border-color: var(--accent-brand-deep);
+}
+[data-theme="light"] .btn--primary:hover {
+  background: var(--accent-brand-deep);
+  color: #0a0a0b;
+  box-shadow:
+    0 0 24px rgba(132, 204, 22, 0.35),
+    0 6px 16px rgba(0, 0, 0, 0.10);
+}
+[data-theme="light"] .btn--ghost {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+[data-theme="light"] .btn--ghost:hover {
+  border-color: var(--text);
+  background: #f4f4f1;
+}
+
+/* Nav — solid backdrop so links don't fade into page on scroll */
+[data-theme="light"] .nav {
+  background: var(--nav-bg);
+  border-bottom-color: var(--border);
+}
+[data-theme="light"] .nav--scrolled {
+  background: #ffffff;
+  box-shadow: 0 1px 0 var(--border), 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+/* Eyebrow labels — were nearly invisible at #6b6b75; bumped to #525258 */
+[data-theme="light"] .eyebrow {
+  color: var(--text-muted);
+}
+
+/* Marquee */
+[data-theme="light"] .marquee {
+  border-color: var(--border);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Timeline rail — line was rgba(0,0,0,0.08), invisible. Bump it. */
+[data-theme="light"] .timeline__line {
+  background: rgba(0, 0, 0, 0.12);
+}
+[data-theme="light"] .timeline__dot {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.18);
+}
+[data-theme="light"] .timeline__entry.is-active .timeline__dot {
+  background: var(--accent-brand);
+  border-color: var(--accent-brand-deep);
+}
+[data-theme="light"] .timeline__line::after {
+  background: linear-gradient(
+    180deg,
+    var(--accent-brand) 0%,
+    var(--accent-brand-deep) 100%
+  );
+  box-shadow: 0 0 8px rgba(132, 204, 22, 0.45);
+}
+
+/* Photo portrait — visible border + warm shadow on white */
+[data-theme="light"] .photo-portrait {
+  border-color: var(--border) !important;
+  box-shadow: var(--card-shadow);
+}
+
+/* Reduce ambient blob saturation so light mode page doesn't get muddy */
+[data-theme="light"] .blobs {
+  opacity: 0.6;
+  mix-blend-mode: multiply;
+}
+
+/* Footer */
+[data-theme="light"] .footer {
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+/* Page-intro hero on inner pages — make sure subhead is readable */
+[data-theme="light"] .page-intro__sub,
+[data-theme="light"] .cs-hero__sub {
+  color: var(--text-muted);
+}
+
+/* Status pulse + dot color on light */
+[data-theme="light"] .pulse,
+[data-theme="light"] .nav__logo .dot {
+  background: var(--accent-brand-deep);
+  box-shadow: 0 0 0 4px rgba(132, 204, 22, 0.18);
+}
+
+/* ============================================================
+   DRAFT BANNER — for case studies still being written up.
+   Sits at the very top of the page, sticky-ish, impossible to miss.
+   ============================================================ */
+.draft-banner {
+  position: relative;
+  z-index: 50;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0.75rem 1.25rem;
+  margin-top: 88px;             /* clears the fixed nav */
+  background: linear-gradient(
+    90deg,
+    rgba(199, 255, 74, 0.18) 0%,
+    rgba(199, 255, 74, 0.08) 100%
+  );
+  border: 1px solid rgba(199, 255, 74, 0.4);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+.draft-banner__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(199, 255, 74, 0.18);
+  animation: draftPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.draft-banner strong {
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+[data-theme="light"] .draft-banner {
+  background: linear-gradient(
+    90deg,
+    rgba(199, 255, 74, 0.35) 0%,
+    rgba(199, 255, 74, 0.15) 100%
+  );
+  border-color: var(--accent-brand-deep);
+}
+[data-theme="light"] .draft-banner strong {
+  color: var(--accent);
+}
+@keyframes draftPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(199, 255, 74, 0.18); }
+  50%      { box-shadow: 0 0 0 8px rgba(199, 255, 74, 0.05); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .draft-banner__dot { animation: none; }
+}
