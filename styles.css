@@ -3465,6 +3465,383 @@ button:focus-visible {
 ::selection { color: var(--accent-text, #0a0a0b); }
 
 /* ============================================================
+   404 — page LOCKED to viewport, no scrolling.
+   Galaxy fills the entire screen behind the centered content.
+   Top inset reserves space so the giant digits don't slip
+   under the fixed nav header (~88px tall).
+   ============================================================ */
+body:has(.not-found) {
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+}
+body:has(.not-found) .footer {
+  display: none;            /* footer would force scroll — hide on 404 */
+}
+.not-found {
+  position: fixed;
+  top: 88px;                /* clears the fixed nav */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  overflow: hidden;
+  z-index: 0;
+}
+@media (max-width: 640px) {
+  .not-found { top: 72px; }
+}
+
+/* GALAXY canvas — full-bleed background behind everything */
+.nf-galaxy {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  /* Subtle vignette via mask so edges fade into bg */
+  mask-image: radial-gradient(ellipse at center, #000 35%, rgba(0,0,0,0.6) 70%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 35%, rgba(0,0,0,0.6) 70%, transparent 100%);
+}
+
+/* CONSTELLATION — clickable named stars overlaid across the field */
+.nf-constellation {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.nf-star {
+  position: absolute;
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  animation: nfStarFloat 8s ease-in-out infinite;
+}
+.nf-star:nth-child(2) { animation-duration: 10s; animation-delay: -2s; }
+.nf-star:nth-child(3) { animation-duration: 9s;  animation-delay: -4s; }
+.nf-star:nth-child(4) { animation-duration: 11s; animation-delay: -1s; }
+.nf-star:nth-child(5) { animation-duration: 7s;  animation-delay: -3s; }
+.nf-star:nth-child(6) { animation-duration: 12s; animation-delay: -5s; }
+.nf-star:nth-child(7) { animation-duration: 9s;  animation-delay: -6s; }
+
+@keyframes nfStarFloat {
+  0%, 100% { transform: translate(-50%, -50%) translate(0, 0); }
+  50%      { transform: translate(-50%, -50%) translate(8px, -10px); }
+}
+
+.nf-star__core {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow:
+    0 0 0 2px rgba(199, 255, 74, 0.18),
+    0 0 12px rgba(199, 255, 74, 0.7),
+    0 0 28px rgba(199, 255, 74, 0.35);
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.nf-star__core::before,
+.nf-star__core::after {
+  content: '';
+  position: absolute;
+  background: rgba(199, 255, 74, 0.6);
+  transform-origin: center;
+}
+/* Cross-shaped lens flare on the named star */
+.nf-star__core::before {
+  top: 50%; left: -200%; right: -200%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+.nf-star__core::after {
+  left: 50%; top: -200%; bottom: -200%;
+  width: 1px;
+  transform: translateX(-50%);
+}
+.nf-star:hover .nf-star__core,
+.nf-star:focus-visible .nf-star__core {
+  transform: scale(1.6);
+  box-shadow:
+    0 0 0 4px rgba(199, 255, 74, 0.22),
+    0 0 24px rgba(199, 255, 74, 0.9),
+    0 0 56px rgba(199, 255, 74, 0.5);
+}
+
+/* Star label — appears on hover */
+.nf-star__label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: rgba(10, 10, 11, 0.85);
+  border: 1px solid rgba(199, 255, 74, 0.35);
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+.nf-star:hover .nf-star__label,
+.nf-star:focus-visible .nf-star__label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-theme="light"] .nf-star__core {
+  background: var(--accent-brand-deep);
+  box-shadow:
+    0 0 0 2px rgba(132, 204, 22, 0.25),
+    0 0 12px rgba(132, 204, 22, 0.6),
+    0 0 28px rgba(199, 255, 74, 0.5);
+}
+[data-theme="light"] .nf-star__label {
+  background: #ffffff;
+  color: var(--text);
+  border-color: var(--accent-brand-deep);
+}
+
+.not-found__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* In-building banner */
+.not-found__banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.9rem;
+  background: linear-gradient(
+    90deg,
+    rgba(199, 255, 74, 0.14) 0%,
+    rgba(199, 255, 74, 0.05) 100%
+  );
+  border: 1px solid rgba(199, 255, 74, 0.4);
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.not-found__banner-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(199, 255, 74, 0.18);
+  animation: nfBannerPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.not-found__banner strong {
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.66rem;
+}
+@keyframes nfBannerPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(199, 255, 74, 0.18); }
+  50%      { box-shadow: 0 0 0 8px rgba(199, 255, 74, 0.05); }
+}
+[data-theme="light"] .not-found__banner {
+  background: linear-gradient(
+    90deg,
+    rgba(199, 255, 74, 0.4) 0%,
+    rgba(199, 255, 74, 0.18) 100%
+  );
+  border-color: var(--accent-brand-deep);
+}
+[data-theme="light"] .not-found__banner strong {
+  color: var(--accent);
+}
+
+/* Giant 4-0-4 digits — each digit breathes independently */
+.not-found__digits {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: clamp(0.4rem, 1.5vw, 1.2rem);
+  margin-bottom: 1.25rem;
+  line-height: 0.9;
+}
+.nf-digit {
+  /* Reset button defaults */
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: clamp(5rem, 14vw, 11rem);
+  letter-spacing: -0.04em;
+  color: var(--text);
+  display: inline-block;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;     /* let JS handle touch fully */
+  background: linear-gradient(
+    180deg,
+    var(--text) 0%,
+    var(--text) 60%,
+    var(--accent) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: nfDigitFloat 5s ease-in-out infinite;
+  /* Smooth idle scale; JS overrides transform during drag/spring */
+  transition: filter 0.25s ease;
+  will-change: transform;
+}
+.nf-digit:hover {
+  filter: drop-shadow(0 0 24px rgba(199, 255, 74, 0.5));
+}
+.nf-digit:active,
+.nf-digit.is-dragging {
+  cursor: grabbing;
+  animation: none !important;       /* freeze the float so JS controls position */
+  filter: drop-shadow(0 0 32px rgba(199, 255, 74, 0.7));
+  z-index: 5;
+}
+.nf-digit.is-bouncing {
+  animation: nfDigitBounce 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.nf-digit--4  { animation-delay: -0.2s; }
+.nf-digit--0  { animation-delay: -1.5s; color: var(--accent); -webkit-text-fill-color: var(--accent); background: none; text-shadow: 0 0 40px rgba(199, 255, 74, 0.5); }
+.nf-digit--4b { animation-delay: -3s; }
+@keyframes nfDigitFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-12px) rotate(0.4deg); }
+}
+@keyframes nfDigitBounce {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(0.8) rotate(-6deg); }
+  60%  { transform: scale(1.18) rotate(4deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* Drag hint below the digits */
+.not-found__hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: -0.5rem 0 1.75rem;
+  opacity: 0.7;
+}
+.not-found__hint span {
+  color: var(--accent);
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+/* Title — italic serif accent on the punchline */
+.not-found__title {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  color: var(--text);
+  text-wrap: balance;
+}
+.not-found__title-em {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  font-size: 1.1em;
+  margin-left: 0.25em;
+}
+[data-theme="light"] .not-found__title-em {
+  color: var(--accent-brand-deep);
+}
+
+.not-found__sub {
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 56ch;
+  margin: 0 auto 2.25rem;
+  text-wrap: pretty;
+}
+
+.not-found__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.not-found__quicklinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.not-found__quicklinks-label {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+.not-found__quicklinks a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.not-found__quicklinks a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nf-ring, .nf-dot, .nf-digit, .not-found__banner-dot {
+    animation: none;
+  }
+}
+
+/* ============================================================
    LIGHT MODE COMPONENT POLISH — applied LAST so it wins.
    Fixes the "faded away" issue:
    - Solid card backgrounds (no more invisible glass)

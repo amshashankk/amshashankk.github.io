@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found — Shashank Kesarwani</title>
+  <meta name="description" content="The page you're looking for doesn't exist or may have moved." />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="/" class="nav__logo" data-magnetic>
+      <span class="dot"></span> Shashank K.
+    </a>
+    <nav class="nav__links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/work/">Work</a>
+      <a href="/case-studies/">Case Studies</a>
+      <a href="/approach/">Approach</a>
+      <span class="nav__indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-toggle" aria-label="Toggle theme" data-magnetic>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="/#contact" class="btn btn--sm" data-magnetic>Let's talk</a>
+    </div>
+  </header>
+
+  <main class="not-found">
+    <!-- GALAXY BACKDROP — spiral-arm stars rendered into a canvas.
+         Behind it, named "constellation" stars (DOM elements) link to
+         specific pages. The whole field rotates slowly. -->
+    <canvas class="nf-galaxy" aria-hidden="true"></canvas>
+
+    <!-- Constellation: clickable named stars scattered across the field.
+         Each star pulses lime, reveals a label on hover, navigates on click. -->
+    <div class="nf-constellation" aria-label="Site shortcuts">
+      <a href="/about/" class="nf-star" style="--x: 14%; --y: 22%;">
+        <span class="nf-star__core" aria-hidden="true"></span>
+        <span class="nf-star__label">About</span>
+      </a>
+      <a href="/work/" class="nf-star" style="--x: 86%; --y: 30%;">
+        <span class="nf-star__core" aria-hidden="true"></span>
+        <span class="nf-star__label">Work</span>
+      </a>
+      <a href="/case-studies/" class="nf-star" style="--x: 88%; --y: 78%;">
+        <span class="nf-star__core" aria-hidden="true"></span>
+        <span class="nf-star__label">Case Studies</span>
+      </a>
+      <a href="/approach/" class="nf-star" style="--x: 12%; --y: 75%;">
+        <span class="nf-star__core" aria-hidden="true"></span>
+        <span class="nf-star__label">Approach</span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.dalvoy.appone" target="_blank" rel="noopener" class="nf-star" style="--x: 76%; --y: 12%;">
+        <span class="nf-star__core" aria-hidden="true"></span>
+        <span class="nf-star__label">Dalvoy ↗</span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=yellowclass.kids.live" target="_blank" rel="noopener" class="nf-star" style="--x: 22%; --y: 88%;">
+        <span class="nf-star__core" aria-hidden="true"></span>
+        <span class="nf-star__label">SpeakX ↗</span>
+      </a>
+      <a href="https://linkedin.com/in/amshashankk" target="_blank" rel="noopener" class="nf-star" style="--x: 92%; --y: 50%;">
+        <span class="nf-star__core" aria-hidden="true"></span>
+        <span class="nf-star__label">LinkedIn ↗</span>
+      </a>
+    </div>
+
+    <div class="not-found__content">
+      <div class="not-found__digits" aria-label="Error 404 — drag the digits to play">
+        <button type="button" class="nf-digit nf-digit--4" data-digit="0" aria-label="Drag me">4</button>
+        <button type="button" class="nf-digit nf-digit--0" data-digit="1" aria-label="Drag me">0</button>
+        <button type="button" class="nf-digit nf-digit--4b" data-digit="2" aria-label="Drag me">4</button>
+      </div>
+      <p class="not-found__hint">
+        <span aria-hidden="true">↑</span> Try dragging the digits — release to spring back
+      </p>
+
+      <div class="not-found__banner">
+        <span class="not-found__banner-dot" aria-hidden="true"></span>
+        <strong>In building phase</strong>
+        <span>This portfolio is being actively updated. Some pages aren't ready yet — check back soon.</span>
+      </div>
+
+      <div class="not-found__actions">
+        <a href="/" class="btn btn--primary btn--lg" data-magnetic>← Back to home</a>
+        <a href="/case-studies/" class="btn btn--ghost btn--lg" data-magnetic>See case studies</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 Shashank Kesarwani</div>
+    <div>Designed &amp; built by hand</div>
+  </footer>
+
+  <script src="/script.js" defer></script>
+
+  <!-- ============================================================
+       404 INTERACTIVITY — drag, throw, bounce, parallax.
+       Pure vanilla, no dependencies. Pointer events so mouse + touch
+       both work. Respects prefers-reduced-motion.
+       ============================================================ -->
+  <script>
+    (function () {
+      'use strict';
+      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // ---------- 1. GALAXY canvas: rotating spiral arms ----------
+      // 350 stars distributed in 4 logarithmic spiral arms. The whole field
+      // rotates slowly + drifts subtly with the cursor for a 3D feel.
+      var canvas = document.querySelector('.nf-galaxy');
+      var ctx = canvas ? canvas.getContext('2d') : null;
+      var dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+      var stars = [];
+      var STAR_COUNT = 350;
+      var ARMS = 4;
+
+      function resizeCanvas() {
+        if (!canvas) return;
+        var w = canvas.clientWidth;
+        var h = canvas.clientHeight;
+        canvas.width = Math.floor(w * dpr);
+        canvas.height = Math.floor(h * dpr);
+      }
+
+      function buildStars() {
+        if (!canvas) return;
+        stars = [];
+        var w = canvas.width;
+        var h = canvas.height;
+        var cx = w / 2;
+        var cy = h / 2;
+        var maxR = Math.sqrt(cx * cx + cy * cy) * 0.95;
+        for (var i = 0; i < STAR_COUNT; i++) {
+          // Distribute along a logarithmic spiral
+          var arm = i % ARMS;
+          var t = i / STAR_COUNT;                       // 0 → 1
+          var r = Math.pow(t, 0.55) * maxR;             // closer to center denser
+          // Arm angle + scatter
+          var armAngle = (arm / ARMS) * Math.PI * 2;
+          var twist = t * Math.PI * 4;                  // how tight the spiral coils
+          var jitter = (Math.random() - 0.5) * 0.6;
+          var theta = armAngle + twist + jitter;
+          // Brightness: brighter near core, dimmer at edge
+          var brightness = (1 - t) * 0.7 + Math.random() * 0.3;
+          // Some rare lime stars; most white
+          var lime = Math.random() < 0.12;
+          stars.push({
+            r: r,
+            theta: theta,
+            size: (1 - t) * 1.4 + Math.random() * 0.8,
+            brightness: brightness,
+            lime: lime,
+            twinkle: Math.random() * Math.PI * 2
+          });
+        }
+      }
+
+      var rotation = 0;
+      var pointerX = 0, pointerY = 0;
+      var smoothPX = 0, smoothPY = 0;
+      window.addEventListener('pointermove', function (e) {
+        pointerX = (e.clientX / window.innerWidth - 0.5) * 2;
+        pointerY = (e.clientY / window.innerHeight - 0.5) * 2;
+      }, { passive: true });
+
+      function drawGalaxy() {
+        if (!ctx || !canvas) { requestAnimationFrame(drawGalaxy); return; }
+        var w = canvas.width;
+        var h = canvas.height;
+        var cx = w / 2;
+        var cy = h / 2;
+        ctx.clearRect(0, 0, w, h);
+
+        // Smoothly track cursor offset
+        smoothPX += (pointerX - smoothPX) * 0.04;
+        smoothPY += (pointerY - smoothPY) * 0.04;
+        if (!reducedMotion) rotation += 0.0006;
+
+        var offsetX = smoothPX * 30 * dpr;
+        var offsetY = smoothPY * 30 * dpr;
+
+        for (var i = 0; i < stars.length; i++) {
+          var s = stars[i];
+          var theta = s.theta + rotation + (1 - s.r / Math.max(w, h)) * 0.4;
+          // Depth-based parallax — closer stars (smaller r) move less
+          var depth = (s.r / Math.max(w, h)) * 1.4;
+          var x = cx + Math.cos(theta) * s.r + offsetX * depth;
+          var y = cy + Math.sin(theta) * s.r + offsetY * depth;
+
+          // Twinkle
+          s.twinkle += 0.02 + Math.random() * 0.005;
+          var alpha = s.brightness * (0.6 + 0.4 * Math.sin(s.twinkle));
+
+          ctx.beginPath();
+          ctx.arc(x, y, s.size * dpr, 0, Math.PI * 2);
+          ctx.fillStyle = s.lime
+            ? 'rgba(199, 255, 74, ' + alpha + ')'
+            : 'rgba(255, 255, 255, ' + alpha + ')';
+          ctx.fill();
+        }
+
+        // Soft lime core glow
+        var grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.min(w, h) * 0.35);
+        grad.addColorStop(0, 'rgba(199, 255, 74, 0.05)');
+        grad.addColorStop(1, 'rgba(199, 255, 74, 0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, w, h);
+
+        requestAnimationFrame(drawGalaxy);
+      }
+
+      function setupCanvas() {
+        resizeCanvas();
+        buildStars();
+      }
+      window.addEventListener('resize', setupCanvas);
+      setupCanvas();
+      requestAnimationFrame(drawGalaxy);
+
+      // ---------- 2. DRAGGABLE DIGITS w/ spring-back physics ----------
+      var digits = document.querySelectorAll('.nf-digit');
+      digits.forEach(function (digit) {
+        var state = {
+          dragging: false,
+          startX: 0, startY: 0,           // pointer start
+          offsetX: 0, offsetY: 0,         // current visual offset
+          targetX: 0, targetY: 0,         // where it should be (0,0 when idle)
+          velX: 0, velY: 0,               // momentum on release
+          lastMoveX: 0, lastMoveY: 0,
+          lastMoveTs: 0,
+          pointerId: null,
+          pressTime: 0,
+          maxDelta: 0
+        };
+
+        digit.addEventListener('pointerdown', function (e) {
+          e.preventDefault();
+          state.dragging = true;
+          state.pointerId = e.pointerId;
+          state.startX = e.clientX - state.offsetX;
+          state.startY = e.clientY - state.offsetY;
+          state.lastMoveX = e.clientX;
+          state.lastMoveY = e.clientY;
+          state.lastMoveTs = performance.now();
+          state.pressTime = performance.now();
+          state.maxDelta = 0;
+          state.velX = 0;
+          state.velY = 0;
+          digit.setPointerCapture(e.pointerId);
+          digit.classList.add('is-dragging');
+        });
+
+        digit.addEventListener('pointermove', function (e) {
+          if (!state.dragging || e.pointerId !== state.pointerId) return;
+          state.offsetX = e.clientX - state.startX;
+          state.offsetY = e.clientY - state.startY;
+          state.targetX = state.offsetX;
+          state.targetY = state.offsetY;
+
+          var dx = e.clientX - state.lastMoveX;
+          var dy = e.clientY - state.lastMoveY;
+          var delta = Math.sqrt(dx * dx + dy * dy);
+          if (delta > state.maxDelta) state.maxDelta = delta;
+
+          // Sample velocity for throw momentum
+          var now = performance.now();
+          var dt = Math.max(1, now - state.lastMoveTs);
+          state.velX = dx / dt * 16;  // px per ~16ms frame
+          state.velY = dy / dt * 16;
+          state.lastMoveX = e.clientX;
+          state.lastMoveY = e.clientY;
+          state.lastMoveTs = now;
+        });
+
+        function release(e) {
+          if (!state.dragging) return;
+          if (e && e.pointerId !== state.pointerId) return;
+          state.dragging = false;
+          digit.classList.remove('is-dragging');
+          try { digit.releasePointerCapture(state.pointerId); } catch (_) {}
+
+          // Quick tap (no drag) → bounce
+          var heldFor = performance.now() - state.pressTime;
+          if (state.maxDelta < 6 && heldFor < 350) {
+            digit.classList.remove('is-bouncing'); // restart animation
+            void digit.offsetWidth;                // force reflow
+            digit.classList.add('is-bouncing');
+            // Reset position state in case
+            state.offsetX = 0; state.offsetY = 0;
+            state.targetX = 0; state.targetY = 0;
+            digit.style.transform = '';
+            return;
+          }
+
+          // Otherwise: throw — apply velocity then spring back
+          state.targetX = 0;
+          state.targetY = 0;
+        }
+        digit.addEventListener('pointerup', release);
+        digit.addEventListener('pointercancel', release);
+
+        // Spring back loop — runs always, cheap
+        function physicsLoop() {
+          if (!state.dragging) {
+            // Apply momentum decay
+            state.velX *= 0.92;
+            state.velY *= 0.92;
+            state.offsetX += state.velX;
+            state.offsetY += state.velY;
+            // Spring toward target (0,0)
+            var sx = (state.targetX - state.offsetX) * 0.18;
+            var sy = (state.targetY - state.offsetY) * 0.18;
+            state.offsetX += sx;
+            state.offsetY += sy;
+            if (Math.abs(state.offsetX) < 0.1 && Math.abs(state.offsetY) < 0.1 &&
+                Math.abs(state.velX) < 0.05 && Math.abs(state.velY) < 0.05) {
+              state.offsetX = 0; state.offsetY = 0;
+              state.velX = 0; state.velY = 0;
+            }
+          }
+
+          if (state.offsetX !== 0 || state.offsetY !== 0 || state.dragging) {
+            digit.style.transform =
+              'translate(' + state.offsetX.toFixed(1) + 'px,' + state.offsetY.toFixed(1) + 'px) ' +
+              (state.dragging ? 'scale(1.08)' : 'scale(1)');
+          } else {
+            digit.style.transform = '';
+          }
+          requestAnimationFrame(physicsLoop);
+        }
+        requestAnimationFrame(physicsLoop);
+
+        // Touch: prevent default scrolling while dragging
+        digit.addEventListener('touchstart', function (e) { e.preventDefault(); }, { passive: false });
+        digit.addEventListener('touchmove',  function (e) { if (state.dragging) e.preventDefault(); }, { passive: false });
+      });
+    })();
+  </script>
+</body>
+</html>
