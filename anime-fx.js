@@ -298,23 +298,49 @@
         carouselTrack.style.scrollSnapType = 'none';
         carouselTrack.style.scrollBehavior = 'auto';
 
-        // Clone the original cards once for seamless wrap.
-        // Reset inline opacity/transform on originals first so clones inherit clean state.
+        // Clone the original cards as many times as needed so the strip is
+        // always wider than 2× the viewport. Required for seamless infinite
+        // scroll: if scrollWidth ≤ clientWidth, scrollLeft can never advance
+        // and the auto-scroll appears "stopped". Previously cloned only once,
+        // which broke after we removed cards from the carousel.
         var originalCards = Array.from(carouselTrack.querySelectorAll('.carousel__card'));
         originalCards.forEach(function (card) {
-          // Ensure cards are visible before cloning (section B may have hidden them)
           card.style.opacity  = '';
           card.style.transform = '';
           card.classList.add('is-visible');
-
-          var clone = card.cloneNode(true);
-          clone.setAttribute('aria-hidden', 'true');
-          clone.classList.add('carousel__card--clone');
-          // Clones must be fully visible from the start
-          clone.style.opacity  = '';
-          clone.style.transform = '';
-          carouselTrack.appendChild(clone);
         });
+
+        function appendOneCloneSet() {
+          originalCards.forEach(function (card) {
+            var clone = card.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            clone.classList.add('carousel__card--clone');
+            clone.style.opacity  = '';
+            clone.style.transform = '';
+            carouselTrack.appendChild(clone);
+          });
+        }
+
+        // We want exactly the 3 original cards cycling — so we clone in
+        // FULL ORIGINAL-SET passes (3 cards each). One pass usually does it.
+        // Add more passes only if a single clone-set still doesn't push
+        // total width past viewport (rare on small screens). Cap at 2.
+        appendOneCloneSet();
+        if (carouselTrack.scrollWidth < carouselTrack.clientWidth + 1) {
+          appendOneCloneSet();
+        }
+
+        // The "loop unit" is one ORIGINAL set (not the entire scrollWidth).
+        // We wrap by exactly one original-set width so the visible content
+        // appears identical before and after the wrap.
+        function getOriginalSetWidth() {
+          if (!originalCards.length) return 0;
+          var firstClone = carouselTrack.querySelector('.carousel__card--clone');
+          if (firstClone) {
+            return firstClone.offsetLeft;
+          }
+          return carouselTrack.scrollWidth / 2;
+        }
 
         var SPEED = 40; // px per second — tweak to taste
         var isPaused = false;
@@ -323,8 +349,9 @@
         var rafId = null;
 
         function loopWidth() {
-          // Width of a single set (original, half of total scrollable width)
-          return carouselTrack.scrollWidth / 2;
+          // Width of one original-cards set. Must NOT be scrollWidth/2 anymore
+          // because we may now have 3+ clone sets, not just one.
+          return getOriginalSetWidth();
         }
 
         function tick(ts) {
@@ -333,11 +360,13 @@
           lastTs = ts;
 
           if (!isPaused && !userInteracted) {
-            carouselTrack.scrollLeft += SPEED * dt;
             var lw = loopWidth();
-            if (carouselTrack.scrollLeft >= lw) {
-              // Seamless wrap — jump back by exactly one set width
-              carouselTrack.scrollLeft -= lw;
+            if (lw > 0) {
+              carouselTrack.scrollLeft += SPEED * dt;
+              if (carouselTrack.scrollLeft >= lw) {
+                // Seamless wrap — jump back by exactly one original-set width
+                carouselTrack.scrollLeft -= lw;
+              }
             }
           }
           rafId = requestAnimationFrame(tick);

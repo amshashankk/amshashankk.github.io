@@ -22,11 +22,10 @@
     </a>
     <nav class="nav__links">
       <a href="index.html">Home</a>
+      <a href="about.html">About</a>
       <a href="work.html">Work</a>
       <a href="case-studies.html" aria-current="page">Case Studies</a>
       <a href="approach.html">Approach</a>
-      <a href="about.html">About</a>
-      <a href="index.html#contact">Contact</a>
       <span class="nav__indicator" aria-hidden="true"></span>
     </nav>
     <div class="nav__right">
@@ -102,7 +101,7 @@
     <!-- 3. BUSINESS CONTEXT -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
-        <span class="eyebrow">01 — Business Context</span>
+        <span class="eyebrow">Business Context</span>
         <h2 class="section__head" style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The product was growing faster than the design foundation could support it.</h2>
         <p>At [Company], the product had shipped fast over the previous two years — fast enough that design consistency had never been prioritised. By the time I joined, the consequences were visible: the web app, Android app, and internal dashboard each had their own visual language, and no single person could tell you what the "correct" blue was. Developers were guessing.</p>
         <p><strong>The business problem wasn't aesthetic.</strong> Every new feature took longer to design than it should because designers started from a blank canvas. Every handoff sparked a back-and-forth between design and engineering about spacing, sizing, and colour values. Estimates were inflated to accommodate that rework. A design system wasn't a nice-to-have — it was a prerequisite for the product velocity the company needed at its current growth stage.</p>
@@ -112,7 +111,7 @@
     <!-- 4. THE PROBLEM, QUANTIFIED -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
-        <span class="eyebrow">02 — The Problem, Quantified</span>
+        <span class="eyebrow">The Problem, Quantified</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Every screen was a handwriting font: similar enough to confuse, different enough to break.</h2>
         <p>I started with a full visual audit before touching Figma. I catalogued every screen in production across web and mobile — [X] screens total — and logged every divergence in colour, type, spacing, and component implementation.</p>
 
@@ -134,7 +133,7 @@
     <!-- 5. CONSTRAINTS -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
-        <span class="eyebrow">03 — Constraints</span>
+        <span class="eyebrow">Constraints</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">I had to build the plane while everyone else was flying it.</h2>
         <p>A design system built in isolation is a design system that never gets adopted. The constraints shaped the entire approach:</p>
         <ul>
@@ -150,7 +149,7 @@
     <!-- 6. RESEARCH & THE ONE INSIGHT -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
-        <span class="eyebrow">04 — Research &amp; The One Insight</span>
+        <span class="eyebrow">Research &amp; The One Insight</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The developers didn't need a component library. They needed a contract.</h2>
         <p>I ran 6 structured interviews with the engineers who would be consuming the system — two web, two Android, two iOS. I also reviewed 3 months of design-to-dev Slack threads to understand where the most friction concentrated.</p>
         <p>The finding that shifted my approach: developers weren't frustrated by the absence of pre-built components. They were frustrated by ambiguity. When a spec said "use the primary blue," they didn't know if that meant the button blue, the link blue, or the brand blue — three things that happened to share similar hex values but had different semantic meanings.</p>
@@ -166,7 +165,7 @@
 
     <!-- 7. EXPLORATIONS -->
     <section class="cs-section" data-reveal>
-      <span class="eyebrow">05 — Explorations</span>
+      <span class="eyebrow">Explorations</span>
       <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three structural approaches explored. One built.</h2>
       <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">I pressure-tested these with the engineering team before committing any architecture.</p>
 
@@ -195,7 +194,7 @@
     <!-- 8. THE DECISION + TRADE-OFF -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
-        <span class="eyebrow">06 — The Decision</span>
+        <span class="eyebrow">The Decision</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Tokens-first meant slower initial progress and faster everything after.</h2>
         <p>Committing to a semantic token architecture meant the first 6 weeks produced nothing visible to the product team. No new screens, no redesigned flows — just a naming convention document, a Figma variables file, and a token export format agreed with engineering. That required a deliberate expectation-setting conversation with the PM and engineering lead.</p>
         <p><strong>The trade-off I accepted explicitly:</strong> short-term invisibility for long-term zero-maintenance. I explained the compounding return: every component built on top of a token system is automatically theme-aware, accessibility-compliant to our contrast ratios, and consistent with the rest of the product. Every component built without it needs to be manually reviewed on every design change.</p>
@@ -206,7 +205,7 @@
     <!-- 9. SHIPPING REALITY -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
-        <span class="eyebrow">07 — Shipping Reality</span>
+        <span class="eyebrow">Shipping Reality</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What the system looked like when it shipped versus what I designed.</h2>
         <p>The initial component backlog had [X] components scoped. What shipped in v1 was [Y] — the highest-frequency, highest-divergence components identified in the audit. The long-tail (data visualisation components, complex form patterns, admin-specific layouts) were documented as backlog with severity ratings so whoever came next could prioritise intelligently.</p>
         <p><strong>What shipped in v1.</strong> Colour token system (light and dark), typography scale (8 semantic levels), spacing scale, grid system, icon library migration, core components: Button (6 variants), Input (text, select, checkbox, radio), Navigation (top bar, tab bar, side nav), Card (3 variants), Modal, Toast/Notification, Badge, Avatar.</p>
@@ -217,7 +216,7 @@
 
     <!-- 10. IMPACT -->
     <section class="cs-section" data-reveal>
-      <span class="eyebrow">08 — Impact</span>
+      <span class="eyebrow">Impact</span>
       <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;max-width:22ch;">Measured 3 months after full adoption.</h2>
 
       <div class="impact-grid">
@@ -248,7 +247,7 @@
     <!-- 11. REFLECTION -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
-        <span class="eyebrow">09 — Reflection</span>
+        <span class="eyebrow">Reflection</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
         <p><strong>What I'd do differently.</strong> I underinvested in the adoption story. I built the system correctly but assumed that quality would drive adoption. It didn't — engineers adopted tokens when it was as easy as not adopting them. I should have spent week 1 building the integration tooling (linters, Figma-to-token export scripts) alongside the architecture, not as a follow-on.</p>
         <p><strong>What I underestimated.</strong> The governance model. I shipped a contribution guide, but I didn't define a clear process for deprecating components. Six months in, the system had accumulated [X] "experimental" components that were in production but not officially supported. Deprecation is as important as creation.</p>

@@ -22,11 +22,10 @@
     </a>
     <nav class="nav__links">
       <a href="index.html">Home</a>
+      <a href="about.html">About</a>
       <a href="work.html">Work</a>
       <a href="case-studies.html" aria-current="page">Case Studies</a>
       <a href="approach.html">Approach</a>
-      <a href="about.html">About</a>
-      <a href="index.html#contact">Contact</a>
       <span class="nav__indicator" aria-hidden="true"></span>
     </nav>
     <div class="nav__right">
@@ -101,7 +100,7 @@
     <!-- 3. BUSINESS CONTEXT -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
-        <span class="eyebrow">01 — Business Context</span>
+        <span class="eyebrow">Business Context</span>
         <h2 class="section__head" style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">[Company] was at an inflection point.</h2>
         <p>[Company] had just crossed [10M] registered users on the back of aggressive acquisition spend. The problem: registered users were not becoming active users. The activation funnel — from app install to first successful transaction — was hemorrhaging users, and the CAC being written off on each lost activation was becoming untenable at their growth stage.</p>
         <p><strong>The business case was simple.</strong> A 10-point lift in onboarding completion at their scale was worth approximately [₹X Cr] in annualised revenue. The CFO had flagged it. The CPO had made it a Q2 priority. I was brought in to own the design side of the fix.</p>
@@ -111,7 +110,7 @@
     <!-- 4. THE PROBLEM, QUANTIFIED -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
-        <span class="eyebrow">02 — The Problem, Quantified</span>
+        <span class="eyebrow">The Problem, Quantified</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">47% of users were abandoning at step 3 of a 7-step KYC flow.</h2>
         <p>Before touching a single frame in Figma, I spent three days in the data. The funnel analytics told a clear story: the drop was not gradual. It was a cliff at step 3 — the PAN + selfie verification screen — and a secondary cliff at step 6, the bank account linking step.</p>
 
@@ -133,7 +132,7 @@
     <!-- 5. CONSTRAINTS -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
-        <span class="eyebrow">03 — Constraints</span>
+        <span class="eyebrow">Constraints</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The space to move in wasn't wide.</h2>
         <p>Constraints aren't obstacles — they're the design brief. Here is what I was working with:</p>
         <ul>
@@ -149,7 +148,7 @@
     <!-- 6. RESEARCH & THE ONE INSIGHT -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
-        <span class="eyebrow">04 — Research &amp; The One Insight</span>
+        <span class="eyebrow">Research &amp; The One Insight</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">We thought it was friction. It was actually distrust.</h2>
         <p>I ran 8 moderated usability sessions (remote, screen share) with users who had started but not completed onboarding. I also analysed 200+ support tickets tagged "KYC issue" and ran a 5-question in-app survey triggered at the drop-off point.</p>
         <p>The pattern that emerged across all three sources was consistent and surprising: users were not abandoning because the steps were hard. They were abandoning because they didn't trust the app with their documents. "I don't know this company" was the verbatim from 6 of 8 interview participants.</p>
@@ -165,7 +164,7 @@
 
     <!-- 7. EXPLORATIONS -->
     <section class="cs-section" data-reveal>
-      <span class="eyebrow">05 — Explorations</span>
+      <span class="eyebrow">Explorations</span>
       <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three directions explored. One chosen. Here is the reasoning.</h2>
       <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">I presented these to the team in a structured decision session, not as options but as hypotheses to pressure-test.</p>
 
@@ -194,7 +193,7 @@
     <!-- 8. THE DECISION + TRADE-OFF -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
-        <span class="eyebrow">06 — The Decision</span>
+        <span class="eyebrow">The Decision</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">We chose the solution that respected the constraint, not the one that looked best in Figma.</h2>
         <p>Direction C was not the most inventive solution. Direction A was. But Direction A required a regulatory waiver we were unlikely to get in the timeframe, and Direction B required backend investment that would have pushed us past Q2.</p>
         <p><strong>The trade-off I accepted explicitly:</strong> we were solving for completion rate, not for the ideal first-time experience. The product tour, the personalisation, the deferred KYC — those were parked in a prioritised backlog with clear specs, not abandoned. I wrote a decision memo that logged this trade-off so the team had a shared record of what we knowingly deferred and why.</p>
@@ -205,7 +204,7 @@
     <!-- 9. SHIPPING REALITY -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
-        <span class="eyebrow">07 — Shipping Reality</span>
+        <span class="eyebrow">Shipping Reality</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What got cut, what shipped, and what's v2.</h2>
         <p>The spec I handed to engineering had 34 screens. What shipped in v1 was 28. Six screens were descoped in the final week of the sprint after an API dependency on the KYC vendor's liveness SDK turned out to require a contract amendment.</p>
         <p><strong>What shipped in v1.</strong> The 4-step flow, contextual copy, progress indicator, trust badges, error-state redesign (previously a raw API error string — now a human-readable recovery screen with next steps).</p>
@@ -216,7 +215,7 @@
 
     <!-- 10. IMPACT -->
     <section class="cs-section" data-reveal>
-      <span class="eyebrow">08 — Impact</span>
+      <span class="eyebrow">Impact</span>
       <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;max-width:22ch;">Numbers measured 6 weeks post-launch.</h2>
 
       <div class="impact-grid">
@@ -247,7 +246,7 @@
     <!-- 11. REFLECTION -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
-        <span class="eyebrow">09 — Reflection</span>
+        <span class="eyebrow">Reflection</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
         <p><strong>What I'd do differently.</strong> I moved to Figma too fast. I had the research insight by day 5 and started wireframing by day 6. I should have spent another two days in synthesis — mapping the full trust arc and testing the reframe with the team before committing pixels. We ended up revisiting the IA in week 3 because of an assumption I'd baked in too early.</p>
         <p><strong>What I underestimated.</strong> The error states. I designed 6 happy-path flows before I designed a single error state. In testing, 4 of 8 participants hit an error. Error design should be co-primary with the happy path, not an afterthought.</p>

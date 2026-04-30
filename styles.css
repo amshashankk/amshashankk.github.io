@@ -733,11 +733,16 @@ body.cursor--lg .cursor {
 }
 
 .case__arrow {
-  font-size: 1.125rem;
-  color: var(--text-muted);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent);
   flex-shrink: 0;
   padding-top: 0.125rem;
-  transition: transform 0.25s ease, color 0.2s ease;
+  transition: transform 0.25s ease, color 0.2s ease, text-shadow 0.2s ease;
+  text-shadow: 0 0 12px rgba(var(--hover-glow), 0.35);
+}
+.case:hover .case__arrow {
+  text-shadow: 0 0 18px rgba(var(--hover-glow), 0.6);
 }
 
 .case--muted { opacity: 0.5; }
@@ -1304,10 +1309,15 @@ main.page--leaving {
 }
 
 .carousel__card-arrow {
-  font-size: 1rem;
-  color: var(--text-muted);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--accent);
   align-self: flex-end;
-  transition: transform 0.25s ease, color 0.2s ease;
+  transition: transform 0.25s ease, color 0.2s ease, text-shadow 0.2s ease;
+  text-shadow: 0 0 12px rgba(var(--hover-glow), 0.35);
+}
+.carousel__card:hover .carousel__card-arrow {
+  text-shadow: 0 0 18px rgba(var(--hover-glow), 0.6);
 }
 
 .carousel__card--muted {
@@ -1321,9 +1331,7 @@ main.page--leaving {
 .carousel__controls {
   display: flex;
   gap: 0.625rem;
-  margin-top: 1.25rem;
-  /* Align controls with section content, not the full-bleed track */
-  padding: 0 clamp(1.25rem, 5vw, 3rem);
+  /* margin/padding now handled by .carousel__footer parent */
 }
 
 .carousel__btn {
@@ -1354,7 +1362,16 @@ main.page--leaving {
 
 .carousel__footer {
   margin-top: 2rem;
-  text-align: right;
+  padding: 0 clamp(1.25rem, 5vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.carousel__footer .link-arrow {
+  margin-left: auto;
+  white-space: nowrap;
 }
 
 /* --- Timeline --- */
@@ -2645,24 +2662,22 @@ em.hero__word {
   to   { transform: translateY(0); }
 }
 
-/* Variant: rotateY flip (used on capital M of "Millions") */
+/* Variant: rotateY flip — DISABLED.
+   The 180deg Y-axis flip on the italic serif "M" in "Millions" passed
+   through the 90deg edge-on position causing the same flicker as the
+   "o" in "outcomes". Both serif words now use the standard slide-up
+   reveal — consistent, no flicker. */
 .hero__title.is-ready .char--rotateY {
-  animation: charRevealRotateY 750ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: charReveal 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-@keyframes charRevealRotateY {
-  from { transform: rotateY(180deg) translateY(110%); }
-  to   { transform: rotateY(0deg) translateY(0); }
-}
-
-/* Variant: rotateX spin (used on lowercase o of "outcomes") */
+/* Variant: rotateX spin — DISABLED.
+   The 540deg X-axis spin caused the italic serif "o" in "outcomes" to
+   pass through edge-on positions where the glyph collapses to a thin
+   line, reading as flicker. Now uses the standard slide-up reveal so
+   it animates consistently with every other character. */
 .hero__title.is-ready .char--rotateX {
-  animation: charRevealRotateX 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-@keyframes charRevealRotateX {
-  from { transform: rotateX(540deg) translateY(110%); }
-  to   { transform: rotateX(0deg) translateY(0); }
+  animation: charReveal 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* Variant: scale pop (used on final period) */
@@ -3537,10 +3552,25 @@ button:focus-visible {
 }
 [data-theme="light"] .tag--mini {
   background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
 }
 [data-theme="light"] .tag--muted {
   background: #f0f0ee;
   color: var(--text-muted);
+}
+
+/* Light-mode hover — was inheriting "color: #c7ff4a" which renders as
+   invisible lime text on white. Switch to FILLED lime chip with black
+   text so the chip itself becomes the highlight. Same intent — the
+   pill pops on hover — but legible. */
+[data-theme="light"] a:hover .tag--mini,
+[data-theme="light"] .featured-card:hover .tag--mini,
+[data-theme="light"] .carousel__card:hover .tag--mini,
+[data-theme="light"] .case:hover .tag--mini {
+  color: #0a0a0b;
+  background: var(--accent-brand);
+  border-color: var(--accent-brand-deep);
 }
 
 /* Filter chips on case-studies page */
@@ -3651,6 +3681,175 @@ button:focus-visible {
 [data-theme="light"] .nav__logo .dot {
   background: var(--accent-brand-deep);
   box-shadow: 0 0 0 4px rgba(132, 204, 22, 0.18);
+}
+
+/* ============================================================
+   COVER-LETTER INTRO BLOCK on homepage.
+   Sits between the marquee and the case-study carousel. Designed
+   to be readable end-to-end in ~10 seconds: who, what, proof, ask.
+   ============================================================ */
+.intro-letter__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+@media (min-width: 768px) {
+  .intro-letter__grid {
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+  }
+}
+.intro-letter__label .eyebrow {
+  position: sticky;
+  top: 96px;
+}
+.intro-letter__greeting {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+.intro-letter__body p {
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+.intro-letter__body p:last-of-type {
+  margin-bottom: 0;
+}
+.intro-letter__body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.intro-letter__body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(var(--hover-glow), 0.45);
+  transition: text-decoration-color 0.2s ease;
+}
+.intro-letter__body a:hover {
+  text-decoration-color: var(--accent);
+}
+.intro-letter__sign {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-top: 0.5rem;
+}
+[data-theme="light"] .intro-letter__greeting {
+  color: var(--accent-brand-deep);
+}
+
+/* ============================================================
+   TIMELINE LIVE-PRODUCT CTA — used inside work.html cards to
+   link out to the Play Store (Dalvoy / SpeakX). Pill shape,
+   lime-bordered ghost by default, fills lime on hover so it
+   reads as the primary action inside the card.
+   ============================================================ */
+.timeline__live {
+  margin: 0.5rem 0 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* ============================================================
+   STORE BADGES — App Store + Google Play
+   Layout matches Apple's official badge: square logo on the
+   left, two stacked text lines on the right ("Download on the /
+   App Store" or "GET IT ON / Google Play"). Uses website's
+   lime + dark color palette instead of plain black.
+   ============================================================ */
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  height: 48px;
+  padding: 0 1.125rem 0 0.875rem;
+  background: #0a0a0b;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Inter', -apple-system, sans-serif;
+  white-space: nowrap;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+.store-badge__icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--accent);
+  transition: color 0.25s ease;
+}
+.store-badge__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+  gap: 2px;
+}
+.store-badge__small {
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  font-weight: 400;
+}
+.store-badge__main {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.store-badge:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0a0a0b;
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 22px rgba(var(--hover-glow), 0.45),
+    0 6px 18px rgba(0, 0, 0, 0.35);
+}
+.store-badge:hover .store-badge__icon {
+  color: #0a0a0b;
+}
+
+[data-theme="light"] .store-badge {
+  background: #0a0a0b;
+  color: #ffffff;
+  border-color: var(--accent-brand-deep);
+}
+[data-theme="light"] .store-badge .store-badge__icon {
+  color: var(--accent-brand);
+}
+[data-theme="light"] .store-badge:hover {
+  background: var(--accent-brand);
+  border-color: var(--accent-brand-deep);
+  color: #0a0a0b;
+  box-shadow:
+    0 0 22px rgba(var(--hover-glow), 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.10);
+}
+[data-theme="light"] .store-badge:hover .store-badge__icon {
+  color: #0a0a0b;
 }
 
 /* ============================================================
