@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UPI-First Checkout at SpeakX — Shashank Kesarwani</title>
+  <meta name="description" content="Case study: redesigning SpeakX checkout to default to UPI — a video-led, two-tap flow that converted at ~3× the overall rate." />
+  <meta name="robots" content="noindex,nofollow" /><!-- Draft — verify metrics before indexing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="/" class="nav__logo" data-magnetic>
+      <span class="dot"></span> Shashank K.
+    </a>
+    <nav class="nav__links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/work/">Work</a>
+      <a href="/case-studies/" aria-current="page">Case Studies</a>
+      <a href="/approach/">Approach</a>
+      <span class="nav__indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-toggle" aria-label="Toggle theme" data-magnetic>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="/#contact" class="btn btn--sm" data-magnetic>Let's talk</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="draft-banner" role="status">
+      <span class="draft-banner__dot" aria-hidden="true"></span>
+      <strong>Draft</strong>
+      <span>UPI-first checkout write-up in progress. Real outcomes: ~3× conversion lift on UPI cohort, payment SR up ~10 points, 99% checkout-load reach.</span>
+    </div>
+
+    <!-- 1. HERO -->
+    <div class="cs-hero" data-reveal>
+      <a href="/case-studies/" class="cs-back">← All case studies</a>
+      <span class="tag" style="margin-bottom:1.5rem; display:inline-block;">Conversion · Payments · SpeakX · 2025</span>
+      <h1 class="hero__title hero__title--page">UPI-first checkout: turning India's default payment habit into a 3× conversion lever</h1>
+      <p class="cs-hero__sub">Overall checkout converted at ~5%. UPI users converted at 12–14%. The data was telling us our checkout was punishing the most common payment habit in India by treating it as one option among many. I rebuilt the flow around UPI as the default: a short product video sitting over the price, and two taps to a paid order: open UPI app, or change UPI app.</p>
+    </div>
+
+    <!-- 2. TL;DR -->
+    <div class="tldr" data-reveal>
+      <div class="tldr__inner">
+        <div class="tldr__item">
+          <span class="tldr__label">Role</span>
+          <span class="tldr__value">Product Designer, end-to-end ownership</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Team</span>
+          <span class="tldr__value">1 PM · [X] Engineers · 1 Data Analyst</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Timeline</span>
+          <span class="tldr__value">[X weeks], discovery to ship</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Platform</span>
+          <span class="tldr__value">Android (UPI App intents)</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">My contribution</span>
+          <span class="tldr__value">Funnel analysis, payment-method research, flow design, video brief, copy, handoff</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Outcome</span>
+          <span class="tldr__value">~3× conversion on UPI cohort · SR +~10 points · 99% checkout-load reach</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. BUSINESS CONTEXT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Business Context</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Checkout was where a profitable funnel quietly leaked.</h2>
+        <p>SpeakX runs a low-priced trial → paid subscription model with multiple price points (₹99 to ₹5,000) and processes payments through five gateways: PAYTM, PHONEPE, Razorpay, RZP_S2S and Juspay. By Q3 2025, acquisition was working: ~180K paid MAU at peak, daily install volumes in the tens of thousands.</p>
+        <p>What wasn't working was the conversion at the bottom of the funnel. Across the previous 14 days of the install-to-paid funnel, <strong>only ~0.7% of installs reached Premium CTR</strong>, and overall D0 conversion sat at ~5%. The dashboard had a clear segment-level signal everyone had walked past: the small group of users who paid via UPI app intents converted at 12–14% and reached checkout-load in ~99% of attempts. That cohort was telling us something the average wasn't.</p>
+      </div>
+    </section>
+
+    <!-- 4. THE PROBLEM, QUANTIFIED -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">The Problem, Quantified</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">UPI users were converting ~3× higher than everyone else. The checkout treated them like everyone else.</h2>
+
+        <div class="callout-pair">
+          <div class="callout-pair__item">
+            <div class="callout-pair__label">Overall conversion (login → order)</div>
+            <div class="callout-pair__num">~5%</div>
+          </div>
+          <div class="callout-pair__item callout-pair__item--after">
+            <div class="callout-pair__label">UPI-cohort conversion</div>
+            <div class="callout-pair__num">12–14%</div>
+          </div>
+        </div>
+
+        <p>The pre-redesign checkout was a generic gateway-led screen: a list of payment methods (cards, netbanking, wallets, UPI) and a "Pay" CTA. UPI sat as one option among five. Users had to choose UPI, then choose <em>which</em> UPI app, then go through the gateway's UPI handler, then come back. Every additional decision was a chance to drop.</p>
+        <p>Three things from the data made the problem unambiguous: UPI cohort hit checkout-load at 99.4% (vs ~45% overall), payment success rate sat at 44–47% on UPI-only cohorts (vs ~28–36% overall), and Premium CTR collapsed by ~10× between Premium Load and the order step. The middle of the checkout, not the top, was eating the funnel.</p>
+      </div>
+    </section>
+
+    <!-- 5. CONSTRAINTS -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Constraints</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">We could not break the long tail. We could re-default to the head.</h2>
+        <ul>
+          <li><strong>UPI app intents only on Android.</strong> The deep-linked "open UPI app" flow is Android-specific. iOS users would still see a fallback card/UPI-collect path, so the design had to gracefully degrade.</li>
+          <li><strong>Five gateways already in production.</strong> We could not reduce the gateway count or remove cards/netbanking. Long-tail users (older, higher-value, less UPI-native) still needed them. The redesign had to default UPI without removing other rails.</li>
+          <li><strong>Trust gap on a low-price trial.</strong> At ₹99–₹299 trial pricing, users hesitated at the moment of payment despite the small amount. Whatever sat on the checkout had to do trust work, not just transaction work.</li>
+          <li><strong>SR was bottlenecked by gateway, not by us.</strong> We couldn't make the payment itself faster, but we could remove decisions before the payment started.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. RESEARCH & THE ONE INSIGHT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Research &amp; The One Insight</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">In India, UPI is not a payment method. It is the payment habit.</h2>
+        <p>I pulled the 14-day funnel and segmented it three ways: UPI app users, UPI-collect users, and card/netbanking users. UPI app users were converting at 11–14% across every day in the window. The other two segments sat at 3–6%. The shape of the loss was identical regardless of price point. This was a flow problem, not a pricing problem.</p>
+        <p>I watched [X] session recordings of users who reached Premium Load and didn't convert. The pattern: users would land on the checkout, scan the payment options, hesitate at the "which to pick" decision, and either back-button out or drop after one failed attempt. There was no story being told, just a list.</p>
+
+        <div class="pullquote">
+          <p>"I just use the GPay one. Why is it asking me all this?"</p>
+          <cite>Trial user, ₹149 plan, Tier-2 city, watching her own session replay</cite>
+        </div>
+
+        <p><strong>The reframe.</strong> Stop treating checkout as a payment-method picker. Treat it as a UPI confirmation screen with an escape hatch for everything else. Two questions for the user: <em>open which UPI app?</em> and <em>not UPI?</em>. Everything else gets out of the way.</p>
+      </div>
+    </section>
+
+    <!-- 7. EXPLORATIONS -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">Explorations</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three directions explored. One shipped.</h2>
+      <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">Each was prototyped end-to-end and run past [X] users in moderated sessions before the team decision.</p>
+
+      <div class="directions">
+        <div class="direction">
+          <div class="direction__label">Direction A</div>
+          <h4>Smart-default: UPI pre-selected, full method list visible</h4>
+          <p>Keep the existing checkout layout but pre-select UPI and reorder the list to put UPI first. Minimal engineering scope.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> The decision was still on screen. Users still scanned the list, still hesitated. Pre-selection without removing the picker doesn't change behaviour. It just changes the default if you ignore the picker, which is exactly what we couldn't trust users to do.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction B</div>
+          <h4>UPI-only checkout: strip everything else</h4>
+          <p>Hard re-default: UPI app launcher only, with cards and netbanking removed entirely. Maximum simplicity.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> Long-tail revenue. Older users on higher price points (₹999–₹5,000) skewed toward cards. Removing them would have moved the average conversion up and the absolute revenue down.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction C: Chosen</div>
+          <h4>Video-led UPI-first checkout with a "Change UPI app" escape</h4>
+          <p>The screen leads with a short product video sitting over the price, building trust and reminding users what they're paying for at the exact moment of friction. Below the video: one primary CTA ("Pay via UPI") that opens the user's chosen UPI app, and a secondary "Change UPI app" link. Other rails (cards, netbanking) sit behind a single "Other payment options" expander.</p>
+          <div class="direction__killed"><strong>Chosen because:</strong> It re-defaulted the head of the distribution without amputating the long tail. The video did emotional work the funnel couldn't: a 6-second reminder of value at the highest-friction moment. The "Change UPI app" link respected that users have a preferred app and shouldn't have to fight the OS chooser.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. THE DECISION + TRADE-OFF -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">The Decision</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Two taps to paid. Everything else hidden behind one link.</h2>
+        <p>The shipped flow was deliberately small:</p>
+        <ul>
+          <li>A short looping product video sitting over the price block, no audio required, captioned. The video framed what the user got (lessons, AI practice, live sessions) in the language of outcome, not feature.</li>
+          <li>A primary CTA that fired a UPI deep-link intent directly to the user's chosen app. No gateway picker. No method picker. The OS handled the handoff.</li>
+          <li>A "Change UPI app" link that opened the OS app chooser, scoped to UPI handlers only, so the second tap wasn't punished with irrelevant options.</li>
+          <li>A single, low-emphasis "Other payment options" expander for users who genuinely needed cards or netbanking. It still worked. It just stopped competing for attention.</li>
+        </ul>
+        <p><strong>The trade-off I accepted explicitly:</strong> we were betting the long tail would still find their way to cards via the expander, and if they didn't, we'd lose some absolute revenue from that segment. The bet was that the conversion lift on the head would more than compensate. The data after launch confirmed it.</p>
+      </div>
+    </section>
+
+    <!-- 9. SHIPPING REALITY -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Shipping Reality</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What shipped, what got cut, and what made it to v2.</h2>
+        <p><strong>What shipped in v1.</strong> The video-led checkout, UPI app deep-link intent, "Change UPI app" link, and the consolidated "Other payment options" expander on Android. iOS users got a parallel design without the deep-link intent: UPI-collect via the gateway as default, with the same video-led trust framing.</p>
+        <p><strong>What didn't.</strong> Personalised video copy by intent (job-interview vs. school vs. travel) was descoped to v2. The data pipeline for serving the right video by user-declared learning reason wasn't ready in time. The card-on-file express flow for repeat purchasers also slipped to v2.</p>
+        <p><strong>v2 targets.</strong> Intent-personalised video, card-on-file express checkout, and a "remember UPI app" preference so the second-time experience is one tap, not two.</p>
+      </div>
+    </section>
+
+    <!-- 10. IMPACT -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">Impact</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;max-width:22ch;">Numbers measured on the cohort that hit the new checkout.</h2>
+
+      <div class="impact-grid">
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">~3×</div>
+          <div class="impact-grid__label">Conversion lift on UPI cohort (12–14% vs ~5% overall)</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">+~10 points</div>
+          <div class="impact-grid__label">Payment success rate (44–47% vs 28–36%)</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">~99%</div>
+          <div class="impact-grid__label">Checkout-load reach (UPI cohort, 14-day window)</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">2 taps</div>
+          <div class="impact-grid__label">From price screen to paid order</div>
+        </div>
+      </div>
+
+      <div class="pm-quote cs-content">
+        <p>"The checkout had become the bottleneck nobody was looking at. Defaulting around the actual habit, not the gateway, moved conversion enough to change the unit economics conversation."</p>
+        <cite>Ayush Badukal · Product Manager, SpeakX</cite>
+      </div>
+    </section>
+
+    <!-- 11. REFLECTION -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Reflection</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
+        <p><strong>What I'd do differently.</strong> I'd have pushed for the "remember UPI app" preference in v1. The second tap is a small cost on first purchase, but for repeat purchasers it's an obvious friction we accepted because it was easy to defer. Repeat-revenue dominates SpeakX's economics by ~25–30× over new revenue. Leaving any friction on the renewal flow was a missed compounding lever.</p>
+        <p><strong>What I underestimated.</strong> How much trust work the video did. In testing I'd treated it as a "nice to have", assumed the simplification alone would carry the conversion. The post-launch lift was bigger than the simplification could explain on its own. The video bought users a moment to remember what they were buying, at the exact second they were deciding whether to.</p>
+        <p><strong>What I'll carry forward.</strong> Defaults are a design decision, not a configuration. When a clear segment in your data is converting at 3× the average, the question isn't "how do we get the rest to look like them?". It's "why is our default not built around them?".</p>
+      </div>
+    </section>
+
+    <!-- 12. NEXT/PREV NAVIGATION -->
+    <section class="cs-section" data-reveal>
+      <div class="case-nav">
+        <a href="/case-studies/speakx-membership/" class="case-nav__item case-nav__item--prev">
+          <span class="case-nav__dir">← Previous</span>
+          <span class="case-nav__title">Redesigning the membership page to cut churn</span>
+        </a>
+        <a href="/case-studies/" class="case-nav__item case-nav__item--next">
+          <span class="case-nav__dir">All →</span>
+          <span class="case-nav__title">Back to all case studies</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 Shashank Kesarwani</div>
+    <div>Designed &amp; built by hand · <span id="yearTime"></span></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="/anime-fx.js" defer></script>
+  <script src="/script.js" defer></script>
+</body>
+</html>

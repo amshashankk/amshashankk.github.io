@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Result Page Redesign at SpeakX — Shashank Kesarwani</title>
+  <meta name="description" content="Case study: redesigning the SpeakX exercise Result Page across four shipped A/B tests to lift practice, orders, and payment success." />
+  <meta name="robots" content="noindex,nofollow" /><!-- Draft — verify metrics before indexing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="/" class="nav__logo" data-magnetic>
+      <span class="dot"></span> Shashank K.
+    </a>
+    <nav class="nav__links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/work/">Work</a>
+      <a href="/case-studies/" aria-current="page">Case Studies</a>
+      <a href="/approach/">Approach</a>
+      <span class="nav__indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-toggle" aria-label="Toggle theme" data-magnetic>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="/#contact" class="btn btn--sm" data-magnetic>Let's talk</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="draft-banner" role="status">
+      <span class="draft-banner__dot" aria-hidden="true"></span>
+      <strong>Draft</strong>
+      <span>Result Page case study in progress. Real outcomes across 4 shipped A/B tests: Practice +19.5%, Order +9% to +36.7%, Payment +30.8% on headline release.</span>
+    </div>
+
+    <!-- 1. HERO -->
+    <div class="cs-hero" data-reveal>
+      <a href="/case-studies/" class="cs-back">← All case studies</a>
+      <span class="tag" style="margin-bottom:1.5rem; display:inline-block;">Engagement · Conversion · SpeakX · 2024-2025</span>
+      <h1 class="hero__title hero__title--page">Result Page redesign: turning the end of a lesson into the start of the next one</h1>
+      <p class="cs-hero__sub">Every SpeakX user finishes an exercise and lands on a Result Page. The old one was a numeric scorecard with a "Continue" button: a dead end, not a continuation. I redesigned it as the engagement-and-monetisation hinge of the lesson loop, and we shipped it as four layered A/B tests across 2024-25. Practice went up. Orders went up. Payment success went up.</p>
+    </div>
+
+    <!-- 2. TL;DR -->
+    <div class="tldr" data-reveal>
+      <div class="tldr__inner">
+        <div class="tldr__item">
+          <span class="tldr__label">Role</span>
+          <span class="tldr__value">Product Designer, end-to-end ownership across iterations</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Team</span>
+          <span class="tldr__value">1 PM (Ayush Badukal) · [X] Engineers · 1 Data Analyst</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Timeline</span>
+          <span class="tldr__value">~6 months across 4 shipped iterations</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Platform</span>
+          <span class="tldr__value">Android · iOS</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">My contribution</span>
+          <span class="tldr__value">Information hierarchy, motivating moment design, upgrade hook, copy across iterations</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Outcome</span>
+          <span class="tldr__value">Practice +19.5% · Order +9% to +36.7% across iterations · Payment success +30.8% on headline release</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. BUSINESS CONTEXT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Business Context</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The Result Page was the highest-leverage screen in the product, and it was being treated like a receipt.</h2>
+        <p>SpeakX's core loop is simple: the user starts an exercise, completes it, and lands on a Result Page that tells them how they did. Every single active user hits this screen, multiple times a session. It is the most viewed surface in the app after the home feed.</p>
+        <p>The pre-redesign Result Page was utilitarian. A numeric score, an accuracy percentage, basic per-question feedback, and a "Continue" CTA that returned the user to the lesson list. There was no motivating moment, no continuation logic, and no acknowledgement that this was also the moment the user was most likely to either keep going or convert to paid. It was a screen that ended things.</p>
+      </div>
+    </section>
+
+    <!-- 4. THE PROBLEM, QUANTIFIED -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">The Problem, Quantified</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Two funnels converged on one screen, and we were optimising neither.</h2>
+
+        <div class="callout-pair">
+          <div class="callout-pair__item">
+            <div class="callout-pair__label">Engagement loop ending here</div>
+            <div class="callout-pair__num">100%</div>
+          </div>
+          <div class="callout-pair__item callout-pair__item--after">
+            <div class="callout-pair__label">Premium nudge surface</div>
+            <div class="callout-pair__num">0 used</div>
+          </div>
+        </div>
+
+        <p>On the engagement side, next-lesson start rate was sitting well below where the funnel above it suggested it should. Users were finishing an exercise and bouncing back to the feed instead of continuing. The Result Page was acting as a hard stop in a loop that was supposed to compound.</p>
+        <p>On the monetisation side, premium upgrade nudges were buried in settings and the home page, far from any moment of actual value. The Result Page was the one screen where the user had just experienced the product working, and we were not using it. Two funnels, one surface, both leaking.</p>
+      </div>
+    </section>
+
+    <!-- 5. CONSTRAINTS -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Constraints</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">One screen had to do two competing jobs without breaking either.</h2>
+        <ul>
+          <li><strong>Engagement and monetisation share the surface.</strong> The Result Page had to push users into the next lesson <em>and</em> nudge upgrade. Over-indexing on either kills the other. Every iteration had to be measured on both axes.</li>
+          <li><strong>No new screens, no new flows.</strong> We could redesign the existing surface but could not add intermediate screens between exercise completion and next-lesson start. Latency to the next loop was sacred.</li>
+          <li><strong>Free-tier users see this multiple times per session.</strong> A premium nudge that is pleasant on impression one is fatigue by impression six. The hook had to be contextual, not constant.</li>
+          <li><strong>iOS and Android parity.</strong> Both platforms had to ship the same hierarchy, with Android picking up cashback bottom sheet behaviour first because of payments-stack readiness.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. RESEARCH & THE ONE INSIGHT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Research &amp; The One Insight</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The user's question on this screen is "what now?", not "how did I do?".</h2>
+        <p>I watched session recordings of users completing exercises and read through completion-state survey responses. The numeric score got a glance. What users actually scanned for was the next thing: was there another lesson, was it harder, was their streak intact, did they earn anything. The score answered a question they had mostly already answered for themselves while doing the exercise.</p>
+        <p>The behaviour the data was describing was a momentum problem. Users finished an exercise warm and the screen cooled them down. By the time they decided what to do next, the moment had passed and the home feed was a distraction surface, not a continuation one.</p>
+
+        <div class="pullquote">
+          <p>"I know I got it right. I just want to do the next one before I have to put the phone down."</p>
+          <cite>Free-tier user, beginner track, observed in a moderated session</cite>
+        </div>
+
+        <p><strong>The reframe.</strong> Stop designing the Result Page as a summary of what just happened. Design it as the on-ramp to what happens next. Score becomes the smallest motivating frame at the top, the upgrade hook sits in the contextual middle when relevant, and a single dominant continuation CTA carries the user into the next lesson before momentum dies.</p>
+      </div>
+    </section>
+
+    <!-- 7. EXPLORATIONS -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">Explorations</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three directions explored. One shipped, then layered.</h2>
+      <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">Each was prototyped end-to-end and pressure-tested against both the engagement and monetisation funnels before the team decision.</p>
+
+      <div class="directions">
+        <div class="direction">
+          <div class="direction__label">Direction A</div>
+          <h4>Score-only celebration screen, no upgrade nudge</h4>
+          <p>A clean motivating moment: big animated score, streak callout, immediate "Next lesson" CTA. Nothing about premium. Pure engagement play.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> It left monetisation entirely on the floor. The Result Page is the highest-traffic screen in the product. Skipping the upgrade conversation here meant moving it to surfaces where it converts at a fraction of the rate. Engagement-positive, business-negative.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction B</div>
+          <h4>Aggressive paywall takeover after every result</h4>
+          <p>Full-screen upgrade interstitial after every exercise completion, with a small dismiss link. Maximum monetisation pressure on the warmest moment.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> It tanked next-lesson start rate in prototype testing. The engagement loss was bigger than the monetisation gain, even on optimistic conversion assumptions. Users started avoiding finishing exercises to avoid the screen.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction C: Chosen</div>
+          <h4>Result-as-handoff: motivating frame, contextual hook, single dominant CTA</h4>
+          <p>A small motivating feedback block at the top (score, accuracy, streak), a contextual upgrade hook in the middle that only fires under defined conditions (free user, exercise count threshold, relevance to track), and one dominant "Next lesson" CTA at the bottom that visually outweighs everything else.</p>
+          <div class="direction__killed"><strong>Chosen because:</strong> It kept the engagement loop intact while letting the upgrade hook do real work in the moments it was actually relevant. The hierarchy made the priority clear: continuation first, conversion when it earns the right.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. THE DECISION + TRADE-OFF -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">The Decision</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Continuation wins the screen. The hook earns its place.</h2>
+        <p>The shipped hierarchy was deliberate and small:</p>
+        <ul>
+          <li><strong>Top: motivating frame.</strong> Score, accuracy, and streak in a compact celebratory block. Enough to feel the win, not enough to dwell.</li>
+          <li><strong>Middle: contextual upgrade hook.</strong> The "Result Page Hook" only renders for free users at relevant moments, with copy tied to what the user just did. A locked-feature framing, not a generic price pitch.</li>
+          <li><strong>Bottom: one dominant continuation CTA.</strong> "Next lesson" is the primary action and visually dwarfs everything else on the screen, including the back button and the hook.</li>
+          <li><strong>Cashback bottom sheet:</strong> a later iteration that surfaces a contextual cashback offer at the right point in the flow for users who tap into the upgrade path.</li>
+        </ul>
+        <p><strong>The trade-off I accepted explicitly:</strong> when the engagement and monetisation funnels compete on this screen, engagement wins. The Next lesson CTA is the largest, highest-contrast element, even when the upgrade hook is showing. The hook had to be good enough to convert without needing to dominate. Every iteration was tested on both funnels, and any variant that lifted orders while dropping practice was killed regardless of the order lift.</p>
+      </div>
+    </section>
+
+    <!-- 9. SHIPPING REALITY -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Shipping Reality</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Four shipped iterations, each layered on the last.</h2>
+        <p><strong>Iteration 1: Exercise Result (the new Result Page itself).</strong> The headline release. New hierarchy, motivating frame, single continuation CTA. Test scaled with Practice +19.5%, Order Created +9%, Payment Done +30.8%. The payment number is the one I trust most because it sits furthest down the funnel and is hardest to game.</p>
+        <p><strong>Iteration 2: Result Page Hook.</strong> The contextual upgrade nudge in the middle of the screen, gated to relevant moments for free users. Test scaled with Order +36.7% and Payment +5.2%. The Order number was the biggest single lift across the program and earned the hook its permanent slot.</p>
+        <p><strong>Iteration 3: Result Page Back button A/B.</strong> A smaller test on how the back button was framed and weighted on the new screen, to make sure it was not silently competing with Next lesson. Test scaled with Practice +11 (likely points), Order +7%, Payment +3%. A modest lift, but one that confirmed the hierarchy was right and the back button had been quietly costing us continuation.</p>
+        <p><strong>Iteration 4: Cashback Bottom Sheet.</strong> A companion sheet on the upgrade path with a contextual cashback offer. Test scaled with Order +14.8% and Payment +32.8%. The Payment lift here was the second-best in the program and reinforced that the warm moment extended past the Result Page itself if we kept the handoff tight.</p>
+        <p><strong>What didn't ship.</strong> A streak-recovery variant of the hook (for users who broke their streak that day) was prototyped but descoped: the audience segmentation was not clean enough to ship without false positives. It is queued for a future iteration.</p>
+      </div>
+    </section>
+
+    <!-- 10. IMPACT -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">Impact</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;max-width:22ch;">Numbers across four scaled A/B tests on SpeakX's internal tracker.</h2>
+
+      <div class="impact-grid">
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">+19.5%</div>
+          <div class="impact-grid__label">Practice on the headline Result Page release</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">+30.8%</div>
+          <div class="impact-grid__label">Payment Done on the headline release</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">+36.7%</div>
+          <div class="impact-grid__label">Order Created on the Result Page Hook iteration</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">+32.8%</div>
+          <div class="impact-grid__label">Payment Done on the Cashback Bottom Sheet iteration</div>
+        </div>
+      </div>
+
+      <div class="pm-quote cs-content">
+        <p>"The Result Page used to be the screen we under-thought because every user hit it. Treating it as the start of the next lesson, not the end of the last one, changed both the engagement curve and the monetisation curve in the same quarter. That almost never happens."</p>
+        <cite>Ayush Badukal · Product Manager, SpeakX</cite>
+      </div>
+    </section>
+
+    <!-- 11. REFLECTION -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Reflection</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What each iteration earned, and what it carried.</h2>
+        <p><strong>What I'd do differently.</strong> I would have shipped the Result Page Hook and the Back button A/B inside the headline release rather than as follow-ups. The hierarchy work in iteration 1 made both of them obvious in retrospect, and splitting them into separate tests cost us weeks of compounded lift. The honest reason they were separate was risk management on the headline release. In hindsight, the headline was robust enough to carry them.</p>
+        <p><strong>What I underestimated.</strong> How much of the win came from the back button work. Iteration 3 looks small on the dashboard, but it was the one that proved the hierarchy was the lever, not the celebration. Removing weight from the back button without removing the button itself moved practice without costing anything else. That is the cleanest kind of design win, and I almost did not run the test.</p>
+        <p><strong>What I'll carry forward.</strong> When two funnels share a screen, name which one wins ties before you start. We did, and it survived four iterations of pressure to flip it. Every time an upgrade-side variant beat a continuation-side variant on orders but cost us practice, the rule made the call easy. Without that rule, the Result Page would have drifted into a paywall, and the engagement loop would have paid for it.</p>
+      </div>
+    </section>
+
+    <!-- 12. NEXT/PREV NAVIGATION -->
+    <section class="cs-section" data-reveal>
+      <div class="case-nav">
+        <a href="/case-studies/home-page-v2/" class="case-nav__item case-nav__item--prev">
+          <span class="case-nav__dir">← Previous</span>
+          <span class="case-nav__title">Home Page V2</span>
+        </a>
+        <a href="/case-studies/" class="case-nav__item case-nav__item--next">
+          <span class="case-nav__dir">All →</span>
+          <span class="case-nav__title">Back to all</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 Shashank Kesarwani</div>
+    <div>Designed &amp; built by hand · <span id="yearTime"></span></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="/anime-fx.js" defer></script>
+  <script src="/script.js" defer></script>
+</body>
+</html>

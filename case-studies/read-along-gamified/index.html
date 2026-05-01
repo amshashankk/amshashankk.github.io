@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Read-along Gamified at SpeakX — Shashank Kesarwani</title>
+  <meta name="description" content="Case study: gamifying SpeakX's Read-along lesson — a 4-day A/B test that lifted day-zero activation by 2.7pp and dropped cancellations by 1.7pp." />
+  <meta name="robots" content="noindex,nofollow" /><!-- Draft — verify metrics before indexing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="/" class="nav__logo" data-magnetic>
+      <span class="dot"></span> Shashank K.
+    </a>
+    <nav class="nav__links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/work/">Work</a>
+      <a href="/case-studies/" aria-current="page">Case Studies</a>
+      <a href="/approach/">Approach</a>
+      <span class="nav__indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-toggle" aria-label="Toggle theme" data-magnetic>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="/#contact" class="btn btn--sm" data-magnetic>Let's talk</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="draft-banner" role="status">
+      <span class="draft-banner__dot" aria-hidden="true"></span>
+      <strong>Draft</strong>
+      <span>Read-along Gamified case study in progress. Real outcomes: +2.7 points D0 Active Exe Start, -1.7 points D0 cancellations, A/B controlled (~2K users/bucket).</span>
+    </div>
+
+    <!-- 1. HERO -->
+    <div class="cs-hero" data-reveal>
+      <a href="/case-studies/" class="cs-back">← All case studies</a>
+      <span class="tag" style="margin-bottom:1.5rem; display:inline-block;">Engagement · A/B Test · SpeakX · 2025</span>
+      <h1 class="hero__title hero__title--page">Gamifying the read-along lesson: a 4-day A/B test that lifted day-zero activation by 2.7 points</h1>
+      <p class="cs-hero__sub">SpeakX's Read-along lesson asks early learners to read text aloud while audio plays. The original was static: text, audio, a progress bar. I designed a gamified variant with points, streaks, and a per-word success animation, and ran it head-to-head against control across four days and ~2K paid users per bucket per day. The variant won on activation every single day.</p>
+    </div>
+
+    <!-- 2. TL;DR -->
+    <div class="tldr" data-reveal>
+      <div class="tldr__inner">
+        <div class="tldr__item">
+          <span class="tldr__label">Role</span>
+          <span class="tldr__value">Product Designer, end-to-end ownership</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Team</span>
+          <span class="tldr__value">1 PM · [X] Engineers · 1 Data Analyst</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Timeline</span>
+          <span class="tldr__value">[X weeks], discovery to ship</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Platform</span>
+          <span class="tldr__value">Android · iOS</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">My contribution</span>
+          <span class="tldr__value">Hypothesis, gamification system design, A/B test setup, analysis</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Outcome</span>
+          <span class="tldr__value">+2.7 points D0 activation · -1.7 points cancellation · 4-day controlled test</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. BUSINESS CONTEXT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Business Context</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Day-zero activation is the metric that decides whether a paid user stays.</h2>
+        <p>SpeakX's paid economics live and die at D0. A user who starts and finishes their first exercise on the day they pay is dramatically less likely to cancel inside the refund window, and dramatically more likely to come back on D1. The Read-along lesson sits early in the path for early learners, and it had been static for a long time: text on screen, audio plays, a thin progress bar moves. It worked, but it didn't <em>pull</em>.</p>
+        <p>I had a hypothesis I'd been wanting to test cleanly: that adding visible reward, points, streaks, a per-word success animation, would lift the rate at which users who land on the lesson actually start and finish it. Not a redesign of the surface. A behavioural overlay on the same content.</p>
+      </div>
+    </section>
+
+    <!-- 4. THE PROBLEM, QUANTIFIED -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">The Problem, Quantified</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Plenty of users were reaching the lesson. Fewer were starting it. Fewer still were finishing.</h2>
+
+        <div class="callout-pair">
+          <div class="callout-pair__item">
+            <div class="callout-pair__label">D0 Active Exe Start (Control)</div>
+            <div class="callout-pair__num">81.50%</div>
+          </div>
+          <div class="callout-pair__item callout-pair__item--after">
+            <div class="callout-pair__label">D0 Active Exe Start (Variant)</div>
+            <div class="callout-pair__num">84.25%</div>
+          </div>
+        </div>
+
+        <p>Pre-test, the static Read-along lesson was holding D0 activation in the low-80s. Healthy on its own, but the gap between "user opens lesson" and "user actually presses start" had been flat for months. Completion was lower again. And inside the same 24-hour window, ~19% of users were cancelling, not for product reasons, but because nothing on D0 had given them a reason to feel they'd already started.</p>
+        <p>The thesis: the lesson rewarded effort silently. Audio played, text scrolled, a bar inched. Nothing on screen told the user they were <em>doing well</em> while they did it. That silence was costing us at the start, the finish, and the cancellation step.</p>
+      </div>
+    </section>
+
+    <!-- 5. CONSTRAINTS -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Constraints</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Test had to be clean. Variant had to be additive, not disruptive.</h2>
+        <ul>
+          <li><strong>Same content, same audio, same lesson length.</strong> If I changed the underlying lesson, I couldn't attribute lift to the gamification layer. The variant was a strict overlay on identical content.</li>
+          <li><strong>~2K paid users per bucket per day.</strong> Sample was honest but not infinite. I planned for at least 4 days of stable data so we wouldn't be reading single-day noise.</li>
+          <li><strong>Children and early learners.</strong> The rewards had to feel earned and age-appropriate, celebratory, not casino. No coin-shower animations, no FOMO timers.</li>
+          <li><strong>No engineering for new lesson types.</strong> Points, streaks and the per-word animation had to fit inside the existing Read-along renderer with minimal scope.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. RESEARCH & THE ONE INSIGHT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Research &amp; The One Insight</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The lesson was rewarding the right behaviour. It just wasn't <em>showing</em> it.</h2>
+        <p>I sat with [X] sessions of children running through the static Read-along. The pattern was consistent: kids would read along, sometimes well, sometimes mumbling, and there was no moment of feedback. The audio kept moving regardless. Parents watching over their shoulder couldn't tell whether the child had done the thing or not, and neither could the child.</p>
+        <p>The reframe was small. The lesson was already detecting per-word success behind the scenes for scoring. We just weren't surfacing that detection. Every successfully read word was an opportunity for a micro-reward that already existed in the data, sitting silently.</p>
+
+        <div class="pullquote">
+          <p>"He read it. I don't know if the app knows he read it."</p>
+          <cite>Parent of a 7-year-old, watching a Read-along session</cite>
+        </div>
+
+        <p><strong>The hypothesis I committed to.</strong> Add three things on top of the existing lesson: a points counter that ticked up on each successful word, a streak indicator that built across consecutive correct words, and a small per-word success animation at the moment of detection. Hold everything else constant. Run a clean A/B against control.</p>
+      </div>
+    </section>
+
+    <!-- 7. EXPLORATIONS -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">Explorations</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three directions explored. One shipped to test.</h2>
+      <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">Each was prototyped end-to-end and put in front of [X] kids and parents in moderated sessions before the team picked the variant to A/B.</p>
+
+      <div class="directions">
+        <div class="direction">
+          <div class="direction__label">Direction A</div>
+          <h4>End-of-lesson reward only</h4>
+          <p>Keep the lesson static. Add a celebratory points + stars summary at the very end, after completion.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> The drop-off we cared about was at start and during the lesson. A reward at the end doesn't help a user who never pressed start, and doesn't pull a wavering user across the finish line.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction B</div>
+          <h4>Full gamified shell: leaderboards, badges, daily quests</h4>
+          <p>A heavy gamification layer wrapping the lesson: leaderboards, unlockable badges, a daily-quest meta-loop.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> Too much surface change to attribute any lift cleanly. And for a 7-year-old paid user with parental supervision, leaderboards felt off-brand. We'd be testing a different product, not a hypothesis.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction C: Chosen</div>
+          <h4>Per-word feedback + points + streaks, in-lesson</h4>
+          <p>A points counter that ticks up live, a streak indicator that builds and breaks per word, and a small success animation at each correctly read word. The lesson, audio and content stay identical. The reward sits on top of the existing detection signal.</p>
+          <div class="direction__killed"><strong>Chosen because:</strong> It was the smallest change that surfaced an existing signal. It tested one hypothesis cleanly. And it was age-appropriate: celebratory, immediate, not competitive.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. THE DECISION + TRADE-OFF -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">The Decision</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Run a 50/50 split, four days, ~2K paid users per bucket per day.</h2>
+        <p>The test ran from <strong>June 17 to June 20, 2025</strong>. Variant got the gamified lesson; control got the existing static one. Same audience filter, same lesson set, same entry points.</p>
+        <ul>
+          <li><strong>Primary metric:</strong> D0 Active Exe Start: did the user actually press start on the lesson on the day they paid.</li>
+          <li><strong>Secondary:</strong> D0 Active Exe Completed, D0 cancellations, D0 time spent.</li>
+          <li><strong>Guardrail:</strong> D0 GT 6 Lessons Start: were users still moving through the lesson plan, or were they getting stuck inside one rewarding lesson.</li>
+        </ul>
+        <p><strong>The trade-off I named upfront:</strong> if the per-word reward made the first lesson feel <em>good enough</em> on its own, we might see fewer users push past 6 lessons on D0. I wanted to know if we were trading depth for activation. The answer turned out to be: a little, yes, and I want to be honest about it below.</p>
+      </div>
+    </section>
+
+    <!-- 9. SHIPPING REALITY -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Shipping Reality</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What shipped into the test, what got cut, what's queued for v2.</h2>
+        <p><strong>What shipped into the variant.</strong> Live points counter (per word), streak indicator with a small break/reset animation, and a per-word success micro-animation tied to the existing speech-detection signal. No new lesson type, no new audio, no new copy in the lesson itself.</p>
+        <p><strong>What didn't.</strong> A "best streak today" carry-over across lessons was descoped. We wanted the test surface contained to a single lesson. End-of-day recap and parent-facing streak summary were also held back.</p>
+        <p><strong>v2 targets.</strong> Carry streaks across lessons in a session, surface a daily streak to parents, and re-test specifically against the 6-lessons guardrail to see whether end-of-lesson "next lesson" framing closes the depth gap.</p>
+      </div>
+    </section>
+
+    <!-- 10. IMPACT -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">Impact</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;max-width:22ch;">Measured on Jun 20, 2025. Direction held all four days.</h2>
+
+      <div class="impact-grid">
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">+2.7 points</div>
+          <div class="impact-grid__label">D0 Active Exe Start (84.25% vs 81.50%)</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">+3.2 points</div>
+          <div class="impact-grid__label">D0 Active Exe Completed (80.77% vs 77.54%)</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">-1.7 points</div>
+          <div class="impact-grid__label">D0 Cancellations (17.62% vs 19.32%)</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">+0.45 min</div>
+          <div class="impact-grid__label">D0 Time Spent (15.65 vs 15.20)</div>
+        </div>
+      </div>
+
+      <div class="cs-content" style="margin-top:2rem;">
+        <p><strong>The honest tradeoff.</strong> D0 GT 6 Lessons Start moved the wrong way: 48.5% on variant vs 50.2% on control, a ~1.7 point dip. Modest, but real. The likely read: the gamified lesson is satisfying enough on its own that some users who would have pushed past 6 lessons stopped earlier feeling rewarded. That's the tradeoff to fix in v2: keep the activation lift, recover the depth.</p>
+        <p>Across all four days the variant won activation, won completion, and lowered cancellation. The lift is modest. It's not a miracle. But it's consistent, directional across every metric we cared about, and it held outside single-day noise.</p>
+      </div>
+
+      <div class="pm-quote cs-content">
+        <p>"This is the only test we ran in that window where we can cleanly say a design change caused the lift. The numbers aren't huge, but they're <em>clean</em>."</p>
+        <cite>Paramjeet Singh · Product Manager, SpeakX</cite>
+      </div>
+    </section>
+
+    <!-- 11. REFLECTION -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Reflection</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
+        <p><strong>What I'd do differently.</strong> I'd have planned the depth-recovery experiment as part of the same shipping plan, not as a v2 follow-up. The 6-lessons dip was foreseeable. The moment you make a single lesson feel rewarding enough on its own, you should also make the next-lesson handoff feel like the natural continuation of that reward. I left that on the table.</p>
+        <p><strong>What I underestimated.</strong> How much the cancellation drop mattered. I'd designed for activation. The 1.7 point cancellation drop is, in revenue terms, the most valuable number on the page. It compounds across the entire paid base, not just D0. Reward visibility didn't only pull users into the lesson; it gave wavering users a reason to feel they'd already started.</p>
+        <p><strong>What I'll carry forward.</strong> The smallest test that isolates one variable wins. I had pressure to ship the bigger gamification shell. The boring, narrow variant is the one I can stand behind a year later, because it's the only one whose lift I can attribute. This is the test where I can cleanly say design caused a measurable lift. That clarity is worth more than a bigger uncontrolled launch.</p>
+      </div>
+    </section>
+
+    <!-- 12. NEXT/PREV NAVIGATION -->
+    <section class="cs-section" data-reveal>
+      <div class="case-nav">
+        <a href="/case-studies/upi-checkout/" class="case-nav__item case-nav__item--prev">
+          <span class="case-nav__dir">← Previous</span>
+          <span class="case-nav__title">UPI-first checkout</span>
+        </a>
+        <a href="/case-studies/" class="case-nav__item case-nav__item--next">
+          <span class="case-nav__dir">All →</span>
+          <span class="case-nav__title">Back to all</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 Shashank Kesarwani</div>
+    <div>Designed &amp; built by hand · <span id="yearTime"></span></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="/anime-fx.js" defer></script>
+  <script src="/script.js" defer></script>
+</body>
+</html>

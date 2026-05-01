@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live Session Booking at SpeakX — Shashank Kesarwani</title>
+  <meta name="description" content="Case study: designing and shipping SpeakX's in-app live-session booking flow from zero — ~16% of trial users booked within a day of trial start, without cannibalising lesson activity." />
+  <meta name="robots" content="noindex,nofollow" /><!-- Draft — verify metrics before indexing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="/" class="nav__logo" data-magnetic>
+      <span class="dot"></span> Shashank K.
+    </a>
+    <nav class="nav__links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/work/">Work</a>
+      <a href="/case-studies/" aria-current="page">Case Studies</a>
+      <a href="/approach/">Approach</a>
+      <span class="nav__indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-toggle" aria-label="Toggle theme" data-magnetic>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="/#contact" class="btn btn--sm" data-magnetic>Let's talk</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="draft-banner" role="status">
+      <span class="draft-banner__dot" aria-hidden="true"></span>
+      <strong>Draft</strong>
+      <span>Live-session Booking case study in progress. Real outcomes: ~22% page-load, ~16% booking rate among trial users on Day-1, feature shipped from scratch.</span>
+    </div>
+
+    <!-- 1. HERO -->
+    <div class="cs-hero" data-reveal>
+      <a href="/case-studies/" class="cs-back">← All case studies</a>
+      <span class="tag" style="margin-bottom:1.5rem; display:inline-block;">0→1 · Engagement · SpeakX · 2025</span>
+      <h1 class="hero__title hero__title--page">From zero to ~16% trial booking: designing and shipping live-session booking inside the app</h1>
+      <p class="cs-hero__sub">SpeakX had no in-app way for trial users to book a live session with a tutor. We built one. Within 24 hours of trial start, ~22% of A-bucket users loaded the booking page and ~16% completed a booking, a feature that didn't exist a sprint earlier. Lesson engagement (D1/D2 active) stayed flat between A and Control, so we weren't trading one habit for another. This is a launch story, not a controlled-lift story, and I want to be honest about that distinction up front.</p>
+    </div>
+
+    <!-- 2. TL;DR -->
+    <div class="tldr" data-reveal>
+      <div class="tldr__inner">
+        <div class="tldr__item">
+          <span class="tldr__label">Role</span>
+          <span class="tldr__value">Product Designer, feature ownership</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Team</span>
+          <span class="tldr__value">1 PM · [X] Engineers · 1 Data Analyst · live-ops liaison</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Timeline</span>
+          <span class="tldr__value">[X weeks], discovery to ship</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Platform</span>
+          <span class="tldr__value">Android · iOS</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">My contribution</span>
+          <span class="tldr__value">Booking flow, calendar UI, slot-availability logic surface, post-booking confirmation</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Outcome</span>
+          <span class="tldr__value">~16% trial booking rate · 22% page-load reach · No cannibalisation of lesson activity</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. BUSINESS CONTEXT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Business Context</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">SpeakX had self-serve lessons. It didn't have a human on the other side.</h2>
+        <p>SpeakX's core product was AI-led English practice: lessons, drills, speaking exercises. It worked well for habit formation but plateaued on the harder problem: getting users to actually <em>speak</em> to another human, which is what drives confidence and retention. A small live-ops team had been running 1:1 and small-group sessions over external tools, but there was no way to discover or book those sessions inside the app.</p>
+        <p>The hypothesis going in was that a live human session, surfaced at the right moment, would become both an engagement surface (a reason to come back) and a monetisation surface (a paid product post-trial). The first job was just to find out whether trial users, the cohort with the loosest commitment, would book one at all if we made it possible.</p>
+      </div>
+    </section>
+
+    <!-- 4. THE PROBLEM, QUANTIFIED -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">The Problem, Quantified</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">There was no baseline. The Control bucket didn't have the feature at all.</h2>
+
+        <div class="callout-pair">
+          <div class="callout-pair__item">
+            <div class="callout-pair__label">Control bucket: booking rate</div>
+            <div class="callout-pair__num">0%</div>
+          </div>
+          <div class="callout-pair__item callout-pair__item--after">
+            <div class="callout-pair__label">A bucket: booking rate (D1, Jul 23)</div>
+            <div class="callout-pair__num">~16%</div>
+          </div>
+        </div>
+
+        <p>This is where I want to be honest. The A/B test wasn't measuring "does this design beat that design". It was measuring "does this surface, which doesn't exist today, get used at all." Control was the world without booking. A was the world with it. So the lift number on its own is meaningless; what matters is the absolute rate and whether downstream behaviour held up.</p>
+        <p>On Jul 23, of 1,303 A-bucket trial users, <strong>22.4% loaded the booking page</strong>, <strong>15.8% completed a booking</strong>, and 2.4% used the "Watch Now" jump-in option. On Jul 24, the next 619 users came in at 20.0% load and 12.6% booking. The companion engagement test confirmed the part I cared most about: D1/D2 active-exercise rates stayed roughly flat between A and Control. Booking didn't pull users away from lessons; it added a layer on top.</p>
+      </div>
+    </section>
+
+    <!-- 5. CONSTRAINTS -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Constraints</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The hard constraint wasn't design. It was tutor supply.</h2>
+        <ul>
+          <li><strong>Live sessions are capacity-bound.</strong> Unlike an AI lesson which scales infinitely, a live session needs a tutor on the other end at a specific time. We had a small roster and finite hours. The booking design had to <em>pace</em> demand, not just maximise it: show only available slots, never let a user pick a time we couldn't fulfil.</li>
+          <li><strong>Trial users are the lowest-commitment cohort.</strong> If we asked too much (long onboarding, payment up front, verification), they'd bounce. Booking had to feel as light as scheduling a haircut.</li>
+          <li><strong>No-shows would burn tutor goodwill.</strong> A booked-but-empty slot costs a tutor as much as a booked-and-attended one. Confirmation and reminder design had to do real work.</li>
+          <li><strong>Cross-platform parity.</strong> Android and iOS users had to land at the same booking outcome. No deep-link or platform-specific shortcuts.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. RESEARCH -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Research &amp; The One Insight</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Users think in days of their week. Supply is structured around tutor calendars. The design had to translate.</h2>
+        <p>I shadowed [X] live-ops booking conversations being handled manually over chat. The pattern was identical every time: the user opened with a day, not a time. <em>"Can I do something on Saturday?"</em> Not <em>"What's the next slot?"</em> The supply side, by contrast, was built around tutor availability windows: a tutor picks Tuesday 6–9pm, the system surfaces that block.</p>
+        <p>Then I ran a quick desk study of how users in adjacent categories (fitness classes, salon apps, doctor consults) were booking. The winners almost always led with a date strip and treated time slots as the second decision, not the first. The losers led with a list of providers or sessions and forced the user to filter their way to a day.</p>
+
+        <div class="pullquote">
+          <p>"I just want to know if there's something on Sunday morning. I'll figure out the time once I see what's there."</p>
+          <cite>Trial user, Tier-1 city, watching her own booking session</cite>
+        </div>
+
+        <p><strong>The reframe.</strong> Don't show users a list of sessions sorted by tutor availability. Show them a calendar, let them pick a day, then surface only the slots that are still open on that day. Hide the supply structure behind an interface shaped like the user's mental model.</p>
+      </div>
+    </section>
+
+    <!-- 7. EXPLORATIONS -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">Explorations</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three directions explored. One shipped.</h2>
+      <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">Each was prototyped end-to-end and run past [X] users in moderated sessions before the team decision.</p>
+
+      <div class="directions">
+        <div class="direction">
+          <div class="direction__label">Direction A</div>
+          <h4>Static "weekly schedule" page: full list of upcoming sessions</h4>
+          <p>A scrollable list of all upcoming sessions across the next seven days, sorted by start time. User scrolls, finds something that fits, taps to book. Fastest to build.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> No personalisation. Users hit a wall of slots (Tuesday 6:00, Tuesday 6:30, Tuesday 7:00, Wednesday 9:00) and bounced before scrolling far enough to find their preferred day. The list pattern punished the exact behaviour we'd seen in research: thinking by day first.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction B</div>
+          <h4>Modal-only quick-book: tap-to-book the next available slot</h4>
+          <p>A single "Book your live session" button anywhere in the app. Tap it, get the next open slot in a modal, confirm or cancel. No calendar, no choosing. Maximum simplicity.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> Users wanted to choose. The next available slot was almost never the slot they wanted; it was the slot the supply system happened to expose. In testing, users would cancel the modal and look for "the actual booking page", because being handed a single time felt like being told what to do, not asked.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction C: Chosen</div>
+          <h4>Calendar-first booking flow: date picker, slot list per date, confirmation modal</h4>
+          <p>A horizontal date strip across the top (today + next 6 days), a list of open slots for the selected date below, and a confirmation modal with a countdown to session start once the user committed. "Watch Now" appeared as a separate jump-in for sessions starting within 15 minutes.</p>
+          <div class="direction__killed"><strong>Chosen because:</strong> It matched how users think about scheduling, around their week, and let supply structure (tutor availability) sit invisibly underneath. Showing only open slots per day did the pacing work the constraint demanded: a fully-booked Saturday simply showed an empty state with a nudge to try Sunday, instead of letting users hit a "slot taken" error after committing.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. THE DECISION + TRADE-OFF -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">The Decision</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">A calendar shaped like a week, supply hidden underneath, one confirmation that did real work.</h2>
+        <p>The shipped flow was three screens:</p>
+        <ul>
+          <li>An entry surface inside the home tab: a card titled "Practise live with a tutor" with the next open day pre-loaded as a preview, so users didn't have to imagine what was on the other side of the tap.</li>
+          <li>The booking screen itself: date strip, slot list for the selected date, slot cards showing tutor name, session focus (free conversation, interview prep, etc.), and duration. Greyed-out days carried a small "fully booked" label so empty states didn't feel like errors.</li>
+          <li>A confirmation modal: booked time, "add to calendar" link, and a countdown that turned into a "Join now" button when the session was 15 minutes out.</li>
+        </ul>
+        <p><strong>The trade-off I accepted explicitly:</strong> capacity. We knew demand might outstrip supply, especially in evening slots. The calendar pattern paced bookings honestly (if a day filled up, it filled up) but it meant some users would see "fully booked" and walk away. I argued this was the right failure mode: a "fully booked" state is honest and trains expectations, while a no-show on a slot we couldn't actually staff would have burned the tutor relationship and the user's trust at the same time. We tracked "fully booked" impressions as a signal to grow the tutor roster, not as a UX bug to design around.</p>
+      </div>
+    </section>
+
+    <!-- 9. SHIPPING REALITY -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Shipping Reality</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What shipped, what got cut, and what made it to v2.</h2>
+        <p><strong>What shipped in v1.</strong> The calendar-first booking screen, slot list with availability logic, confirmation modal with countdown, and "Watch Now" jump-in for sessions within 15 minutes. Push and in-app reminders fired at T-60min and T-10min. Android and iOS launched together.</p>
+        <p><strong>What didn't.</strong> Tutor profiles with bios and ratings were descoped. The live-ops team didn't have curated copy ready, and rough auto-generated bios would have hurt trust more than helped. Recurring bookings (book the same slot every week) slipped to v2; the data model supported it but the UI and edge cases (cancellation, re-scheduling, partial recurrence) were a separate design problem.</p>
+        <p><strong>v2 targets.</strong> Tutor profiles, recurring slots, post-session feedback feeding tutor ranking, and a "remind me when this tutor opens new slots" subscription for users who wanted a specific tutor.</p>
+      </div>
+    </section>
+
+    <!-- 10. IMPACT -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">Impact</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;max-width:22ch;">What the data said in the first 72 hours.</h2>
+
+      <div class="impact-grid">
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">~16%</div>
+          <div class="impact-grid__label">Trial users booked a live session within 24h of trial start (A bucket, Jul 23)</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">~22%</div>
+          <div class="impact-grid__label">Booking page-load reach among A-bucket trial users on Day-1</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">5–7%</div>
+          <div class="impact-grid__label">D1 Live Session attendance in A bucket (vs 0% in Control, feature absent)</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">~flat</div>
+          <div class="impact-grid__label">D1/D2 active-exercise rate vs Control: booking didn't cannibalise lessons</div>
+        </div>
+      </div>
+
+      <div class="pm-quote cs-content">
+        <p>"The number that mattered to me wasn't the booking rate. It was that lesson engagement didn't move. We added a whole new surface and didn't pay for it elsewhere in the funnel."</p>
+        <cite>Paramjeet Singh · Product Manager, SpeakX</cite>
+      </div>
+    </section>
+
+    <!-- 11. REFLECTION -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Reflection</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
+        <p><strong>What I'd do differently.</strong> I'd have shipped tutor profiles in v1, even rough ones. The single most-asked question in moderated testing was "who is this person?", and we shipped without an answer. The booking rate held up anyway, but I think it would have been higher, and I think the no-show rate would have been lower, if users had felt they were booking <em>a person</em> rather than a slot.</p>
+        <p><strong>What I underestimated.</strong> How much pacing the design itself was doing. I'd thought of "show only open slots" as a UX nicety; it turned out to be the load-balancer for tutor capacity. When demand spiked on Jul 23, the calendar absorbed it gracefully: full days went grey, users moved to adjacent days, no error states fired. The design was operating as a supply mechanism without anyone configuring it as one.</p>
+        <p><strong>What I'll carry forward.</strong> When you're shipping a 0→1 surface, the only honest framing is the absolute number, not a lift. ~16% of trial users booking a live human session in a category they'd entered for AI lessons was a real signal, not because it beat a baseline, but because it was a behaviour the product had never produced before. Lift stories are cleaner. Launch stories are truer.</p>
+      </div>
+    </section>
+
+    <!-- 12. NEXT/PREV NAVIGATION -->
+    <section class="cs-section" data-reveal>
+      <div class="case-nav">
+        <a href="/case-studies/m0-activation/" class="case-nav__item case-nav__item--prev">
+          <span class="case-nav__dir">← Previous</span>
+          <span class="case-nav__title">M0 Activation Redesign</span>
+        </a>
+        <a href="/case-studies/" class="case-nav__item case-nav__item--next">
+          <span class="case-nav__dir">All →</span>
+          <span class="case-nav__title">Back to all</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 Shashank Kesarwani</div>
+    <div>Designed &amp; built by hand · <span id="yearTime"></span></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="/anime-fx.js" defer></script>
+  <script src="/script.js" defer></script>
+</body>
+</html>

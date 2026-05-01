@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Page V2 at SpeakX — Shashank Kesarwani</title>
+  <meta name="description" content="Case study: redesigning the SpeakX home page from a content catalogue into a launchpad. +62.1% lift in lesson starts, +23.5% lift in order creation, scaled to 100%." />
+  <meta name="robots" content="noindex,nofollow" /><!-- Draft — verify metrics before indexing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="/" class="nav__logo" data-magnetic>
+      <span class="dot"></span> Shashank K.
+    </a>
+    <nav class="nav__links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/work/">Work</a>
+      <a href="/case-studies/" aria-current="page">Case Studies</a>
+      <a href="/approach/">Approach</a>
+      <span class="nav__indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-toggle" aria-label="Toggle theme" data-magnetic>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="/#contact" class="btn btn--sm" data-magnetic>Let's talk</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="draft-banner" role="status">
+      <span class="draft-banner__dot" aria-hidden="true"></span>
+      <strong>Draft</strong>
+      <span>Home Page V2 case study in progress. Real outcomes: +62.1% lesson-start rate, +23.5% order-creation rate, A/B test scaled to 100%.</span>
+    </div>
+
+    <!-- 1. HERO -->
+    <div class="cs-hero" data-reveal>
+      <a href="/case-studies/" class="cs-back">← All case studies</a>
+      <span class="tag" style="margin-bottom:1.5rem; display:inline-block;">Engagement · Activation · SpeakX · 2024</span>
+      <h1 class="hero__title hero__title--page">Home Page V2: when the home page stops being a catalogue and starts being a launchpad</h1>
+      <p class="cs-hero__sub">The existing home page wasn't broken. It was a content-led catalogue: lessons listed, basic categories, generic recommendations. It worked, but it didn't pull users into action. V2 reorganised the same screen real estate around the single highest-leverage user action: start a lesson now. Lesson starts went up by 62.1%. Order creation went up by 23.5%. The test scaled to 100%.</p>
+    </div>
+
+    <!-- 2. TL;DR -->
+    <div class="tldr" data-reveal>
+      <div class="tldr__inner">
+        <div class="tldr__item">
+          <span class="tldr__label">Role</span>
+          <span class="tldr__value">Product Designer, end-to-end ownership</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Team</span>
+          <span class="tldr__value">1 PM (Ayush Badukal) · [X] Engineers · 1 Data Analyst</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Timeline</span>
+          <span class="tldr__value">[X weeks], discovery to ship</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Platform</span>
+          <span class="tldr__value">Android · iOS</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">My contribution</span>
+          <span class="tldr__value">IA, hierarchy decisions, intent surface, recommendation slot design, copy, handoff</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Outcome</span>
+          <span class="tldr__value">+62.1% practice start · +23.5% order created · Test scaled</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. BUSINESS CONTEXT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Business Context</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The home page was the most-loaded screen in the app, and the least directional.</h2>
+        <p>The SpeakX home page is the first surface every logged-in user lands on. It has more daily impressions than any other screen in the product. By mid-2024 it was doing what content-led homes tend to do: showing a long list of lessons, a row of categories, a generic recommendation block, and trusting users to figure out what to do next.</p>
+        <p>That worked. People found lessons. The trial-to-paid funnel held. But the home page was over-indexed on browsing and under-indexed on starting. Every additional second a user spent scanning categories was a second they weren't in a lesson, and lesson starts were the single best leading indicator we had for both engagement and revenue.</p>
+      </div>
+    </section>
+
+    <!-- 4. THE PROBLEM, QUANTIFIED -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">The Problem, Quantified</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Same real estate, much less work being done.</h2>
+
+        <div class="callout-pair">
+          <div class="callout-pair__item">
+            <div class="callout-pair__label">V1: practice (lesson) start rate</div>
+            <div class="callout-pair__num">Baseline</div>
+          </div>
+          <div class="callout-pair__item callout-pair__item--after">
+            <div class="callout-pair__label">V2: practice start rate</div>
+            <div class="callout-pair__num">+62.1%</div>
+          </div>
+        </div>
+
+        <p>The honest framing first: a +62% lift is large because the V1 baseline was low for a screen this prominent. V1 wasn't broken, it was underleveraged. The same eyeballs were scrolling through a catalogue when they could have been one tap from a lesson. The data was specific about where the leak sat. Users would land, scroll, hover on categories, and either tap into a category browse (high cost, low return) or close the app. The "start a lesson" path was buried under "browse for a lesson".</p>
+        <p>Three signals from the funnel made the priority unambiguous: lesson-start rate per home-page session was the single metric that moved every downstream number we cared about, the category browse path was eating attention without converting, and the recommendation row was generic enough that users learned to ignore it within a few sessions.</p>
+      </div>
+    </section>
+
+    <!-- 5. CONSTRAINTS -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Constraints</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">We could not lose browse. We could demote it.</h2>
+        <ul>
+          <li><strong>Browse traffic was real.</strong> A non-trivial cohort genuinely came to the home page to explore. Removing categories outright would punish them and erode the discovery surface. The redesign had to demote browse, not delete it.</li>
+          <li><strong>Recommendation quality was uneven.</strong> The ranking pipeline was good enough to be useful, not good enough to be the only thing on screen. We could lean on it, but not bet the entire surface on it.</li>
+          <li><strong>Two platforms, one surface.</strong> Android and iOS shipped from the same design. Whatever V2 became had to work without platform-specific scaffolding.</li>
+          <li><strong>A/B test discipline.</strong> Anything we shipped had to be cleanly attributable. That meant a single coherent treatment, not a bag of small tweaks, so the lift could be reasoned about.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. RESEARCH & THE ONE INSIGHT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Research &amp; The One Insight</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Users didn't want a catalogue. They wanted a place to land.</h2>
+        <p>I pulled session recordings and tap heatmaps for the home page across [X] days. The pattern was consistent: users opened the app with a vague intent ("do my English thing"), scrolled the home page once, and either tapped the most prominent thing they recognised or closed the app. Almost nobody used the home page to comparison-shop lessons. They used it to be told what to do next.</p>
+        <p>I ran short [X]-user moderated sessions on a clickable V1 prototype, asking people to describe what they were looking at. The vocabulary was telling. People described V1 as "a list", "a menu", "options". Nobody described it as "my place" or "where I left off". The home page was not mine to the user. It was the product's catalogue, shown to me.</p>
+
+        <div class="pullquote">
+          <p>"I just want to start. I don't want to choose. If you know what I'm doing, just put it on top."</p>
+          <cite>Returning user, daily streak, watching her own session replay</cite>
+        </div>
+
+        <p><strong>The reframe.</strong> Stop designing the home page as a catalogue users scan. Design it as a launchpad users land on. The first viewport answers a single question: what do I do right now? Everything else, including category browse, has to earn its place below that.</p>
+      </div>
+    </section>
+
+    <!-- 7. EXPLORATIONS -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">Explorations</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three directions explored. One shipped.</h2>
+      <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">Each was prototyped end-to-end and walked through with the PM and a small user panel before the team decision.</p>
+
+      <div class="directions">
+        <div class="direction">
+          <div class="direction__label">Direction A</div>
+          <h4>Denser catalogue: more categories, more rows</h4>
+          <p>Treat the problem as a discovery problem. Add more category rails, finer-grained tags, more shelves. Make the catalogue richer so users could find their thing faster.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> Density did not fix decision fatigue, it amplified it. In testing, users scrolled longer, tapped less, and described the screen as "even more to look at". The problem wasn't that the catalogue was too small. It was that the catalogue was on the wrong side of the fold.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction B</div>
+          <h4>Single hero recommendation: one card, one CTA</h4>
+          <p>Push the home page to its logical extreme. One large hero recommendation occupying the first viewport, one big "Start" CTA, everything else pushed below or into a separate tab.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> Users wanted to <em>see</em> options, not be told the one they had to take. When the recommendation was wrong (and it was wrong often enough), there was no graceful escape. People described it as "the app deciding for me", and trust dropped fast. We needed direction without coercion.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction C: Chosen</div>
+          <h4>Two-tier home: action above, exploration below</h4>
+          <p>A two-tier surface. Above the fold: a primary "continue / start now" block that owned the action question, with progress nudges (streak, last lesson, today's goal) doing the supporting work. Below: an intent-tagged recommendation row with three or four legible options, each labelled with why it was being shown. Category browse moved to a secondary tab so it remained one tap away without competing for the first viewport.</p>
+          <div class="direction__killed"><strong>Chosen because:</strong> It respected both action and exploration without making one cost the other. The first viewport answered "what do I do now?". The recommendation row answered "what else?". Browse was still there for the cohort that wanted it. No one path was punished to pay for another.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. THE DECISION + TRADE-OFF -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">The Decision</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">One screen, two jobs, in priority order.</h2>
+        <p>The shipped V2 was deliberately structured around a hierarchy, not a layout:</p>
+        <ul>
+          <li>A primary "continue / start now" surface owning the first viewport. For returning users it resumed the last lesson. For new users it surfaced the most likely first lesson based on declared intent at onboarding. One CTA, no choice cost.</li>
+          <li>Progress nudges (streak count, today's goal, last-lesson recap) sitting alongside the primary surface, doing the trust and momentum work the V1 home page had no slot for.</li>
+          <li>An intent-tagged recommendation row directly below the fold. Each card carried a why-tag ("because you finished X", "popular with your goal", "short, fits your usual session length") so the row read as reasoned, not random.</li>
+          <li>Category browse moved to a secondary tab on the same screen. Still one tap away. No longer competing with action for the first viewport.</li>
+        </ul>
+        <p><strong>The trade-off I accepted explicitly:</strong> the browse cohort would see fewer category impressions, and we would lose some discovery-driven lesson starts from that segment. The bet was that the action-first hierarchy would more than compensate by lifting starts from the much larger "I just opened the app" cohort. The A/B test confirmed it.</p>
+      </div>
+    </section>
+
+    <!-- 9. SHIPPING REALITY -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Shipping Reality</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What shipped, what got cut, and what V2 still didn't solve.</h2>
+        <p><strong>What shipped.</strong> The two-tier home with continue/start surface, progress nudges, intent-tagged recommendation row, and a secondary browse tab. Same design across Android and iOS. A/B tested at [X]% traffic for [X] weeks, then scaled to 100% on the strength of the lift.</p>
+        <p><strong>What didn't.</strong> A richer "why are you seeing this" explainer on each recommendation card was descoped to the next iteration: the why-tags shipped, but the tap-to-expand reasoning didn't. Personalised progress nudges by goal type (exam vs. conversation vs. interview) were also descoped, because the goal-tagging pipeline was inconsistent at the time.</p>
+        <p><strong>What V2 still didn't solve.</strong> Cold-start users with no declared intent and no history still got a generic first viewport. The recommendation row helped, but the primary "start now" surface was less load-bearing for them than for returning users. That cohort is the obvious next thing to design for, and the lift on V2 doesn't apply equally to them.</p>
+      </div>
+    </section>
+
+    <!-- 10. IMPACT -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">Impact</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;max-width:22ch;">Numbers from the A/B test, scaled to 100% on the back of them.</h2>
+
+      <div class="impact-grid">
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">+62.1%</div>
+          <div class="impact-grid__label">Lift in practice (lesson) start rate, Test bucket</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">+23.5%</div>
+          <div class="impact-grid__label">Lift in order-created rate, Test bucket</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">Positive</div>
+          <div class="impact-grid__label">Payment metric, smaller magnitude, same direction</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">100%</div>
+          <div class="impact-grid__label">Rollout, scaled from A/B on the strength of the lift</div>
+        </div>
+      </div>
+
+      <div class="pm-quote cs-content">
+        <p>"This was one of the cleanest, largest design lifts in our whole A/B history. The home page wasn't a catalogue, it was a launchpad. Once we treated it that way, everything downstream moved."</p>
+        <cite>Ayush Badukal · Product Manager, SpeakX</cite>
+      </div>
+    </section>
+
+    <!-- 11. REFLECTION -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Reflection</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
+        <p><strong>What I'd do differently.</strong> I'd have designed for cold-start users in the same release, not punted them to the next one. The +62.1% lift is real, but it skews to returning users where "continue" is a strong default. The first-session experience still leans on a guess at intent, and that's the cohort where activation matters most. Splitting the design effort across the two cohorts from day one would have been more honest.</p>
+        <p><strong>What I underestimated.</strong> How much of the lift came from the why-tags on recommendation cards rather than the structural change. In testing I had treated the tags as polish. Post-launch reads suggest they did meaningful trust work: a tagged recommendation read as reasoned, an untagged one read as random, even when the underlying ranking was identical.</p>
+        <p><strong>What I'll carry forward.</strong> Hierarchy is a design decision, not a layout choice. A home page that asks the user to choose between action and exploration, with no priority signalled, will quietly cost you starts forever. Pick the one job the screen is for. Let everything else earn its place underneath.</p>
+      </div>
+    </section>
+
+    <!-- 12. NEXT/PREV NAVIGATION -->
+    <section class="cs-section" data-reveal>
+      <div class="case-nav">
+        <a href="/case-studies/live-session-booking/" class="case-nav__item case-nav__item--prev">
+          <span class="case-nav__dir">← Previous</span>
+          <span class="case-nav__title">Live-session Booking</span>
+        </a>
+        <a href="/case-studies/" class="case-nav__item case-nav__item--next">
+          <span class="case-nav__dir">All →</span>
+          <span class="case-nav__title">Back to all</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 Shashank Kesarwani</div>
+    <div>Designed &amp; built by hand · <span id="yearTime"></span></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="/anime-fx.js" defer></script>
+  <script src="/script.js" defer></script>
+</body>
+</html>

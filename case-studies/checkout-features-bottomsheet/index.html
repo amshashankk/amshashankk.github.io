@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout Features Bottom Sheet at SpeakX — Shashank Kesarwani</title>
+  <meta name="description" content="Case study: a non-blocking features bottom sheet on the SpeakX checkout that lifted order creation by 79.8% and payment success by 7%, scaled to 100%." />
+  <meta name="robots" content="noindex,nofollow" /><!-- Draft — verify metrics before indexing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="/" class="nav__logo" data-magnetic>
+      <span class="dot"></span> Shashank K.
+    </a>
+    <nav class="nav__links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/work/">Work</a>
+      <a href="/case-studies/" aria-current="page">Case Studies</a>
+      <a href="/approach/">Approach</a>
+      <span class="nav__indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-toggle" aria-label="Toggle theme" data-magnetic>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="/#contact" class="btn btn--sm" data-magnetic>Let's talk</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="draft-banner" role="status">
+      <span class="draft-banner__dot" aria-hidden="true"></span>
+      <strong>Draft</strong>
+      <span>Checkout Features Bottom Sheet case study in progress. Real outcomes: +79.8% order creation rate, +7% payment success, A/B test scaled to 100%.</span>
+    </div>
+
+    <!-- 1. HERO -->
+    <div class="cs-hero" data-reveal>
+      <a href="/case-studies/" class="cs-back">← All case studies</a>
+      <span class="tag" style="margin-bottom:1.5rem; display:inline-block;">Conversion · Checkout · SpeakX · 2024</span>
+      <h1 class="hero__title hero__title--page">Reminding users what they were buying at the moment of payment: the checkout features bottom sheet</h1>
+      <p class="cs-hero__sub">On the SpeakX checkout, users were dropping at the moment of commitment. The price was visible. The CTA was visible. The <em>value</em>, what the subscription actually included, wasn't reinforced anywhere on the screen. I designed a non-blocking bottom sheet that surfaced premium features at the checkout moment, anchored beneath the price, swipe-dismissible. The A/B lifted order creation by 79.8% and payment success by 7%, and the test was scaled to 100% rollout.</p>
+    </div>
+
+    <!-- 2. TL;DR -->
+    <div class="tldr" data-reveal>
+      <div class="tldr__inner">
+        <div class="tldr__item">
+          <span class="tldr__label">Role</span>
+          <span class="tldr__value">Product Designer, end-to-end ownership</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Team</span>
+          <span class="tldr__value">1 PM (Nikita) · [X] Engineers · 1 Data Analyst</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Timeline</span>
+          <span class="tldr__value">[X weeks], discovery to ship</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Platform</span>
+          <span class="tldr__value">Android · iOS</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">My contribution</span>
+          <span class="tldr__value">Bottom-sheet flow, content hierarchy, dismiss/persist behaviour, copy</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Outcome</span>
+          <span class="tldr__value">+79.8% order created · +7% payment success · Test scaled</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. BUSINESS CONTEXT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Business Context</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">A funnel with two leaks: the mechanism of payment, and the motivation to pay.</h2>
+        <p>The <a href="/case-studies/upi-checkout/">UPI-first checkout</a> case study covers the first leak: the gateway picker was fighting India's default payment habit. This case is about the second leak, sitting on the same screen. Even when the payment <em>mechanism</em> was clean, a meaningful chunk of users still hesitated at the price block. They had reached the most expensive screen in the funnel, with the strongest intent of any prior step, and the screen offered them no reason in that moment to remember why they'd come.</p>
+        <p>The two pieces of work were complementary: UPI-first fixed the mechanism, the features bottom sheet fixed the motivation. Both attacked different parts of the same drop curve.</p>
+      </div>
+    </section>
+
+    <!-- 4. THE PROBLEM, QUANTIFIED -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">The Problem, Quantified</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Users reached the price screen, and a large fraction never tapped Pay.</h2>
+
+        <div class="callout-pair">
+          <div class="callout-pair__item">
+            <div class="callout-pair__label">Reached checkout, didn't initiate order</div>
+            <div class="callout-pair__num">large drop</div>
+          </div>
+          <div class="callout-pair__item callout-pair__item--after">
+            <div class="callout-pair__label">After bottom sheet, order rate</div>
+            <div class="callout-pair__num">+79.8%</div>
+          </div>
+        </div>
+
+        <p>The pre-redesign checkout showed the plan name, the price, a set of payment options, and a primary CTA. That was the entire screen. Nothing on it answered the question a hesitating user is silently asking: <em>what exactly am I paying for, again?</em>. The features were buried two screens back, in marketing surfaces the user had already scrolled past on their way down the funnel.</p>
+        <p>Session replays showed a recurring micro-pause: users would land on checkout, look at the price, scroll up, scroll back down, and either tap Pay or back out. The scroll-up was the user trying to remember the value proposition. We had a screen that asked for money without answering, in that exact moment, why.</p>
+      </div>
+    </section>
+
+    <!-- 5. CONSTRAINTS -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Constraints</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Add context without spending the user's attention budget.</h2>
+        <ul>
+          <li><strong>The CTA had to stay above the fold.</strong> Anything that pushed Pay below the fold would directly cost clicks. The fix could not displace the primary action.</li>
+          <li><strong>Bottom sheets are easy to abuse.</strong> Used carelessly they become noise: every screen pops one, users start dismissing them reflexively without reading. This sheet had to earn its space, appear at the right moment, and stay out of the way once dismissed.</li>
+          <li><strong>No blocking overlays.</strong> Anything that interrupted the path to Pay would read as friction. The user came to this screen ready to transact; we were reinforcing, not gating.</li>
+          <li><strong>3-second scan budget.</strong> Whatever sat in the sheet had to be parseable at a glance: feature, icon, one line. No paragraphs. No marketing prose.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. RESEARCH & THE ONE INSIGHT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Research &amp; The One Insight</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Intent decays between the marketing screen and the price screen.</h2>
+        <p>I watched [X] session recordings of users who reached the checkout and dropped without paying. The pattern wasn't price shock. It wasn't a payment-method issue either (that was the parallel UPI investigation). It was a content gap: the user had been told, two minutes ago on a marketing surface, that they'd get AI practice, grammar coaching, video reels and daily routines. By the time they hit the price screen, that list had decayed in working memory. They were now staring at a number with no fresh reason to attach to it.</p>
+        <p>The hypothesis was small: re-surface the value, in the user's eyeline, at the moment of commitment. Not as a sell. As a reminder.</p>
+
+        <div class="pullquote">
+          <p>"I forgot what was inside it. I scrolled up to check, then I closed it."</p>
+          <cite>Trial user, ₹199 plan, watching her own session replay</cite>
+        </div>
+
+        <p><strong>The reframe.</strong> Treat checkout not as a transaction screen but as the last beat of the value story. The price isn't the payload, the features are. The price is just the cost of access.</p>
+      </div>
+    </section>
+
+    <!-- 7. EXPLORATIONS -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">Explorations</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three directions explored. One shipped.</h2>
+      <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">Each was prototyped end-to-end and run past [X] users in moderated sessions before the team decision.</p>
+
+      <div class="directions">
+        <div class="direction">
+          <div class="direction__label">Direction A</div>
+          <h4>Static feature list above the price</h4>
+          <p>Inline the four core features as a static block at the top of the checkout, above the price card. Always visible, always there.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> It pushed the CTA below the fold on shorter Android devices and reduced clicks in prototype testing. Reinforcing value at the cost of the action it was reinforcing was the wrong trade.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction B</div>
+          <h4>Modal interstitial blocking the CTA</h4>
+          <p>A full-screen modal appearing once on entry, listing features, with a Continue button that dropped the user back onto checkout.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> Users perceived it as friction. In testing, several back-buttoned out of the modal entirely, exiting the flow rather than reading. A blocking screen between intent and action is taxed at the worst possible moment.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction C: Chosen</div>
+          <h4>Non-blocking bottom sheet anchored beneath the price</h4>
+          <p>A peek-style sheet anchored below the price card, content optimised for a 3-second scan: four features, four icons, one line each. Swipe-dismissible. The CTA stayed exactly where it was. Users could read the sheet and proceed, or dismiss it and proceed. Either way, they didn't have to fight it.</p>
+          <div class="direction__killed"><strong>Chosen because:</strong> It added context without spending the user's attention budget. The sheet was contextual, not blocking. It earned its space by being relevant at one specific moment (price-screen entry) and getting out of the way otherwise.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. THE DECISION + TRADE-OFF -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">The Decision</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">A peek sheet that reminds, then disappears.</h2>
+        <p>The shipped behaviour was deliberately small:</p>
+        <ul>
+          <li>The sheet appeared in its peek state on first render of the checkout, anchored beneath the price card. The CTA remained above the fold and fully tappable.</li>
+          <li>Four features (AI practice, grammar, video reels, daily routines), each a single line with a leading icon. No paragraphs. No marketing copy.</li>
+          <li>Swipe-down dismisses. Tap-on-CTA implicitly dismisses. The sheet did not re-appear within the same checkout session once dismissed.</li>
+          <li>On expand, the sheet revealed a slightly longer description per feature, capped at one short sentence. The expand was optional, not required, the peek state alone carried the message.</li>
+        </ul>
+        <p><strong>The trade-off I accepted explicitly:</strong> a sheet on the checkout, even a polite one, is still surface area. It costs a small amount of visual weight on the most important screen in the app. The bet was that the reminded users would convert at a high enough rate to justify the cost, and that the swipe-dismiss escape was strong enough to protect users who didn't need it. The A/B confirmed the bet.</p>
+      </div>
+    </section>
+
+    <!-- 9. SHIPPING REALITY -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Shipping Reality</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What shipped, what got cut, and what made it to v2.</h2>
+        <p><strong>What shipped in v1.</strong> The peek-state bottom sheet on Android and iOS, with four static features, swipe-dismiss, and per-session persistence of dismissal. Released to a 50/50 A/B against the unmodified checkout, on production traffic, for a fixed window long enough to clear the analyst's significance bar.</p>
+        <p><strong>What didn't.</strong> Personalised features by user-declared learning goal (interview prep vs. school vs. travel) was descoped to v2. The sheet was static across cohorts in v1, which meant we were leaving lift on the table for users whose primary motivation didn't match the headline feature.</p>
+        <p><strong>v2 targets.</strong> Goal-personalised feature ordering, a "see all features" expansion that links to a deeper marketing surface for hesitant users, and a renewal-flow variant tuned for users who already know the product.</p>
+      </div>
+    </section>
+
+    <!-- 10. IMPACT -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">Impact</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;max-width:22ch;">Measured on the A/B cohort, scaled to 100%.</h2>
+
+      <div class="impact-grid">
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">+79.8%</div>
+          <div class="impact-grid__label">Order created rate (A/B vs control)</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">+7%</div>
+          <div class="impact-grid__label">Payment done rate (A/B vs control)</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">100%</div>
+          <div class="impact-grid__label">Rollout reached after the test cleared</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">0</div>
+          <div class="impact-grid__label">Blocking interactions added to the path to Pay</div>
+        </div>
+      </div>
+
+      <p style="color:var(--text-muted);font-size:0.9375rem;margin-top:1.5rem;max-width:60ch;"><strong>Honest framing.</strong> A +79.8% lift is one of the largest single-design lifts in SpeakX's A/B history, but it sits on a low absolute base: the pre-test order-creation rate was small, so a lift of this size moves the absolute number by a meaningful but still-small amount. The headline is the relative lift. The work it pointed to was that the absolute conversion at this step was lower than it should be, and there was room for design to move it.</p>
+
+      <div class="pm-quote cs-content">
+        <p>"Nobody had pushed on the checkout as a content surface before. The sheet earned its place because it stayed out of the way once dismissed, and the data made the argument for us."</p>
+        <cite>Nikita · Product Manager, SpeakX</cite>
+      </div>
+    </section>
+
+    <!-- 11. REFLECTION -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Reflection</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
+        <p><strong>What I'd do differently.</strong> I'd have shipped the goal-personalised variant in v1. The static four-feature sheet performed because <em>any</em> reminder beat <em>no</em> reminder, but the lift on a personalised version would almost certainly have been larger. We left a compounding lever on the v2 backlog because the personalisation pipeline wasn't ready, and the right answer was probably to delay v1 by a sprint, not to ship the static version.</p>
+        <p><strong>What I underestimated.</strong> How well a non-blocking surface can do work that a blocking surface can't. Direction B was, on paper, the most "informative" option: a full-screen modal can show the most content. In practice, every additional unit of friction at the moment of commitment is taxed harder than I'd expected. The sheet won not because it said more, but because it cost less.</p>
+        <p><strong>What I'll carry forward.</strong> Bottom sheets aren't a default tool. They earn their space when they're contextual, dismissible, and in the user's eyeline at exactly one moment. Used otherwise, they're noise. This one earned it because it answered a question the user was already silently asking on that screen.</p>
+      </div>
+    </section>
+
+    <!-- 12. NEXT/PREV NAVIGATION -->
+    <section class="cs-section" data-reveal>
+      <div class="case-nav">
+        <a href="/case-studies/result-page-redesign/" class="case-nav__item case-nav__item--prev">
+          <span class="case-nav__dir">← Previous</span>
+          <span class="case-nav__title">Result Page Redesign</span>
+        </a>
+        <a href="/case-studies/" class="case-nav__item case-nav__item--next">
+          <span class="case-nav__dir">All →</span>
+          <span class="case-nav__title">Back to all</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 Shashank Kesarwani</div>
+    <div>Designed &amp; built by hand · <span id="yearTime"></span></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="/anime-fx.js" defer></script>
+  <script src="/script.js" defer></script>
+</body>
+</html>

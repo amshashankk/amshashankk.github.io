@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>M0 Activation Redesign at SpeakX — Shashank Kesarwani</title>
+  <meta name="description" content="Case study: a year of compounding design work on SpeakX onboarding that took Day-0 activation on the paid base from 25.5% to 60.7%." />
+  <meta name="robots" content="noindex,nofollow" /><!-- Draft — verify metrics before indexing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="/" class="nav__logo" data-magnetic>
+      <span class="dot"></span> Shashank K.
+    </a>
+    <nav class="nav__links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/work/">Work</a>
+      <a href="/case-studies/" aria-current="page">Case Studies</a>
+      <a href="/approach/">Approach</a>
+      <span class="nav__indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-toggle" aria-label="Toggle theme" data-magnetic>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="/#contact" class="btn btn--sm" data-magnetic>Let's talk</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="draft-banner" role="status">
+      <span class="draft-banner__dot" aria-hidden="true"></span>
+      <strong>Draft</strong>
+      <span>M0 Activation case study in progress. Real outcomes: M0 active 25.5% → 60.7% over 12 months, M0 minutes ~3×, DAU/MAU 9.1% → 17.5%.</span>
+    </div>
+
+    <!-- 1. HERO -->
+    <div class="cs-hero" data-reveal>
+      <a href="/case-studies/" class="cs-back">← All case studies</a>
+      <span class="tag" style="margin-bottom:1.5rem; display:inline-block;">Activation · Engagement · SpeakX · 2025–2026</span>
+      <h1 class="hero__title hero__title--page">Activation, year over year: taking day-zero engagement from 25% to 60% on a paid base</h1>
+      <p class="cs-hero__sub">Across Feb 2025 → Feb 2026, the share of paid users who actually started a lesson on Day 0 went from 25.5% to 60.7%. Average M0 minutes nearly tripled. None of that came from a single shipped feature. It came from twelve months of slow, iterative work on the onboarding-to-first-lesson path. This is the honest version of how that happened, and which parts I can fairly claim as design's contribution.</p>
+    </div>
+
+    <!-- 2. TL;DR -->
+    <div class="tldr" data-reveal>
+      <div class="tldr__inner">
+        <div class="tldr__item">
+          <span class="tldr__label">Role</span>
+          <span class="tldr__value">Product Designer, activation-flow ownership</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Team</span>
+          <span class="tldr__value">1 PM · [X] Engineers · 1 Data Analyst</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Timeline</span>
+          <span class="tldr__value">~12 months of iteration (Q1 2025 → Q1 2026)</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Platform</span>
+          <span class="tldr__value">Android · iOS</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">My contribution</span>
+          <span class="tldr__value">Onboarding flow, intent capture, first-lesson recommendation, milestone/streak design</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Outcome</span>
+          <span class="tldr__value">M0 active 25.5% → 60.7% · M0 minutes 36 → 101 · DAU/MAU 9.1% → 17.5%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. BUSINESS CONTEXT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Business Context</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">CAC tripled. The funnel had to do more work, not less.</h2>
+        <p>Through 2025 SpeakX's paid acquisition costs roughly tripled. The same ad rupee was buying a colder, less qualified user. The PM team's read was unambiguous: we couldn't keep paying more for users who never came back after Day 0. The conversation moved from "how do we acquire" to "how do we make the user we just paid for actually stick".</p>
+        <p>Activation became the focal metric. Specifically: <strong>M0 Active</strong>, the percentage of paid users who actually started a lesson on the day they paid. It was the cleanest leading indicator we had for retention, renewal, and unit economics, and in Feb 2025 it sat at 25.5%. Three out of four people we'd just paid to acquire were paying us and then leaving without ever using the product.</p>
+      </div>
+    </section>
+
+    <!-- 4. THE PROBLEM, QUANTIFIED -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">The Problem, Quantified</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Users were paying, then drifting. The first lesson was where the funnel went quiet.</h2>
+
+        <div class="callout-pair">
+          <div class="callout-pair__item">
+            <div class="callout-pair__label">M0 Active, Feb 2025</div>
+            <div class="callout-pair__num">25.5%</div>
+          </div>
+          <div class="callout-pair__item callout-pair__item--after">
+            <div class="callout-pair__label">M0 Active, Feb 2026</div>
+            <div class="callout-pair__num">60.7%</div>
+          </div>
+        </div>
+
+        <p>The pre-redesign onboarding was a generic "sign up → land on a catalogue" path. Users picked from a long list of lessons with no signal about why any of them were right for <em>them</em>. Even the ones who started a lesson dropped off mid-way: M0 minutes spent averaged 36 in Feb 2025, which on a 20-minute first lesson meant most users barely cleared one session.</p>
+        <p>The data made three things obvious. The catalogue was overwhelming for a Day-0 user. The system had no idea why anyone had paid (was it for a job interview, a school exam, just for fun?), so its recommendations were generic. And there was no return loop: nothing pulled the user back on Day 1, so M0 minutes had to do all the retention work alone.</p>
+      </div>
+    </section>
+
+    <!-- 5. CONSTRAINTS -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Constraints</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Twelve months, two platforms, no big-bang releases.</h2>
+        <ul>
+          <li><strong>No single-shot redesign.</strong> The team was shipping weekly across activation, content, and pricing. The activation flow had to evolve in small increments that each held their own. A big-bang launch would have collided with everyone else's work.</li>
+          <li><strong>Android-first, iOS shadow.</strong> Most experiments ran on Android (larger volume, faster build cycle), then ported to iOS once the variant won. The design had to translate cleanly across both without diverging.</li>
+          <li><strong>Cohort metric, not A/B.</strong> Most of the win is observable as a cohort trend across the year, not as a single controlled experiment. We had per-step A/B data for individual changes, but the headline number is a year-on-year comparison, which means I have to be careful about what design alone can claim.</li>
+          <li><strong>Quality, not vanity.</strong> M0 minutes is gameable: a long, padded first lesson can inflate it without producing real engagement. We had to keep watching renewal at M1 to make sure the activated users were sticky, not just front-loaded.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. RESEARCH & THE ONE INSIGHT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Research &amp; The One Insight</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Users didn't want lessons. They wanted progress on a reason they already had.</h2>
+        <p>We started running an open-ended "why did you sign up?" prompt in onboarding and clustered the answers. The clusters were sharp: <em>job_interview</em>, <em>higher_education</em>, <em>workplace_communication</em>, <em>just_for_fun</em>, <em>travel</em>. Users weren't fuzzy about their reason. They had it on Day 0, before they paid. The product just wasn't asking.</p>
+        <p>I sat in on [X] onboarding sessions. The pattern across all of them: users would land on the catalogue, hesitate, scan a few titles, and quietly close the app. None of the lessons were <em>wrong</em>. They just weren't recognisably theirs. A user signed up because of an upcoming interview; the home screen showed her "Daily Conversation Practice, Episode 14".</p>
+
+        <div class="pullquote">
+          <p>"I thought it would ask me what I needed it for. It just gave me everything."</p>
+          <cite>Trial user, ₹299 plan, ahead of a campus placement</cite>
+        </div>
+
+        <p><strong>The reframe.</strong> Stop treating onboarding as account creation. Treat it as the first conversation: capture the reason, then make the very first lesson recognisably about that reason, then end it with a milestone the user wants to come back and continue. Activation and retention are the same designed moment, just split across two days.</p>
+      </div>
+    </section>
+
+    <!-- 7. EXPLORATIONS -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">Explorations</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three directions explored across the year. One compounded.</h2>
+      <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">Each was prototyped, partially shipped, or A/B tested at some point in the twelve months. The compounding direction is the one we kept building on.</p>
+
+      <div class="directions">
+        <div class="direction">
+          <div class="direction__label">Direction A</div>
+          <h4>Generic onboarding: collect demographic info, skip intent</h4>
+          <p>Ask for age, city, and English level. Use those signals to recommend a first lesson. Faster to build because the data was already structured, no new taxonomy needed.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> demographics aren't intent. Two users with identical age and English level can want completely different things: one is preparing for an interview next week, one is bored on a commute. The recommendations stayed generic, and M0 active barely moved.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction B</div>
+          <h4>Heavy first-lesson: long, comprehensive intro</h4>
+          <p>If we could get the user to spend 20+ minutes on Day 0, the metric would move. So: design a long, comprehensive first lesson that covers core skills.</p>
+          <div class="direction__killed"><strong>Killed because:</strong> completion rate dropped sharply. Day-0 minutes is not the same as Day-0 quality. We were measuring the wrong thing. A 25-minute lesson that the user abandoned at minute 12 looks better in raw minutes than a 10-minute lesson they finished, but the second user comes back and the first doesn't.</div>
+        </div>
+        <div class="direction">
+          <div class="direction__label">Direction C: Chosen</div>
+          <h4>Intent-first onboarding → personalised first lesson → milestone reveal</h4>
+          <p>Ask the user their reason on screen one (job_interview, higher_education, workplace, just_for_fun, travel). Use that to pick a short, recognisable first lesson aimed at exactly that reason. End the lesson with a visible milestone (a streak start, a unit-progress bar, an unlocked next lesson) so the user has a reason to come back tomorrow.</p>
+          <div class="direction__killed"><strong>Chosen because:</strong> it stitched together the activation moment (start a lesson on Day 0) and the retention moment (return on Day 1) into one designed experience. It also gave us a structured signal, the intent tag, that the rest of the product (recommendations, push, email) could keep using forever, not just on Day 0.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. THE DECISION + TRADE-OFF -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">The Decision</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Capture the reason, recommend on the reason, end on a milestone.</h2>
+        <p>What landed across the year, in the order it shipped:</p>
+        <ul>
+          <li><strong>Intent capture in onboarding.</strong> A single screen, one question, five tappable reasons. No skip. The output became a first-class user attribute the rest of the product could read.</li>
+          <li><strong>Intent-aware first-lesson recommendation.</strong> Each reason mapped to a curated short first lesson, 8–12 minutes, recognisably on-topic ("Answering the 'Tell me about yourself' question" for job_interview, not "Daily Conversation Practice").</li>
+          <li><strong>Milestone reveal at lesson end.</strong> A streak start, a visible "1 of 12 in your interview prep path", and an explicit next-lesson preview. The user finishes Day 0 with a reason to open the app on Day 1.</li>
+          <li><strong>Recommendation refinements.</strong> Quarter by quarter, the data analyst and I tuned which lessons paired with which intent tag based on completion and Day-1 return.</li>
+        </ul>
+        <p><strong>The honest framing.</strong> CAC tripling, content depth, pricing changes, and a stronger team all helped. Design's specific contribution was the funnel-side response: building the activation flow that converted whatever traffic the new CAC was buying into actually-active users. I claim the funnel mechanics and the intent taxonomy. I don't claim the full 25.5 → 60.7 by myself.</p>
+      </div>
+    </section>
+
+    <!-- 9. SHIPPING REALITY -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Shipping Reality</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Twelve months of small wins, not one big launch.</h2>
+        <p><strong>What shipped, when.</strong> Q1 2025: intent capture screen v1 (three options, no recommendations on the back-end yet, just collecting). Q2: intent-aware first-lesson mapping for job_interview and higher_education, the two largest clusters. Q3: milestone reveal at lesson end, streak system, Day-1 push tied to the user's intent. Q4: extended intent taxonomy to five categories, refined the Q2 mappings based on completion data, ported all of it to iOS.</p>
+        <p><strong>What got cut.</strong> A more elaborate "learning plan" reveal at the end of Day 0: too much to read after a first lesson, dropped completion. A second intent-capture moment on Day 7: felt like re-onboarding, killed in usability testing.</p>
+        <p><strong>The Green Cohort.</strong> Somewhere mid-year, the data analyst started slicing on "users who hit M0 active and one Day-1 return". That cohort sat at ~80% M0 active versus ~50–60% for the base, with a +3–6 point lift on M1 renewal. It became the segment the team optimised against, a measurable definition of "engaged paid user" that came directly out of this work.</p>
+      </div>
+    </section>
+
+    <!-- 10. IMPACT -->
+    <section class="cs-section" data-reveal>
+      <span class="eyebrow">Impact</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;max-width:22ch;">Year-on-year cohort movement, Feb 2025 → Feb 2026.</h2>
+
+      <div class="impact-grid">
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">25.5% → 60.7%</div>
+          <div class="impact-grid__label">M0 Active: paid users who started a lesson on Day 0 (>2× over 12 months)</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">36 → 101 min</div>
+          <div class="impact-grid__label">Average M0 minutes spent: ~3× deeper Day-0 engagement</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">9.1% → 17.5%</div>
+          <div class="impact-grid__label">DAU/MAU (WAU/MAU 37.6% → 51.9%) over the same window</div>
+        </div>
+        <div class="impact-grid__item">
+          <div class="impact-grid__num">~61% → ~60%</div>
+          <div class="impact-grid__label">M1 renewal held flat as activation doubled, new actives weren't churn-prone</div>
+        </div>
+      </div>
+
+      <div class="pm-quote cs-content">
+        <p>"The activation flow stopped being a list and started being a path. That's what made the year-on-year numbers possible. Once intent was a first-class signal, the whole product could finally talk to the user about what they actually came for."</p>
+        <cite>Nikita · Product Manager, SpeakX</cite>
+      </div>
+    </section>
+
+    <!-- 11. REFLECTION -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Reflection</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
+        <p><strong>Where I have to be honest.</strong> Twelve months is long enough that a lot of things changed at once: content depth, pricing experiments, ad creative, the team itself. A clean A/B counterfactual for the full 25.5 → 60.7 doesn't exist. What I can defend is the per-step lift on intent capture, the completion lift on intent-mapped first lessons, and the Day-1 return lift on milestone reveal. Stitched together, those are the funnel-side response to a tripling CAC. The rest is product maturity, and I want to name that rather than dress it up.</p>
+        <p><strong>What I'd do differently.</strong> Ship intent capture and the recommendation back-end together, not three months apart. Collecting intent for a quarter without using it felt responsible ("let's get the data first") but it cost us a quarter of compounding learning on which mappings actually worked.</p>
+        <p><strong>What I'll carry forward.</strong> Activation and retention aren't separate problems. The Day-0 lesson and the Day-1 return are one designed moment with a sleep in the middle. If you treat them as one surface, you can move both with the same intervention. If you treat them as two, you'll over-invest in one and watch the other quietly leak.</p>
+      </div>
+    </section>
+
+    <!-- 12. NEXT/PREV NAVIGATION -->
+    <section class="cs-section" data-reveal>
+      <div class="case-nav">
+        <a href="/case-studies/read-along-gamified/" class="case-nav__item case-nav__item--prev">
+          <span class="case-nav__dir">← Previous</span>
+          <span class="case-nav__title">Read-along Gamified A/B test</span>
+        </a>
+        <a href="/case-studies/" class="case-nav__item case-nav__item--next">
+          <span class="case-nav__dir">All →</span>
+          <span class="case-nav__title">Back to all</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 Shashank Kesarwani</div>
+    <div>Designed &amp; built by hand · <span id="yearTime"></span></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="/anime-fx.js" defer></script>
+  <script src="/script.js" defer></script>
+</body>
+</html>
