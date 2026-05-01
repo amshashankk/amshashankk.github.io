@@ -439,45 +439,6 @@
       }
     }
 
-    // ==========================================================
-    // G. PAGE-ENTER STAGGERED CASCADE
-    // After the CSS page--entering animation clears (~700ms) plus
-    // a small offset, stagger-reveal top-level <section> children
-    // of <main>.
-    // ==========================================================
-    if (!reducedMotion) {
-      setTimeout(function () {
-        var mainEl   = document.querySelector('main');
-        if (!mainEl) return;
-        // Direct <section> children only
-        var sections = Array.from(mainEl.children).filter(function (child) {
-          return child.tagName === 'SECTION';
-        });
-        if (!sections.length) return;
-
-        // Only animate sections that haven't already been revealed
-        sections.forEach(function (sec) {
-          if (sec.style.opacity === '' || sec.style.opacity === '1') {
-            sec.style.opacity  = '0';
-            sec.style.transform = 'translateY(16px)';
-          }
-        });
-
-        anime({
-          targets:    sections,
-          opacity:    [0, 1],
-          translateY: [16, 0],
-          delay:      anime.stagger(120, { start: 300 }),
-          duration:   700,
-          easing:     'easeOutCubic',
-          complete:   function () {
-            sections.forEach(function (sec) {
-              sec.style.transform = '';
-            });
-          }
-        });
-      }, 400);
-    }
 
     // ==========================================================
     // H. CASE STUDY FILTER CHIPS

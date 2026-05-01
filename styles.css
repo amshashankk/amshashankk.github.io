@@ -486,11 +486,9 @@ body.cursor--lg .cursor {
 
 /* --- Hero --- */
 .hero {
-  min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: clamp(5rem, 10vw, 8rem) clamp(1.25rem, 5vw, 3rem) clamp(2rem, 4vw, 4rem);
+  padding: clamp(5.5rem, 9vw, 7rem) clamp(1.25rem, 5vw, 3rem) clamp(2rem, 4vw, 4rem);
   max-width: 1200px;
   margin-inline: auto;
 }
