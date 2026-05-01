@@ -3616,7 +3616,18 @@ body:has(.not-found) .footer {
   box-shadow:
     0 0 0 2px rgba(255, 113, 0, 0.25),
     0 0 12px rgba(255, 113, 0, 0.6),
-    0 0 28px rgba(199, 255, 74, 0.5);
+    0 0 28px rgba(255, 113, 0, 0.4);
+}
+[data-theme="light"] .nf-star__core::before,
+[data-theme="light"] .nf-star__core::after {
+  background: rgba(255, 113, 0, 0.6);
+}
+[data-theme="light"] .nf-star:hover .nf-star__core,
+[data-theme="light"] .nf-star:focus-visible .nf-star__core {
+  box-shadow:
+    0 0 0 4px rgba(255, 113, 0, 0.28),
+    0 0 24px rgba(255, 113, 0, 0.85),
+    0 0 56px rgba(255, 113, 0, 0.5);
 }
 [data-theme="light"] .nf-star__label {
   background: #ffffff;
@@ -3678,12 +3689,12 @@ body:has(.not-found) .footer {
   50%      { box-shadow: 0 0 0 8px rgba(199, 255, 74, 0.05); }
 }
 [data-theme="light"] .not-found__banner {
-  background: linear-gradient(
-    90deg,
-    rgba(199, 255, 74, 0.4) 0%,
-    rgba(199, 255, 74, 0.18) 100%
-  );
+  background: #ffffff;
   border-color: var(--accent-brand-deep);
+}
+[data-theme="light"] .not-found__banner-dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 113, 0, 0.18);
 }
 [data-theme="light"] .not-found__banner strong {
   color: var(--accent);
@@ -3985,8 +3996,9 @@ body:has(.not-found) .footer {
   color: var(--text);
 }
 [data-theme="light"] .btn--ghost:hover {
-  border-color: var(--text);
-  background: #f4f4f1;
+  border-color: #ff7100;
+  background: #ff7100;
+  color: #ffffff;
 }
 
 /* Nav — solid backdrop so links don't fade into page on scroll */

@@ -155,8 +155,8 @@
           var theta = armAngle + twist + jitter;
           // Brightness: brighter near core, dimmer at edge
           var brightness = (1 - t) * 0.7 + Math.random() * 0.3;
-          // Some rare lime stars; most white
-          var lime = Math.random() < 0.12;
+          // All stars white
+          var lime = false;
           stars.push({
             r: r,
             theta: theta,
@@ -212,10 +212,10 @@
           ctx.fill();
         }
 
-        // Soft lime core glow
+        // Soft white core glow
         var grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.min(w, h) * 0.35);
-        grad.addColorStop(0, 'rgba(199, 255, 74, 0.05)');
-        grad.addColorStop(1, 'rgba(199, 255, 74, 0)');
+        grad.addColorStop(0, 'rgba(255, 255, 255, 0.05)');
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, w, h);
 
