@@ -569,7 +569,7 @@ body.cursor--lg .cursor {
 }
 
 .proof__item:nth-child(2n) { border-right: none; }
-.proof__item:nth-child(3), .proof__item:nth-child(4) { border-bottom: none; }
+.proof__item:nth-child(3) { grid-column: 1 / -1; border-right: none; border-bottom: none; }
 
 .proof__num {
   font-size: clamp(2rem, 5vw, 3.25rem);
@@ -595,12 +595,10 @@ body.cursor--lg .cursor {
 
 @media (min-width: 768px) {
   .proof {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
-  .proof__item:nth-child(3), .proof__item:nth-child(4) { border-right: none; }
-  .proof__item:nth-child(3) { border-right: 1px solid var(--border); }
-  .proof__item:last-child { border-right: none; }
-  .proof__item { border-bottom: none; }
+  .proof__item { border-right: 1px solid var(--border); border-bottom: none; }
+  .proof__item:nth-child(3) { grid-column: auto; border-right: none; }
 }
 
 /* --- Marquee --- */
@@ -2122,8 +2120,8 @@ main.page--leaving {
 
 /* --- Case study extras --- */
 .cs-hero {
-  padding: clamp(6rem, 10vw, 9rem) clamp(1.25rem, 5vw, 3rem) clamp(2rem, 4vw, 3.5rem);
-  max-width: 1200px;
+  padding: clamp(4rem, 7vw, 6rem) clamp(1.25rem, 5vw, 3rem) clamp(2rem, 4vw, 3.5rem);
+  max-width: clamp(40rem, 75vw, 72rem);
   margin-inline: auto;
 }
 
@@ -2143,18 +2141,18 @@ main.page--leaving {
 .cs-back:hover { color: var(--text); }
 
 .cs-hero h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  margin-bottom: 1rem;
-  max-width: 22ch;
+  font-size: clamp(1.875rem, 3.6vw, 3rem);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+  max-width: 26ch;
 }
 
 .cs-hero__sub {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(1rem, 1.5vw, 1.1875rem);
   color: var(--text-muted);
-  max-width: 48ch;
-  line-height: 1.6;
+  max-width: 60ch;
+  line-height: 1.65;
 }
 
 /* --- TL;DR card --- */
@@ -2393,7 +2391,7 @@ main.page--leaving {
 }
 
 .cs-content {
-  max-width: 720px;
+  width: 100%;
 }
 
 .cs-content p {
@@ -2401,6 +2399,7 @@ main.page--leaving {
   line-height: 1.75;
   color: var(--text-muted);
   margin-bottom: 1.125rem;
+  max-width: none;
 }
 
 .cs-content p strong { color: var(--text); font-weight: 500; }
@@ -2414,18 +2413,27 @@ main.page--leaving {
 }
 
 .cs-content ul li {
-  display: flex;
-  gap: 0.75rem;
+  display: block;
+  position: relative;
+  padding-left: 1.5rem;
   font-size: 1.0625rem;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.7;
+  max-width: none;
 }
 
 .cs-content ul li::before {
   content: '—';
+  position: absolute;
+  left: 0;
+  top: 0;
   font-family: 'JetBrains Mono', monospace;
   color: var(--accent);
-  flex-shrink: 0;
+}
+
+.cs-content ul li strong {
+  color: var(--text);
+  font-weight: 600;
 }
 
 .callout-pair {
@@ -2572,11 +2580,11 @@ main.page--leaving {
 }
 
 .cs-hero .hero__title--page {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
   letter-spacing: -0.025em;
-  line-height: 1.08;
-  margin-bottom: 1rem;
-  max-width: 26ch;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  max-width: 32ch;
   text-wrap: balance;
   word-spacing: -0.02em;
 }
@@ -3025,7 +3033,8 @@ a:hover .tag--mini,
 }
 
 .approach-section__inner {
-  max-width: 720px;
+  max-width: clamp(40rem, 75vw, 64rem);
+  margin-inline: auto;
 }
 
 .approach-section h2 {
@@ -3407,7 +3416,7 @@ p, li, .timeline__summary, .page-intro__sub, .cs-hero__sub,
 }
 
 p, .about__body p, .approach-section p {
-  max-width: 65ch;
+  max-width: 75ch;
 }
 
 /* Vertical rhythm — section heads always have breathing room */

@@ -146,34 +146,6 @@
       </div>
     </section>
 
-    <!-- 7. EXPLORATIONS -->
-    <section class="cs-section" data-reveal>
-      <span class="eyebrow">Explorations</span>
-      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three directions explored across the year. One compounded.</h2>
-      <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">Each was prototyped, partially shipped, or A/B tested at some point in the twelve months. The compounding direction is the one we kept building on.</p>
-
-      <div class="directions">
-        <div class="direction">
-          <div class="direction__label">Direction A</div>
-          <h4>Generic onboarding: collect demographic info, skip intent</h4>
-          <p>Ask for age, city, and English level. Use those signals to recommend a first lesson. Faster to build because the data was already structured, no new taxonomy needed.</p>
-          <div class="direction__killed"><strong>Killed because:</strong> demographics aren't intent. Two users with identical age and English level can want completely different things: one is preparing for an interview next week, one is bored on a commute. The recommendations stayed generic, and M0 active barely moved.</div>
-        </div>
-        <div class="direction">
-          <div class="direction__label">Direction B</div>
-          <h4>Heavy first-lesson: long, comprehensive intro</h4>
-          <p>If we could get the user to spend 20+ minutes on Day 0, the metric would move. So: design a long, comprehensive first lesson that covers core skills.</p>
-          <div class="direction__killed"><strong>Killed because:</strong> completion rate dropped sharply. Day-0 minutes is not the same as Day-0 quality. We were measuring the wrong thing. A 25-minute lesson that the user abandoned at minute 12 looks better in raw minutes than a 10-minute lesson they finished, but the second user comes back and the first doesn't.</div>
-        </div>
-        <div class="direction">
-          <div class="direction__label">Direction C: Chosen</div>
-          <h4>Intent-first onboarding → personalised first lesson → milestone reveal</h4>
-          <p>Ask the user their reason on screen one (job_interview, higher_education, workplace, just_for_fun, travel). Use that to pick a short, recognisable first lesson aimed at exactly that reason. End the lesson with a visible milestone (a streak start, a unit-progress bar, an unlocked next lesson) so the user has a reason to come back tomorrow.</p>
-          <div class="direction__killed"><strong>Chosen because:</strong> it stitched together the activation moment (start a lesson on Day 0) and the retention moment (return on Day 1) into one designed experience. It also gave us a structured signal, the intent tag, that the rest of the product (recommendations, push, email) could keep using forever, not just on Day 0.</div>
-        </div>
-      </div>
-    </section>
-
     <!-- 8. THE DECISION + TRADE-OFF -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">

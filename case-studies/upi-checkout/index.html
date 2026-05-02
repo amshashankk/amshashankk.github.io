@@ -146,34 +146,6 @@
       </div>
     </section>
 
-    <!-- 7. EXPLORATIONS -->
-    <section class="cs-section" data-reveal>
-      <span class="eyebrow">Explorations</span>
-      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three directions explored. One shipped.</h2>
-      <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">Each was prototyped end-to-end and run past [X] users in moderated sessions before the team decision.</p>
-
-      <div class="directions">
-        <div class="direction">
-          <div class="direction__label">Direction A</div>
-          <h4>Smart-default: UPI pre-selected, full method list visible</h4>
-          <p>Keep the existing checkout layout but pre-select UPI and reorder the list to put UPI first. Minimal engineering scope.</p>
-          <div class="direction__killed"><strong>Killed because:</strong> The decision was still on screen. Users still scanned the list, still hesitated. Pre-selection without removing the picker doesn't change behaviour. It just changes the default if you ignore the picker, which is exactly what we couldn't trust users to do.</div>
-        </div>
-        <div class="direction">
-          <div class="direction__label">Direction B</div>
-          <h4>UPI-only checkout: strip everything else</h4>
-          <p>Hard re-default: UPI app launcher only, with cards and netbanking removed entirely. Maximum simplicity.</p>
-          <div class="direction__killed"><strong>Killed because:</strong> Long-tail revenue. Older users on higher price points (₹999–₹5,000) skewed toward cards. Removing them would have moved the average conversion up and the absolute revenue down.</div>
-        </div>
-        <div class="direction">
-          <div class="direction__label">Direction C: Chosen</div>
-          <h4>Video-led UPI-first checkout with a "Change UPI app" escape</h4>
-          <p>The screen leads with a short product video sitting over the price, building trust and reminding users what they're paying for at the exact moment of friction. Below the video: one primary CTA ("Pay via UPI") that opens the user's chosen UPI app, and a secondary "Change UPI app" link. Other rails (cards, netbanking) sit behind a single "Other payment options" expander.</p>
-          <div class="direction__killed"><strong>Chosen because:</strong> It re-defaulted the head of the distribution without amputating the long tail. The video did emotional work the funnel couldn't: a 6-second reminder of value at the highest-friction moment. The "Change UPI app" link respected that users have a preferred app and shouldn't have to fight the OS chooser.</div>
-        </div>
-      </div>
-    </section>
-
     <!-- 8. THE DECISION + TRADE-OFF -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">

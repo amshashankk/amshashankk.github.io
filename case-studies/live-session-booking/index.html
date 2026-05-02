@@ -146,34 +146,6 @@
       </div>
     </section>
 
-    <!-- 7. EXPLORATIONS -->
-    <section class="cs-section" data-reveal>
-      <span class="eyebrow">Explorations</span>
-      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three directions explored. One shipped.</h2>
-      <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">Each was prototyped end-to-end and run past [X] users in moderated sessions before the team decision.</p>
-
-      <div class="directions">
-        <div class="direction">
-          <div class="direction__label">Direction A</div>
-          <h4>Static "weekly schedule" page: full list of upcoming sessions</h4>
-          <p>A scrollable list of all upcoming sessions across the next seven days, sorted by start time. User scrolls, finds something that fits, taps to book. Fastest to build.</p>
-          <div class="direction__killed"><strong>Killed because:</strong> No personalisation. Users hit a wall of slots (Tuesday 6:00, Tuesday 6:30, Tuesday 7:00, Wednesday 9:00) and bounced before scrolling far enough to find their preferred day. The list pattern punished the exact behaviour we'd seen in research: thinking by day first.</div>
-        </div>
-        <div class="direction">
-          <div class="direction__label">Direction B</div>
-          <h4>Modal-only quick-book: tap-to-book the next available slot</h4>
-          <p>A single "Book your live session" button anywhere in the app. Tap it, get the next open slot in a modal, confirm or cancel. No calendar, no choosing. Maximum simplicity.</p>
-          <div class="direction__killed"><strong>Killed because:</strong> Users wanted to choose. The next available slot was almost never the slot they wanted; it was the slot the supply system happened to expose. In testing, users would cancel the modal and look for "the actual booking page", because being handed a single time felt like being told what to do, not asked.</div>
-        </div>
-        <div class="direction">
-          <div class="direction__label">Direction C: Chosen</div>
-          <h4>Calendar-first booking flow: date picker, slot list per date, confirmation modal</h4>
-          <p>A horizontal date strip across the top (today + next 6 days), a list of open slots for the selected date below, and a confirmation modal with a countdown to session start once the user committed. "Watch Now" appeared as a separate jump-in for sessions starting within 15 minutes.</p>
-          <div class="direction__killed"><strong>Chosen because:</strong> It matched how users think about scheduling, around their week, and let supply structure (tutor availability) sit invisibly underneath. Showing only open slots per day did the pacing work the constraint demanded: a fully-booked Saturday simply showed an empty state with a nudge to try Sunday, instead of letting users hit a "slot taken" error after committing.</div>
-        </div>
-      </div>
-    </section>
-
     <!-- 8. THE DECISION + TRADE-OFF -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
