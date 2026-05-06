@@ -1061,6 +1061,10 @@ body.cursor--lg .cursor {
   letter-spacing: 0.04em;
 }
 
+.footer__visits {
+  opacity: 0.6;
+}
+
 /* --- Reveal animation --- */
 [data-reveal] {
   opacity: 0;

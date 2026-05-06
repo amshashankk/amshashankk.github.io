@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dalvoy, 0→1: building an EdTech product that retains and grows organically · Shashank Kesarwani</title>
+  <meta name="description" content="Case study (in progress): Dalvoy, the 0→1 EdTech product I'm currently building. Day-30 retention 3% to 10%, 2× MoM growth, 30%+ organic, CPA under $0.10." />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="/" class="nav__logo" data-magnetic>
+      <span class="dot"></span> Shashank K.
+    </a>
+    <nav class="nav__links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/work/">Work</a>
+      <a href="/case-studies/" aria-current="page">Case Studies</a>
+      <!-- <a href="/approach/">Approach</a> -->
+      <span class="nav__indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-toggle" aria-label="Toggle theme" data-magnetic>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="/#contact" class="btn btn--sm" data-magnetic>Let's talk</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="draft-banner" role="status">
+      <span class="draft-banner__dot" aria-hidden="true"></span>
+      <strong>Draft</strong>
+      <span>Dalvoy 0→1 case study in progress. Live metrics: D30 retention 3% → 10%, 2× MoM growth, 30%+ organic, CPA under $0.10.</span>
+    </div>
+
+    <!-- 1. HERO -->
+    <div class="cs-hero" data-reveal>
+      <a href="/case-studies/" class="cs-back">← All case studies</a>
+      <span class="tag" style="margin-bottom:1.5rem; display:inline-block;">0→1 · EdTech · Dalvoy · 2025–2026</span>
+      <h1 class="hero__title hero__title--page">Dalvoy, 0→1: building an EdTech product that retains and grows organically</h1>
+      <p class="cs-hero__sub">Dalvoy is the product I'm currently building from zero. After five years shipping at SpeakX and Vaipra, I wanted to test whether the activation and funnel discipline I'd learned would compound on a product I got to define from scratch, with no warm distribution and no marketing budget to lean on. The early signal is the strongest I've worked with: Day-30 retention has tripled, growth is doubling MoM, and most of it is organic.</p>
+    </div>
+
+    <!-- 2. TL;DR -->
+    <div class="tldr" data-reveal>
+      <div class="tldr__inner">
+        <div class="tldr__item">
+          <span class="tldr__label">Role</span>
+          <span class="tldr__value">Founding Designer / Product Lead</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Team</span>
+          <span class="tldr__value">5 people: Founder, Co-Founder, 2 Engineers, me (Product Designer)</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Platform</span>
+          <span class="tldr__value">Android · iOS</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">My contribution</span>
+          <span class="tldr__value">Product strategy, full design ownership, activation funnel, growth loops</span>
+        </div>
+        <div class="tldr__item">
+          <span class="tldr__label">Outcome</span>
+          <span class="tldr__value">D30 retention 3% → 10% · 2× MoM growth · 30%+ organic · CPA under $0.10</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. BUSINESS CONTEXT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Business Context</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">A consumer EdTech product, built from zero, without warm distribution.</h2>
+        <p>Dalvoy is a consumer EdTech product I'm building from scratch. The thesis is simple: the category is full of products that win on paid acquisition and lose on retention. I wanted to invert that order. Build something where the loop runs on usage and word-of-mouth first, and only layer paid on top once the underlying retention curve is real.</p>
+        <p>This is a 0→1 project. No existing user base, no installed brand, no warm distribution. Every install has to be earned, and every retained user has to come back because the product itself is doing the work. The constraint is honest, and it forces every design decision to defend itself on activation, habit, or referral, not on a marketing line.</p>
+      </div>
+    </section>
+
+    <!-- 4. WHERE IT STANDS TODAY -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">Where it stands today</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The early signal is the strongest I've worked with.</h2>
+
+        <div class="callout-pair">
+          <div class="callout-pair__item">
+            <div class="callout-pair__label">Day-30 retention, at start</div>
+            <div class="callout-pair__num">3%</div>
+          </div>
+          <div class="callout-pair__item callout-pair__item--after">
+            <div class="callout-pair__label">Day-30 retention, today (still rising)</div>
+            <div class="callout-pair__num">10%</div>
+          </div>
+        </div>
+
+        <p>Retention is the metric I trust most at this stage. It tells me whether the product is actually doing something the user values once the install novelty is gone. Tripling D30 over a small number of cycles, while the curve still trends up, says the activation and habit work is compounding rather than topping out.</p>
+
+        <div class="callout-pair">
+          <div class="callout-pair__item">
+            <div class="callout-pair__label">Growth, week-over-week</div>
+            <div class="callout-pair__num">~25%</div>
+          </div>
+          <div class="callout-pair__item callout-pair__item--after">
+            <div class="callout-pair__label">Growth, month-over-month</div>
+            <div class="callout-pair__num">2×</div>
+          </div>
+        </div>
+
+        <p>Growth at 2× MoM with ~25% WoW is the kind of curve that only holds when retention is real. The shape isn't from a paid push: more than 30% of acquisition is organic, and CPA on the paid side sits under $0.10. The unit economics don't depend on a marketing budget I don't have, which is the whole point.</p>
+      </div>
+    </section>
+
+    <!-- 5. WHAT I'M WORKING ON NEXT -->
+    <section class="cs-section" data-reveal>
+      <div class="cs-content">
+        <span class="eyebrow">What I'm working on next</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The open problems, in order of leverage.</h2>
+        <ul>
+          <li><strong>Push D30 past 15%.</strong> The curve is still climbing. The next set of activation experiments targets the day 3 to day 7 window, where most of the drop still happens.</li>
+          <li><strong>Engineer the organic share above 50%.</strong> Tightening the referral and share loops so the product creates its own distribution surface, not just its own retention.</li>
+          <li><strong>Hold CPA below $0.10 at 5× the current spend.</strong> Testing whether the acquisition efficiency is a small-numbers artefact or a structural property of the funnel.</li>
+          <li><strong>Map the first monetisation surface.</strong> Designed to sit on top of habit, not in front of it. Retention has to lead, not the paywall.</li>
+          <li><strong>Write this case study properly.</strong> Once the product has a stable v1 and the metrics have held for another two cycles, I'll replace this stub with the full activation and growth-loop deep-dive.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. NEXT/PREV NAVIGATION -->
+    <section class="cs-section" data-reveal>
+      <div class="case-nav">
+        <a href="/case-studies/checkout-features-bottomsheet/" class="case-nav__item case-nav__item--prev">
+          <span class="case-nav__dir">← Previous</span>
+          <span class="case-nav__title">Checkout Features Bottom Sheet</span>
+        </a>
+        <a href="/case-studies/" class="case-nav__item case-nav__item--next">
+          <span class="case-nav__dir">All →</span>
+          <span class="case-nav__title">Back to all</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 Shashank Kesarwani</div>
+    <div>Designed &amp; built by hand · <span id="yearTime"></span></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="/anime-fx.js" defer></script>
+  <script src="/script.js" defer></script>
+</body>
+</html>

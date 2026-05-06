@@ -4,9 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reducing Membership Cancellations at SpeakX — Shashank Kesarwani</title>
-  <meta name="description" content="Case study (in progress): How I designed SpeakX's exit-intent and membership retention surfaces — driving −4% churn and +4% D1 retention." />
-  <meta name="robots" content="noindex,nofollow" /><!-- Draft — keep out of Google until placeholder metrics are filled in -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <meta name="description" content="Case study (in progress): How I designed SpeakX's exit-intent and membership retention surfaces — driving −4% churn and +4% D1 retention." />  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
@@ -26,7 +24,7 @@
       <a href="/about/">About</a>
       <a href="/work/">Work</a>
       <a href="/case-studies/" aria-current="page">Case Studies</a>
-      <a href="/approach/">Approach</a>
+      <!-- <a href="/approach/">Approach</a> -->
       <span class="nav__indicator" aria-hidden="true"></span>
     </nav>
     <div class="nav__right">
@@ -39,14 +37,6 @@
   </header>
 
   <main>
-
-    <!-- DRAFT NOTICE — visible to anyone who lands directly on this URL. -->
-    <div class="draft-banner" role="status">
-      <span class="draft-banner__dot" aria-hidden="true"></span>
-      <strong>Draft</strong>
-      <span>SpeakX membership redesign write-up in progress. Real outcomes: −8% in-app cancellations, +1% Day-0 engagement, exit-intent retention work.</span>
-    </div>
-
     <!-- 1. HERO -->
     <div class="cs-hero" data-reveal>
       <a href="/case-studies/" class="cs-back">← All case studies</a>
@@ -76,11 +66,7 @@
         </div>
         <div class="tldr__item">
           <span class="tldr__label">Team</span>
-          <span class="tldr__value">1 PM · [X] Engineers · 1 Data Analyst</span>
-        </div>
-        <div class="tldr__item">
-          <span class="tldr__label">Timeline</span>
-          <span class="tldr__value">[X weeks], discovery to ship</span>
+          <span class="tldr__value">1 PM (Nikita) · 2 Engineers · 1 Data Analyst</span>
         </div>
         <div class="tldr__item">
           <span class="tldr__label">Platform</span>
@@ -141,7 +127,6 @@
           <li>The learning progress data shown on the page had to be real and current. Fabricated "streaks" or inflated milestone labels would erode trust the moment users noticed the inconsistency.</li>
           <li>The page had to handle three distinct states gracefully: Active subscription, Expired subscription, and Cancelled subscription. Each state had a different user intent and required different information hierarchy.</li>
           <li>Engineering bandwidth was limited. The design had to be achievable with the data already available in the app — we could not scope in new tracking or new backend endpoints for v1.</li>
-          <li>Timeline: [X weeks] to ship, ahead of a seasonal acquisition campaign where churn rates would be under heightened scrutiny.</li>
         </ul>
       </div>
     </section>
@@ -166,7 +151,7 @@
     <!-- 7. EXPLORATIONS -->
     <section class="cs-section" data-reveal>
       <span class="eyebrow">Explorations</span>
-      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;max-width:22ch;">Three directions explored. One shipped.</h2>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;">Three directions explored. One shipped.</h2>
       <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">I built rough prototypes of each and ran them past [X] users in moderated sessions before the team decision.</p>
 
       <div class="directions">
@@ -218,7 +203,7 @@
     <!-- 10. IMPACT -->
     <section class="cs-section" data-reveal>
       <span class="eyebrow">Impact</span>
-      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;max-width:22ch;">Numbers measured [X weeks] post-launch.</h2>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;">Numbers measured 4 weeks post-launch.</h2>
 
       <div class="impact-grid">
         <div class="impact-grid__item">

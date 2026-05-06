@@ -547,3 +547,41 @@
   });
 
 })();
+
+// ============================================================
+// FOOTER VISIT COUNTER — subtle, opt-out friendly.
+// Hits a free public counter (abacus.jasoncameron.dev) on each
+// page load and appends a quiet "· N visits" line to the footer.
+// Skips local/dev hosts so only real production traffic counts.
+// Fails silently if the API is down. No PII, just a hit count.
+// ============================================================
+(function () {
+  var footer = document.querySelector('.footer');
+  if (!footer) return;
+  var divs = footer.querySelectorAll('div');
+  if (!divs.length) return;
+  var target = divs[divs.length - 1];
+
+  // Local / dev hosts — read count without incrementing, no append.
+  var host = window.location.hostname;
+  var isLocal = (
+    host === 'localhost' ||
+    host === '127.0.0.1' ||
+    host === '0.0.0.0' ||
+    host === '::1' ||
+    host.endsWith('.local') ||
+    host === ''
+  );
+  if (isLocal) return;
+
+  fetch('https://abacus.jasoncameron.dev/hit/shashankkesarwani-com/prod')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (!d || typeof d.value !== 'number') return;
+      var span = document.createElement('span');
+      span.className = 'footer__visits';
+      span.textContent = ' · ' + d.value.toLocaleString() + ' visits';
+      target.appendChild(span);
+    })
+    .catch(function () {});
+})();
