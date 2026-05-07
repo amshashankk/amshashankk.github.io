@@ -345,6 +345,23 @@
     }, { once: true });
   }
 
+  // bfcache fix: when the browser restores a page via back/forward, it can
+  // restore a frozen "page--leaving" state where main was animated to opacity 0.
+  // Force-clear the leaving class and replay the entering animation.
+  window.addEventListener('pageshow', function (event) {
+    if (!mainEl) return;
+    mainEl.classList.remove('page--leaving');
+    if (event.persisted && !reducedMotion) {
+      mainEl.classList.remove('page--entering');
+      // Reflow to reset animation, then re-trigger
+      void mainEl.offsetWidth;
+      mainEl.classList.add('page--entering');
+      mainEl.addEventListener('animationend', function () {
+        mainEl.classList.remove('page--entering');
+      }, { once: true });
+    }
+  });
+
   // --- Nav sliding indicator ---
   var navLinks = document.querySelector('.nav__links');
   var indicator = navLinks && navLinks.querySelector('.nav__indicator');
