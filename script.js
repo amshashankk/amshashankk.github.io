@@ -455,6 +455,7 @@
   function shouldIntercept(anchor) {
     var href = anchor.getAttribute('href');
     if (!href) return false;
+    if (anchor.hasAttribute('download')) return false; // let file downloads happen natively
     if (anchor.target === '_blank') return false;
     if (href.startsWith('mailto:') || href.startsWith('tel:')) return false;
     if (href.startsWith('#')) return false;
