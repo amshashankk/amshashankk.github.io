@@ -64,15 +64,29 @@
 
     @media (max-width: 560px) { .doc__two { grid-template-columns: 1fr; } }
 
-    /* Print / Save-as-PDF: always a clean white sheet, regardless of theme */
+    /* Print / Save-as-PDF: render ONLY the resume document as a clean white
+       sheet, regardless of on-screen theme. Always reflects current content. */
     @media print {
+      @page { margin: 14mm; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { background: #fff !important; }
+
+      /* Hide everything outside the document: nav, footer, action bar, fx layers */
+      body > *:not(main) { display: none !important; }
       .nav, .footer, .resume-bar, .blobs, .cursor, .grain { display: none !important; }
-      body { background: #fff !important; }
-      .resume-wrap { padding: 0; max-width: none; }
+
+      /* Strip wrapper spacing so the sheet sits at the top-left of the page */
+      main, .section, .resume-wrap { display: block !important; margin: 0 !important; padding: 0 !important; max-width: none !important; width: auto !important; }
+
+      /* Defeat the scroll-reveal animation in case it hasn't fired yet */
+      [data-reveal] { opacity: 1 !important; transform: none !important; }
+
       .doc { background: #fff !important; color: #1a1a1f !important; box-shadow: none; border: 0; border-radius: 0; padding: 0; }
       .doc .doc__role, .doc .doc__contact, .doc .doc__summary, .doc .doc__job-meta,
       .doc .doc__job li, .doc .doc__tools, .doc .doc__entry-sub { color: #36363d !important; }
-      .doc hr { border-top-color: #e3e3e8 !important; }
+      .doc hr { border-top-color: #e3e3e8 !important; margin: 1.2rem 0; }
+      .doc__job, .doc__two > div { break-inside: avoid; page-break-inside: avoid; }
+      .doc__h { break-after: avoid; page-break-after: avoid; }
     }
   </style>
 </head>
@@ -109,10 +123,10 @@
         <!-- ACTION BAR -->
         <div class="resume-bar">
           <a href="/" class="resume-bar__back">← Back to portfolio</a>
-          <a href="/assets/Shashank-Kesarwani-Resume.pdf" download="Shashank-Kesarwani-Resume.pdf" class="btn btn--primary resume-download" data-magnetic>
+          <button type="button" class="btn btn--primary resume-download" data-magnetic onclick="window.print()">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Download PDF
-          </a>
+          </button>
         </div>
 
         <!-- DOCUMENT -->
