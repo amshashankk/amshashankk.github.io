@@ -64,6 +64,17 @@
 
     @media (max-width: 560px) { .doc__two { grid-template-columns: 1fr; } }
 
+    /* Applied only while html2pdf captures the document: force a clean white
+       sheet with dark text, independent of the on-screen theme. */
+    .doc.pdf-export { background: #ffffff !important; color: #1a1a1f !important; box-shadow: none !important; border: 0 !important; padding: 0 !important; }
+    .doc.pdf-export .doc__name, .doc.pdf-export .doc__h, .doc.pdf-export .doc__job-title, .doc.pdf-export .doc__entry-main { color: #1a1a1f !important; }
+    .doc.pdf-export .doc__role, .doc.pdf-export .doc__contact, .doc.pdf-export .doc__summary,
+    .doc.pdf-export .doc__job-meta, .doc.pdf-export .doc__job li, .doc.pdf-export .doc__tools,
+    .doc.pdf-export .doc__entry-sub { color: #36363d !important; }
+    .doc.pdf-export a { color: #1a1a1f !important; text-decoration-color: #9a9aa2 !important; }
+    .doc.pdf-export .doc__contact .sep { color: #b8b8c0 !important; }
+    .doc.pdf-export hr { border-top-color: #e3e3e8 !important; }
+
     /* Print / Save-as-PDF: render ONLY the resume document as a clean white
        sheet, regardless of on-screen theme. Always reflects current content. */
     @media print {
@@ -123,9 +134,9 @@
         <!-- ACTION BAR -->
         <div class="resume-bar">
           <a href="/" class="resume-bar__back">← Back to portfolio</a>
-          <button type="button" class="btn btn--primary resume-download" data-magnetic onclick="window.print()">
+          <button type="button" class="btn btn--primary resume-download" data-magnetic onclick="downloadResumePDF(this)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download PDF
+            <span class="btn-label">Download PDF</span>
           </button>
         </div>
 
@@ -256,5 +267,46 @@
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
   <script src="/anime-fx.js" defer></script>
   <script src="/script.js" defer></script>
+
+  <!-- One-click PDF export, generated from this page so it always matches current content -->
+  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.3/dist/html2pdf.bundle.min.js" defer></script>
+  <script>
+    function downloadResumePDF(btn) {
+      var doc = document.querySelector('.doc');
+      var label = btn && btn.querySelector('.btn-label');
+      // Fallback to the browser print dialog if the library failed to load
+      if (!doc || typeof html2pdf === 'undefined') { window.print(); return; }
+
+      var original = label ? label.textContent : '';
+      if (label) label.textContent = 'Generating…';
+      if (btn) btn.disabled = true;
+      doc.classList.add('pdf-export');
+
+      function reset() {
+        doc.classList.remove('pdf-export');
+        if (label) label.textContent = original;
+        if (btn) btn.disabled = false;
+      }
+
+      var opt = {
+        margin: [12, 12, 14, 12], // mm: top, left, bottom, right
+        filename: 'Shashank-Kesarwani-Resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, backgroundColor: '#ffffff', useCORS: true, scrollY: 0 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: ['css', 'legacy'], avoid: ['.doc__job', '.doc__two > div'] }
+      };
+
+      function run() {
+        html2pdf().set(opt).from(doc).save()
+          .then(reset)
+          .catch(function () { reset(); window.print(); });
+      }
+
+      // Wait for webfonts so the canvas renders with the right type
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(run); }
+      else { run(); }
+    }
+  </script>
 </body>
 </html>
