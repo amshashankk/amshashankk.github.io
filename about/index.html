@@ -60,14 +60,13 @@
     <section class="section">
       <div class="about">
         <div class="about__photo">
-          <!-- Drop your monochrome portrait at: assets/shashank-portrait.jpg
-               Recommended specs: 800×1000 (4:5), B&W, neutral charcoal bg.
-               If the file is missing the SK initials placeholder shows. -->
+          <!-- Monochrome portrait, 4:5. Falls back to the SK initials if missing. -->
           <picture class="photo-portrait">
-            <source srcset="assets/shashank-portrait.webp" type="image/webp" />
             <img
-              src="assets/shashank-portrait.jpg"
+              src="/assets/shashank-portrait.jpg"
               alt="Shashank Kesarwani, Product Designer"
+              width="750"
+              height="1000"
               loading="lazy"
               decoding="async"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
