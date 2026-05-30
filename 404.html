@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page not found — Shashank Kesarwani</title>
+  <title>Page not found: Shashank Kesarwani</title>
   <meta name="description" content="The page you're looking for doesn't exist or may have moved." />
   <meta name="robots" content="noindex,nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,7 +39,7 @@
   </header>
 
   <main class="not-found">
-    <!-- GALAXY BACKDROP — spiral-arm stars rendered into a canvas.
+    <!-- GALAXY BACKDROP: spiral-arm stars rendered into a canvas.
          Behind it, named "constellation" stars (DOM elements) link to
          specific pages. The whole field rotates slowly. -->
     <canvas class="nf-galaxy" aria-hidden="true"></canvas>
@@ -78,19 +78,19 @@
     </div>
 
     <div class="not-found__content">
-      <div class="not-found__digits" aria-label="Error 404 — drag the digits to play">
+      <div class="not-found__digits" aria-label="Error 404, drag the digits to play">
         <button type="button" class="nf-digit nf-digit--4" data-digit="0" aria-label="Drag me">4</button>
         <button type="button" class="nf-digit nf-digit--0" data-digit="1" aria-label="Drag me">0</button>
         <button type="button" class="nf-digit nf-digit--4b" data-digit="2" aria-label="Drag me">4</button>
       </div>
       <p class="not-found__hint">
-        <span aria-hidden="true">↑</span> Try dragging the digits — release to spring back
+        <span aria-hidden="true">↑</span> Try dragging the digits, release to spring back
       </p>
 
       <div class="not-found__banner">
         <span class="not-found__banner-dot" aria-hidden="true"></span>
         <strong>In building phase</strong>
-        <span>This portfolio is being actively updated. Some pages aren't ready yet — check back soon.</span>
+        <span>This portfolio is being actively updated. Some pages aren't ready yet, check back soon.</span>
       </div>
 
       <div class="not-found__actions">
@@ -108,7 +108,7 @@
   <script src="/script.js" defer></script>
 
   <!-- ============================================================
-       404 INTERACTIVITY — drag, throw, bounce, parallax.
+       404 INTERACTIVITY: drag, throw, bounce, parallax.
        Pure vanilla, no dependencies. Pointer events so mouse + touch
        both work. Respects prefers-reduced-motion.
        ============================================================ -->
@@ -195,7 +195,7 @@
         for (var i = 0; i < stars.length; i++) {
           var s = stars[i];
           var theta = s.theta + rotation + (1 - s.r / Math.max(w, h)) * 0.4;
-          // Depth-based parallax — closer stars (smaller r) move less
+          // Depth-based parallax: closer stars (smaller r) move less
           var depth = (s.r / Math.max(w, h)) * 1.4;
           var x = cx + Math.cos(theta) * s.r + offsetX * depth;
           var y = cy + Math.sin(theta) * s.r + offsetY * depth;
@@ -305,14 +305,14 @@
             return;
           }
 
-          // Otherwise: throw — apply velocity then spring back
+          // Otherwise: throw, apply velocity then spring back
           state.targetX = 0;
           state.targetY = 0;
         }
         digit.addEventListener('pointerup', release);
         digit.addEventListener('pointercancel', release);
 
-        // Spring back loop — runs always, cheap
+        // Spring back loop: runs always, cheap
         function physicsLoop() {
           if (!state.dragging) {
             // Apply momentum decay

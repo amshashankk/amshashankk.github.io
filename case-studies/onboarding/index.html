@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EdTech Onboarding Redesign (Draft) — Shashank Kesarwani</title>
-  <meta name="description" content="Case study in progress — EdTech onboarding redesign. Live once verified metrics are filled in." />
-  <meta name="robots" content="noindex,nofollow" /><!-- Draft — keep out of Google until verified metrics are filled in -->
+  <title>EdTech Onboarding Redesign (Draft), Shashank Kesarwani</title>
+  <meta name="description" content="Case study in progress: EdTech onboarding redesign. Live once verified metrics are filled in." />
+  <meta name="robots" content="noindex,nofollow" /><!-- Draft, keep out of Google until verified metrics are filled in -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -40,7 +40,7 @@
 
   <main>
 
-    <!-- DRAFT NOTICE — visible to anyone who lands directly on this URL. -->
+    <!-- DRAFT NOTICE, visible to anyone who lands directly on this URL. -->
     <div class="draft-banner" role="status">
       <span class="draft-banner__dot" aria-hidden="true"></span>
       <strong>Draft</strong>
@@ -65,7 +65,7 @@
           <em class="hero__serif hero__word" aria-label="[10M+] users"><span class="clip"><span class="char">[</span></span><span class="clip"><span class="char">1</span></span><span class="clip"><span class="char">0</span></span><span class="clip"><span class="char">M</span></span><span class="clip"><span class="char">+</span></span><span class="clip"><span class="char">]</span></span> <span class="clip"><span class="char">u</span></span><span class="clip"><span class="char">s</span></span><span class="clip"><span class="char">e</span></span><span class="clip"><span class="char">r</span></span><span class="clip"><span class="char">s</span></span></em>
         </span>
       </h1>
-      <p class="cs-hero__sub">A leaky 7-step KYC flow was costing [Company] thousands of activations a week. I led research, redesign, and rollout of a progressive onboarding system — shipped in 9 weeks.</p>
+      <p class="cs-hero__sub">A leaky 7-step KYC flow was costing [Company] thousands of activations a week. I led research, redesign, and rollout of a progressive onboarding system, shipped in 9 weeks.</p>
     </div>
 
     <!-- 2. TL;DR -->
@@ -99,7 +99,7 @@
       <div class="cs-content">
         <span class="eyebrow">Business Context</span>
         <h2 class="section__head" style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">[Company] was at an inflection point.</h2>
-        <p>[Company] had just crossed [10M] registered users on the back of aggressive acquisition spend. The problem: registered users were not becoming active users. The activation funnel — from app install to first successful transaction — was hemorrhaging users, and the CAC being written off on each lost activation was becoming untenable at their growth stage.</p>
+        <p>[Company] had just crossed [10M] registered users on the back of aggressive acquisition spend. The problem: registered users were not becoming active users. The activation funnel, from app install to first successful transaction, was hemorrhaging users, and the CAC being written off on each lost activation was becoming untenable at their growth stage.</p>
         <p><strong>The business case was simple.</strong> A 10-point lift in onboarding completion at their scale was worth approximately [₹X Cr] in annualised revenue. The CFO had flagged it. The CPO had made it a Q2 priority. I was brought in to own the design side of the fix.</p>
       </div>
     </section>
@@ -109,7 +109,7 @@
       <div class="cs-content">
         <span class="eyebrow">The Problem, Quantified</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">47% of users were abandoning at step 3 of a 7-step KYC flow.</h2>
-        <p>Before touching a single frame in Figma, I spent three days in the data. The funnel analytics told a clear story: the drop was not gradual. It was a cliff at step 3 — the PAN + selfie verification screen — and a secondary cliff at step 6, the bank account linking step.</p>
+        <p>Before touching a single frame in Figma, I spent three days in the data. The funnel analytics told a clear story: the drop was not gradual. It was a cliff at step 3, the PAN + selfie verification screen, and a secondary cliff at step 6, the bank account linking step.</p>
 
         <div class="callout-pair">
           <div class="callout-pair__item">
@@ -122,7 +122,7 @@
           </div>
         </div>
 
-        <p>The flow had been designed with a compliance-first mindset: collect everything upfront before granting any access. Users had no sense of progress, no understanding of why each step was required, and no perceived value in completing it — because they couldn't access the product until they had.</p>
+        <p>The flow had been designed with a compliance-first mindset: collect everything upfront before granting any access. Users had no sense of progress, no understanding of why each step was required, and no perceived value in completing it, because they couldn't access the product until they had.</p>
       </div>
     </section>
 
@@ -131,12 +131,12 @@
       <div class="cs-content">
         <span class="eyebrow">Constraints</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The space to move in wasn't wide.</h2>
-        <p>Constraints aren't obstacles — they're the design brief. Here is what I was working with:</p>
+        <p>Constraints aren't obstacles. They're the design brief. Here is what I was working with:</p>
         <ul>
           <li>RBI KYC guidelines mandated full verification before any financial transaction. We could not defer or remove steps, only reorder and contextualise them.</li>
           <li>The engineering team was mid-sprint on a separate initiative. We had 2 engineers available, part-time, for 9 weeks. No new native modules.</li>
           <li>The existing React Native codebase had no shared component library. Every new screen pattern had a non-trivial implementation cost.</li>
-          <li>We could not run a full-replacement A/B test — legal required the new flow to pass compliance review before any percentage rollout above 5%.</li>
+          <li>We could not run a full-replacement A/B test, legal required the new flow to pass compliance review before any percentage rollout above 5%.</li>
           <li>No budget for user research recruitment. We relied on in-app intercepts and a panel of [X] existing users sourced through support channels.</li>
         </ul>
       </div>
@@ -155,7 +155,7 @@
           <cite>Participant 4, Tier-2 city, 26 years old</cite>
         </div>
 
-        <p><strong>The reframe.</strong> The problem wasn't the number of steps or their order. It was that we were asking for maximum commitment before delivering any value. The solution wasn't to simplify the steps — it was to restructure the trust arc.</p>
+        <p><strong>The reframe.</strong> The problem wasn't the number of steps or their order. It was that we were asking for maximum commitment before delivering any value. The solution wasn't to simplify the steps. It was to restructure the trust arc.</p>
       </div>
     </section>
 
@@ -168,7 +168,7 @@
       <div class="directions">
         <div class="direction">
           <div class="direction__label">Direction A</div>
-          <h4>Progressive disclosure — defer KYC</h4>
+          <h4>Progressive disclosure, defer KYC</h4>
           <p>Let users explore a read-only product preview before triggering KYC. Gate the first transaction, not the first screen.</p>
           <div class="direction__killed"><strong>Killed because:</strong> RBI regulations require full KYC before any financial product interaction. Legal blocked this in day 2.</div>
         </div>
@@ -179,7 +179,7 @@
           <div class="direction__killed"><strong>Killed because:</strong> Required significant backend work to generate personalisation before KYC. Out of scope for the sprint.</div>
         </div>
         <div class="direction">
-          <div class="direction__label">Direction C — Chosen</div>
+          <div class="direction__label">Direction C, Chosen</div>
           <h4>Trust-layered progressive KYC</h4>
           <p>Keep all steps, but wrap them in explicit trust signals: security badges, plain-language "why we need this" copy, a persistent progress indicator, and a commitment to a 90-second completion time.</p>
           <div class="direction__killed"><strong>Chosen because:</strong> Zero new backend work. Addresses the root cause (distrust). Shippable in the constraint window.</div>
@@ -193,7 +193,7 @@
         <span class="eyebrow">The Decision</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">We chose the solution that respected the constraint, not the one that looked best in Figma.</h2>
         <p>Direction C was not the most inventive solution. Direction A was. But Direction A required a regulatory waiver we were unlikely to get in the timeframe, and Direction B required backend investment that would have pushed us past Q2.</p>
-        <p><strong>The trade-off I accepted explicitly:</strong> we were solving for completion rate, not for the ideal first-time experience. The product tour, the personalisation, the deferred KYC — those were parked in a prioritised backlog with clear specs, not abandoned. I wrote a decision memo that logged this trade-off so the team had a shared record of what we knowingly deferred and why.</p>
+        <p><strong>The trade-off I accepted explicitly:</strong> we were solving for completion rate, not for the ideal first-time experience. The product tour, the personalisation, the deferred KYC, those were parked in a prioritised backlog with clear specs, not abandoned. I wrote a decision memo that logged this trade-off so the team had a shared record of what we knowingly deferred and why.</p>
         <p>The final design collapsed 7 screens into a 4-step progressive flow with: a persistent step indicator (steps 1 of 4, not 1 of 7), contextual "why" tooltips before each document request, a real-time liveness indicator during selfie capture, and a completion time estimate updated dynamically.</p>
       </div>
     </section>
@@ -204,7 +204,7 @@
         <span class="eyebrow">Shipping Reality</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What got cut, what shipped, and what's v2.</h2>
         <p>The spec I handed to engineering had 34 screens. What shipped in v1 was 28. Six screens were descoped in the final week of the sprint after an API dependency on the KYC vendor's liveness SDK turned out to require a contract amendment.</p>
-        <p><strong>What shipped in v1.</strong> The 4-step flow, contextual copy, progress indicator, trust badges, error-state redesign (previously a raw API error string — now a human-readable recovery screen with next steps).</p>
+        <p><strong>What shipped in v1.</strong> The 4-step flow, contextual copy, progress indicator, trust badges, error-state redesign (previously a raw API error string, now a human-readable recovery screen with next steps).</p>
         <p><strong>What didn't.</strong> The animated document scanning overlay (replaced with a static progress spinner), the dynamic time estimate (shipped as a fixed "~90 seconds" string), and the post-completion celebration state.</p>
         <p><strong>v2 roadmap.</strong> Liveness SDK animation, personalised value prop on step 1, and a referral nudge on the completion screen. These are specced and queued for Q3.</p>
       </div>
@@ -245,9 +245,9 @@
       <div class="cs-content">
         <span class="eyebrow">Reflection</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
-        <p><strong>What I'd do differently.</strong> I moved to Figma too fast. I had the research insight by day 5 and started wireframing by day 6. I should have spent another two days in synthesis — mapping the full trust arc and testing the reframe with the team before committing pixels. We ended up revisiting the IA in week 3 because of an assumption I'd baked in too early.</p>
+        <p><strong>What I'd do differently.</strong> I moved to Figma too fast. I had the research insight by day 5 and started wireframing by day 6. I should have spent another two days in synthesis: mapping the full trust arc and testing the reframe with the team before committing pixels. We ended up revisiting the IA in week 3 because of an assumption I'd baked in too early.</p>
         <p><strong>What I underestimated.</strong> The error states. I designed 6 happy-path flows before I designed a single error state. In testing, 4 of 8 participants hit an error. Error design should be co-primary with the happy path, not an afterthought.</p>
-        <p><strong>What I'll carry forward.</strong> The decision memo format. Writing down what we're not doing, and why, and what it would take to revisit it — that single artifact aligned the team faster than any presentation I've given. I now write one on every project before design review.</p>
+        <p><strong>What I'll carry forward.</strong> The decision memo format. Writing down what we're not doing, and why, and what it would take to revisit it. That single artifact aligned the team faster than any presentation I've given. I now write one on every project before design review.</p>
       </div>
     </section>
 
