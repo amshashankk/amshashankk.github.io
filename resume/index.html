@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume, Shashank Kesarwani</title>
+  <meta name="description" content="Resume of Shashank Kesarwani, Senior Product Designer. 5+ years across Dalvoy, SpeakX, Vaipratech and Mobcoder. View on the web or download as PDF." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <style>
+    /* ===== RESUME: white "paper" rendering of the PDF ===== */
+    .resume-wrap { max-width: 900px; margin: 0 auto; padding: 0 1.25rem 6rem; }
+
+    /* Action bar above the document */
+    .resume-bar {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .resume-bar__back { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color .2s; }
+    .resume-bar__back:hover { color: var(--accent); }
+    .resume-download { display: inline-flex; align-items: center; gap: 0.55rem; white-space: nowrap; }
+    .resume-download svg { width: 16px; height: 16px; }
+
+    /* The document sheet, always light, mirrors the PDF */
+    .doc {
+      background: #ffffff;
+      color: #1a1a1f;
+      font-family: 'Inter', system-ui, sans-serif;
+      border-radius: 6px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2);
+      padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem);
+      line-height: 1.55;
+    }
+    .doc a { color: inherit; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(0,0,0,0.35); }
+
+    .doc__name { text-align: center; font-size: clamp(1.7rem, 5vw, 2.4rem); font-weight: 700; letter-spacing: 0.01em; text-transform: uppercase; margin: 0 0 0.35rem; }
+    .doc__role { text-align: center; font-size: 1.0625rem; color: #3a3a42; margin: 0 0 0.9rem; }
+    .doc__contact { text-align: center; font-size: 0.875rem; color: #555560; display: flex; flex-wrap: wrap; gap: 0.35rem 0.85rem; justify-content: center; }
+    .doc__contact .sep { color: #b8b8c0; }
+
+    .doc hr { border: 0; border-top: 1px solid #e3e3e8; margin: 1.6rem 0; }
+
+    .doc__h { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #2a2a30; margin: 0 0 0.9rem; }
+    .doc__summary { font-size: 0.95rem; color: #36363d; margin: 0; }
+
+    .doc__job { margin-bottom: 1.35rem; }
+    .doc__job:last-child { margin-bottom: 0; }
+    .doc__job-title { font-size: 1rem; font-weight: 700; margin: 0 0 0.1rem; }
+    .doc__job-meta { font-size: 0.875rem; color: #6a6a74; margin: 0 0 0.55rem; }
+    .doc__job ul { margin: 0; padding-left: 1.15rem; }
+    .doc__job li { font-size: 0.925rem; color: #36363d; margin-bottom: 0.4rem; }
+    .doc__job li:last-child { margin-bottom: 0; }
+
+    .doc__tools { font-size: 0.95rem; color: #36363d; }
+
+    .doc__two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2.5rem; }
+    .doc__entry-sub { font-size: 0.875rem; color: #6a6a74; margin: 0 0 0.15rem; }
+    .doc__entry-main { font-size: 0.95rem; font-weight: 700; margin: 0; }
+
+    @media (max-width: 560px) { .doc__two { grid-template-columns: 1fr; } }
+
+    /* Print: drop the site chrome, print just the sheet */
+    @media print {
+      .nav, .footer, .resume-bar, .blobs, .cursor, .grain { display: none !important; }
+      body { background: #fff !important; }
+      .resume-wrap { padding: 0; max-width: none; }
+      .doc { box-shadow: none; border-radius: 0; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="/" class="nav__logo" data-magnetic>
+      <span class="dot"></span> Shashank K.
+    </a>
+    <nav class="nav__links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/work/">Work</a>
+      <a href="/case-studies/">Case Studies</a>
+      <!-- <a href="/approach/">Approach</a> -->
+      <span class="nav__indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-toggle" aria-label="Toggle theme" data-magnetic>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="/#contact" class="btn btn--sm" data-magnetic>Let's talk</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="resume-wrap" data-reveal>
+
+        <!-- ACTION BAR -->
+        <div class="resume-bar">
+          <a href="/" class="resume-bar__back">← Back to portfolio</a>
+          <a href="/assets/Shashank-Kesarwani-Resume.pdf" download="Shashank-Kesarwani-Resume.pdf" class="btn btn--primary resume-download" data-magnetic>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+
+        <!-- DOCUMENT -->
+        <article class="doc">
+
+          <header>
+            <h1 class="doc__name">Shashank Kesarwani</h1>
+            <p class="doc__role">Senior Product Designer</p>
+            <div class="doc__contact">
+              <span>Delhi NCR, India</span>
+              <span class="sep">·</span>
+              <a href="tel:+919653060302">+91 96530 60302</a>
+              <span class="sep">·</span>
+              <a href="mailto:amshashankk@gmail.com">amshashankk@gmail.com</a>
+              <span class="sep">·</span>
+              <a href="/">Portfolio</a>
+              <span class="sep">·</span>
+              <a href="https://linkedin.com/in/amshashankk" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </header>
+
+          <hr />
+
+          <!-- SUMMARY -->
+          <section>
+            <h2 class="doc__h">Summary</h2>
+            <p class="doc__summary">Senior Product Designer with 5 years of experience in product design and interaction design, specializing in driving measurable business results through user research, wireframing, prototyping, and scalable design systems across complex B2C/B2B platforms. Proven ability to collaborate cross-functionally and apply user-centric design methods to solve complex problems, resulting in significant uplifts in activation, retention, and conversion (up to +38.8%).</p>
+          </section>
+
+          <hr />
+
+          <!-- WORK EXPERIENCE -->
+          <section>
+            <h2 class="doc__h">Work Experience</h2>
+
+            <div class="doc__job">
+              <p class="doc__job-title">Senior Product Designer</p>
+              <p class="doc__job-meta">Dalvoy &nbsp;|&nbsp; 2025 - Present</p>
+              <ul>
+                <li>0-to-1 EdTech design with an organic-growth focus: 1 Lakh+ downloads, 12K DAU / 94K MAU, D30 retention improved from 3% to 10%.</li>
+                <li>Launched Dalvoy Shorts, a short-form feature that boosted retention and engagement.</li>
+                <li>Home page redesign resulting in +62% lesson starts.</li>
+                <li>Created a design system at Dalvoy with 200+ variables &amp; components.</li>
+              </ul>
+            </div>
+
+            <div class="doc__job">
+              <p class="doc__job-title">Product Designer</p>
+              <p class="doc__job-meta">SpeakX &nbsp;|&nbsp; Oct 2024 - 2025</p>
+              <ul>
+                <li>System-level design by creating and scaling a Design System from scratch; migrated assets to Figma, significantly streamlining developer collaboration and ensuring design consistency at scale.</li>
+                <li>Led the design of the premium page and checkout funnel; used A/B testing to validate interaction design decisions, resulting in a +38.8% increase in paid user conversion.</li>
+                <li>Navigated ambiguity to redesign the core onboarding flow, leading to a +6.01% uplift in Day 1 retention and improved new user activation.</li>
+                <li>Leveraged contextual design (exit-intent popups) to reduce user churn and contribute to a 4% increase in D1 retention.</li>
+                <li>Designed a feature of live workshop for English learning, resulting in a +38% increase in session time from 13 mins to 18 mins and improved D7 retention.</li>
+                <li>Created Word of the Day / Quiz of the Day feature, which delivered a +1.9% D1 retention uplift and a +30% increase in quiz participation.</li>
+              </ul>
+            </div>
+
+            <div class="doc__job">
+              <p class="doc__job-title">Product Designer</p>
+              <p class="doc__job-meta">Vaipratech &nbsp;|&nbsp; Dec 2022 - Oct 2024</p>
+              <ul>
+                <li>Owned end-to-end UX design projects for SaaS tools, from user research, wireframing and prototyping to final UI delivery.</li>
+                <li>Built design system to improve consistency and reduce dev handoff errors by ~15%.</li>
+                <li>Conducted user interviews, usability testing, and journey mapping that uncovered navigation issues, leading to 7-10% higher feature adoption.</li>
+                <li>Added micro-interactions and motion graphics, resulting in +10% engagement and +8% early retention.</li>
+                <li>Partnered with product and engineering on complex flows, balancing usability with technical constraints.</li>
+              </ul>
+            </div>
+
+            <div class="doc__job">
+              <p class="doc__job-title">UI/UX Designer</p>
+              <p class="doc__job-meta">Mobcoder &nbsp;|&nbsp; May 2021 - Nov 2022</p>
+              <ul>
+                <li>Translated user research into wireframes, prototypes, and final UI for B2B &amp; B2C web applications.</li>
+                <li>Collaborated with cross-functional teams to refine information architecture and interaction flows.</li>
+                <li>Applied iterative testing and design refinements, boosting user engagement across products.</li>
+              </ul>
+            </div>
+          </section>
+
+          <hr />
+
+          <!-- TOOLS -->
+          <section>
+            <h2 class="doc__h">Tools</h2>
+            <p class="doc__tools">Figma, Sketch, Adobe XD, Motiff, Rive, After Effects, Lottie, Jira, Notion</p>
+          </section>
+
+          <hr />
+
+          <!-- AWARDS -->
+          <section>
+            <h2 class="doc__h">Awards</h2>
+            <div class="doc__two">
+              <div>
+                <p class="doc__entry-sub">SpeakX &nbsp;|&nbsp; May 2025</p>
+                <p class="doc__entry-main">Best Performer of the Month</p>
+              </div>
+              <div>
+                <p class="doc__entry-sub">Mobcoder &nbsp;|&nbsp; Oct 2021</p>
+                <p class="doc__entry-main">Best Performer of the Year</p>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <!-- EDUCATION -->
+          <section>
+            <h2 class="doc__h">Education</h2>
+            <p class="doc__entry-sub">Institute of Technology &amp; Management &nbsp;|&nbsp; 2017-2021</p>
+            <p class="doc__entry-main">Bachelor's of Technology</p>
+          </section>
+
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 Shashank Kesarwani</div>
+    <div>Designed &amp; built by hand · <span id="yearTime"></span></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="/anime-fx.js" defer></script>
+  <script src="/script.js" defer></script>
+</body>
+</html>
