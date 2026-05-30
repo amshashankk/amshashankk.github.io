@@ -24,50 +24,55 @@
     .resume-download { display: inline-flex; align-items: center; gap: 0.55rem; white-space: nowrap; }
     .resume-download svg { width: 16px; height: 16px; }
 
-    /* The document sheet, always light, mirrors the PDF */
+    /* The document sheet, themed (dark/light) to match the site */
     .doc {
-      background: #ffffff;
-      color: #1a1a1f;
+      background: var(--surface);
+      color: var(--text);
       font-family: 'Inter', system-ui, sans-serif;
+      border: 1px solid var(--border);
       border-radius: 6px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.16);
       padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem);
       line-height: 1.55;
     }
-    .doc a { color: inherit; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(0,0,0,0.35); }
+    .doc a { color: inherit; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--text-muted); transition: color .2s; }
+    .doc a:hover { color: var(--accent); }
 
     .doc__name { text-align: center; font-size: clamp(1.7rem, 5vw, 2.4rem); font-weight: 700; letter-spacing: 0.01em; text-transform: uppercase; margin: 0 0 0.35rem; }
-    .doc__role { text-align: center; font-size: 1.0625rem; color: #3a3a42; margin: 0 0 0.9rem; }
-    .doc__contact { text-align: center; font-size: 0.875rem; color: #555560; display: flex; flex-wrap: wrap; gap: 0.35rem 0.85rem; justify-content: center; }
-    .doc__contact .sep { color: #b8b8c0; }
+    .doc__role { text-align: center; font-size: 1.0625rem; color: var(--text-muted); margin: 0 0 0.9rem; }
+    .doc__contact { text-align: center; font-size: 0.875rem; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 0.35rem 0.85rem; justify-content: center; }
+    .doc__contact .sep { color: var(--text-muted); opacity: 0.5; }
 
-    .doc hr { border: 0; border-top: 1px solid #e3e3e8; margin: 1.6rem 0; }
+    .doc hr { border: 0; border-top: 1px solid var(--border); margin: 1.6rem 0; }
 
-    .doc__h { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #2a2a30; margin: 0 0 0.9rem; }
-    .doc__summary { font-size: 0.95rem; color: #36363d; margin: 0; }
+    .doc__h { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text); margin: 0 0 0.9rem; }
+    .doc__summary { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
 
     .doc__job { margin-bottom: 1.35rem; }
     .doc__job:last-child { margin-bottom: 0; }
     .doc__job-title { font-size: 1rem; font-weight: 700; margin: 0 0 0.1rem; }
-    .doc__job-meta { font-size: 0.875rem; color: #6a6a74; margin: 0 0 0.55rem; }
+    .doc__job-meta { font-size: 0.875rem; color: var(--text-muted); margin: 0 0 0.55rem; }
     .doc__job ul { margin: 0; padding-left: 1.15rem; }
-    .doc__job li { font-size: 0.925rem; color: #36363d; margin-bottom: 0.4rem; }
+    .doc__job li { font-size: 0.925rem; color: var(--text-muted); margin-bottom: 0.4rem; }
     .doc__job li:last-child { margin-bottom: 0; }
 
-    .doc__tools { font-size: 0.95rem; color: #36363d; }
+    .doc__tools { font-size: 0.95rem; color: var(--text-muted); }
 
     .doc__two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2.5rem; }
-    .doc__entry-sub { font-size: 0.875rem; color: #6a6a74; margin: 0 0 0.15rem; }
+    .doc__entry-sub { font-size: 0.875rem; color: var(--text-muted); margin: 0 0 0.15rem; }
     .doc__entry-main { font-size: 0.95rem; font-weight: 700; margin: 0; }
 
     @media (max-width: 560px) { .doc__two { grid-template-columns: 1fr; } }
 
-    /* Print: drop the site chrome, print just the sheet */
+    /* Print / Save-as-PDF: always a clean white sheet, regardless of theme */
     @media print {
       .nav, .footer, .resume-bar, .blobs, .cursor, .grain { display: none !important; }
       body { background: #fff !important; }
       .resume-wrap { padding: 0; max-width: none; }
-      .doc { box-shadow: none; border-radius: 0; padding: 0; }
+      .doc { background: #fff !important; color: #1a1a1f !important; box-shadow: none; border: 0; border-radius: 0; padding: 0; }
+      .doc .doc__role, .doc .doc__contact, .doc .doc__summary, .doc .doc__job-meta,
+      .doc .doc__job li, .doc .doc__tools, .doc .doc__entry-sub { color: #36363d !important; }
+      .doc hr { border-top-color: #e3e3e8 !important; }
     }
   </style>
 </head>
@@ -147,10 +152,10 @@
               <p class="doc__job-title">Senior Product Designer</p>
               <p class="doc__job-meta">Dalvoy &nbsp;|&nbsp; 2025 - Present</p>
               <ul>
-                <li>0-to-1 EdTech design with an organic-growth focus: 1 Lakh+ downloads, 12K DAU / 94K MAU, D30 retention improved from 3% to 10%.</li>
-                <li>Launched Dalvoy Shorts, a short-form feature that boosted retention and engagement.</li>
-                <li>Home page redesign resulting in +62% lesson starts.</li>
-                <li>Created a design system at Dalvoy with 200+ variables &amp; components.</li>
+                <li>Leading 0-to-1 EdTech design with an organic-growth focus: scaled the product past 1 Lakh+ downloads to 12K DAU / 94K MAU, while lifting D30 retention from 3% to 10%.</li>
+                <li>Launched Dalvoy Shorts, a short-form content feature that became a new daily-return surface and boosted both retention and engagement.</li>
+                <li>Redesigned the home page, driving a +62% increase in lesson starts.</li>
+                <li>Built the Dalvoy design system from scratch with 200+ variables &amp; components.</li>
               </ul>
             </div>
 
