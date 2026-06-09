@@ -4,7 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reducing Membership Cancellations at SpeakX: Shashank Kesarwani</title>
-  <meta name="description" content="Case study (in progress): How I designed SpeakX's exit-intent and membership retention surfaces, driving −4% churn and +4% D1 retention." />  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <meta name="description" content="Case study (in progress): How I designed SpeakX's exit-intent and membership retention surfaces, driving −4% churn and +4% D1 retention." />
+  <!-- Open Graph / social cards -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Reducing Membership Cancellations at SpeakX" />
+  <meta property="og:description" content="How I redesigned SpeakX's membership page into a retention surface, driving −4% churn and fewer Day-0 cancellations." />
+  <meta property="og:url" content="https://shashankkesarwani.com/case-studies/speakx-membership/" />
+  <meta property="og:image" content="https://shashankkesarwani.com/assets/og/speakx-membership.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Reducing Membership Cancellations at SpeakX" />
+  <meta name="twitter:description" content="How I redesigned SpeakX's membership page into a retention surface, driving −4% churn and fewer Day-0 cancellations." />
+  <meta name="twitter:image" content="https://shashankkesarwani.com/assets/og/speakx-membership.png" />
+  <link rel="canonical" href="https://shashankkesarwani.com/case-studies/speakx-membership/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
@@ -83,6 +97,13 @@
       </div>
     </div>
 
+    <figure class="cs-figure">
+      <div class="cs-figure__frame">
+        <div class="cs-figure__ph cs-figure__ph--phone" data-label="HERO — redesigned membership screen, progress-first · ~390×844"></div>
+      </div>
+      <figcaption class="cs-figure__cap">The redesigned membership screen: learning progress and milestone label lead, premium benefits sit below, and subscription controls live at the bottom.</figcaption>
+    </figure>
+
     <!-- 3. BUSINESS CONTEXT -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
@@ -115,6 +136,11 @@
         <p>I pulled session recordings from users who visited the membership page and cancelled. The median time between opening the page and tapping the cancel button was under 12 seconds. There was nothing on the page that gave them a reason to pause.</p>
       </div>
     </section>
+
+    <div class="cs-figure-grid">
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="BEFORE — old membership page: status, date, cancel · ~390×844"></div></div><figcaption class="cs-figure__cap">Before: status, renewal date, and a cancel button. Median 12 seconds from open to tapping cancel.</figcaption></figure>
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="AFTER — progress-first redesign with milestone label · ~390×844"></div></div><figcaption class="cs-figure__cap">After: the same screen reframed as a retention surface, leading with earned progress before any subscription control.</figcaption></figure>
+    </div>
 
     <!-- 5. CONSTRAINTS -->
     <section class="cs-section" data-reveal>
@@ -188,6 +214,13 @@
       </div>
     </section>
 
+    <figure class="cs-figure">
+      <div class="cs-figure__frame">
+        <div class="cs-figure__ph cs-figure__ph--phone" data-label="progress-graph — speaking sessions over time + milestone tier · ~390×844"></div>
+      </div>
+      <figcaption class="cs-figure__cap">The progress section: speaking sessions plotted over time with the gamified milestone label ("Rising Voice", "Star Speaker") that updates with cumulative practice.</figcaption>
+    </figure>
+
     <!-- 9. SHIPPING REALITY -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
@@ -199,6 +232,12 @@
         <p><strong>v2 targets.</strong> Comparative progress view, personalised benefit highlights based on feature usage, and the social milestone share card.</p>
       </div>
     </section>
+
+    <div class="cs-figure-grid">
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="state-active — renewal date, payment, cancel · ~390×844"></div></div><figcaption class="cs-figure__cap">Active state: renewal date, payment method, and an accessible but de-emphasised cancel option.</figcaption></figure>
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="state-expired — renewal prompt, clear pricing · ~390×844"></div></div><figcaption class="cs-figure__cap">Expired state: a renewal prompt with clear pricing.</figcaption></figure>
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="state-cancelled — reactivation CTA, no pressure · ~390×844"></div></div><figcaption class="cs-figure__cap">Cancelled state: a no-pressure reactivation CTA.</figcaption></figure>
+    </div>
 
     <!-- 10. IMPACT -->
     <section class="cs-section" data-reveal>

@@ -4,7 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Checkout Features Bottom Sheet at SpeakX, Shashank Kesarwani</title>
-  <meta name="description" content="Case study: a non-blocking features bottom sheet on the SpeakX checkout that lifted order creation by 79.8% and payment success by 7%, scaled to 100%." />  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <meta name="description" content="Case study: a non-blocking features bottom sheet on the SpeakX checkout that lifted order creation by 79.8% and payment success by 7%, scaled to 100%." />
+  <!-- Open Graph / social cards -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Checkout Features Bottom Sheet at SpeakX" />
+  <meta property="og:description" content="Case study: a non-blocking features bottom sheet on the SpeakX checkout that lifted order creation by 79.8% and payment success by 7%, scaled to 100%." />
+  <meta property="og:url" content="https://shashankkesarwani.com/case-studies/checkout-features-bottomsheet/" />
+  <meta property="og:image" content="https://shashankkesarwani.com/assets/og/checkout-features-bottomsheet.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Checkout Features Bottom Sheet at SpeakX" />
+  <meta name="twitter:description" content="Case study: a non-blocking features bottom sheet on the SpeakX checkout that lifted order creation by 79.8% and payment success by 7%, scaled to 100%." />
+  <meta name="twitter:image" content="https://shashankkesarwani.com/assets/og/checkout-features-bottomsheet.png" />
+  <link rel="canonical" href="https://shashankkesarwani.com/case-studies/checkout-features-bottomsheet/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
@@ -71,6 +85,13 @@
       </div>
     </div>
 
+    <figure class="cs-figure">
+      <div class="cs-figure__frame">
+        <div class="cs-figure__ph cs-figure__ph--phone" data-label="checkout-peek-sheet · ~390×844"></div>
+      </div>
+      <figcaption class="cs-figure__cap">The checkout with the features bottom sheet in its peek state, anchored beneath the price card with the Pay CTA still above the fold.</figcaption>
+    </figure>
+
     <!-- 3. BUSINESS CONTEXT -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
@@ -102,6 +123,13 @@
         <p>Session replays showed a recurring micro-pause: users would land on checkout, look at the price, scroll up, scroll back down, and either tap Pay or back out. The scroll-up was the user trying to remember the value proposition. We had a screen that asked for money without answering, in that exact moment, why.</p>
       </div>
     </section>
+
+    <figure class="cs-figure">
+      <div class="cs-figure__frame">
+        <div class="cs-figure__ph cs-figure__ph--phone" data-label="checkout-control-bare · ~390×844"></div>
+      </div>
+      <figcaption class="cs-figure__cap">The control checkout: plan name, price, payment options, and a CTA, with nothing on screen answering "what am I paying for, again?".</figcaption>
+    </figure>
 
     <!-- 5. CONSTRAINTS -->
     <section class="cs-section" data-reveal>
@@ -149,6 +177,11 @@
         <p><strong>The trade-off I accepted explicitly:</strong> a sheet on the checkout, even a polite one, is still surface area. It costs a small amount of visual weight on the most important screen in the app. The bet was that the reminded users would convert at a high enough rate to justify the cost, and that the swipe-dismiss escape was strong enough to protect users who didn't need it. The A/B confirmed the bet.</p>
       </div>
     </section>
+
+    <div class="cs-figure-grid">
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="sheet-peek-state · ~390×844"></div></div><figcaption class="cs-figure__cap">Peek state: four features, each one line with a leading icon. The message lands without the user doing anything.</figcaption></figure>
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="sheet-expanded-state · ~390×844"></div></div><figcaption class="cs-figure__cap">Expanded state: an optional one-sentence description per feature. Swipe-down dismisses; the sheet stays gone for the session.</figcaption></figure>
+    </div>
 
     <!-- 9. SHIPPING REALITY -->
     <section class="cs-section" data-reveal>

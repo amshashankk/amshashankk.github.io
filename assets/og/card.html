@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>OG card generator</title>
+  <!--
+    OG SOCIAL-CARD GENERATOR  ·  1200 × 630
+    ------------------------------------------------------------------
+    This renders the branded card that previews when a page is shared on
+    LinkedIn / Slack / iMessage / X. Open it in a browser and pass the
+    page details via the URL query string:
+
+      card.html?title=UPI-first%20checkout&metric=~3%C3%97%20conversion&tag=Conversion%20%C2%B7%20EdTech
+
+    Params:  title   headline (required)
+             metric  one big proof stat (optional)
+             tag     small eyebrow line (optional, defaults to the role)
+
+    EXPORT TO PNG (pick one):
+      • Chrome headless (exact 1200×630, no UI):
+          chrome --headless --hide-scrollbars --window-size=1200,630 \
+            --screenshot=default.png \
+            "file://$PWD/assets/og/card.html?title=Shashank%20Kesarwani"
+      • Or open in browser, set device size to 1200×630, screenshot the .og-card.
+
+    Save outputs as:
+      assets/og/default.png            (home + generic pages)
+      assets/og/<case-study-slug>.png  (e.g. upi-checkout.png)
+    The <meta property="og:image"> tags already point at these paths.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { background: #1a1a1c; }
+    .og-card {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background:
+        radial-gradient(900px 500px at 82% -10%, rgba(199,255,74,0.16), transparent 60%),
+        radial-gradient(700px 600px at -5% 110%, rgba(255,113,0,0.14), transparent 55%),
+        #0a0a0b;
+      color: #f5f5f4;
+      font-family: 'Inter', system-ui, sans-serif;
+      padding: 84px 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .og-top { display: flex; align-items: center; gap: 14px; }
+    .og-dot {
+      width: 13px; height: 13px; border-radius: 50%;
+      background: #c7ff4a; box-shadow: 0 0 0 6px rgba(199,255,74,0.18);
+    }
+    .og-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px; letter-spacing: 0.04em; color: #f5f5f4;
+    }
+    .og-tag {
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.16em;
+      font-size: 17px; color: #8a8a93; margin-bottom: 22px;
+    }
+    .og-title {
+      font-size: 64px; line-height: 1.08; font-weight: 600;
+      letter-spacing: -0.02em; max-width: 18ch;
+    }
+    .og-title em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+    .og-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+    .og-metric {
+      font-family: 'Instrument Serif', serif;
+      font-size: 56px; line-height: 1; color: #c7ff4a;
+    }
+    .og-role { font-size: 20px; color: #b8b8bf; text-align: right; max-width: 26ch; }
+    .og-role strong { color: #f5f5f4; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="og-card">
+    <div>
+      <div class="og-top">
+        <span class="og-dot"></span>
+        <span class="og-name">shashankkesarwani.com</span>
+      </div>
+    </div>
+    <div>
+      <div class="og-tag" id="tag">Senior Product Designer · EdTech &amp; Consumer</div>
+      <h1 class="og-title" id="title">Product Designer, shipping to <em>millions</em>, measured in <em>outcomes</em>.</h1>
+    </div>
+    <div class="og-bottom">
+      <div class="og-metric" id="metric"></div>
+      <div class="og-role"><strong>Shashank Kesarwani</strong><br>5+ yrs · 11M+ users · 0→1 · Design Systems</div>
+    </div>
+  </div>
+  <script>
+    var q = new URLSearchParams(location.search);
+    if (q.get('title'))  document.getElementById('title').textContent  = q.get('title');
+    if (q.get('tag'))    document.getElementById('tag').textContent     = q.get('tag');
+    var m = q.get('metric');
+    if (m) document.getElementById('metric').textContent = m;
+  </script>
+</body>
+</html>

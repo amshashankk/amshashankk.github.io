@@ -4,7 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Live Session Booking at SpeakX, Shashank Kesarwani</title>
-  <meta name="description" content="Case study: designing and shipping SpeakX's in-app live-session booking flow from zero: ~16% of trial users booked within a day of trial start, without cannibalising lesson activity." />  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <meta name="description" content="Case study: designing and shipping SpeakX's in-app live-session booking flow from zero: ~16% of trial users booked within a day of trial start, without cannibalising lesson activity." />
+  <!-- Open Graph / social cards -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Live Session Booking at SpeakX" />
+  <meta property="og:description" content="Designing and shipping SpeakX's in-app live-session booking from zero: ~16% of trial users booked within a day, with no cannibalisation of lessons." />
+  <meta property="og:url" content="https://shashankkesarwani.com/case-studies/live-session-booking/" />
+  <meta property="og:image" content="https://shashankkesarwani.com/assets/og/live-session-booking.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Live Session Booking at SpeakX" />
+  <meta name="twitter:description" content="Designing and shipping SpeakX's in-app live-session booking from zero: ~16% of trial users booked within a day, with no cannibalisation of lessons." />
+  <meta name="twitter:image" content="https://shashankkesarwani.com/assets/og/live-session-booking.png" />
+  <link rel="canonical" href="https://shashankkesarwani.com/case-studies/live-session-booking/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
@@ -71,6 +85,13 @@
       </div>
     </div>
 
+    <figure class="cs-figure">
+      <div class="cs-figure__frame">
+        <div class="cs-figure__ph cs-figure__ph--phone" data-label="HERO — booking screen: date strip + open slots · ~390×844"></div>
+      </div>
+      <figcaption class="cs-figure__cap">The shipped booking screen: a week-shaped date strip up top with available slot cards (tutor, session focus, duration) for the selected day below.</figcaption>
+    </figure>
+
     <!-- 3. BUSINESS CONTEXT -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
@@ -134,6 +155,13 @@
       </div>
     </section>
 
+    <figure class="cs-figure">
+      <div class="cs-figure__frame">
+        <div class="cs-figure__ph cs-figure__ph--phone" data-label="entry-card — home tab 'Practise live with a tutor' preview · ~390×844"></div>
+      </div>
+      <figcaption class="cs-figure__cap">The entry surface in the home tab: a "Practise live with a tutor" card that pre-loads the next open day so users see what's behind the tap before committing.</figcaption>
+    </figure>
+
     <!-- 8. THE DECISION + TRADE-OFF -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
@@ -148,6 +176,12 @@
         <p><strong>The trade-off I accepted explicitly:</strong> capacity. We knew demand might outstrip supply, especially in evening slots. The calendar pattern paced bookings honestly (if a day filled up, it filled up) but it meant some users would see "fully booked" and walk away. I argued this was the right failure mode: a "fully booked" state is honest and trains expectations, while a no-show on a slot we couldn't actually staff would have burned the tutor relationship and the user's trust at the same time. We tracked "fully booked" impressions as a signal to grow the tutor roster, not as a UX bug to design around.</p>
       </div>
     </section>
+
+    <div class="cs-figure-grid">
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="flow-1 date-strip — day picker with fully-booked days greyed · ~390×844"></div></div><figcaption class="cs-figure__cap">Pick a day: greyed days carry a "fully booked" label so empty states read as honest, not broken.</figcaption></figure>
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="flow-2 slot-list — open slots for selected day · ~390×844"></div></div><figcaption class="cs-figure__cap">Pick a slot: only open slots for that day, each showing tutor, focus, and duration.</figcaption></figure>
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="flow-3 confirmation — countdown to 'Join now' · ~390×844"></div></div><figcaption class="cs-figure__cap">Confirm: booked time, add-to-calendar, and a countdown that flips to "Join now" 15 minutes out.</figcaption></figure>
+    </div>
 
     <!-- 9. SHIPPING REALITY -->
     <section class="cs-section" data-reveal>

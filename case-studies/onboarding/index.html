@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EdTech Onboarding Redesign (Draft), Shashank Kesarwani</title>
   <meta name="description" content="Case study in progress: EdTech onboarding redesign. Live once verified metrics are filled in." />
+  <!-- Open Graph / social cards -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="EdTech Onboarding Redesign (Draft)" />
+  <meta property="og:description" content="Case study in progress: EdTech onboarding redesign. Live once verified metrics are filled in." />
+  <meta property="og:url" content="https://shashankkesarwani.com/case-studies/onboarding/" />
+  <meta property="og:image" content="https://shashankkesarwani.com/assets/og/onboarding.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="EdTech Onboarding Redesign (Draft)" />
+  <meta name="twitter:description" content="Case study in progress: EdTech onboarding redesign. Live once verified metrics are filled in." />
+  <meta name="twitter:image" content="https://shashankkesarwani.com/assets/og/onboarding.png" />
+  <link rel="canonical" href="https://shashankkesarwani.com/case-studies/onboarding/" />
   <meta name="robots" content="noindex,nofollow" /><!-- Draft, keep out of Google until verified metrics are filled in -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -94,6 +107,13 @@
       </div>
     </div>
 
+    <figure class="cs-figure">
+      <div class="cs-figure__frame">
+        <div class="cs-figure__ph cs-figure__ph--phone" data-label="onboarding-7step-to-4step · ~390×844"></div>
+      </div>
+      <figcaption class="cs-figure__cap">The original 7-step KYC flow beside the redesigned 4-step progressive flow, with a "1 of 4" step indicator replacing "1 of 7".</figcaption>
+    </figure>
+
     <!-- 3. BUSINESS CONTEXT -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
@@ -125,6 +145,13 @@
         <p>The flow had been designed with a compliance-first mindset: collect everything upfront before granting any access. Users had no sense of progress, no understanding of why each step was required, and no perceived value in completing it, because they couldn't access the product until they had.</p>
       </div>
     </section>
+
+    <figure class="cs-figure cs-figure--wide">
+      <div class="cs-figure__frame">
+        <div class="cs-figure__ph cs-figure__ph--wide" data-label="onboarding-funnel-cliff · ~1280×720"></div>
+      </div>
+      <figcaption class="cs-figure__cap">The activation funnel: a hard cliff at step 3 (PAN + selfie) and a secondary drop at step 6 (bank linking), not the gradual decline we'd assumed.</figcaption>
+    </figure>
 
     <!-- 5. CONSTRAINTS -->
     <section class="cs-section" data-reveal>
@@ -197,6 +224,11 @@
         <p>The final design collapsed 7 screens into a 4-step progressive flow with: a persistent step indicator (steps 1 of 4, not 1 of 7), contextual "why" tooltips before each document request, a real-time liveness indicator during selfie capture, and a completion time estimate updated dynamically.</p>
       </div>
     </section>
+
+    <div class="cs-figure-grid">
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="why-we-need-this-tooltip · ~390×844"></div></div><figcaption class="cs-figure__cap">A contextual "why we need this" explanation before each document request, with a trust badge, addressing distrust rather than friction.</figcaption></figure>
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="liveness-selfie-capture · ~390×844"></div></div><figcaption class="cs-figure__cap">The redesigned selfie step with a real-time liveness indicator and a persistent progress bar holding the trust arc together.</figcaption></figure>
+    </div>
 
     <!-- 9. SHIPPING REALITY -->
     <section class="cs-section" data-reveal>

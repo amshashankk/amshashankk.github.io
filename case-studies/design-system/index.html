@@ -6,6 +6,19 @@
   <title>Building a Design System from Scratch · Shashank Kesarwani</title>
   <meta name="robots" content="noindex,nofollow" /><!-- Draft: keep out of Google until verified metrics are filled in -->
   <meta name="description" content="How I built a token-first design system from scratch at an EdTech startup: migrating from Sketch to Figma, shipping 120+ tokens, and eliminating design-to-dev drift across 4 product surfaces." />
+  <!-- Open Graph / social cards -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Building a Design System from Scratch" />
+  <meta property="og:description" content="How I built a token-first design system from scratch at an EdTech startup: migrating from Sketch to Figma, shipping 120+ tokens, and killing design-to-dev drift." />
+  <meta property="og:url" content="https://shashankkesarwani.com/case-studies/design-system/" />
+  <meta property="og:image" content="https://shashankkesarwani.com/assets/og/design-system.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Building a Design System from Scratch" />
+  <meta name="twitter:description" content="How I built a token-first design system from scratch at an EdTech startup: migrating from Sketch to Figma, shipping 120+ tokens, and killing design-to-dev drift." />
+  <meta name="twitter:image" content="https://shashankkesarwani.com/assets/og/design-system.png" />
+  <link rel="canonical" href="https://shashankkesarwani.com/case-studies/design-system/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -95,6 +108,13 @@
       </div>
     </div>
 
+    <figure class="cs-figure cs-figure--wide">
+      <div class="cs-figure__frame">
+        <div class="cs-figure__ph cs-figure__ph--wide" data-label="HERO — Figma design system overview file · ~1280×800"></div>
+      </div>
+      <figcaption class="cs-figure__cap">The shipped system: the master Figma file with the token library, theme variables, and core component set published as a team library.</figcaption>
+    </figure>
+
     <!-- 3. BUSINESS CONTEXT -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
@@ -126,6 +146,13 @@
         <p>The audit revealed that the primary button alone had [X] different implementations across the codebase. Typography had no semantic hierarchy: developers were hardcoding font sizes. There was no light/dark theme strategy despite the product roadmap calling for dark mode in Q3.</p>
       </div>
     </section>
+
+    <figure class="cs-figure">
+      <div class="cs-figure__frame">
+        <div class="cs-figure__ph cs-figure__ph--square" data-label="audit-board — Figma audit frame of colour values · ~1000×1000"></div>
+      </div>
+      <figcaption class="cs-figure__cap">The visual audit: every unique colour and button implementation pulled from production onto a single Figma board, showing how far the surfaces had drifted.</figcaption>
+    </figure>
 
     <!-- 5. CONSTRAINTS -->
     <section class="cs-section" data-reveal>
@@ -199,6 +226,13 @@
       </div>
     </section>
 
+    <figure class="cs-figure">
+      <div class="cs-figure__frame">
+        <div class="cs-figure__ph" data-label="token-table — global to semantic to component layers · ~1280×800"></div>
+      </div>
+      <figcaption class="cs-figure__cap">The three-tier token hierarchy: global primitives mapping up to semantic tokens (button, link, brand) and then to component-level tokens, with light and dark values side by side.</figcaption>
+    </figure>
+
     <!-- 9. SHIPPING REALITY -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
@@ -210,6 +244,13 @@
         <p><strong>Governance.</strong> I wrote a one-page contribution guide covering how new components get proposed, reviewed, and merged into the system. This was the piece I spent the most time on and the piece I'm most proud of: a system without governance is just a snapshot that decays.</p>
       </div>
     </section>
+
+    <figure class="cs-figure cs-figure--wide">
+      <div class="cs-figure__frame">
+        <div class="cs-figure__ph cs-figure__ph--wide" data-label="component-library — Button/Input/Card variants in Figma · ~1280×800"></div>
+      </div>
+      <figcaption class="cs-figure__cap">The v1 component library: Button (6 variants), Inputs, Navigation, Card, Modal and Toast, each wired to semantic tokens so a single value change ripples to every instance.</figcaption>
+    </figure>
 
     <!-- 10. IMPACT -->
     <section class="cs-section" data-reveal>

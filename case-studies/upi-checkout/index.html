@@ -4,7 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>UPI-First Checkout at SpeakX, Shashank Kesarwani</title>
-  <meta name="description" content="Case study: redesigning SpeakX checkout to default to UPI: a video-led, two-tap flow that converted at ~3× the overall rate." />  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <meta name="description" content="Case study: redesigning SpeakX checkout to default to UPI: a video-led, two-tap flow that converted at ~3× the overall rate." />
+  <!-- Open Graph / social cards -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="UPI-First Checkout at SpeakX" />
+  <meta property="og:description" content="Case study: redesigning SpeakX checkout to default to UPI: a video-led, two-tap flow that converted at ~3× the overall rate." />
+  <meta property="og:url" content="https://shashankkesarwani.com/case-studies/upi-checkout/" />
+  <meta property="og:image" content="https://shashankkesarwani.com/assets/og/upi-checkout.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="UPI-First Checkout at SpeakX" />
+  <meta name="twitter:description" content="Case study: redesigning SpeakX checkout to default to UPI: a video-led, two-tap flow that converted at ~3× the overall rate." />
+  <meta name="twitter:image" content="https://shashankkesarwani.com/assets/og/upi-checkout.png" />
+  <link rel="canonical" href="https://shashankkesarwani.com/case-studies/upi-checkout/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
@@ -71,6 +85,13 @@
       </div>
     </div>
 
+    <figure class="cs-figure">
+      <div class="cs-figure__frame">
+        <div class="cs-figure__ph cs-figure__ph--phone" data-label="HERO — redesigned UPI-first checkout, video over price · mobile"></div>
+      </div>
+      <figcaption class="cs-figure__cap">The shipped UPI-first checkout: a looping product video over the price block and a single primary CTA that fires a UPI app intent.</figcaption>
+    </figure>
+
     <!-- 3. BUSINESS CONTEXT -->
     <section class="cs-section" data-reveal>
       <div class="cs-content">
@@ -102,6 +123,11 @@
         <p>Three things from the data made the problem unambiguous: UPI cohort hit checkout-load at 99.4% (vs ~45% overall), payment success rate sat at 44–47% on UPI-only cohorts (vs ~28–36% overall), and Premium CTR collapsed by ~10× between Premium Load and the order step. The middle of the checkout, not the top, was eating the funnel.</p>
       </div>
     </section>
+
+    <div class="cs-figure-grid">
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="BEFORE — gateway-led checkout, list of 5 payment methods"></div></div><figcaption class="cs-figure__cap">Before: a generic gateway-led screen with UPI as one option among five.</figcaption></figure>
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="AFTER — UPI default, two taps, other options collapsed"></div></div><figcaption class="cs-figure__cap">After: UPI defaulted, two taps to paid, with everything else behind one collapsed link.</figcaption></figure>
+    </div>
 
     <!-- 5. CONSTRAINTS -->
     <section class="cs-section" data-reveal>
@@ -149,6 +175,11 @@
         <p><strong>The trade-off I accepted explicitly:</strong> we were betting the long tail would still find their way to cards via the expander, and if they didn't, we'd lose some absolute revenue from that segment. The bet was that the conversion lift on the head would more than compensate. The data after launch confirmed it.</p>
       </div>
     </section>
+
+    <div class="cs-figure-grid">
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="STEP 1 — tap CTA, UPI deep-link intent fires"></div></div><figcaption class="cs-figure__cap">Tap one: the primary CTA fires a UPI deep-link intent straight to the user's chosen app.</figcaption></figure>
+      <figure class="cs-figure"><div class="cs-figure__frame"><div class="cs-figure__ph cs-figure__ph--phone" data-label="STEP 2 — 'Change UPI app' chooser, scoped to UPI handlers"></div></div><figcaption class="cs-figure__cap">Tap two (optional): the "Change UPI app" link opens an OS chooser scoped to UPI handlers only.</figcaption></figure>
+    </div>
 
     <!-- 9. SHIPPING REALITY -->
     <section class="cs-section" data-reveal>
