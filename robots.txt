@@ -1,0 +1,21 @@
+# www.shashankkesarwani.com
+User-agent: *
+Allow: /
+
+# AI / answer-engine crawlers explicitly welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.shashankkesarwani.com/sitemap.xml

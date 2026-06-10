@@ -1,0 +1,25 @@
+# Shashank Kesarwani — Senior Product Designer
+
+> Senior Product Designer with 5+ years shipping consumer products in India (EdTech and consumer apps). Currently designing Dalvoy, a 0→1 EdTech product (1 Lakh+ downloads, 12K DAU / 94K MAU, Day-30 retention improved 3%→10%, 30%+ organic growth). Previously at SpeakX, where his work reached 10M+ users: Day-0 activation on the paid base lifted from 25.5% to 60.7%, paid checkout conversion +38.8%, and the company's first design system. Based in Gurugram, India. Portfolio: https://www.shashankkesarwani.com
+
+## About
+
+- [About Shashank](https://www.shashankkesarwani.com/about/): beliefs, working style, and what he's optimising for next
+- [Work history](https://www.shashankkesarwani.com/work/): five years across Dalvoy, SpeakX, Vaipra Tech, and Mobcoder
+- [Resume](https://www.shashankkesarwani.com/resume/): full resume, viewable on the web or downloadable as PDF
+- [How I work](https://www.shashankkesarwani.com/approach/): frameworks for activation, checkout, design systems, and growth
+
+## Case studies
+
+- [M0 Activation at SpeakX](https://www.shashankkesarwani.com/case-studies/m0-activation/): a year of compounding onboarding work that took Day-0 activation on the paid base from 25.5% to 60.7% (DAU/MAU 9.1%→17.5%)
+- [UPI-First Checkout at SpeakX](https://www.shashankkesarwani.com/case-studies/upi-checkout/): video-led, two-tap UPI-default checkout converting at ~3× the overall rate
+- [Checkout Features Bottom Sheet at SpeakX](https://www.shashankkesarwani.com/case-studies/checkout-features-bottomsheet/): non-blocking bottom sheet at the payment moment; +79.8% order creation, +7% payment success
+- [Home Page V2 at SpeakX](https://www.shashankkesarwani.com/case-studies/home-page-v2/): home page redesigned from catalogue to launchpad; +62.1% lesson starts, +23.5% order creation
+- [Result Page Redesign at SpeakX](https://www.shashankkesarwani.com/case-studies/result-page-redesign/): four shipped A/B tests; practice +19.5%, orders up to +36.7%, payment success +30.8%
+- [Read-along Gamified at SpeakX](https://www.shashankkesarwani.com/case-studies/read-along-gamified/): gamified lesson A/B test; +2.7pp Day-0 activation, −1.7pp cancellations
+- [Live Session Booking at SpeakX](https://www.shashankkesarwani.com/case-studies/live-session-booking/): 0→1 in-app booking flow; ~16% of trial users booked within a day
+- [Reducing Membership Cancellations at SpeakX](https://www.shashankkesarwani.com/case-studies/speakx-membership/): membership page as a retention surface; −8% in-app cancellations
+
+## Contact
+
+- LinkedIn: https://linkedin.com/in/amshashankk
