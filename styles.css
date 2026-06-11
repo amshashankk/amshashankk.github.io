@@ -776,6 +776,15 @@ body.cursor--lg .cursor {
 
 .tag--muted { opacity: 0.6; }
 
+/* Narrow screens: long badges (e.g. draft notices) wrap instead of
+   forcing horizontal page scroll. Short tags are unaffected. */
+@media (max-width: 480px) {
+  .tag {
+    white-space: normal;
+    max-width: 100%;
+  }
+}
+
 /* --- Grid 2 / Panels --- */
 .grid-2 {
   display: grid;
@@ -1564,6 +1573,9 @@ main.page--leaving {
 }
 
 .timeline__card {
+  /* grid child: allow shrinking below content min-width so long nowrap
+     phrases can't push the card past the viewport on small screens */
+  min-width: 0;
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: clamp(1.5rem, 3vw, 2.25rem);
@@ -1685,6 +1697,14 @@ main.page--leaving {
    reads as a solid coloured highlight rather than washed-out. */
 [data-theme="light"] .timeline__bullets strong {
   text-shadow: none;
+}
+
+/* Narrow screens: multi-word strong phrases must be allowed to wrap —
+   single tokens like "+38.8%" still never break mid-number. */
+@media (max-width: 640px) {
+  .timeline__bullets strong {
+    white-space: normal;
+  }
 }
 
 .timeline__tags {
