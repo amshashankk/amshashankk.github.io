@@ -2481,6 +2481,14 @@ main.page--leaving {
 }
 .cs-figure--wide { max-width: 1320px; }
 
+/* Hide figures/grids whose image is still an unfilled placeholder.
+   Drop in a real <img> (replacing .cs-figure__ph) to reveal them again. */
+.cs-figure:has(.cs-figure__ph),
+.cs-figure-grid:not(:has(img)) { display: none; }
+/* With the hero figure hidden, the first section's top border would stack
+   under the meta card's bottom border — drop it until a real hero exists. */
+.tldr + .cs-figure:has(.cs-figure__ph) + .cs-section { border-top: 0; }
+
 .cs-figure__frame {
   position: relative;
   border: 1px solid var(--border);
