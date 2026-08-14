@@ -397,6 +397,12 @@
 
         carouselTrack.addEventListener('mouseenter', function () { isPaused = true;  });
         carouselTrack.addEventListener('mouseleave', function () { isPaused = false; });
+
+        // Hold the marquee still while the theme wipe runs. The outgoing
+        // snapshot is frozen for the whole wipe, so a track that keeps
+        // scrolling tears against it along the circle edge.
+        document.addEventListener('themetransition:start', function () { isPaused = true;  });
+        document.addEventListener('themetransition:end',   function () { isPaused = false; });
         carouselTrack.addEventListener('pointerdown', function () { isPaused = true;  });
         carouselTrack.addEventListener('pointerup',   function () { isPaused = false; });
 

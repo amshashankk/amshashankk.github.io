@@ -70,6 +70,19 @@
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) applyTheme(savedTheme);
 
+  // Keep in sync with the clipReveal duration in styles.css
+  var THEME_WIPE_MS = 900;
+
+  // Other rAF-driven motion (the case-study marquee) has to hold still for the
+  // duration of the wipe: the outgoing snapshot is frozen, so anything that
+  // keeps moving underneath tears against it along the reveal edge.
+  function freezeMotion() {
+    document.dispatchEvent(new CustomEvent('themetransition:start'));
+  }
+  function thawMotion() {
+    document.dispatchEvent(new CustomEvent('themetransition:end'));
+  }
+
   function rippleThemeSwitch(targetTheme, originX, originY) {
     // Compute radius to farthest viewport corner from origin
     var vw = window.innerWidth;
@@ -85,14 +98,13 @@
       html.style.setProperty('--vt-y', originY + 'px');
       html.style.setProperty('--vt-r', r + 'px');
 
+      freezeMotion();
+
       var transition = document.startViewTransition(function () {
         applyTheme(targetTheme);
       });
 
-      transition.ready.catch(function () {
-        // If transition prep fails, just apply theme
-        applyTheme(targetTheme);
-      });
+      transition.finished.catch(function () {}).then(thawMotion);
       return;
     }
 
@@ -115,16 +127,25 @@
       ].join(';');
 
       document.body.appendChild(ripple);
+      freezeMotion();
 
       // Force reflow then animate
       ripple.getBoundingClientRect();
-      ripple.style.transition = 'clip-path 1600ms cubic-bezier(0.65, 0, 0.35, 1)';
+      ripple.style.transition = 'clip-path ' + THEME_WIPE_MS + 'ms cubic-bezier(0.65, 0, 0.35, 1)';
       ripple.style.clipPath = 'circle(' + r + 'px at ' + originX + 'px ' + originY + 'px)';
 
-      ripple.addEventListener('transitionend', function () {
+      var cleaned = false;
+      function cleanup() {
+        if (cleaned) return;
+        cleaned = true;
         applyTheme(targetTheme);
-        document.body.removeChild(ripple);
-      }, { once: true });
+        if (ripple.parentNode) ripple.parentNode.removeChild(ripple);
+        thawMotion();
+      }
+      ripple.addEventListener('transitionend', cleanup, { once: true });
+      // transitionend never fires if the tab is backgrounded mid-wipe, which
+      // would otherwise leave the overlay covering the page for good.
+      setTimeout(cleanup, THEME_WIPE_MS + 300);
       return;
     }
 
@@ -133,7 +154,13 @@
   }
 
   if (themeBtn) {
+    var wipeBusy = false;
     themeBtn.addEventListener('click', function () {
+      // A second click mid-wipe would stack transitions and leave the icon
+      // out of step with the theme.
+      if (wipeBusy) return;
+      wipeBusy = true;
+      setTimeout(function () { wipeBusy = false; }, THEME_WIPE_MS);
       var current = html.getAttribute('data-theme');
       var next = current === 'dark' ? 'light' : 'dark';
       var rect = themeBtn.getBoundingClientRect();
