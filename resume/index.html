@@ -69,27 +69,27 @@
       border-radius: 6px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.16);
       padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem);
-      line-height: 1.55;
+      line-height: 1.7;
     }
     .doc a { color: inherit; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--text-muted); transition: color .2s; }
     .doc a:hover { color: var(--accent); }
 
     .doc__name { text-align: center; font-size: clamp(1.7rem, 5vw, 2.4rem); font-weight: 700; letter-spacing: 0.01em; text-transform: uppercase; margin: 0 0 0.35rem; }
-    .doc__role { text-align: center; font-size: 1.0625rem; color: var(--text-muted); margin: 0 0 0.9rem; }
+    .doc__role { text-align: center; font-size: 1.0625rem; color: var(--text-muted); margin: 0 0 1.1rem; }
     .doc__contact { text-align: center; font-size: 0.875rem; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 0.35rem 0.85rem; justify-content: center; }
     .doc__contact .sep { color: var(--text-muted); opacity: 0.5; }
 
-    .doc hr { border: 0; border-top: 1px solid var(--border); margin: 1.6rem 0; }
+    .doc hr { border: 0; border-top: 1px solid var(--border); margin: 2.1rem 0; }
 
-    .doc__h { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text); margin: 0 0 0.9rem; }
+    .doc__h { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text); margin: 0 0 1.1rem; }
     .doc__summary { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
 
-    .doc__job { margin-bottom: 1.35rem; }
+    .doc__job { margin-bottom: 1.9rem; }
     .doc__job:last-child { margin-bottom: 0; }
-    .doc__job-title { font-size: 1rem; font-weight: 700; margin: 0 0 0.1rem; }
-    .doc__job-meta { font-size: 0.875rem; color: var(--text-muted); margin: 0 0 0.55rem; }
-    .doc__job ul { margin: 0; padding-left: 1.15rem; }
-    .doc__job li { font-size: 0.925rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+    .doc__job-title { font-size: 1rem; font-weight: 700; margin: 0 0 0.15rem; }
+    .doc__job-meta { font-size: 0.875rem; color: var(--text-muted); margin: 0 0 0.75rem; }
+    .doc__job ul { margin: 0.35rem 0 0; padding-left: 1.15rem; }
+    .doc__job li { font-size: 0.925rem; color: var(--text-muted); margin-bottom: 0.6rem; }
     .doc__job li:last-child { margin-bottom: 0; }
 
     .doc__tools { font-size: 0.95rem; color: var(--text-muted); }
@@ -109,7 +109,18 @@
     .doc.pdf-export .doc__entry-sub { color: #36363d !important; }
     .doc.pdf-export a { color: #1a1a1f !important; text-decoration-color: #9a9aa2 !important; }
     .doc.pdf-export .doc__contact .sep { color: #b8b8c0 !important; }
-    .doc.pdf-export hr { border-top-color: #e3e3e8 !important; }
+
+    /* Tighter rhythm for the exported PDF only — the on-screen resume keeps
+       its normal spacing. Without this the content spills onto a 3rd page. */
+    .doc.pdf-export { line-height: 1.48 !important; }
+    .doc.pdf-export hr { border-top-color: #e3e3e8 !important; margin: 1.3rem 0 !important; }
+    .doc.pdf-export .doc__h { margin-bottom: 0.7rem !important; }
+    .doc.pdf-export .doc__job { margin-bottom: 1.1rem !important; }
+    .doc.pdf-export .doc__job-meta { margin-bottom: 0.5rem !important; }
+    .doc.pdf-export .doc__job ul { margin-top: 0.3rem !important; }
+    .doc.pdf-export .doc__job li { margin-bottom: 0.35rem !important; }
+    .doc.pdf-export .doc__role { margin-bottom: 0.6rem !important; }
+    .doc.pdf-export .doc__contact { margin-bottom: 0 !important; }
 
     /* Print / Save-as-PDF: render ONLY the resume document as a clean white
        sheet, regardless of on-screen theme. Always reflects current content. */
@@ -218,12 +229,11 @@
               <p class="doc__job-title">Product Designer</p>
               <p class="doc__job-meta">Dalvoy &nbsp;|&nbsp; Nov 2025 - Present</p>
               <ul>
-                <li>Owned product design from 0&rarr;1, defining user journeys, information architecture, interaction patterns, UI and prototypes, and taking designs through engineering implementation and iteration.</li>
-                <li>Designed and shipped core learning experiences for a product that scaled to 1L+ downloads, 12K DAU and 94K MAU, contributing to D30 retention growth from 3% &rarr; 10%.</li>
-                <li>Worked directly with the founding team and engineering to translate ambiguous requirements into production-ready experiences in a lean startup environment.</li>
-                <li>Built an AI-native design workflow for rapid prototyping, visual exploration and concept iteration, reducing repetitive production work and accelerating exploration.</li>
-                <li>Built AI-assisted marketing creative workflows enabling faster production and broader testing of video concepts across Meta and Google campaigns, while providing creative direction informed by competitor and campaign analysis.</li>
-                <li>Established reusable design patterns and components to maintain consistency as the 0&rarr;1 product expanded.</li>
+                <li>Owned product design from 0&rarr;1, defining user journeys, information architecture, interaction patterns, UI and prototypes through engineering implementation and iteration.</li>
+                <li>Designed core learning experiences for a product reaching 1L+ downloads, 12K DAU and 94K MAU, contributing to D30 retention growth from 3% &rarr; 10%.</li>
+                <li>Worked directly with the founding team and engineering to turn ambiguous requirements into production-ready experiences in a lean startup environment.</li>
+                <li>Built an AI-native design workflow for rapid prototyping and concept exploration, reducing repetitive production work and accelerating iteration.</li>
+                <li>Built AI-assisted workflows for marketing creative production, enabling broader video testing across Meta and Google campaigns.</li>
               </ul>
             </div>
 
@@ -231,12 +241,11 @@
               <p class="doc__job-title">Product Designer</p>
               <p class="doc__job-meta">SpeakX &nbsp;|&nbsp; Oct 2024 - Sep 2025</p>
               <ul>
-                <li>Owned product design across activation, engagement, retention and monetisation, partnering with product, engineering and data teams across the learning journey.</li>
-                <li>Redesigned the UPI-first checkout experience, simplifying the path to payment; the UPI cohort converted at ~3&times; the overall rate, while payment success improved by ~10 percentage points.</li>
-                <li>Redesigned key Home, Result and post-payment experiences, driving +62% lesson starts, +19.5% practice starts and +79.8% order creation through iterative and A/B-tested design improvements.</li>
-                <li>Improved paid-base D0 activation from 25.5% &rarr; 60.7%, while average M0 engagement increased from 36 &rarr; 101 minutes and DAU/MAU from 9.1% &rarr; 17.5%.</li>
-                <li>Redesigned the premium and upgrade experience, delivering a +38.8% increase in paid conversion, and improved new-user D1 retention by +6.01% through onboarding and activation experiments.</li>
-                <li>Led the Sketch &rarr; Figma migration, building 200+ tokens and 80+ components and establishing reusable patterns and engineering governance.</li>
+                <li>Owned product design across activation, engagement, retention and monetisation, partnering with product, engineering and data teams.</li>
+                <li>Redesigned the UPI-first checkout, with the UPI cohort converting at ~3&times; the overall rate and payment success improving by ~10 percentage points.</li>
+                <li>Redesigned Home, Result and post-payment experiences, driving +62% lesson starts, +19.5% practice starts and +79.8% order creation.</li>
+                <li>Improved paid-base D0 activation from 25.5% &rarr; 60.7%, while M0 engagement increased from 36 &rarr; 101 minutes and DAU/MAU from 9.1% &rarr; 17.5%.</li>
+                <li>Redesigned the premium/upgrade experience, driving +38.8% paid conversion, and led the Sketch &rarr; Figma migration across 200+ tokens and 80+ components.</li>
               </ul>
             </div>
 
@@ -245,8 +254,7 @@
               <p class="doc__job-meta">Vaipra Tech &nbsp;|&nbsp; Dec 2022 - Oct 2024</p>
               <ul>
                 <li>Owned end-to-end UX for SaaS products, from research and information architecture through prototyping and engineering delivery.</li>
-                <li>Established reusable component patterns that improved consistency and reduced developer handoff errors.</li>
-                <li>Conducted user interviews, usability testing and journey mapping to identify navigation and workflow issues, contributing to improved task completion and engagement.</li>
+                <li>Built reusable component patterns and conducted usability research to improve consistency, navigation and task completion.</li>
               </ul>
             </div>
 
@@ -254,9 +262,8 @@
               <p class="doc__job-title">UI/UX Designer</p>
               <p class="doc__job-meta">Mobcoder &nbsp;|&nbsp; May 2021 - Nov 2022</p>
               <ul>
-                <li>Translated research findings into interface designs for B2B and B2C web applications.</li>
-                <li>Partnered with engineering and product teams to refine information architecture and interaction flows.</li>
-                <li>Applied iterative testing and design refinements that raised user engagement across several products.</li>
+                <li>Translated research findings into interface designs for B2B and B2C web applications, partnering with product and engineering on information architecture and interaction flows.</li>
+                <li>Applied iterative testing and design refinement across multiple products to improve usability and engagement.</li>
               </ul>
             </div>
           </section>
