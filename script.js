@@ -71,16 +71,20 @@
   if (savedTheme) applyTheme(savedTheme);
 
   // Keep in sync with the clipReveal duration in styles.css
-  var THEME_WIPE_MS = 900;
+  var THEME_WIPE_MS = 700;
 
-  // Other rAF-driven motion (the case-study marquee) has to hold still for the
-  // duration of the wipe: the outgoing snapshot is frozen, so anything that
-  // keeps moving underneath tears against it along the reveal edge.
+  // Other rAF-driven motion has to hold still for the duration of the wipe.
+  // The outgoing snapshot is frozen, so anything that keeps moving underneath
+  // tears against it along the reveal edge — and clip-path animates on the
+  // main thread, so Lenis running its scroll maths every frame alongside it is
+  // what makes the wipe stall partway and then jump to the end.
   function freezeMotion() {
     document.dispatchEvent(new CustomEvent('themetransition:start'));
+    if (window.__lenis) window.__lenis.stop();
   }
   function thawMotion() {
     document.dispatchEvent(new CustomEvent('themetransition:end'));
+    if (window.__lenis) window.__lenis.start();
   }
 
   function rippleThemeSwitch(targetTheme, originX, originY) {
