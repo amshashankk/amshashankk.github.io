@@ -119,7 +119,7 @@
     <div class="draft-banner" role="status">
       <span class="draft-banner__dot" aria-hidden="true"></span>
       <strong>Draft</strong>
-      <span>Case study being written up with verified metrics from my SpeakX design system work (80+ components, 0→1). Full version coming soon.</span>
+      <span>Case study being written up with verified metrics from my SpeakX design system work.<!-- TEMPORARILY HIDDEN: 80+ components claim pending final numbers/status confirmation. Do not delete. Original: " (80+ components, 0→1)" (before the period)--> Full version coming soon.</span>
     </div>
 
     <!-- 1. HERO -->
@@ -163,7 +163,7 @@
         </div>
         <div class="tldr__item">
           <span class="tldr__label">Outcome</span>
-          <span class="tldr__value">50% faster design iteration · [+X%] dev handoff speed · 0 drift between Figma and code</span>
+          <span class="tldr__value"><!-- TEMPORARILY HIDDEN: "50% faster iteration" claim (item 2, needs validation) and "[+X%]" unfilled placeholder (item 8) pending validation. Do not delete. Original: "50% faster design iteration · [+X%] dev handoff speed · " -->0 drift between Figma and code</span>
         </div>
       </div>
     </div>
@@ -190,8 +190,9 @@
       <div class="cs-content">
         <span class="eyebrow">The Problem, Quantified</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Every screen was a handwriting font: similar enough to confuse, different enough to break.</h2>
-        <p>I started with a full visual audit before touching Figma. I catalogued every screen in production across web and mobile, [X] screens total, and logged every divergence in colour, type, spacing, and component implementation.</p>
+        <p>I started with a full visual audit before touching Figma. I catalogued every screen in production across web and mobile<!-- TEMPORARILY HIDDEN: unverified [X] placeholder (total screens catalogued) pending validation. Do not delete. Original: ", [X] screens total,"-->, and logged every divergence in colour, type, spacing, and component implementation.</p>
 
+        <!-- TEMPORARILY HIDDEN: unverified [X+] placeholder and "120+ tokens" claim (item 2, needs validation) pending validation. Do not delete.
         <div class="callout-pair">
           <div class="callout-pair__item">
             <div class="callout-pair__label">Unique colour values in production</div>
@@ -202,8 +203,9 @@
             <div class="callout-pair__num">120+</div>
           </div>
         </div>
+        -->
 
-        <p>The audit revealed that the primary button alone had [X] different implementations across the codebase. Typography had no semantic hierarchy: developers were hardcoding font sizes. There was no light/dark theme strategy despite the product roadmap calling for dark mode in Q3.</p>
+        <p><!-- TEMPORARILY HIDDEN: unverified [X] placeholder (number of primary-button implementations found) pending validation. Do not delete. Original: "The audit revealed that the primary button alone had [X] different implementations across the codebase. " -->Typography had no semantic hierarchy: developers were hardcoding font sizes. There was no light/dark theme strategy despite the product roadmap calling for dark mode in Q3.</p>
       </div>
     </section>
 
@@ -224,7 +226,9 @@
           <li>The product team could not pause feature work for a big-bang migration. The system had to be adopted incrementally, surface by surface, without disrupting live sprints.</li>
           <li>Engineering was split across web (React) and mobile (React Native). The token architecture had to work across both without requiring separate maintenance.</li>
           <li>No dedicated engineering resource was allocated for system infrastructure. Developers would adopt tokens as they touched components in their normal sprint work.</li>
+          <!-- TEMPORARILY HIDDEN: Sketch → Figma migration claim pending final numbers/status confirmation. Do not delete.
           <li>The Sketch-to-Figma migration had to happen without dropping any fidelity on the existing design backlog. I could not invalidate work that was mid-handoff.</li>
+          -->
           <li>Dark mode was a hard roadmap commitment for Q3. The token system had to be architected for it from day one, not retrofitted later.</li>
         </ul>
       </div>
@@ -269,7 +273,7 @@
         <div class="direction">
           <div class="direction__label">Direction C, Chosen</div>
           <h4>Semantic token architecture, components second</h4>
-          <p>Define the full token hierarchy (global → semantic → component-level) first. Migrate Sketch to Figma with tokens wired in. Build components on top of that foundation.</p>
+          <p>Define the full token hierarchy (global → semantic → component-level) first.<!-- TEMPORARILY HIDDEN: Sketch → Figma migration claim pending final numbers/status confirmation. Do not delete. Original: " Migrate Sketch to Figma with tokens wired in." --> Build components on top of that foundation.</p>
           <div class="direction__killed"><strong>Chosen because:</strong> Addressed the root cause engineers identified. Made dark mode trivially achievable. Made every future component consistent by default rather than by discipline.</div>
         </div>
       </div>
@@ -298,7 +302,9 @@
       <div class="cs-content">
         <span class="eyebrow">Shipping Reality</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What the system looked like when it shipped versus what I designed.</h2>
+        <!-- TEMPORARILY HIDDEN: unverified [X]/[Y] placeholders (component backlog size and v1 shipped count) pending validation. Do not delete.
         <p>The initial component backlog had [X] components scoped. What shipped in v1 was [Y]: the highest-frequency, highest-divergence components identified in the audit. The long-tail (data visualisation components, complex form patterns, admin-specific layouts) were documented as backlog with severity ratings so whoever came next could prioritise intelligently.</p>
+        -->
         <p><strong>What shipped in v1.</strong> Colour token system (light and dark), typography scale (8 semantic levels), spacing scale, grid system, icon library migration, core components: Button (6 variants), Input (text, select, checkbox, radio), Navigation (top bar, tab bar, side nav), Card (3 variants), Modal, Toast/Notification, Badge, Avatar.</p>
         <p><strong>What didn't.</strong> Data table components, chart theming, the admin dashboard surface, and the onboarding wizard pattern. These were scoped for v2 with full specifications drafted, not abandoned.</p>
         <p><strong>Governance.</strong> I wrote a one-page contribution guide covering how new components get proposed, reviewed, and merged into the system. This was the piece I spent the most time on and the piece I'm most proud of: a system without governance is just a snapshot that decays.</p>
@@ -317,6 +323,8 @@
       <span class="eyebrow">Impact</span>
       <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;">Measured 3 months after full adoption.</h2>
 
+      <!-- TEMPORARILY HIDDEN: "50% faster iteration" and "120+ tokens" claims (item 2, need validation) plus unverified [X] placeholders (item 8) pending validation. Do not delete.
+           Note: the 4th tile (0 Figma-to-code drift) isn't flagged, but hiding only 3 of 4 tiles would leave a single isolated tile in this 4-up grid (border/nth-child rules assume a full grid) — hidden as one block to avoid a broken-looking layout. Flag for review if you want that tile restored on its own.
       <div class="impact-grid">
         <div class="impact-grid__item">
           <div class="impact-grid__num">50%</div>
@@ -335,9 +343,10 @@
           <div class="impact-grid__label">Figma-to-code drift on adopted components</div>
         </div>
       </div>
+      -->
 
       <div class="pm-quote cs-content">
-        <p>"One update reflects across all instances instantly. Before the system, changing the primary button colour meant a find-and-replace across [X] files and a week of QA. Now it's a token value change."</p>
+        <p>"One update reflects across all instances instantly.<!-- TEMPORARILY HIDDEN: unverified [X] placeholder (number of files touched pre-system) pending validation. Do not delete. Original: " Before the system, changing the primary button colour meant a find-and-replace across [X] files and a week of QA."--> Now it's a token value change."</p>
         <cite>[Engineer Name] · Frontend Engineer, [Company]</cite>
       </div>
     </section>
@@ -348,7 +357,7 @@
         <span class="eyebrow">Reflection</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
         <p><strong>What I'd do differently.</strong> I underinvested in the adoption story. I built the system correctly but assumed that quality would drive adoption. It didn't. Engineers adopted tokens when it was as easy as not adopting them. I should have spent week 1 building the integration tooling (linters, Figma-to-token export scripts) alongside the architecture, not as a follow-on.</p>
-        <p><strong>What I underestimated.</strong> The governance model. I shipped a contribution guide, but I didn't define a clear process for deprecating components. Six months in, the system had accumulated [X] "experimental" components that were in production but not officially supported. Deprecation is as important as creation.</p>
+        <p><strong>What I underestimated.</strong> The governance model. I shipped a contribution guide, but I didn't define a clear process for deprecating components.<!-- TEMPORARILY HIDDEN: unverified [X] placeholder (number of unsupported experimental components) pending validation. Do not delete. Original: " Six months in, the system had accumulated [X] \"experimental\" components that were in production but not officially supported." --> Deprecation is as important as creation.</p>
         <p><strong>What I'll carry forward.</strong> Semantic naming is a forcing function for design clarity. If you can't name a token semantically, if the only accurate name is a raw value like "blue-500", it's a sign you don't yet understand the token's intent. I now use token naming as a design review step, not a developer task.</p>
       </div>
     </section>

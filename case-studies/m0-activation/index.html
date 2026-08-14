@@ -115,8 +115,8 @@
     <div class="cs-hero" data-reveal>
       <a href="/case-studies/" class="cs-back">← All case studies</a>
       <span class="tag" style="margin-bottom:1.5rem; display:inline-block;">Activation · Engagement · SpeakX · 2025–2026</span>
-      <h1 class="hero__title hero__title--page">Activation, year over year: taking day-zero engagement from 25% to 60% on a paid base</h1>
-      <p class="cs-hero__sub">Across Feb 2025 → Feb 2026, the share of paid users who actually started a lesson on Day 0 went from 25.5% to 60.7%. Average M0 minutes nearly tripled. None of that came from a single shipped feature. It came from twelve months of slow, iterative work on the onboarding-to-first-lesson path. This is the honest version of how that happened, and which parts I can fairly claim as design's contribution.</p>
+      <h1 class="hero__title hero__title--page">Activation, year over year<!-- TEMPORARILY HIDDEN: SpeakX company-level D0 activation metric pending causal attribution validation to individual design work. Do not delete. Original: ": taking day-zero engagement from 25% to 60% on a paid base" --></h1>
+      <p class="cs-hero__sub"><!-- TEMPORARILY HIDDEN: SpeakX company-level D0 activation and M0 minutes metrics pending causal attribution validation to individual design work. Do not delete. Original: "Across Feb 2025 → Feb 2026, the share of paid users who actually started a lesson on Day 0 went from 25.5% to 60.7%. Average M0 minutes nearly tripled. " -->None of that came from a single shipped feature. It came from twelve months of slow, iterative work on the onboarding-to-first-lesson path. This is the honest version of how that happened, and which parts I can fairly claim as design's contribution.</p>
     </div>
 
     <!-- 2. TL;DR -->
@@ -138,10 +138,12 @@
           <span class="tldr__label">My contribution</span>
           <span class="tldr__value">Onboarding flow, intent capture, first-lesson recommendation, milestone/streak design</span>
         </div>
+        <!-- TEMPORARILY HIDDEN: SpeakX company-level M0 activation/minutes/DAU-MAU metrics pending causal attribution validation to individual design work. Do not delete.
         <div class="tldr__item">
           <span class="tldr__label">Outcome</span>
           <span class="tldr__value">M0 active 25.5% → 60.7% · M0 minutes 36 → 101 · DAU/MAU 9.1% → 17.5%</span>
         </div>
+        -->
       </div>
     </div>
 
@@ -158,7 +160,7 @@
         <span class="eyebrow">Business Context</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">CAC tripled. The funnel had to do more work, not less.</h2>
         <p>Through 2025 SpeakX's paid acquisition costs roughly tripled. The same ad rupee was buying a colder, less qualified user. The PM team's read was unambiguous: we couldn't keep paying more for users who never came back after Day 0. The conversation moved from "how do we acquire" to "how do we make the user we just paid for actually stick".</p>
-        <p>Activation became the focal metric. Specifically: <strong>M0 Active</strong>, the percentage of paid users who actually started a lesson on the day they paid. It was the cleanest leading indicator we had for retention, renewal, and unit economics, and in Feb 2025 it sat at 25.5%. Three out of four people we'd just paid to acquire were paying us and then leaving without ever using the product.</p>
+        <p>Activation became the focal metric. Specifically: <strong>M0 Active</strong>, the percentage of paid users who actually started a lesson on the day they paid. It was the cleanest leading indicator we had for retention, renewal, and unit economics.<!-- TEMPORARILY HIDDEN: SpeakX company-level M0 activation baseline metric pending causal attribution validation to individual design work. Do not delete. Original: " and in Feb 2025 it sat at 25.5%." --> Three out of four people we'd just paid to acquire were paying us and then leaving without ever using the product.</p>
       </div>
     </section>
 
@@ -168,6 +170,7 @@
         <span class="eyebrow">The Problem, Quantified</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Users were paying, then drifting. The first lesson was where the funnel went quiet.</h2>
 
+        <!-- TEMPORARILY HIDDEN: SpeakX company-level M0 activation metric pending causal attribution validation to individual design work. Do not delete.
         <div class="callout-pair">
           <div class="callout-pair__item">
             <div class="callout-pair__label">M0 Active, Feb 2025</div>
@@ -178,8 +181,9 @@
             <div class="callout-pair__num">60.7%</div>
           </div>
         </div>
+        -->
 
-        <p>The pre-redesign onboarding was a generic "sign up → land on a catalogue" path. Users picked from a long list of lessons with no signal about why any of them were right for <em>them</em>. Even the ones who started a lesson dropped off mid-way: M0 minutes spent averaged 36 in Feb 2025, which on a 20-minute first lesson meant most users barely cleared one session.</p>
+        <p>The pre-redesign onboarding was a generic "sign up → land on a catalogue" path. Users picked from a long list of lessons with no signal about why any of them were right for <em>them</em>. Even the ones who started a lesson dropped off mid-way.<!-- TEMPORARILY HIDDEN: SpeakX company-level M0 minutes metric pending causal attribution validation to individual design work. Do not delete. Original: " M0 minutes spent averaged 36 in Feb 2025, which on a 20-minute first lesson meant most users barely cleared one session." --></p>
         <p>The data made three things obvious. The catalogue was overwhelming for a Day-0 user. The system had no idea why anyone had paid (was it for a job interview, a school exam, just for fun?), so its recommendations were generic. And there was no return loop: nothing pulled the user back on Day 1, so M0 minutes had to do all the retention work alone.</p>
       </div>
     </section>
@@ -209,7 +213,9 @@
         <span class="eyebrow">Research &amp; The One Insight</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Users didn't want lessons. They wanted progress on a reason they already had.</h2>
         <p>We started running an open-ended "why did you sign up?" prompt in onboarding and clustered the answers. The clusters were sharp: <em>job_interview</em>, <em>higher_education</em>, <em>workplace_communication</em>, <em>just_for_fun</em>, <em>travel</em>. Users weren't fuzzy about their reason. They had it on Day 0, before they paid. The product just wasn't asking.</p>
+        <!-- TEMPORARILY HIDDEN: unverified [X] placeholder (number of onboarding sessions observed) pending validation. Do not delete.
         <p>I sat in on [X] onboarding sessions. The pattern across all of them: users would land on the catalogue, hesitate, scan a few titles, and quietly close the app. None of the lessons were <em>wrong</em>. They just weren't recognisably theirs. A user signed up because of an upcoming interview; the home screen showed her "Daily Conversation Practice, Episode 14".</p>
+        -->
 
         <div class="pullquote">
           <p>"I thought it would ask me what I needed it for. It just gave me everything."</p>
@@ -259,6 +265,8 @@
       <span class="eyebrow">Impact</span>
       <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;">Year-on-year cohort movement, Feb 2025 → Feb 2026.</h2>
 
+      <!-- TEMPORARILY HIDDEN: SpeakX company-level M0 Active / M0 minutes / DAU-MAU metrics pending causal attribution validation to individual design work. Do not delete.
+           Note: the 4th tile (M1 renewal) isn't in the flagged list, but hiding only 3 of 4 tiles would leave a single isolated tile in this 4-up grid (border/nth-child rules assume a full grid) — hidden as one block to avoid a broken-looking layout. Flag for review if you want the M1 renewal tile restored on its own.
       <div class="impact-grid">
         <div class="impact-grid__item">
           <div class="impact-grid__num">25.5% → 60.7%</div>
@@ -277,6 +285,7 @@
           <div class="impact-grid__label">M1 renewal held flat as activation doubled, new actives weren't churn-prone</div>
         </div>
       </div>
+      -->
 
       <div class="pm-quote cs-content">
         <p>"The activation flow stopped being a list and started being a path. That's what made the year-on-year numbers possible. Once intent was a first-class signal, the whole product could finally talk to the user about what they actually came for."</p>
