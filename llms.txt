@@ -1,6 +1,6 @@
-# Shashank Kesarwani — Senior Product Designer
+# Shashank Kesarwani, Senior Product Designer
 
-> Senior Product Designer with 5+ years shipping consumer products in India (EdTech and consumer apps). Currently designing Dalvoy, a 0→1 EdTech product (4 lakh+ registered users, 12K DAU / 94K MAU, Day-30 retention improved 3%→10%, 30%+ organic growth). Previously at SpeakX, where his work reached 10M+ users: Day-0 activation on the paid base lifted from 25.5% to 60.7%, paid checkout conversion +38.8%, and the company's first design system. Based in Gurugram, India. Portfolio: https://www.shashankkesarwani.com
+> Senior Product Designer with 5+ years shipping consumer products in India (EdTech and consumer apps). Currently designing Dalvoy, a 0 to 1 EdTech product (4 lakh+ registered users, 12K DAU / 94K MAU, Day-30 retention improved 3% to 10%, 30%+ organic growth). Previously at SpeakX, where his work reached 10M+ users: Day-0 activation on the paid base lifted from 25.5% to 60.7%, paid checkout conversion +38.8%, and the company's first design system. Based in Gurugram, India. Portfolio: https://www.shashankkesarwani.com
 
 ## About
 
@@ -11,7 +11,7 @@
 
 ## Case studies
 
-- [Dalvoy, 0→1](https://www.shashankkesarwani.com/case-studies/dalvoy/): founding designer on a UPSC and govt-exam prep app; the result-analysis engine, Mains answer evaluation, and Dalvoy Shorts. 4 lakh+ registered users, average session 15 to 24 minutes.
+- [Dalvoy, 0 to 1](https://www.shashankkesarwani.com/case-studies/dalvoy/): founding designer on a UPSC and govt-exam prep app; the result-analysis engine, Mains answer evaluation, and Dalvoy Shorts. 4 lakh+ registered users, average session 15 to 24 minutes.
 - [UPI-first checkout](https://www.shashankkesarwani.com/case-studies/upi-checkout/): rebuilt SpeakX checkout around UPI as the default payment path. ~3× conversion on the UPI cohort, payment success rate up ~10 points, 99% checkout-load reach.
 - [Result Page redesign](https://www.shashankkesarwani.com/case-studies/result-page-redesign/): turned the end-of-lesson scorecard into the engagement and monetisation hinge of the lesson loop, across four layered A/B tests. Practice +19.5%, payment success +30.8% on the headline release.
 - [Gamified read-along](https://www.shashankkesarwani.com/case-studies/read-along-gamified/): points, streaks and per-word feedback on the read-along lesson, tested head-to-head over four days at ~2K paid users per bucket. +2.7 points day-zero activation, −1.7 points cancellation.

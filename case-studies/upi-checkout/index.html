@@ -116,7 +116,7 @@
       <a href="/case-studies/" class="cs-back">← All case studies</a>
       <span class="tag" style="margin-bottom:1.5rem; display:inline-block;">Conversion · Payments · SpeakX · 2025</span>
       <h1 class="hero__title hero__title--page">UPI-first checkout: turning India's default payment habit into a 3× conversion lever</h1>
-      <p class="cs-hero__sub">Overall checkout converted at ~5%. UPI users converted at 12–14%. The data was telling us our checkout was punishing the most common payment habit in India by treating it as one option among many. I rebuilt the flow around UPI as the default: a short product video sitting over the price, and two taps to a paid order: open UPI app, or change UPI app.</p>
+      <p class="cs-hero__sub">Overall checkout converted at ~5%. UPI users converted at 12 to 14%. The data was telling us our checkout was punishing the most common payment habit in India by treating it as one option among many. I rebuilt the flow around UPI as the default: a short product video sitting over the price, and two taps to a paid order: open UPI app, or change UPI app.</p>
     </div>
 
     <!-- 2. TL;DR -->
@@ -157,8 +157,8 @@
       <div class="cs-content">
         <span class="eyebrow">Business Context</span>
         <h2>Checkout was where a profitable funnel quietly leaked.</h2>
-        <p>SpeakX runs a low-priced trial → paid subscription model with multiple price points (₹99 to ₹5,000) and processes payments through five gateways: PAYTM, PHONEPE, Razorpay, RZP_S2S and Juspay. By Q3 2025, acquisition was working: ~180K paid MAU at peak, daily install volumes in the tens of thousands.</p>
-        <p>What wasn't working was the conversion at the bottom of the funnel. Across the previous 14 days of the install-to-paid funnel, <strong>only ~0.7% of installs reached Premium CTR</strong>, and overall D0 conversion sat at ~5%. The dashboard had a clear segment-level signal everyone had walked past: the small group of users who paid via UPI app intents converted at 12–14% and reached checkout-load in ~99% of attempts. That cohort was telling us something the average wasn't.</p>
+        <p>SpeakX runs a low-priced trial to paid subscription model with multiple price points (₹99 to ₹5,000) and processes payments through five gateways: PAYTM, PHONEPE, Razorpay, RZP_S2S and Juspay. By Q3 2025, acquisition was working: ~180K paid MAU at peak, daily install volumes in the tens of thousands.</p>
+        <p>What wasn't working was the conversion at the bottom of the funnel. Across the previous 14 days of the install-to-paid funnel, <strong>only ~0.7% of installs reached Premium CTR</strong>, and overall D0 conversion sat at ~5%. The dashboard had a clear segment-level signal everyone had walked past: the small group of users who paid via UPI app intents converted at 12 to 14% and reached checkout-load in ~99% of attempts. That cohort was telling us something the average wasn't.</p>
       </div>
     </section>
 
@@ -170,17 +170,17 @@
 
         <div class="callout-pair">
           <div class="callout-pair__item">
-            <div class="callout-pair__label">Overall conversion (login → order)</div>
+            <div class="callout-pair__label">Overall conversion (login to order)</div>
             <div class="callout-pair__num">~5%</div>
           </div>
           <div class="callout-pair__item callout-pair__item--after">
             <div class="callout-pair__label">UPI-cohort conversion</div>
-            <div class="callout-pair__num">12–14%</div>
+            <div class="callout-pair__num">12 to 14%</div>
           </div>
         </div>
 
         <p>The pre-redesign checkout was a generic gateway-led screen: a list of payment methods (cards, netbanking, wallets, UPI) and a "Pay" CTA. UPI sat as one option among five. Users had to choose UPI, then choose <em>which</em> UPI app, then go through the gateway's UPI handler, then come back. Every additional decision was a chance to drop.</p>
-        <p>Three things from the data made the problem unambiguous: UPI cohort hit checkout-load at 99.4% (vs ~45% overall), payment success rate sat at 44–47% on UPI-only cohorts (vs ~28–36% overall), and Premium CTR collapsed by ~10× between Premium Load and the order step. The middle of the checkout, not the top, was eating the funnel.</p>
+        <p>Three things from the data made the problem unambiguous: UPI cohort hit checkout-load at 99.4% (vs ~45% overall), payment success rate sat at 44 to 47% on UPI-only cohorts (vs ~28 to 36% overall), and Premium CTR collapsed by ~10× between Premium Load and the order step. The middle of the checkout, not the top, was eating the funnel.</p>
       </div>
     </section>
 
@@ -197,7 +197,7 @@
         <ul>
           <li><strong>UPI app intents only on Android.</strong> The deep-linked "open UPI app" flow is Android-specific. iOS users would still see a fallback card/UPI-collect path, so the design had to gracefully degrade.</li>
           <li><strong>Five gateways already in production.</strong> We could not reduce the gateway count or remove cards/netbanking. Long-tail users (older, higher-value, less UPI-native) still needed them. The redesign had to default UPI without removing other rails.</li>
-          <li><strong>Trust gap on a low-price trial.</strong> At ₹99–₹299 trial pricing, users hesitated at the moment of payment despite the small amount. Whatever sat on the checkout had to do trust work, not just transaction work.</li>
+          <li><strong>Trust gap on a low-price trial.</strong> At ₹99 to ₹299 trial pricing, users hesitated at the moment of payment despite the small amount. Whatever sat on the checkout had to do trust work, not just transaction work.</li>
           <li><strong>SR was bottlenecked by gateway, not by us.</strong> We couldn't make the payment itself faster, but we could remove decisions before the payment started.</li>
         </ul>
       </div>
@@ -208,7 +208,7 @@
       <div class="cs-content">
         <span class="eyebrow">Research &amp; The One Insight</span>
         <h2>In India, UPI is not a payment method. It is the payment habit.</h2>
-        <p>I pulled the 14-day funnel and segmented it three ways: UPI app users, UPI-collect users, and card/netbanking users. UPI app users were converting at 11–14% across every day in the window. The other two segments sat at 3–6%. The shape of the loss was identical regardless of price point. This was a flow problem, not a pricing problem.</p>
+        <p>I pulled the 14-day funnel and segmented it three ways: UPI app users, UPI-collect users, and card/netbanking users. UPI app users were converting at 11 to 14% across every day in the window. The other two segments sat at 3 to 6%. The shape of the loss was identical regardless of price point. This was a flow problem, not a pricing problem.</p>
         <!-- TEMPORARILY HIDDEN: unverified [X] placeholder (number of session recordings reviewed) pending validation. Do not delete.
         <p>I watched [X] session recordings of users who reached Premium Load and didn't convert. The pattern: users would land on the checkout, scan the payment options, hesitate at the "which to pick" decision, and either back-button out or drop after one failed attempt. There was no story being told, just a list.</p>
         -->
@@ -262,11 +262,11 @@
       <div class="impact-grid">
         <div class="impact-grid__item">
           <div class="impact-grid__num">~3×</div>
-          <div class="impact-grid__label">Conversion lift on UPI cohort (12–14% vs ~5% overall)</div>
+          <div class="impact-grid__label">Conversion lift on UPI cohort (12 to 14% vs ~5% overall)</div>
         </div>
         <div class="impact-grid__item">
           <div class="impact-grid__num">+~10 points</div>
-          <div class="impact-grid__label">Payment success rate (44–47% vs 28–36%)</div>
+          <div class="impact-grid__label">Payment success rate (44 to 47% vs 28 to 36%)</div>
         </div>
         <div class="impact-grid__item">
           <div class="impact-grid__num">~99%</div>
@@ -289,7 +289,7 @@
       <div class="cs-content">
         <span class="eyebrow">Reflection</span>
         <h2>What I'd do differently. What I'll carry forward.</h2>
-        <p><strong>What I'd do differently.</strong> I'd have pushed for the "remember UPI app" preference in v1. The second tap is a small cost on first purchase, but for repeat purchasers it's an obvious friction we accepted because it was easy to defer. Repeat-revenue dominates SpeakX's economics by ~25–30× over new revenue. Leaving any friction on the renewal flow was a missed compounding lever.</p>
+        <p><strong>What I'd do differently.</strong> I'd have pushed for the "remember UPI app" preference in v1. The second tap is a small cost on first purchase, but for repeat purchasers it's an obvious friction we accepted because it was easy to defer. Repeat-revenue dominates SpeakX's economics by ~25 to 30× over new revenue. Leaving any friction on the renewal flow was a missed compounding lever.</p>
         <p><strong>What I underestimated.</strong> How much trust work the video did. In testing I'd treated it as a "nice to have", assumed the simplification alone would carry the conversion. The post-launch lift was bigger than the simplification could explain on its own. The video bought users a moment to remember what they were buying, at the exact second they were deciding whether to.</p>
         <p><strong>What I'll carry forward.</strong> Defaults are a design decision, not a configuration. When a clear segment in your data is converting at 3× the average, the question isn't "how do we get the rest to look like them?". It's "why is our default not built around them?".</p>
       </div>

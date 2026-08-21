@@ -5,20 +5,20 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4375120351284164" crossorigin="anonymous"></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Reducing Membership Cancellations at SpeakX: Shashank Kesarwani</title>
-  <meta name="description" content="Case study (in progress): How I designed SpeakX's exit-intent and membership retention surfaces, driving −4% churn and +4% D1 retention." />
+  <title>Membership page redesign at SpeakX · Shashank Kesarwani</title>
+  <meta name="description" content="How I rebuilt the SpeakX membership page to lead with learning progress instead of the cancel button. −8% in-app cancellations, −3% on Day 0." />
   <!-- Open Graph / social cards -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Shashank Kesarwani" />
-  <meta property="og:title" content="Reducing Membership Cancellations at SpeakX" />
-  <meta property="og:description" content="How I redesigned SpeakX's membership page into a retention surface, driving −4% churn and fewer Day-0 cancellations." />
+  <meta property="og:title" content="Membership page redesign at SpeakX · Shashank Kesarwani" />
+  <meta property="og:description" content="How I rebuilt the SpeakX membership page to lead with learning progress instead of the cancel button. −8% in-app cancellations, −3% on Day 0." />
   <meta property="og:url" content="https://www.shashankkesarwani.com/case-studies/speakx-membership/" />
   <meta property="og:image" content="https://www.shashankkesarwani.com/assets/og/speakx-membership.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Reducing Membership Cancellations at SpeakX" />
-  <meta name="twitter:description" content="How I redesigned SpeakX's membership page into a retention surface, driving −4% churn and fewer Day-0 cancellations." />
+  <meta name="twitter:title" content="Membership page redesign at SpeakX · Shashank Kesarwani" />
+  <meta name="twitter:description" content="How I rebuilt the SpeakX membership page to lead with learning progress instead of the cancel button. −8% in-app cancellations, −3% on Day 0." />
   <meta name="twitter:image" content="https://www.shashankkesarwani.com/assets/og/speakx-membership.png" />
   <link rel="canonical" href="https://www.shashankkesarwani.com/case-studies/speakx-membership/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -258,19 +258,19 @@
       <div class="directions">
         <div class="direction">
           <div class="direction__label">Direction A</div>
-          <h4>Cancellation paywall: forced win-back flow</h4>
+          <h3>Cancellation paywall: forced win-back flow</h3>
           <p>Intercept the cancel action with a modal that shows personalised progress stats, an offer (1 month free), and a re-commitment prompt before allowing cancellation to proceed.</p>
           <div class="direction__killed"><strong>Killed because:</strong> Users perceived the intercept as manipulative. In testing, 3 of 5 participants who encountered it cancelled anyway and left a negative rating. The short-term retention lift would have damaged brand trust long-term.</div>
         </div>
         <div class="direction">
           <div class="direction__label">Direction B</div>
-          <h4>Progress-only redesign: no subscription management changes</h4>
+          <h3>Progress-only redesign: no subscription management changes</h3>
           <p>Add a prominent learning progress section at the top of the existing page. Keep all subscription management UI intact below it.</p>
           <div class="direction__killed"><strong>Killed because:</strong> The subscription management section was confusing and redundant. Layering progress on top of a broken information architecture would not solve the root problem: users would scroll past the progress to find the cancel button and still leave in under 12 seconds.</div>
         </div>
         <div class="direction">
           <div class="direction__label">Direction C · Chosen</div>
-          <h4>Full page redesign: progress + clarity + transparent management</h4>
+          <h3>Full page redesign: progress + clarity + transparent management</h3>
           <p>Rebuild the page from scratch with a progress-first hierarchy: learning graph + gamified milestone label at top, premium benefits reinforcement in the middle, and subscription management (including cancel) at the bottom, transparent but de-emphasised relative to the value content.</p>
           <div class="direction__killed"><strong>Chosen because:</strong> Addressed the information architecture problem, the missing progress feedback loop, and the subscription clarity gap in one pass. The cancel option remained fully accessible: we weren't hiding it, we were contextualising it.</div>
         </div>

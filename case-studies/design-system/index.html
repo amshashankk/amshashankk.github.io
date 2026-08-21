@@ -7,19 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Building a Design System from Scratch · Shashank Kesarwani</title>
   <meta name="robots" content="noindex,nofollow" /><!-- Draft: keep out of Google until verified metrics are filled in -->
-  <meta name="description" content="How I built a token-first design system from scratch at an EdTech startup: migrating from Sketch to Figma, shipping 120+ tokens, and eliminating design-to-dev drift across 4 product surfaces." />
+  <meta name="description" content="How I built a token-first design system from scratch at an EdTech startup: token architecture, component library and governance, while the product shipped." />
   <!-- Open Graph / social cards -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Shashank Kesarwani" />
   <meta property="og:title" content="Building a Design System from Scratch" />
-  <meta property="og:description" content="How I built a token-first design system from scratch at an EdTech startup: migrating from Sketch to Figma, shipping 120+ tokens, and killing design-to-dev drift." />
+  <meta property="og:description" content="How I built a token-first design system from scratch at an EdTech startup: token architecture, component library and governance, while the product shipped." />
   <meta property="og:url" content="https://www.shashankkesarwani.com/case-studies/design-system/" />
   <meta property="og:image" content="https://www.shashankkesarwani.com/assets/og/design-system.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Building a Design System from Scratch" />
-  <meta name="twitter:description" content="How I built a token-first design system from scratch at an EdTech startup: migrating from Sketch to Figma, shipping 120+ tokens, and killing design-to-dev drift." />
+  <meta name="twitter:description" content="How I built a token-first design system from scratch at an EdTech startup: token architecture, component library and governance, while the product shipped." />
   <meta name="twitter:image" content="https://www.shashankkesarwani.com/assets/og/design-system.png" />
   <link rel="canonical" href="https://www.shashankkesarwani.com/case-studies/design-system/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,7 +34,7 @@
       {
         "@type": "Article",
         "headline": "Building a Design System from Scratch",
-        "description": "How I built a token-first design system from scratch at an EdTech startup: migrating from Sketch to Figma, shipping 120+ tokens, and eliminating design-to-dev drift across 4 product surfaces.",
+        "description": "How I built a token-first design system from scratch at an EdTech startup: token architecture, component library and governance, while the product kept shipping.",
         "url": "https://www.shashankkesarwani.com/case-studies/design-system/",
         "image": "https://www.shashankkesarwani.com/assets/og/design-system.png",
         "author": {
@@ -119,7 +119,7 @@
     <div class="draft-banner" role="status">
       <span class="draft-banner__dot" aria-hidden="true"></span>
       <strong>Draft</strong>
-      <span>Case study being written up with verified metrics from my SpeakX design system work.<!-- TEMPORARILY HIDDEN: 80+ components claim pending final numbers/status confirmation. Do not delete. Original: " (80+ components, 0→1)" (before the period)--></span>
+      <span>Case study being written up with verified metrics from my SpeakX design system work.<!-- TEMPORARILY HIDDEN: 80+ components claim pending final numbers/status confirmation. Do not delete. Original: " (80+ components, 0 to 1)" (before the period)--></span>
     </div>
 
     <!-- 1. HERO -->
@@ -271,20 +271,20 @@
       <div class="directions">
         <div class="direction">
           <div class="direction__label">Direction A</div>
-          <h4>Component-first library</h4>
+          <h3>Component-first library</h3>
           <p>Build a comprehensive Figma component library first. Define tokens as a secondary pass once the components were in use.</p>
           <div class="direction__killed"><strong>Killed because:</strong> Components built without a token foundation would bake in magic values and require a second expensive migration when theming was introduced. We'd be solving the same problem twice.</div>
         </div>
         <div class="direction">
           <div class="direction__label">Direction B</div>
-          <h4>Adopt an open-source system (Material / Radix)</h4>
+          <h3>Adopt an open-source system (Material / Radix)</h3>
           <p>Map the product's design language onto an established system and piggyback on its token architecture and component logic.</p>
           <div class="direction__killed"><strong>Killed because:</strong> The product's visual identity was distinct enough from Material's that adoption would have required overriding ~60% of the system: close enough to build from scratch without the constraints of an upstream dependency.</div>
         </div>
         <div class="direction">
           <div class="direction__label">Direction C, Chosen</div>
-          <h4>Semantic token architecture, components second</h4>
-          <p>Define the full token hierarchy (global → semantic → component-level) first.<!-- TEMPORARILY HIDDEN: Sketch → Figma migration claim pending final numbers/status confirmation. Do not delete. Original: " Migrate Sketch to Figma with tokens wired in." --> Build components on top of that foundation.</p>
+          <h3>Semantic token architecture, components second</h3>
+          <p>Define the full token hierarchy (global to semantic to component level) first.<!-- TEMPORARILY HIDDEN: Sketch → Figma migration claim pending final numbers/status confirmation. Do not delete. Original: " Migrate Sketch to Figma with tokens wired in." --> Build components on top of that foundation.</p>
           <div class="direction__killed"><strong>Chosen because:</strong> Addressed the root cause engineers identified. Made dark mode trivially achievable. Made every future component consistent by default rather than by discipline.</div>
         </div>
       </div>
@@ -297,7 +297,7 @@
         <h2>Tokens-first meant slower initial progress and faster everything after.</h2>
         <p>Committing to a semantic token architecture meant the first 6 weeks produced nothing visible to the product team. No new screens, no redesigned flows: just a naming convention document, a Figma variables file, and a token export format agreed with engineering. That required a deliberate expectation-setting conversation with the PM and engineering lead.</p>
         <p><strong>The trade-off I accepted explicitly:</strong> short-term invisibility for long-term zero-maintenance. I explained the compounding return: every component built on top of a token system is automatically theme-aware, accessibility-compliant to our contrast ratios, and consistent with the rest of the product. Every component built without it needs to be manually reviewed on every design change.</p>
-        <p>The system shipped in three phases: (1) token architecture and Figma variables, weeks 1–6, (2) core component library (buttons, inputs, navigation, cards, notifications), weeks 7–18, (3) documentation, governance model, and contribution guide, weeks 19–24.</p>
+        <p>The system shipped in three phases: (1) token architecture and Figma variables, weeks 1 to 6, (2) core component library (buttons, inputs, navigation, cards, notifications), weeks 7 to 18, (3) documentation, governance model, and contribution guide, weeks 19 to 24.</p>
       </div>
     </section>
 
