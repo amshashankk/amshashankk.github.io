@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4375120351284164" crossorigin="anonymous"></script>
@@ -156,7 +156,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Business Context</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Checkout was where a profitable funnel quietly leaked.</h2>
+        <h2>Checkout was where a profitable funnel quietly leaked.</h2>
         <p>SpeakX runs a low-priced trial → paid subscription model with multiple price points (₹99 to ₹5,000) and processes payments through five gateways: PAYTM, PHONEPE, Razorpay, RZP_S2S and Juspay. By Q3 2025, acquisition was working: ~180K paid MAU at peak, daily install volumes in the tens of thousands.</p>
         <p>What wasn't working was the conversion at the bottom of the funnel. Across the previous 14 days of the install-to-paid funnel, <strong>only ~0.7% of installs reached Premium CTR</strong>, and overall D0 conversion sat at ~5%. The dashboard had a clear segment-level signal everyone had walked past: the small group of users who paid via UPI app intents converted at 12–14% and reached checkout-load in ~99% of attempts. That cohort was telling us something the average wasn't.</p>
       </div>
@@ -166,7 +166,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">The Problem, Quantified</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">UPI users were converting ~3× higher than everyone else. The checkout treated them like everyone else.</h2>
+        <h2>UPI users were converting ~3× higher than everyone else. The checkout treated them like everyone else.</h2>
 
         <div class="callout-pair">
           <div class="callout-pair__item">
@@ -193,7 +193,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Constraints</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">We could not break the long tail. We could re-default to the head.</h2>
+        <h2>We could not break the long tail. We could re-default to the head.</h2>
         <ul>
           <li><strong>UPI app intents only on Android.</strong> The deep-linked "open UPI app" flow is Android-specific. iOS users would still see a fallback card/UPI-collect path, so the design had to gracefully degrade.</li>
           <li><strong>Five gateways already in production.</strong> We could not reduce the gateway count or remove cards/netbanking. Long-tail users (older, higher-value, less UPI-native) still needed them. The redesign had to default UPI without removing other rails.</li>
@@ -207,7 +207,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Research &amp; The One Insight</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">In India, UPI is not a payment method. It is the payment habit.</h2>
+        <h2>In India, UPI is not a payment method. It is the payment habit.</h2>
         <p>I pulled the 14-day funnel and segmented it three ways: UPI app users, UPI-collect users, and card/netbanking users. UPI app users were converting at 11–14% across every day in the window. The other two segments sat at 3–6%. The shape of the loss was identical regardless of price point. This was a flow problem, not a pricing problem.</p>
         <!-- TEMPORARILY HIDDEN: unverified [X] placeholder (number of session recordings reviewed) pending validation. Do not delete.
         <p>I watched [X] session recordings of users who reached Premium Load and didn't convert. The pattern: users would land on the checkout, scan the payment options, hesitate at the "which to pick" decision, and either back-button out or drop after one failed attempt. There was no story being told, just a list.</p>
@@ -226,7 +226,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">The Decision</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Two taps to paid. Everything else hidden behind one link.</h2>
+        <h2>Two taps to paid. Everything else hidden behind one link.</h2>
         <p>The shipped flow was deliberately small:</p>
         <ul>
           <li>A short looping product video sitting over the price block, no audio required, captioned. The video framed what the user got (lessons, AI practice, live sessions) in the language of outcome, not feature.</li>
@@ -247,7 +247,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Shipping Reality</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What shipped, what got cut, and what made it to v2.</h2>
+        <h2>What shipped, what got cut, and what made it to v2.</h2>
         <p><strong>What shipped in v1.</strong> The video-led checkout, UPI app deep-link intent, "Change UPI app" link, and the consolidated "Other payment options" expander on Android. iOS users got a parallel design without the deep-link intent: UPI-collect via the gateway as default, with the same video-led trust framing.</p>
         <p><strong>What didn't.</strong> Personalised video copy by intent (job-interview vs. school vs. travel) was descoped to v2. The data pipeline for serving the right video by user-declared learning reason wasn't ready in time. The card-on-file express flow for repeat purchasers also slipped to v2.</p>
         <p><strong>v2 targets.</strong> Intent-personalised video, card-on-file express checkout, and a "remember UPI app" preference so the second-time experience is one tap, not two.</p>
@@ -257,7 +257,7 @@
     <!-- 10. IMPACT -->
     <section class="cs-section" data-reveal>
       <span class="eyebrow">Impact</span>
-      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;">Numbers measured on the cohort that hit the new checkout.</h2>
+      <h2>Numbers measured on the cohort that hit the new checkout.</h2>
 
       <div class="impact-grid">
         <div class="impact-grid__item">
@@ -288,7 +288,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Reflection</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
+        <h2>What I'd do differently. What I'll carry forward.</h2>
         <p><strong>What I'd do differently.</strong> I'd have pushed for the "remember UPI app" preference in v1. The second tap is a small cost on first purchase, but for repeat purchasers it's an obvious friction we accepted because it was easy to defer. Repeat-revenue dominates SpeakX's economics by ~25–30× over new revenue. Leaving any friction on the renewal flow was a missed compounding lever.</p>
         <p><strong>What I underestimated.</strong> How much trust work the video did. In testing I'd treated it as a "nice to have", assumed the simplification alone would carry the conversion. The post-launch lift was bigger than the simplification could explain on its own. The video bought users a moment to remember what they were buying, at the exact second they were deciding whether to.</p>
         <p><strong>What I'll carry forward.</strong> Defaults are a design decision, not a configuration. When a clear segment in your data is converting at 3× the average, the question isn't "how do we get the rest to look like them?". It's "why is our default not built around them?".</p>

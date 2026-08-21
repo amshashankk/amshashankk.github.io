@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4375120351284164" crossorigin="anonymous"></script>
@@ -20,6 +20,7 @@
   <meta name="twitter:title" content="Live Session Booking at SpeakX" />
   <meta name="twitter:description" content="Designing and shipping SpeakX's in-app live-session booking from zero: ~16% of trial users booked within a day, with no cannibalisation of lessons." />
   <meta name="twitter:image" content="https://www.shashankkesarwani.com/assets/og/live-session-booking.png" />
+  <meta name="robots" content="noindex,nofollow" />
   <link rel="canonical" href="https://www.shashankkesarwani.com/case-studies/live-session-booking/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -156,7 +157,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Business Context</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">SpeakX had self-serve lessons. It didn't have a human on the other side.</h2>
+        <h2>SpeakX had self-serve lessons. It didn't have a human on the other side.</h2>
         <p>SpeakX's core product was AI-led English practice: lessons, drills, speaking exercises. It worked well for habit formation but plateaued on the harder problem: getting users to actually <em>speak</em> to another human, which is what drives confidence and retention. A small live-ops team had been running 1:1 and small-group sessions over external tools, but there was no way to discover or book those sessions inside the app.</p>
         <p>The hypothesis going in was that a live human session, surfaced at the right moment, would become both an engagement surface (a reason to come back) and a monetisation surface (a paid product post-trial). The first job was just to find out whether trial users, the cohort with the loosest commitment, would book one at all if we made it possible.</p>
       </div>
@@ -166,7 +167,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">The Problem, Quantified</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">There was no baseline. The Control bucket didn't have the feature at all.</h2>
+        <h2>There was no baseline. The Control bucket didn't have the feature at all.</h2>
 
         <div class="callout-pair">
           <div class="callout-pair__item">
@@ -188,7 +189,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Constraints</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The hard constraint wasn't design. It was tutor supply.</h2>
+        <h2>The hard constraint wasn't design. It was tutor supply.</h2>
         <ul>
           <li><strong>Live sessions are capacity-bound.</strong> Unlike an AI lesson which scales infinitely, a live session needs a tutor on the other end at a specific time. We had a small roster and finite hours. The booking design had to <em>pace</em> demand, not just maximise it: show only available slots, never let a user pick a time we couldn't fulfil.</li>
           <li><strong>Trial users are the lowest-commitment cohort.</strong> If we asked too much (long onboarding, payment up front, verification), they'd bounce. Booking had to feel as light as scheduling a haircut.</li>
@@ -202,7 +203,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Research &amp; The One Insight</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Users think in days of their week. Supply is structured around tutor calendars. The design had to translate.</h2>
+        <h2>Users think in days of their week. Supply is structured around tutor calendars. The design had to translate.</h2>
         <!-- TEMPORARILY HIDDEN: unverified [X] placeholder (number of live-ops booking conversations shadowed) pending validation. Do not delete.
         <p>I shadowed [X] live-ops booking conversations being handled manually over chat. The pattern was identical every time: the user opened with a day, not a time. <em>"Can I do something on Saturday?"</em> Not <em>"What's the next slot?"</em> The supply side, by contrast, was built around tutor availability windows: a tutor picks Tuesday 6–9pm, the system surfaces that block.</p>
         -->
@@ -228,7 +229,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">The Decision</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">A calendar shaped like a week, supply hidden underneath, one confirmation that did real work.</h2>
+        <h2>A calendar shaped like a week, supply hidden underneath, one confirmation that did real work.</h2>
         <p>The shipped flow was three screens:</p>
         <ul>
           <li>An entry surface inside the home tab: a card titled "Practise live with a tutor" with the next open day pre-loaded as a preview, so users didn't have to imagine what was on the other side of the tap.</li>
@@ -249,7 +250,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Shipping Reality</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What shipped, what got cut, and what made it to v2.</h2>
+        <h2>What shipped, what got cut, and what made it to v2.</h2>
         <p><strong>What shipped in v1.</strong> The calendar-first booking screen, slot list with availability logic, confirmation modal with countdown, and "Watch Now" jump-in for sessions within 15 minutes. Push and in-app reminders fired at T-60min and T-10min. Android and iOS launched together.</p>
         <p><strong>What didn't.</strong> Tutor profiles with bios and ratings were descoped. The live-ops team didn't have curated copy ready, and rough auto-generated bios would have hurt trust more than helped. Recurring bookings (book the same slot every week) slipped to v2; the data model supported it but the UI and edge cases (cancellation, re-scheduling, partial recurrence) were a separate design problem.</p>
         <p><strong>v2 targets.</strong> Tutor profiles, recurring slots, post-session feedback feeding tutor ranking, and a "remind me when this tutor opens new slots" subscription for users who wanted a specific tutor.</p>
@@ -259,7 +260,7 @@
     <!-- 10. IMPACT -->
     <section class="cs-section" data-reveal>
       <span class="eyebrow">Impact</span>
-      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;">What the data said in the first 72 hours.</h2>
+      <h2>What the data said in the first 72 hours.</h2>
 
       <div class="impact-grid">
         <div class="impact-grid__item">
@@ -290,7 +291,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Reflection</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
+        <h2>What I'd do differently. What I'll carry forward.</h2>
         <p><strong>What I'd do differently.</strong> I'd have shipped tutor profiles in v1, even rough ones. The single most-asked question in moderated testing was "who is this person?", and we shipped without an answer. The booking rate held up anyway, but I think it would have been higher, and I think the no-show rate would have been lower, if users had felt they were booking <em>a person</em> rather than a slot.</p>
         <p><strong>What I underestimated.</strong> How much pacing the design itself was doing. I'd thought of "show only open slots" as a UX nicety; it turned out to be the load-balancer for tutor capacity. When demand spiked on Jul 23, the calendar absorbed it gracefully: full days went grey, users moved to adjacent days, no error states fired. The design was operating as a supply mechanism without anyone configuring it as one.</p>
         <p><strong>What I'll carry forward.</strong> When you're shipping a 0→1 surface, the only honest framing is the absolute number, not a lift. ~16% of trial users booking a live human session in a category they'd entered for AI lessons was a real signal, not because it beat a baseline, but because it was a behaviour the product had never produced before. Lift stories are cleaner. Launch stories are truer.</p>

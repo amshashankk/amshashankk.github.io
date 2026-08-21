@@ -202,6 +202,33 @@ body::after {
   isolation: isolate;
 }
 
+/* --- DarkVeil hero background (reactbits.dev, ported in /darkveil.js) --- */
+
+/* Full-bleed: the hero itself is a 1200px column, so break out to the
+   viewport edges. body has overflow-x:hidden, so 100vw is safe here. */
+.hero-veil {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  /* Dissolve into the page rather than ending on a hard edge. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+
+/* The canvas renders below CSS resolution and is scaled up here; the veil is
+   a soft gradient, so the upscale costs nothing visible. */
+.hero-veil__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero::after {
   content: '';
   position: absolute;
@@ -629,6 +656,53 @@ body.cursor--lg .cursor {
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+/* --- TextLoop band (reactbits.dev, built by /text-loop.js) ---------------
+   Colours live here rather than in JS props, so the ribbon follows the theme
+   toggle for free. Only applies once the script has swapped in the SVG. */
+.marquee.is-loop {
+  border: 0;
+  padding-block: 0;
+  overflow: hidden;
+  /* The SVG carries its own transparent margin above and below the wave, so
+     the band needs far less outer margin than the flat track did. */
+  margin-block: clamp(0.5rem, 1.5vw, 1.25rem);
+}
+.text-loop.is-loop { position: relative; width: 100%; overflow: hidden; }
+.text-loop__svg { display: block; width: 100%; height: auto; }
+
+.text-loop__ribbon { stroke: var(--accent); }
+/* The measure copy MUST carry identical font metrics to the visible runs —
+   it is what getComputedTextLength() reports, and that number decides how
+   many repeats tile the path. Measuring it in the inherited body font
+   miscounts the repeats and lengthAdjust then stretches the letters. */
+.text-loop__text,
+.text-loop__measure {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+}
+.text-loop__text {
+  fill: var(--accent-text);
+  user-select: none;
+  -webkit-user-select: none;
+}
+.text-loop__measure { visibility: hidden; pointer-events: none; }
+
+/* Narrow screens: pin a height so preserveAspectRatio="slice" scales the
+   ribbon up and crops the sides, rather than shrinking the names to ~12px. */
+@media (max-width: 48rem) {
+  .text-loop__svg { height: 128px; }
+}
+@media (max-width: 30rem) {
+  .text-loop__svg { height: 112px; }
+}
+
+/* [data-theme="light"] .marquee re-adds the top/bottom rules further down the
+   sheet at equal specificity; the ribbon frames itself, so drop them again. */
+[data-theme="light"] .marquee.is-loop {
+  border-top: 0;
+  border-bottom: 0;
 }
 
 /* --- Sections --- */
@@ -4465,4 +4539,662 @@ body:has(.not-found) .footer {
 }
 @media (prefers-reduced-motion: reduce) {
   .draft-banner__dot { animation: none; }
+}
+
+/* ============================================================
+   CASE STUDY — READING EXPERIENCE
+   Long-form rhythm: a narrow measure for prose, figures that
+   deliberately break wider, chapter orientation in the margin,
+   and content that rises into view as you scroll.
+   Appended last so it wins over the earlier .cs-* rules.
+   ============================================================ */
+
+/* --- 1. Measure. Prose was running 121 characters per line at
+       1104px wide; comfortable reading is 65-75. --- */
+.cs-section {
+  --measure: 75%;       /* prose column: 75% of the horizontal space */
+  --headline: 75%;
+}
+.cs-content {
+  max-width: none;
+  margin-inline: 0;
+}
+/* Prose keeps the readable measure even though the block is wider. */
+.cs-content > p,
+.cs-content > ul,
+.cs-content > ol { max-width: var(--measure); }
+.cs-content p { font-size: 1.125rem; line-height: 1.72; }
+
+/* --- 2. Rhythm. Drop the uniform 1px rule between every section
+       and let spacing carry the separation instead. --- */
+.cs-section {
+  border-top: 0;
+  padding-block: clamp(2.75rem, 6vw, 5rem);
+  position: relative;
+}
+.cs-section + .cs-section { padding-top: clamp(1rem, 2vw, 1.75rem); }
+
+.cs-section h2 {
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.5rem;
+  width: 100%;
+  max-width: var(--headline);
+}
+
+/* --- 3. Chapter marker: the eyebrow sits out in the left margin on
+       wide screens and stays put while you read that section. --- */
+/* Eyebrow sits at the top of its section, above the headline. */
+.cs-section > .eyebrow,
+.cs-section > .cs-content > .eyebrow {
+  display: block;
+  margin-bottom: 0.9rem;
+}
+
+/* --- 4. Figures break the measure. Portrait for a single close-up
+       screen, landscape for several screens together. --- */
+.cs-figure { margin-block: clamp(2.5rem, 6vw, 4.5rem); }
+
+/* Portrait screens sit beside their explanation rather than alone in the
+   middle of the page, where a 9:16 image leaves most of the row empty. */
+.cs-figure--portrait {
+  max-width: none;
+  display: grid;
+  grid-template-columns: 1fr minmax(240px, 360px);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+.cs-figure--portrait > .cs-figure__frame { grid-column: 2; }
+.cs-figure--portrait > .cs-figure__cap {
+  grid-column: 1;
+  grid-row: 1;
+  max-width: 46ch;
+  margin: 0;
+  padding-top: 0;
+  font-size: 1.0625rem;
+  line-height: 1.68;
+}
+@media (max-width: 760px) {
+  .cs-figure--portrait {
+    grid-template-columns: 1fr;
+  }
+  .cs-figure--portrait > .cs-figure__frame { grid-column: 1; grid-row: 2; max-width: 320px; }
+  .cs-figure--portrait > .cs-figure__cap  { grid-column: 1; grid-row: 1; }
+}
+.cs-figure--landscape { max-width: 1180px; }
+.cs-figure--bleed {
+  max-width: none;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding-inline: 0;
+}
+.cs-figure img,
+.cs-figure__frame > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+.cs-figure--portrait img { border-radius: 22px; }
+
+/* Figure captions are hidden: on a full-width image the caption sat centred
+   on the text measure, 259px in from the picture's left edge, reading as an
+   orphaned paragraph rather than part of the figure. The markup and the text
+   are kept, so deleting this one rule restores them. */
+.cs-figure__cap { display: none; }
+
+.cs-figure__cap {
+  max-width: 62ch;
+  margin-inline: auto;
+  padding-top: 0.9rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.cs-figure-grid {
+  max-width: 1180px;
+  margin-inline: auto;
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+/* --- 5. Pull-quote: the one line that carries the argument. --- */
+.cs-pull {
+  width: 100%;
+  max-width: var(--measure);
+  margin: clamp(2rem, 4vw, 3rem) 0;
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  line-height: 1.32;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  border-left: 2px solid var(--accent);
+  padding-left: clamp(1rem, 2vw, 1.75rem);
+}
+
+/* --- 6. Reading progress --- */
+.cs-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: var(--accent);
+  z-index: 60;
+  pointer-events: none;
+}
+
+/* --- 7. Rise-in. Longer travel than the old 24px so the motion
+       reads as anticipation, with an ease-out curve and a stagger
+       across the children of a section. --- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(38px);
+  transition: opacity 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal].is-visible { opacity: 1; transform: none; }
+[data-reveal] > * { transition-delay: inherit; }
+
+.cs-section[data-reveal] .cs-content > *,
+.cs-section[data-reveal] > h2 {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1) var(--rd, 0ms),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) var(--rd, 0ms);
+}
+.cs-section[data-reveal].is-visible .cs-content > *,
+.cs-section[data-reveal].is-visible > h2 { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* Re-assert over the [data-reveal] rules above: this block is appended after
+     the earlier reduced-motion override, so without this, content that has not
+     been scrolled past stays at opacity 0 for anyone who asks for less motion. */
+  [data-reveal],
+  .cs-section[data-reveal] .cs-content > *,
+  .cs-section[data-reveal] > h2 { opacity: 1; transform: none; transition: none; }
+  .cs-progress { display: none; }
+}
+
+/* ------------------------------------------------------------
+   PLACEHOLDER PREVIEW
+   Empty figures stay hidden on the live site (captions describing
+   images that do not exist read as broken). Turn them on while
+   working: automatic on localhost, or ?placeholders=1 anywhere.
+   ------------------------------------------------------------ */
+html.ph-preview .cs-figure:has(.cs-figure__ph) { display: block; }
+/* portrait figures are a two-column split, not a block */
+html.ph-preview .cs-figure--portrait:has(.cs-figure__ph) { display: grid; }
+html.ph-preview .cs-figure-grid:not(:has(img)) { display: grid; }
+html.ph-preview .tldr + .cs-figure:has(.cs-figure__ph) + .cs-section { border-top: 0; }
+
+/* Match the real aspect ratios so the reading rhythm is accurate. */
+html.ph-preview .cs-figure--portrait  .cs-figure__ph { aspect-ratio: 1080 / 1920; max-width: none; }
+html.ph-preview .cs-figure--landscape .cs-figure__ph { aspect-ratio: 2400 / 1400; max-width: none; }
+
+html.ph-preview .cs-figure__ph {
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+}
+html.ph-preview .cs-figure--portrait .cs-figure__ph { border-radius: 22px; }
+
+/* Small badge so a placeholder is never mistaken for finished work. */
+html.ph-preview .cs-figure__ph::before {
+  content: 'PLACEHOLDER';
+  position: absolute;
+  top: 0.6rem; left: 0.6rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  padding: 0.2rem 0.45rem;
+  border-radius: 3px;
+  background: var(--accent);
+  color: #0a0a0b;
+  opacity: 0.85;
+}
+
+
+/* ------------------------------------------------------------
+   HOMEPAGE WORK CARDS
+   Image-led case-study cards: the picture does the shortlisting,
+   the description reveals on hover so the grid stays quiet while
+   it is being scanned.
+   ------------------------------------------------------------ */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 34rem));
+  justify-content: center;
+  gap: clamp(1.5rem, 3.5vw, 3.75rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+/* Explicit column counts once there's room. The auto-fit track above counts
+   repetitions against the 34rem max, not the min, so on its own it only ever
+   resolves to a single column at these container widths.
+   --featured: the three-up homepage row.  --index: the browsing grid. */
+@media (min-width: 60rem) {
+  .work-grid--index,
+  .work-grid--featured {
+    justify-content: stretch;
+    gap: clamp(1.75rem, 2.6vw, 2.75rem);
+  }
+  .work-grid--index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .work-grid--featured { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* --- Depth carousel (reactbits.dev, driven by /depth-carousel.js) ---------
+   Retheming notes: the upstream CSS is dark-only (white arrows on dark glass)
+   and cues depth with a multiply tint, which on a near-white card reads as
+   dirt rather than distance. Both are swapped for site tokens here. */
+
+.depth-carousel {
+  position: relative;
+  width: 100%;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1400px;
+  perspective-origin: 50% 50%;
+  touch-action: pan-y;          /* vertical gestures still scroll the page */
+  outline: none;
+}
+.depth-carousel.is-ready { cursor: grab; }
+.depth-carousel.is-ready:active { cursor: grabbing; }
+.depth-carousel:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+  border-radius: 20px;
+}
+
+.depth-carousel__stage {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+}
+
+/* Before the script sizes them, the three cards sit in normal flow, so a
+   no-JS visitor still gets all three case studies. */
+.depth-carousel:not(.is-ready) .depth-carousel__stage {
+  display: grid;
+  gap: 1.5rem;
+}
+.depth-carousel:not(.is-ready) .depth-carousel__veil,
+.depth-carousel:not(.is-ready) .depth-carousel__arrow,
+.depth-carousel:not(.is-ready) .depth-carousel__dots { display: none; }
+
+.depth-carousel.is-ready .depth-carousel__card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  border-radius: 20px;
+  will-change: transform, opacity, filter;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.45),
+              0 8px 20px -10px rgba(0, 0, 0, 0.35);
+}
+.depth-carousel__card > .work-card { height: 100%; }
+
+/* Depth cue. Paints toward the page background rather than toward black, so
+   cards recede in the light theme instead of turning muddy. */
+.depth-carousel__veil {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  opacity: 0;
+  pointer-events: none;
+  background: var(--bg);
+}
+
+.depth-carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3000;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.depth-carousel__arrow:hover { border-color: var(--accent); }
+.depth-carousel__arrow:active { transform: translateY(-50%) scale(0.94); }
+.depth-carousel__arrow--prev { left: 0; }
+.depth-carousel__arrow--next { right: 0; }
+
+.depth-carousel__dots {
+  position: absolute;
+  bottom: -2.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3000;
+  display: flex;
+  gap: 8px;
+}
+.depth-carousel__dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: var(--border);
+  cursor: pointer;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+.depth-carousel__dot.is-active { width: 20px; background: var(--accent); }
+
+/* Room for the dots below the stack. */
+.depth-carousel + .work-grid__footer { margin-top: clamp(3.5rem, 6vw, 4.5rem); }
+
+@media (prefers-reduced-motion: reduce) {
+  .depth-carousel.is-ready .depth-carousel__card { will-change: auto; }
+  .depth-carousel__arrow,
+  .depth-carousel__dot { transition: none; }
+}
+
+@media (max-width: 40rem) {
+  .depth-carousel__arrow { display: none; }
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.work-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.work-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Media sits flush to the card edge and carries most of the height. */
+.work-card__media {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-hover);
+  overflow: hidden;
+}
+.work-card__media img {
+  display: block;
+  width: 100%;
+  /* height:auto is required: the img's height attribute is a presentational
+     hint that otherwise wins over aspect-ratio and renders it full size. */
+  height: auto;
+  aspect-ratio: 2400 / 1400;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.work-card:hover .work-card__media img { transform: scale(1.03); }
+.work-card__media .cs-figure__ph { border: 0; border-radius: 0; }
+
+/* Typographic media panel — stands in where a case has no banner yet.
+   Holds the same 2400/1400 box as the img so the grid rhythm never breaks;
+   swap the whole .work-card__panel for an <img> once artwork exists. */
+.work-card__panel {
+  aspect-ratio: 2400 / 1400;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: clamp(1.4rem, 4.5vw, 2.75rem);
+  background: var(--surface-hover);
+  background:
+    radial-gradient(90% 120% at 8% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 62%),
+    var(--surface-hover);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.work-card:hover .work-card__panel { transform: scale(1.02); }
+
+.work-card__panel-metric {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.work-card__panel-label {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 24ch;
+  color: var(--text-muted);
+}
+@media (prefers-reduced-motion: reduce) {
+  .work-card__panel { transition: none; }
+  .work-card:hover .work-card__panel { transform: none; }
+}
+
+.work-card__body { padding: clamp(1.1rem, 2vw, 1.6rem) clamp(1.1rem, 2vw, 1.75rem) clamp(1.35rem, 2.4vw, 1.9rem); }
+
+.work-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.9rem;
+}
+.work-card__where {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.work-card__meta .tag-row { margin: 0; }
+
+/* Large but light — the calm editorial weight, not a bold headline. */
+.work-card__title {
+  font-size: clamp(1.5rem, 2.6vw, 2.05rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Description is held back until the card is pointed at, so a grid of
+   cards reads as images and titles when it is being scanned. */
+.work-card__desc {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.32s ease, margin-top 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.work-card__desc > * { min-height: 0; }
+.work-card:hover .work-card__desc,
+.work-card:focus-visible .work-card__desc {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 0.85rem;
+}
+
+.work-card__metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.35rem;
+  margin-top: 1.05rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.work-card__metrics strong { color: var(--text); font-weight: 600; }
+
+/* Touch devices have no hover: show the description outright. */
+@media (hover: none) {
+  .work-card__desc { grid-template-rows: 1fr; opacity: 1; margin-top: 0.85rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .work-card, .work-card__desc, .work-card__media img { transition: none; }
+  .work-card:hover { transform: none; }
+}
+
+.work-grid__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2rem, 4vw, 3.25rem);
+}
+
+/* ------------------------------------------------------------
+   CASE STUDY — ONE GUTTER, TOP TO BOTTOM
+   Every top-level block on a case study shares the same container
+   and the same side gutter, so the left and right edges line up
+   from the hero to the footer nav.
+   ------------------------------------------------------------ */
+.cs-hero,
+.tldr,
+.cs-section,
+.cs-figure,
+.cs-figure-grid {
+  max-width: var(--cs-max);
+  margin-inline: auto;
+  padding-inline: var(--cs-gutter);
+}
+:root { --cs-max: 1200px; --cs-gutter: clamp(1.25rem, 5vw, 3rem); }
+
+/* Overrides added later had drifted off the shared container. */
+.cs-figure--portrait,
+.cs-figure--landscape,
+.cs-figure-grid { max-width: var(--cs-max); }
+
+/* Figures inside a grid are columns, not containers: the grid already
+   owns the gutter, so they must not add one of their own. */
+.cs-figure-grid > .cs-figure {
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
+}
+
+/* Full-bleed is the one deliberate exception, and it must be opted into. */
+.cs-figure--bleed {
+  max-width: none;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding-inline: 0;
+}
+
+/* ------------------------------------------------------------
+   CASE STUDY BANNER
+   Sits under the TL;DR as the page's opening image. Light and dark
+   artwork are separate files; only the matching one is fetched.
+   ------------------------------------------------------------ */
+.cs-figure--banner { margin-top: 0; }
+.cs-figure--banner picture { display: block; }
+.cs-figure--banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+/* ------------------------------------------------------------
+   PAGE INTRO → FIRST SECTION
+   The intro's bottom padding and the section's top padding were
+   stacking to a 147px gap. Collapse them into one deliberate break.
+   ------------------------------------------------------------ */
+.page-intro + .section,
+.page-intro + section.section { padding-top: clamp(1.75rem, 3.5vw, 3rem); }
+.page-intro { padding-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+
+/* ------------------------------------------------------------
+   CASE LIST CARD
+   Was a divider row with a 2px accent bar on the left edge only.
+   Now a card: 16px radius, and the hover highlight is a stroke on
+   all four sides drawn as an inset shadow, so nothing reflows.
+   ------------------------------------------------------------ */
+.case {
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  margin-inline: 0;
+  padding-inline: clamp(1rem, 2.5vw, 1.5rem);
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.case + .case { margin-top: clamp(0.75rem, 1.5vw, 1rem); }
+.case:last-child { border-bottom: 1px solid var(--border); }
+
+.case:hover,
+.case:focus-visible {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.case:focus-visible { outline: none; }
+
+/* The left-edge bar is replaced by the all-round stroke above. */
+.case::before { content: none; }
+
+/* Light theme sets .case:hover border-color with !important and only a
+   18%-opacity ring, so the all-round stroke has to be re-asserted here.
+   Keeps that theme's lift shadow, makes the stroke solid. */
+[data-theme="light"] .case:hover,
+[data-theme="light"] .case:focus-visible {
+  border-color: var(--accent) !important;
+  box-shadow:
+    inset 0 0 0 1px var(--accent),
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 12px 32px rgba(0, 0, 0, 0.10);
+}
+
+/* ------------------------------------------------------------
+   CASE LIST CARD — CONTENT ORDER
+   Heading, description, tags, year. The old left-hand meta column
+   held only a tag and a year, and left a large empty gutter beside
+   short cards; both now sit inside the single content column.
+   ------------------------------------------------------------ */
+.case__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+.case__body > * { margin: 0; }
+.case__body h3 { line-height: 1.2; }
+/* No cap: this is a wide row card, and a 68ch cap left the right
+   half of it empty, which is the gap that prompted the redesign. */
+.case__body p { max-width: none; }
+.case__body .tag-row { margin-top: 0.15rem; }
+
+.case__year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+/* Case-studies index grid: same card as the homepage, laid out for browsing. */
+.work-grid--index { margin-top: clamp(1.5rem, 3vw, 2.25rem); }
+.work-card__year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 0.9rem;
+}
+/* Direct child only: the homepage cards nest a .tag-row inside
+   .work-card__meta, where this margin would push it off the row's
+   centre line and out-specify the reset above. */
+.work-card__body > .tag-row { margin-top: 1rem; }
+
+/* Landscape figures hold the image directly (no __frame wrapper). */
+.cs-figure--landscape > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
 }

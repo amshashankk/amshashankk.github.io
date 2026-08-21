@@ -87,6 +87,14 @@
     if (window.__lenis) window.__lenis.start();
   }
 
+  // The reveal circle is grown well past the far corner on purpose. Stopping at
+  // the corner puts full coverage at the very end of an ease-in-out curve, where
+  // it crawls: the wipe appears to stick, then snap shut. Overshooting by half
+  // brings full coverage forward to roughly 55% of the duration, so the whole
+  // decelerating tail happens after the screen is already covered and is
+  // invisible. The circle being larger than it needs to be costs nothing.
+  var WIPE_OVERSHOOT = 1.5;
+
   function rippleThemeSwitch(targetTheme, originX, originY) {
     // Compute radius to farthest viewport corner from origin
     var vw = window.innerWidth;
@@ -94,7 +102,7 @@
     var r = Math.ceil(Math.sqrt(
       Math.pow(Math.max(originX, vw - originX), 2) +
       Math.pow(Math.max(originY, vh - originY), 2)
-    ));
+    ) * WIPE_OVERSHOOT);
 
     // --- Primary path: View Transitions API ---
     if (!reducedMotion && document.startViewTransition) {
@@ -238,6 +246,38 @@
   }
 
   // --- Reveal on scroll ---
+  // --- Theme-aware banner artwork --------------------------------------
+  // Swap the src when data-theme changes. Deliberately not a <picture> with
+  // a media query: the preload scanner resolves that before script.js runs,
+  // so correcting it afterwards downloads both files.
+  (function () {
+    var imgs = document.querySelectorAll('img[data-src-dark]');
+    if (!imgs.length) return;
+    var html = document.documentElement;
+    function sync() {
+      var dark = html.getAttribute('data-theme') === 'dark';
+      for (var i = 0; i < imgs.length; i++) {
+        var el = imgs[i];
+        var want = el.getAttribute(dark ? 'data-src-dark' : 'data-src-light');
+        if (want && el.getAttribute('src') !== want) el.setAttribute('src', want);
+      }
+    }
+    try {
+      new MutationObserver(sync).observe(html, { attributes: true, attributeFilter: ['data-theme'] });
+    } catch (e) {}
+    sync();
+  }());
+
+  // --- Placeholder preview -------------------------------------------
+  // Unfilled figure placeholders are hidden everywhere by default, so a local
+  // run looks exactly like the deployed site. Append ?placeholders=1 to any
+  // case-study URL to reveal them while working out where images will land.
+  (function () {
+    if (/[?&]placeholders=1/.test(location.search)) {
+      document.documentElement.classList.add('ph-preview');
+    }
+  }());
+
   const revealObserver = new IntersectionObserver(
     function (entries) {
       entries.forEach(function (entry) {
@@ -247,12 +287,53 @@
         }
       });
     },
-    { threshold: 0.12 }
+    // Start slightly before the element reaches the viewport so content is
+    // already rising as it arrives, rather than popping once fully on screen.
+    { threshold: 0.05, rootMargin: '0px 0px -8% 0px' }
   );
 
   document.querySelectorAll('[data-reveal]').forEach(function (el) {
+    // Stagger the children of a case-study section so the block unfolds
+    // line by line instead of arriving as one slab.
+    if (el.classList.contains('cs-section')) {
+      var kids = el.querySelectorAll(':scope > h2, :scope > .cs-content > *');
+      for (var i = 0; i < kids.length; i++) {
+        kids[i].style.setProperty('--rd', (i * 70) + 'ms');
+      }
+    }
     revealObserver.observe(el);
   });
+
+  // Anything already in view on load (or landed on via an anchor) must not
+  // sit invisible waiting for a scroll that never comes.
+  requestAnimationFrame(function () {
+    document.querySelectorAll('[data-reveal]:not(.is-visible)').forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        el.classList.add('is-visible');
+        revealObserver.unobserve(el);
+      }
+    });
+  });
+
+  // --- Reading progress, case studies only ---
+  if (document.querySelector('.cs-hero')) {
+    var bar = document.createElement('div');
+    bar.className = 'cs-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+    var ticking = false;
+    var onProgress = function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      var p = h > 0 ? Math.min(1, Math.max(0, window.scrollY / h)) : 0;
+      bar.style.transform = 'scaleX(' + p + ')';
+      ticking = false;
+    };
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(onProgress); }
+    }, { passive: true });
+    onProgress();
+  }
 
   // --- Custom cursor ---
   var cursor = document.querySelector('.cursor');

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4375120351284164" crossorigin="anonymous"></script>
@@ -157,6 +157,17 @@
       </div>
     </div>
 
+    <!-- Page banner. Dark-mode artwork; the light cut does not exist yet, so
+         both theme attributes point at the same file. When the light artwork
+         lands, change data-src-light and the initial src only. -->
+    <figure class="cs-figure cs-figure--banner">
+      <img class="cs-banner-img" src="/assets/case-studies/speakx-membership/banner-dark.webp"
+           data-src-light="/assets/case-studies/speakx-membership/banner-dark.webp"
+           data-src-dark="/assets/case-studies/speakx-membership/banner-dark.webp"
+           width="2048" height="1229" fetchpriority="high"
+           alt="The Membership Page Redesign board: six SpeakX Premium screens, three light and three dark, each leading with a proficiency-progress chart above subscription details and premium benefits.">
+    </figure>
+
     <figure class="cs-figure">
       <div class="cs-figure__frame">
         <div class="cs-figure__ph cs-figure__ph--phone" data-label="HERO — redesigned membership screen, progress-first · ~390×844"></div>
@@ -168,7 +179,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Business Context</span>
-        <h2 class="section__head" style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">SpeakX had an acquisition engine. It had a retention problem.</h2>
+        <h2 class="section__head">SpeakX had an acquisition engine. It had a retention problem.</h2>
         <p>SpeakX is an English-speaking EdTech platform targeting Hindi-belt users who want to improve spoken fluency for professional and personal advancement. At the time of this project, the platform had strong top-of-funnel performance: paid acquisition was converting users to trial subscriptions efficiently. The problem was what happened next.</p>
         <p><strong>20% of new subscribers cancelled their membership on the same day they subscribed</strong>, before they'd completed a single lesson. An additional ~30% cancelled within the first week. The cancellation rate at this stage directly impacted LTV, which in turn put pressure on acquisition CAC targets. The CPO identified the membership page as the primary intervention point: it was where users went when they were considering cancellation, and it was doing nothing to change their mind.</p>
         <p>At ₹99/month, a 1-point reduction in Day-0 churn across the user base translated to meaningful revenue retention. The stakes were real.</p>
@@ -179,7 +190,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">The Problem, Quantified</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The membership page was a dead end. No progress. No value. Just a cancel button.</h2>
+        <h2>The membership page was a dead end. No progress. No value. Just a cancel button.</h2>
         <p>Before the redesign, the membership page showed three things: subscription status (Active/Expired), renewal date, and a cancellation CTA. That was it. Users who arrived on the page, typically after encountering friction elsewhere in the app, found no signal of the value they'd already built up, no reinforcement of what they were paying for, and no friction between deciding to cancel and completing it.</p>
 
         <div class="callout-pair">
@@ -206,7 +217,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Constraints</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The page had to stay honest. We couldn't just make cancellation harder.</h2>
+        <h2>The page had to stay honest. We couldn't just make cancellation harder.</h2>
         <p>The constraints on this project shaped what "a good solution" could look like:</p>
         <ul>
           <li>We could not hide or obscure the cancel option. Dark patterns that bury cancellation were explicitly ruled out by the PM, and correctly so. If users can't find the cancel button, they'll leave the platform with a worse perception of it.</li>
@@ -221,7 +232,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Research &amp; The One Insight</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">They weren't cancelling because the product was bad. They were cancelling because they couldn't see they were progressing.</h2>
+        <h2>They weren't cancelling because the product was bad. They were cancelling because they couldn't see they were progressing.</h2>
         <!-- TEMPORARILY HIDDEN: unverified [X] placeholders (number of user behaviour recordings reviewed and number of churn interviews run) pending validation. Do not delete.
         <p>I reviewed the retention data alongside [X] user behaviour recordings and analysed support tickets tagged "subscription" and "cancellation" over 90 days. I also ran [X] informal interviews with users who had churned within the first week, recruited through re-engagement emails.</p>
         -->
@@ -239,7 +250,7 @@
     <!-- 7. EXPLORATIONS -->
     <section class="cs-section" data-reveal>
       <span class="eyebrow">Explorations</span>
-      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:0.75rem;">Three directions explored. One shipped.</h2>
+      <h2>Three directions explored. One shipped.</h2>
       <!-- TEMPORARILY HIDDEN: unverified [X] placeholder (number of users in moderated sessions) pending validation. Do not delete.
       <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:2rem;max-width:60ch;">I built rough prototypes of each and ran them past [X] users in moderated sessions before the team decision.</p>
       -->
@@ -270,7 +281,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">The Decision</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Show them what they've built before you ask them to decide if it's worth keeping.</h2>
+        <h2>Show them what they've built before you ask them to decide if it's worth keeping.</h2>
         <p>The final design led with a dynamic learning progress graph, showing the user's speaking sessions plotted over time, alongside a gamified milestone label (titles like "Rising Voice" and "Star Speaker") that updated based on cumulative practice time. The framing was deliberate: before the user reached any subscription controls, they had to scroll past a concrete record of their own progress.</p>
         <p>Below the progress section: a benefit grid reinforcing the four core premium features: AI practice sessions, grammar mastery tracks, video reels, and daily routines. This was not upsell copy. It was a reminder of what the subscription already included and what would be lost.</p>
         <p>Subscription management lived at the bottom, with three clearly differentiated state designs: Active (renewal date, payment method, cancel option), Expired (renewal prompt, clear pricing), Cancelled (reactivation CTA, no pressure framing). Transaction history and support access were included here, both had been missing entirely in the previous design and were surfacing as support tickets.</p>
@@ -289,7 +300,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Shipping Reality</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What shipped, what got cut, and what made it to v2.</h2>
+        <h2>What shipped, what got cut, and what made it to v2.</h2>
         <!-- TEMPORARILY HIDDEN: unverified [X] placeholders (total screens scoped, and screens shipped in v1) pending validation. Do not delete.
         <p>The full design scoped [X] screens covering all three subscription states plus edge cases (expired during trial, pending payment, gifted subscription). V1 shipped [X] of those screens: the three primary states and the most common edge case (expired trial).</p>
         -->
@@ -308,7 +319,7 @@
     <!-- 10. IMPACT -->
     <section class="cs-section" data-reveal>
       <span class="eyebrow">Impact</span>
-      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;">Numbers measured 4 weeks post-launch.</h2>
+      <h2>Numbers measured 4 weeks post-launch.</h2>
 
       <div class="impact-grid">
         <div class="impact-grid__item">
@@ -330,8 +341,8 @@
       </div>
 
       <div class="pm-quote cs-content">
-        <p>"The approach was right: surface what users have already earned before asking them whether to keep paying. The data validated the hypothesis. [X% absolute lift on retention at this scale is material revenue]."</p>
-        <cite>[PM Name] · Product Manager, SpeakX</cite>
+        <p>"The approach was right: surface what users have already earned before asking them whether to keep paying. The data validated the hypothesis. A 28% growth in retention at this scale is material revenue."</p>
+        <cite>Paramjit · Product Manager, SpeakX</cite>
       </div>
     </section>
 
@@ -339,7 +350,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Reflection</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
+        <h2>What I'd do differently. What I'll carry forward.</h2>
         <p><strong>What I'd do differently.</strong> I'd push harder for the comparative progress data even if it meant a longer timeline. The "you've improved X% from last month" framing was the single most motivating element in user testing, and it didn't ship. A retention-focused redesign without its most powerful lever is a compromise I accepted too quickly under timeline pressure.</p>
         <p><strong>What I underestimated.</strong> The emotional weight of the milestone labels. In testing, "Star Speaker" generated disproportionate positive reaction: users wanted to show it to someone. I didn't design a share mechanism for v1 and left retention value on the table. Social proof and sharing for earned milestones should have been in scope from the start.</p>
         <p><strong>What I'll carry forward.</strong> Retention surfaces need a progress-first information architecture. The default instinct is to show account management: status, billing, controls. But users visiting a retention-risk surface need to be reminded of accumulated value first. The product earned that retention; the page just had to show it.</p>

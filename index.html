@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4375120351284164" crossorigin="anonymous"></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shashank Kesarwani, Product Designer · EdTech & Consumer</title>
-  <meta name="description" content="Product Designer with 5+ years shipping consumer products in India. Currently at Dalvoy (0→1, 1L+ downloads, 12K DAU / 94K MAU). Previously SpeakX: onboarding redesign (+6% D1 retention), paid checkout (+38.8% conversion), and the company's first design system." />
+  <title>Shashank Kesarwani, Senior Product Designer · EdTech & Consumer</title>
+  <meta name="description" content="Senior Product Designer with 5+ years shipping consumer products in India. Currently at Dalvoy (0→1, 4 lakh+ registered users, 12K DAU / 94K MAU). Previously SpeakX: onboarding redesign (+6% D1 retention), paid checkout (+38.8% conversion), and the company's first design system." />
   <meta name="keywords" content="Product Designer, Design Systems, EdTech, India, Gurugram, Shashank Kesarwani, Onboarding Design, Conversion Optimisation, UX Design" />
   <meta name="author" content="Shashank Kesarwani" />
   <link rel="canonical" href="https://www.shashankkesarwani.com/" />
@@ -14,7 +14,7 @@
   <!-- Open Graph / social cards -->
   <meta property="og:type" content="profile" />
   <meta property="og:site_name" content="Shashank Kesarwani" />
-  <meta property="og:title" content="Shashank Kesarwani, Product Designer" />
+  <meta property="og:title" content="Shashank Kesarwani, Senior Product Designer" />
   <meta property="og:description" content="5+ years shipping consumer products in India. EdTech, design systems, growth. Currently at Dalvoy. Previously SpeakX." />
   <meta property="og:url" content="https://www.shashankkesarwani.com/" />
   <meta property="og:locale" content="en_IN" />
@@ -24,7 +24,7 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Shashank Kesarwani, Product Designer" />
+  <meta name="twitter:title" content="Shashank Kesarwani, Senior Product Designer" />
   <meta name="twitter:description" content="5+ years shipping consumer products in India. EdTech, design systems, growth." />
   <meta name="twitter:image" content="https://www.shashankkesarwani.com/assets/og/default.png" />
 
@@ -35,7 +35,7 @@
     "@type": "Person",
     "@id": "https://www.shashankkesarwani.com/#person",
     "name": "Shashank Kesarwani",
-    "jobTitle": "Product Designer",
+    "jobTitle": "Senior Product Designer",
     "description": "Product Designer with 5+ years shipping consumer products in India across EdTech and consumer apps.",
     "url": "https://www.shashankkesarwani.com/",
     "image": "https://www.shashankkesarwani.com/assets/shashank-portrait.jpg",
@@ -90,8 +90,262 @@
   <link rel="alternate icon" href="/assets/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 
+  <!-- ==========================================================
+       PRELOADER — scattered letters converge into the name, then
+       the overlay clears. Self-contained and inline on purpose:
+       anime.js is a deferred CDN script, so anything depending on
+       it starts after first paint and the site would flash first.
+       Homepage only. Remove this block, plus the #preloader div in the
+       body, to take it out entirely.
+       ========================================================== -->
+  <style id="preloader-css">
+    #preloader{position:fixed;inset:0;width:100vw;height:100vh;z-index:99999;display:flex;align-items:center;justify-content:center;
+      background:#0a0a0b;color:#fbfbf9;overflow:hidden;
+      transition:opacity .45s cubic-bezier(.4,0,.2,1),transform .45s cubic-bezier(.4,0,.2,1);
+      /* CSS-only failsafe: clears the overlay even if JS never runs. */
+      animation:pl-auto 0s linear 3s forwards}
+    @keyframes pl-auto{to{opacity:0;visibility:hidden;pointer-events:none}}
+    html[data-theme="light"] #preloader{background:#fbfbf9;color:#0a0a0b}
+    html.pl-lock,html.pl-lock body{overflow:hidden!important}
+
+    /* Exit: letters dissolve left to right with jitter, then the panel clears
+       and the site settles from slightly zoomed out to fit. */
+    #preloader.pl-out{pointer-events:none;opacity:0;transition:opacity .5s linear .45s}
+    #preloader.pl-out .pl-char{opacity:0;filter:blur(6px);
+      transition:opacity .42s ease-in,transform .42s ease-in,filter .42s ease-in}
+    #preloader.pl-out .pl-line:nth-child(1) .pl-clip:nth-child(1) .pl-char{transition-delay:157ms;transform:translate(-1.0vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(1) .pl-clip:nth-child(2) .pl-char{transition-delay:112ms;transform:translate(0.2vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(1) .pl-clip:nth-child(3) .pl-char{transition-delay:88ms;transform:translate(-1.1vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(1) .pl-clip:nth-child(4) .pl-char{transition-delay:216ms;transform:translate(4.5vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(1) .pl-clip:nth-child(5) .pl-char{transition-delay:152ms;transform:translate(-3.1vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(1) .pl-clip:nth-child(6) .pl-char{transition-delay:176ms;transform:translate(-1.3vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(1) .pl-clip:nth-child(7) .pl-char{transition-delay:202ms;transform:translate(-2.4vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(1) .pl-clip:nth-child(8) .pl-char{transition-delay:321ms;transform:translate(-1.5vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(2) .pl-clip:nth-child(1) .pl-char{transition-delay:178ms;transform:translate(1.4vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(2) .pl-clip:nth-child(2) .pl-char{transition-delay:145ms;transform:translate(-0.9vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(2) .pl-clip:nth-child(3) .pl-char{transition-delay:233ms;transform:translate(4.0vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(2) .pl-clip:nth-child(4) .pl-char{transition-delay:278ms;transform:translate(-1.9vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(2) .pl-clip:nth-child(5) .pl-char{transition-delay:301ms;transform:translate(-1.5vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(2) .pl-clip:nth-child(6) .pl-char{transition-delay:221ms;transform:translate(4.0vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(2) .pl-clip:nth-child(7) .pl-char{transition-delay:335ms;transform:translate(3.3vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(2) .pl-clip:nth-child(8) .pl-char{transition-delay:383ms;transform:translate(-0.3vmin,-4vmin) scale(.86)}
+    #preloader.pl-out .pl-line:nth-child(2) .pl-clip:nth-child(9) .pl-char{transition-delay:386ms;transform:translate(-4.2vmin,-4vmin) scale(.86)}
+    .pl-name{font-family:'Inter',system-ui,sans-serif;font-weight:600;letter-spacing:-.03em;line-height:1.05;
+      font-size:clamp(2rem,9vw,6rem);text-align:center;position:relative;padding:0 5vw}
+    .pl-line{display:block}
+    .pl-clip{display:inline-block;overflow:visible;vertical-align:top;line-height:1.15}
+    /* Settled is the DEFAULT state, so no-JS shows the name rather than nothing. */
+    .pl-char{display:inline-block;will-change:transform,opacity;opacity:1;transform:none;
+      transition:transform .8s cubic-bezier(.16,1,.3,1) var(--d,0ms),opacity .2s linear var(--d,0ms)}
+    /* Scatter start state lives in CSS, not JS: the inline script is blocked by
+       the render-blocking font stylesheet, so a JS-set start state leaves a blank
+       first frame. JS now only releases the class. */
+    #preloader.pl-scatter .pl-char{opacity:0;transition:none}
+    #preloader.pl-scatter .pl-line:nth-child(1) .pl-clip:nth-child(1) .pl-char{transform:translate(-11.4vmin,-9.9vmin) rotate(18deg) scale(1.12)}
+    .pl-line:nth-child(1) .pl-clip:nth-child(1) .pl-char{--d:0ms}
+    #preloader.pl-scatter .pl-line:nth-child(1) .pl-clip:nth-child(2) .pl-char{transform:translate(8.2vmin,-11.0vmin) rotate(-19deg) scale(0.99)}
+    .pl-line:nth-child(1) .pl-clip:nth-child(2) .pl-char{--d:22ms}
+    #preloader.pl-scatter .pl-line:nth-child(1) .pl-clip:nth-child(3) .pl-char{transform:translate(9.3vmin,-18.8vmin) rotate(6deg) scale(1.08)}
+    .pl-line:nth-child(1) .pl-clip:nth-child(3) .pl-char{--d:44ms}
+    #preloader.pl-scatter .pl-line:nth-child(1) .pl-clip:nth-child(4) .pl-char{transform:translate(8.8vmin,9.5vmin) rotate(-21deg) scale(1.25)}
+    .pl-line:nth-child(1) .pl-clip:nth-child(4) .pl-char{--d:66ms}
+    #preloader.pl-scatter .pl-line:nth-child(1) .pl-clip:nth-child(5) .pl-char{transform:translate(4.7vmin,-5.2vmin) rotate(-13deg) scale(1.19)}
+    .pl-line:nth-child(1) .pl-clip:nth-child(5) .pl-char{--d:88ms}
+    #preloader.pl-scatter .pl-line:nth-child(1) .pl-clip:nth-child(6) .pl-char{transform:translate(4.2vmin,8.9vmin) rotate(22deg) scale(0.68)}
+    .pl-line:nth-child(1) .pl-clip:nth-child(6) .pl-char{--d:110ms}
+    #preloader.pl-scatter .pl-line:nth-child(1) .pl-clip:nth-child(7) .pl-char{transform:translate(-14.8vmin,-5.3vmin) rotate(-20deg) scale(1.38)}
+    .pl-line:nth-child(1) .pl-clip:nth-child(7) .pl-char{--d:132ms}
+    #preloader.pl-scatter .pl-line:nth-child(1) .pl-clip:nth-child(8) .pl-char{transform:translate(1.8vmin,6.1vmin) rotate(3deg) scale(1.35)}
+    .pl-line:nth-child(1) .pl-clip:nth-child(8) .pl-char{--d:154ms}
+    #preloader.pl-scatter .pl-line:nth-child(2) .pl-clip:nth-child(1) .pl-char{transform:translate(-2.0vmin,13.8vmin) rotate(11deg) scale(1.30)}
+    .pl-line:nth-child(2) .pl-clip:nth-child(1) .pl-char{--d:176ms}
+    #preloader.pl-scatter .pl-line:nth-child(2) .pl-clip:nth-child(2) .pl-char{transform:translate(22.1vmin,-2.5vmin) rotate(-21deg) scale(1.36)}
+    .pl-line:nth-child(2) .pl-clip:nth-child(2) .pl-char{--d:198ms}
+    #preloader.pl-scatter .pl-line:nth-child(2) .pl-clip:nth-child(3) .pl-char{transform:translate(4.6vmin,9.0vmin) rotate(1deg) scale(0.77)}
+    .pl-line:nth-child(2) .pl-clip:nth-child(3) .pl-char{--d:220ms}
+    #preloader.pl-scatter .pl-line:nth-child(2) .pl-clip:nth-child(4) .pl-char{transform:translate(-6.3vmin,-2.9vmin) rotate(-11deg) scale(0.90)}
+    .pl-line:nth-child(2) .pl-clip:nth-child(4) .pl-char{--d:242ms}
+    #preloader.pl-scatter .pl-line:nth-child(2) .pl-clip:nth-child(5) .pl-char{transform:translate(-20.9vmin,3.2vmin) rotate(3deg) scale(1.08)}
+    .pl-line:nth-child(2) .pl-clip:nth-child(5) .pl-char{--d:264ms}
+    #preloader.pl-scatter .pl-line:nth-child(2) .pl-clip:nth-child(6) .pl-char{transform:translate(-0.6vmin,7.3vmin) rotate(9deg) scale(1.38)}
+    .pl-line:nth-child(2) .pl-clip:nth-child(6) .pl-char{--d:286ms}
+    #preloader.pl-scatter .pl-line:nth-child(2) .pl-clip:nth-child(7) .pl-char{transform:translate(-8.8vmin,15.8vmin) rotate(-12deg) scale(1.22)}
+    .pl-line:nth-child(2) .pl-clip:nth-child(7) .pl-char{--d:308ms}
+    #preloader.pl-scatter .pl-line:nth-child(2) .pl-clip:nth-child(8) .pl-char{transform:translate(8.4vmin,13.9vmin) rotate(0deg) scale(1.31)}
+    .pl-line:nth-child(2) .pl-clip:nth-child(8) .pl-char{--d:330ms}
+    #preloader.pl-scatter .pl-line:nth-child(2) .pl-clip:nth-child(9) .pl-char{transform:translate(-14.8vmin,13.7vmin) rotate(10deg) scale(1.05)}
+    .pl-line:nth-child(2) .pl-clip:nth-child(9) .pl-char{--d:352ms}
+    @media (prefers-reduced-motion:reduce){
+      #preloader.pl-scatter .pl-char{opacity:1;transform:none}
+      .pl-char{transition:none}
+      #preloader{transition:opacity .2s linear}
+      #preloader.pl-out .pl-char{transition:none;transform:none;filter:none}
+      #preloader.pl-out{transform:none}
+    }
+  </style>
+  <script id="preloader-js">
+    (function () {
+      'use strict';
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+      // The browser restores the previous scroll position on reload, which
+      // left the page slightly scrolled behind the loader. Pin it to the top
+      // before first paint.
+      try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
+      try { window.scrollTo(0, 0); } catch (e) {}
+      document.documentElement.classList.add('pl-lock');
+    }());
+  </script>
 </head>
 <body>
+  <!-- PRELOADER overlay. Paired with #preloader-css / #preloader-js in <head>.
+       Letters are in the markup so there is no empty frame and no-JS still renders the name. -->
+  <div id="preloader" class="pl-scatter" role="presentation">
+    <div class="pl-name" aria-hidden="true">
+      <span class="pl-line"><span class="pl-clip"><span class="pl-char">S</span></span><span class="pl-clip"><span class="pl-char">h</span></span><span class="pl-clip"><span class="pl-char">a</span></span><span class="pl-clip"><span class="pl-char">s</span></span><span class="pl-clip"><span class="pl-char">h</span></span><span class="pl-clip"><span class="pl-char">a</span></span><span class="pl-clip"><span class="pl-char">n</span></span><span class="pl-clip"><span class="pl-char">k</span></span></span>
+      <span class="pl-line"><span class="pl-clip"><span class="pl-char">K</span></span><span class="pl-clip"><span class="pl-char">e</span></span><span class="pl-clip"><span class="pl-char">s</span></span><span class="pl-clip"><span class="pl-char">a</span></span><span class="pl-clip"><span class="pl-char">r</span></span><span class="pl-clip"><span class="pl-char">w</span></span><span class="pl-clip"><span class="pl-char">a</span></span><span class="pl-clip"><span class="pl-char">n</span></span><span class="pl-clip"><span class="pl-char">i</span></span></span>
+    </div>
+  </div>
+  <script>
+    (function () {
+      'use strict';
+      var el = document.getElementById('preloader');
+      if (!el) return;
+      var root = document.documentElement, reduce = false;
+      try { reduce = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+
+      var done = false;
+
+      // Exit: sample the assembled name into pixels and blow it apart as
+      // particles. Returns false if canvas is unavailable, so finish() can
+      // fall back to the plain fade.
+      function dissolve() {
+        var name = el.querySelector('.pl-name');
+        var chars = el.querySelectorAll('.pl-char');
+        if (!name || !chars.length) return false;
+        var cv = document.createElement('canvas');
+        var ctx = cv.getContext && cv.getContext('2d');
+        if (!ctx) return false;
+
+        var dpr = Math.min(window.devicePixelRatio || 1, 2);
+        var box = el.getBoundingClientRect();
+        var W = box.width, H = box.height;
+        cv.width = W * dpr; cv.height = H * dpr;
+        cv.style.cssText = 'position:absolute;inset:0;width:100%;height:100%';
+        ctx.scale(dpr, dpr);
+
+        // Redraw each letter at its exact on-screen position, so the particle
+        // source matches what the visitor is actually looking at.
+        ctx.fillStyle = getComputedStyle(chars[0]).color;
+        ctx.textBaseline = 'alphabetic';
+        for (var i = 0; i < chars.length; i++) {
+          var c = chars[i], r = c.getBoundingClientRect(), cs = getComputedStyle(c);
+          ctx.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+          ctx.fillText(c.textContent, r.left - box.left,
+                       r.bottom - box.top - parseFloat(cs.fontSize) * 0.09);
+        }
+
+        var img;
+        try { img = ctx.getImageData(0, 0, cv.width, cv.height); } catch (e) { return false; }
+        var d = img.data, pts = [], step = W > 900 ? 3 : 2;
+        for (var y = 0; y < cv.height; y += step) {
+          for (var x = 0; x < cv.width; x += step) {
+            if (d[(y * cv.width + x) * 4 + 3] > 128) {
+              pts.push({ x: x / dpr, y: y / dpr, a: 1 });
+            }
+          }
+        }
+        if (!pts.length) return false;
+
+        // Radiate outward from the centre of the name. Each particle gets a
+        // fixed total displacement and a fade exponent, so travel and fade are
+        // driven by one progress value: every particle reaches opacity 0 at the
+        // exact moment it finishes moving. Nothing vanishes early or gets cut off.
+        var cx = 0, cy = 0;
+        for (var j = 0; j < pts.length; j++) { cx += pts[j].x; cy += pts[j].y; }
+        cx /= pts.length; cy /= pts.length;
+        var reach = Math.max(W, H) * 0.85;
+        for (var j2 = 0; j2 < pts.length; j2++) {
+          var q0 = pts[j2];
+          var ang = Math.atan2(q0.y - cy, q0.x - cx) + (Math.random() - 0.5) * 0.9;
+          var mag = reach * (0.45 + Math.random() * 0.75);
+          q0.ox = q0.x; q0.oy = q0.y;
+          q0.dx = Math.cos(ang) * mag;
+          q0.dy = Math.sin(ang) * mag - reach * 0.12;   // slight lift
+          q0.e = 1.4 + Math.random() * 1.6;             // fade curve, all reach 0 at p=1
+        }
+
+        name.style.visibility = 'hidden';
+        el.appendChild(cv);
+        el.classList.add('pl-dissolve');
+        // Inline so it cannot lose to the themed #preloader background rule.
+        el.style.transition = 'background-color .75s cubic-bezier(.4,0,.2,1)';
+        requestAnimationFrame(function () { el.style.backgroundColor = 'transparent'; });
+        root.classList.remove('pl-lock');
+
+        var t0 = null, DUR = 1800;
+        requestAnimationFrame(function frame(ts) {
+          if (t0 === null) t0 = ts;
+          var pr = Math.min(1, (ts - t0) / DUR);
+          var ease = 1 - Math.pow(1 - pr, 3);   // easeOutCubic travel
+          ctx.clearRect(0, 0, W, H);
+          for (var i = 0; i < pts.length; i++) {
+            var q = pts[i];
+            // Back-loaded: stays visible while travelling, hits 0 exactly at the end.
+            var a = 1 - Math.pow(pr, q.e);
+            if (a <= 0.002) continue;
+            ctx.globalAlpha = a;
+            ctx.fillRect(q.ox + q.dx * ease, q.oy + q.dy * ease, 1.6, 1.6);
+          }
+          ctx.globalAlpha = 1;
+          if (pr < 1) requestAnimationFrame(frame);
+          else if (el.parentNode) el.parentNode.removeChild(el);
+        });
+        return true;
+      }
+
+      function finish() {
+        if (done) return;
+        done = true;
+        if (!reduce && dissolve()) return;
+        el.classList.add('pl-out');
+        root.classList.remove('pl-lock');
+        setTimeout(function () {
+          if (el.parentNode) el.parentNode.removeChild(el);
+        }, 1100);
+      }
+
+      function release() {
+        try { window.scrollTo(0, 0); } catch (e) {}
+        el.classList.remove('pl-scatter');
+        setTimeout(finish, reduce ? 350 : 900);
+      }
+
+      if (reduce) {
+        release();
+      } else {
+        // On a cold cache the external stylesheet is still in flight, so Chrome
+        // has not resolved styles yet and the scattered start state does not
+        // exist to animate FROM. Wait until it is genuinely computed (opacity 0)
+        // before releasing, capped so a stalled stylesheet cannot hang the page.
+        var probe = el.querySelector('.pl-char'), tries = 0;
+        (function waitForStyles() {
+          var ready = !probe || getComputedStyle(probe).opacity === '0';
+          if (ready || ++tries > 90) {
+            requestAnimationFrame(release);
+          } else {
+            requestAnimationFrame(waitForStyles);
+          }
+        }());
+      }
+
+      // Absolute failsafe, independent of everything above.
+      setTimeout(finish, 4500);
+    }());
+  </script>
+
   <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="cursor" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
@@ -120,6 +374,10 @@
   <main id="top">
     <!-- HERO -->
     <section class="hero">
+      <!-- DarkVeil (reactbits.dev) WebGL background. Empty by design:
+           darkveil.js appends the canvas, and skips it entirely when
+           WebGL is unavailable, leaving the hero as it was. -->
+      <div class="hero-veil" data-darkveil aria-hidden="true"></div>
       <span class="visually-hidden">Product Designer shipping to millions measured in outcomes.</span>
       <h1 class="hero__title" aria-hidden="true">
 
@@ -196,14 +454,19 @@
 
       </h1>
       <p class="hero__sub">
-        Product Designer with 5 years of experience building 0&nbsp;→&nbsp;1 products and designing experiences at scale across B2C and B2B products. Experienced in product strategy, growth experimentation, user research, interaction design, design systems, and AI-assisted workflows, with a track record of driving measurable gains in activation, conversion, retention, and monetisation. Comfortable partnering with product, engineering, data, and founding teams to turn complex problems into impactful product experiences.
+        I own the surfaces where products make and keep money: activation, checkout, retention. Four domains at SpeakX for a product serving 10M+ users, plus its first design system. Now taking Dalvoy 0 to 1, past 4 lakh+ registered users.
       </p>
       <div class="hero__cta">
         <a href="/case-studies/" class="btn btn--primary" data-magnetic>See selected work <span aria-hidden="true">→</span></a>
         <a href="/resume/" class="btn btn--ghost" data-magnetic>View Resume</a>
       </div>
 
-      <!-- PROOF BAR, every number sourced from a shipped, verifiable project. -->
+      <!-- REMOVED from the hero: the proof bar (11M+ users / 200+ tokens / 5+ yrs).
+           It restated what the headline and sub already say ("shipping to
+           millions", "5 years of experience"), and the 200+ tokens figure is
+           commented out as unverified in the intro letter, resume and work
+           pages. Restore by deleting this comment wrapper — but swap the
+           numbers for outcomes first, since the headline promises them.
       <div class="proof">
         <div class="proof__item">
           <div class="proof__num" data-count="11">0</div>
@@ -220,34 +483,29 @@
           <div class="proof__suffix">+ yrs</div>
           <div class="proof__label">Shipping at scale</div>
         </div>
+      -->
       </div>
     </section>
 
     <!-- MARQUEE -->
-    <section class="marquee" aria-label="Companies and craft areas">
+    <section class="marquee" aria-label="Companies I have designed for">
+      <!-- Company names running along a wave (reactbits.dev TextLoop), built by
+           /text-loop.js. The flat CSS track below is the no-JS fallback: the
+           script clears it and mounts the SVG in its place. -->
+      <p class="visually-hidden">Dalvoy, SpeakX, Vaipratech, Mobcoder.</p>
+      <div class="text-loop" data-text-loop data-names="Dalvoy,SpeakX,Vaipratech,Mobcoder">
       <div class="marquee__track">
-        <span>Dalvoy</span><span>·</span>
-        <span>SpeakX</span><span>·</span>
-        <span>Vaipra Tech</span><span>·</span>
-        <span>Mobcoder</span><span>·</span>
-        <span>EdTech</span><span>·</span>
-        <span>Consumer</span><span>·</span>
-        <span>0→1</span><span>·</span>
-        <span>Design Systems</span><span>·</span>
-        <span>Growth</span><span>·</span>
-        <span>Conversion</span><span>·</span>
-        <span>Retention</span><span>·</span>
-        <span>Dalvoy</span><span>·</span>
-        <span>SpeakX</span><span>·</span>
-        <span>Vaipra Tech</span><span>·</span>
-        <span>Mobcoder</span><span>·</span>
-        <span>EdTech</span><span>·</span>
-        <span>Consumer</span><span>·</span>
-        <span>0→1</span><span>·</span>
-        <span>Design Systems</span><span>·</span>
-        <span>Growth</span><span>·</span>
-        <span>Conversion</span><span>·</span>
-        <span>Retention</span><span>·</span>
+        <!-- One half of the loop, repeated 4x so it stays wider than any common viewport. -->
+        <span>Dalvoy</span><span>·</span><span>SpeakX</span><span>·</span><span>Vaipratech</span><span>·</span><span>Mobcoder</span><span>·</span>
+        <span>Dalvoy</span><span>·</span><span>SpeakX</span><span>·</span><span>Vaipratech</span><span>·</span><span>Mobcoder</span><span>·</span>
+        <span>Dalvoy</span><span>·</span><span>SpeakX</span><span>·</span><span>Vaipratech</span><span>·</span><span>Mobcoder</span><span>·</span>
+        <span>Dalvoy</span><span>·</span><span>SpeakX</span><span>·</span><span>Vaipratech</span><span>·</span><span>Mobcoder</span><span>·</span>
+        <!-- Duplicate half: @keyframes marquee translates -50%, so both halves must match. -->
+        <span>Dalvoy</span><span>·</span><span>SpeakX</span><span>·</span><span>Vaipratech</span><span>·</span><span>Mobcoder</span><span>·</span>
+        <span>Dalvoy</span><span>·</span><span>SpeakX</span><span>·</span><span>Vaipratech</span><span>·</span><span>Mobcoder</span><span>·</span>
+        <span>Dalvoy</span><span>·</span><span>SpeakX</span><span>·</span><span>Vaipratech</span><span>·</span><span>Mobcoder</span><span>·</span>
+        <span>Dalvoy</span><span>·</span><span>SpeakX</span><span>·</span><span>Vaipratech</span><span>·</span><span>Mobcoder</span><span>·</span>
+      </div>
       </div>
     </section>
 
@@ -260,9 +518,9 @@
         </div>
         <div class="intro-letter__body">
           <p class="intro-letter__greeting">Hi, I'm Shashank.</p>
-          <p>Five years into product design, I've come to believe good design has very little to do with how a screen looks, and almost everything to do with whether the right user does the right thing at the right moment. The visual is downstream of that decision.</p>
-          <p>Today I'm building <strong>Dalvoy</strong> from 0 → 1, already past <strong>1L+ downloads</strong><!-- TEMPORARILY HIDDEN: Dalvoy DAU/MAU metric pending attribution validation. Do not delete. Original: " at 12K DAU / 94K MAU"-->, with a newly shipped <strong>Dalvoy Shorts</strong> feature<!-- TEMPORARILY HIDDEN: unquantified Dalvoy Shorts performance claim pending validation. Do not delete. Original: " lifting retention and engagement"-->. Before that I owned activation and paid checkout at <strong>SpeakX</strong>: <strong>+6.01% D1 retention</strong> on the new-user flow, <strong>+38.8% conversion</strong> on the upgrade funnel<!-- TEMPORARILY HIDDEN: Sketch → Figma migration / 200+ tokens / 80+ components claim pending final numbers/status confirmation. Do not delete. Original: ", and led the Sketch → Figma migration, building 200+ tokens and 80+ components and establishing reusable patterns and engineering governance"-->.</p>
-          <p>The way I work: I write before I wireframe, sweat error states before hero screens, and keep a decision memo on every project so the team knows what we deferred and why. I partner tight with PM and engineering from day one: the best designs I've shipped survived contact with reality because the trade-offs were debated in writing, not negotiated in retrospect.</p>
+          <p>I've stopped believing that design problems are screen problems. What decides a product is whether the right person does the right thing at the right moment. The visual is downstream of that, and that is where I start.</p>
+          <p>That belief has walked me toward the surfaces where the answer has money attached to it. At <strong>SpeakX</strong> I owned activation, engagement, retention and monetisation for a product serving <strong>10M+ users</strong>. Rebuilding onboarding lifted <strong>Day 1 retention 6.01%</strong>. Rebuilding the upgrade funnel lifted <strong>paid conversion 38.8%</strong>. I also built the company's first design system, so those decisions held their shape across every screen instead of being reopened each sprint. I now own product design end to end at <strong>Dalvoy</strong>, taking it from 0 to 1 and past <strong>4 lakh+ registered users</strong>.<!-- TEMPORARILY HIDDEN: unquantified Dalvoy Shorts performance claim pending validation. Do not delete. Original: " lifting retention and engagement"--><!-- TEMPORARILY HIDDEN: Sketch → Figma migration / 200+ tokens / 80+ components claim pending final numbers/status confirmation. Do not delete. Original: ", and led the Sketch → Figma migration, building 200+ tokens and 80+ components and establishing reusable patterns and engineering governance"--></p>
+          <p>The way I work is deliberately unglamorous. I write before I wireframe, because a problem I cannot state in one paragraph is not one I can solve. I design the error states before the hero screen. I keep a decision memo on every project recording not what we chose but what we knowingly deferred and why, which is the artifact that stops the argument reopening six weeks later. The best things I have shipped survived contact with reality because the compromises were argued in writing, early, with product and engineering in the room.</p>
           <p class="intro-letter__sign">Shashank</p>
         </div>
       </div>
@@ -272,233 +530,125 @@
     <section class="section">
       <div class="section__head">
         <span class="eyebrow">Featured Work</span>
-        <h2>Ten deep cases. Each proves a different muscle.</h2>
+        <h2>Three cases, start to finish.</h2>
       </div>
 
-      <div class="carousel" data-reveal>
-        <div class="carousel__track" id="carouselTrack">
-
-          <a href="/case-studies/dalvoy/" class="carousel__card">
-            <div class="carousel__card-top">
-              <span class="tag">0→1</span>
-              <span class="carousel__card-year">2025–2026</span>
-            </div>
-            <h3 class="carousel__card-title">Dalvoy, 0→1: an EdTech product retaining and growing organically</h3>
-            <p class="carousel__card-outcome">The product I'm currently building from zero.<!-- TEMPORARILY HIDDEN: Dalvoy growth/retention/acquisition metrics pending attribution validation. Do not delete. Original: " Now past 1L+ downloads (12K DAU / 94K MAU), with Day-30 retention tripled (3% to 10%), growth doubling month-over-month, and 30%+ organic acquisition at a CPA under $0.10." --> The newly shipped Dalvoy Shorts feature<!-- TEMPORARILY HIDDEN: unquantified Dalvoy Shorts performance claim pending validation. Do not delete. Original: " lifted retention and engagement"-->: the most honest test of every activation and funnel decision I learned at SpeakX.</p>
-            <!-- TEMPORARILY HIDDEN: Dalvoy growth/retention/CPA metrics pending attribution validation. Do not delete.
-            <div class="carousel__card-metrics">
-              <span><strong>3% to 10%</strong> D30 retention</span>
-              <span><strong>2× MoM</strong> growth</span>
-              <span><strong>&lt;$0.10</strong> CPA</span>
-            </div>
-            -->
-            <div class="tag-row">
-              <span class="tag tag--mini">0→1</span>
-              <span class="tag tag--mini">EdTech</span>
-              <span class="tag tag--mini">Consumer</span>
-            </div>
-            <span class="carousel__card-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a href="/case-studies/upi-checkout/" class="carousel__card">
-            <div class="carousel__card-top">
-              <span class="tag">Conversion</span>
-              <span class="carousel__card-year">2025</span>
-            </div>
-            <h3 class="carousel__card-title">UPI-first checkout: the 3× conversion lever hiding in segment data</h3>
-            <p class="carousel__card-outcome">Overall checkout converted at 5%. UPI users converted at 12–14%. Rebuilding around UPI as the default, video-led, two taps to paid, turned a segment insight into a shipped lift.</p>
-            <div class="carousel__card-metrics">
-              <span><strong>~3×</strong> on UPI cohort</span>
-              <span><strong>~10 points</strong> payment SR</span>
-              <span><strong>99%</strong> checkout-load reach</span>
-            </div>
-            <div class="tag-row">
-              <span class="tag tag--mini">Conversion</span>
-              <span class="tag tag--mini">Payments</span>
-              <span class="tag tag--mini">EdTech</span>
-            </div>
-            <span class="carousel__card-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a href="/case-studies/read-along-gamified/" class="carousel__card">
-            <div class="carousel__card-top">
-              <span class="tag">Engagement</span>
-              <span class="carousel__card-year">2025</span>
-            </div>
-            <h3 class="carousel__card-title">Gamifying the read-along lesson: a 4-day A/B win</h3>
-            <p class="carousel__card-outcome">Added points, streaks and per-word success animations to the read-along lesson. Modest but consistent. Held across all 4 test days, ~2K users per bucket.</p>
-            <div class="carousel__card-metrics">
-              <span><strong>+2.7 points</strong> D0 activation</span>
-              <span><strong>−1.7 points</strong> D0 cancellation</span>
-              <span><strong>4-day</strong> controlled A/B</span>
-            </div>
-            <div class="tag-row">
-              <span class="tag tag--mini">Engagement</span>
-              <span class="tag tag--mini">A/B Test</span>
-              <span class="tag tag--mini">EdTech</span>
-            </div>
-            <span class="carousel__card-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a href="/case-studies/m0-activation/" class="carousel__card">
-            <div class="carousel__card-top">
-              <span class="tag">Activation</span>
-              <span class="carousel__card-year">2025–26</span>
-            </div>
-            <h3 class="carousel__card-title">Activation, year over year<!-- TEMPORARILY HIDDEN: SpeakX company-level M0 activation metric pending causal attribution validation to individual design work. Do not delete. Original: ": 25% to 60% on a paid base" --></h3>
-            <p class="carousel__card-outcome">A year of compounding work on onboarding, intent capture and first-lesson recommendation.<!-- TEMPORARILY HIDDEN: SpeakX company-level activation/CAC metrics pending causal attribution validation to individual design work. Do not delete. Original: " Day-zero activation more than doubled while CAC tripled around it." --></p>
-            <!-- TEMPORARILY HIDDEN: SpeakX company-level M0 active / M0 minutes / DAU-MAU metrics pending causal attribution validation to individual design work. Do not delete.
-            <div class="carousel__card-metrics">
-              <span><strong>25% to 60%</strong> M0 active</span>
-              <span><strong>36 to 101</strong> M0 minutes</span>
-              <span><strong>9% to 17%</strong> DAU/MAU</span>
-            </div>
-            -->
-            <div class="tag-row">
-              <span class="tag tag--mini">Activation</span>
-              <span class="tag tag--mini">Engagement</span>
-              <span class="tag tag--mini">EdTech</span>
-            </div>
-            <span class="carousel__card-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a href="/case-studies/design-system/" class="carousel__card">
-            <div class="carousel__card-top">
-              <span class="tag">Systems Thinking</span>
-              <span class="carousel__card-year">2023</span>
-            </div>
-            <h3 class="carousel__card-title">Building a design system from scratch</h3>
-            <p class="carousel__card-outcome">Token-first architecture that eliminated design-to-dev drift.<!-- TEMPORARILY HIDDEN: "50% faster iteration" claim (item 2, needs validation) restated qualitatively. Do not delete. Original: " and cut iteration time in half" (attached before the period)--> Built while the product kept shipping.</p>
-            <!-- TEMPORARILY HIDDEN: "50% faster iteration", "120+ tokens" and "6 months to adoption" claims (item 2, need validation) pending validation. Do not delete.
-            <div class="carousel__card-metrics">
-              <span><strong>50%</strong> faster iteration</span>
-              <span><strong>120+</strong> tokens shipped</span>
-              <span><strong>6 mo</strong> to adoption</span>
-            </div>
-            -->
-            <div class="tag-row">
-              <span class="tag tag--mini">Design Systems</span>
-              <span class="tag tag--mini">B2B</span>
-            </div>
-            <span class="carousel__card-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a href="/case-studies/speakx-membership/" class="carousel__card">
-            <div class="carousel__card-top">
-              <span class="tag">Retention</span>
-              <span class="carousel__card-year">2024</span>
-            </div>
-            <h3 class="carousel__card-title">Redesigning the membership page to cut churn at SpeakX</h3>
-            <p class="carousel__card-outcome">20% of subscribers cancelled on Day 0. Redesigning the membership page around learning progress changed the decision before the cancel button.</p>
-            <div class="carousel__card-metrics">
-              <span><strong>−8%</strong> in-app cancellations</span>
-              <span><strong>−3%</strong> Day-0 cancellations</span>
-              <span><strong>+1%</strong> Day-0 engagement</span>
-            </div>
-            <div class="tag-row">
-              <span class="tag tag--mini">Retention</span>
-              <span class="tag tag--mini">Consumer</span>
-              <span class="tag tag--mini">Engagement</span>
-            </div>
-            <span class="carousel__card-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a href="/case-studies/live-session-booking/" class="carousel__card">
-            <div class="carousel__card-top">
-              <span class="tag">0→1</span>
-              <span class="carousel__card-year">2025</span>
-            </div>
-            <h3 class="carousel__card-title">Live-session booking: from zero to 16% trial booking</h3>
-            <p class="carousel__card-outcome">Designed and shipped an in-app live-session booking flow from scratch. ~1 in 6 trial users booked a session within their first day, without cannibalising lesson activity.</p>
-            <div class="carousel__card-metrics">
-              <span><strong>~16%</strong> trial booking rate</span>
-              <span><strong>~22%</strong> page-load reach</span>
-              <span><strong>0 → 1</strong> feature shipped</span>
-            </div>
-            <div class="tag-row">
-              <span class="tag tag--mini">0→1</span>
-              <span class="tag tag--mini">Engagement</span>
-              <span class="tag tag--mini">EdTech</span>
-            </div>
-            <span class="carousel__card-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a href="/case-studies/home-page-v2/" class="carousel__card">
-            <div class="carousel__card-top">
-              <span class="tag">Engagement</span>
-              <span class="carousel__card-year">2024</span>
-            </div>
-            <h3 class="carousel__card-title">Home Page V2: from catalogue to launchpad</h3>
-            <p class="carousel__card-outcome">The home page wasn't a catalogue, it was a launchpad. Once we treated it that way, lesson starts went up<!-- TEMPORARILY HIDDEN: rounded figure conflicts with the +62.1% detailed case-study version. Do not delete. Original: " 62%"--> and order creation followed.</p>
-            <div class="carousel__card-metrics">
-              <!-- TEMPORARILY HIDDEN: rounded homepage-summary figures conflict with the +62.1%/+23.5% detailed case-study version. Do not delete.
-              <span><strong>+62%</strong> lesson starts</span>
-              <span><strong>+23%</strong> order created</span>
-              -->
-              <span><strong>scaled</strong> A/B test</span>
-            </div>
-            <div class="tag-row">
-              <span class="tag tag--mini">Engagement</span>
-              <span class="tag tag--mini">Activation</span>
-              <span class="tag tag--mini">EdTech</span>
-            </div>
-            <span class="carousel__card-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a href="/case-studies/result-page-redesign/" class="carousel__card">
-            <div class="carousel__card-top">
-              <span class="tag">Engagement</span>
-              <span class="carousel__card-year">2024-25</span>
-            </div>
-            <h3 class="carousel__card-title">Result Page: turning the end of a lesson into the start of the next one</h3>
-            <p class="carousel__card-outcome">Four shipped A/B iterations on the page every user hits. Practice up 19.5%, orders up to 37%, and payment success up 30.8% on the headline release.</p>
-            <div class="carousel__card-metrics">
-              <span><strong>+19.5%</strong> practice rate</span>
-              <span><strong>+30.8%</strong> payment success</span>
-              <span><strong>4</strong> shipped tests</span>
-            </div>
-            <div class="tag-row">
-              <span class="tag tag--mini">Engagement</span>
-              <span class="tag tag--mini">Conversion</span>
-              <span class="tag tag--mini">EdTech</span>
-            </div>
-            <span class="carousel__card-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a href="/case-studies/checkout-features-bottomsheet/" class="carousel__card">
-            <div class="carousel__card-top">
-              <span class="tag">Conversion</span>
-              <span class="carousel__card-year">2024</span>
-            </div>
-            <h3 class="carousel__card-title">Reminding users what they were buying: the checkout features bottom sheet</h3>
-            <p class="carousel__card-outcome">Surfacing premium features at the moment of payment, without blocking the CTA. Order creation rate jumped 79.8%, payment success 7%.</p>
-            <div class="carousel__card-metrics">
-              <span><strong>+79.8%</strong> order created</span>
-              <span><strong>+7%</strong> payment success</span>
-              <span><strong>scaled</strong> A/B test</span>
-            </div>
-            <div class="tag-row">
-              <span class="tag tag--mini">Conversion</span>
-              <span class="tag tag--mini">Checkout</span>
-              <span class="tag tag--mini">EdTech</span>
-            </div>
-            <span class="carousel__card-arrow" aria-hidden="true">→</span>
-          </a>
-
+      <!-- Depth carousel (reactbits.dev), driven by /depth-carousel.js.
+           Without JS this degrades to the three cards stacked in flow. -->
+      <div class="depth-carousel" data-depth-carousel data-reveal
+           role="group" aria-roledescription="carousel"
+           aria-label="Featured case studies" tabindex="0">
+        <div class="depth-carousel__stage">
+          <div class="depth-carousel__card" aria-roledescription="slide" aria-label="1 of 3">
+            <a href="/case-studies/dalvoy/" class="work-card">
+              <div class="work-card__media">
+                <img src="/assets/case-studies/dalvoy/banner-light.jpg"
+                     data-src-light="/assets/case-studies/dalvoy/banner-light.jpg"
+                     data-src-dark="/assets/case-studies/dalvoy/banner-dark.jpg"
+                     width="2208" height="1288" loading="lazy" decoding="async"
+                     alt="Five Dalvoy screens fanned out: the Shorts home, UPSC Prelims, the app splash, the result analysis, and evaluation history.">
+              </div>
+              <div class="work-card__body">
+                <div class="work-card__meta">
+                  <span class="work-card__where">Dalvoy · 2025–2026</span>
+                  <span class="tag-row">
+                    <span class="tag tag--mini">0→1</span>
+                    <span class="tag tag--mini">EdTech</span>
+                    <span class="tag tag--mini">Consumer</span>
+                  </span>
+                </div>
+                <h3 class="work-card__title">Dalvoy, 0→1: turning a test score into a diagnosis</h3>
+                <p class="work-card__desc"><span>A UPSC and govt-exam prep product built from zero, now past 4 lakh+ registered users. Everyone in the category sells questions. We bet the analysis after the test was the product.</span></p>
+                <div class="work-card__metrics">
+                  <span><strong>4 lakh+</strong> registered users</span>
+                  <span><strong>15 to 24 min</strong> average session</span>
+                </div>
+              </div>
+            </a>
+            <span class="depth-carousel__veil" aria-hidden="true"></span>
+          </div>
+          <div class="depth-carousel__card" aria-roledescription="slide" aria-label="2 of 3">
+            <a href="/case-studies/speakx-membership/" class="work-card">
+              <div class="work-card__media">
+                <!-- Dark-mode artwork; the light cut does not exist yet, so both
+                     theme attributes point at the same file for now. -->
+                <img src="/assets/case-studies/speakx-membership/banner-dark.webp"
+                     data-src-light="/assets/case-studies/speakx-membership/banner-dark.webp"
+                     data-src-dark="/assets/case-studies/speakx-membership/banner-dark.webp"
+                     width="2048" height="1229" loading="lazy" decoding="async"
+                     alt="The Membership Page Redesign board: six SpeakX Premium screens, three light and three dark, each leading with a proficiency-progress chart above subscription details and premium benefits.">
+              </div>
+              <div class="work-card__body">
+                <div class="work-card__meta">
+                  <span class="work-card__where">SpeakX · 2024</span>
+                  <span class="tag-row">
+                    <span class="tag tag--mini">Retention</span>
+                    <span class="tag tag--mini">Consumer</span>
+                    <span class="tag tag--mini">Engagement</span>
+                  </span>
+                </div>
+                <h3 class="work-card__title">Redesigning the membership page to reduce cancellations at SpeakX</h3>
+                <p class="work-card__desc"><span>20% of subscribers cancelled on Day 0, and nearly half of trial users were gone by the end of week one. I redesigned the last screen they saw to lead with learning progress, not the cancel button.</span></p>
+                <div class="work-card__metrics">
+                  <span><strong>−8%</strong> in-app cancellations</span>
+                  <span><strong>−3%</strong> Day-0 cancellations</span>
+                </div>
+              </div>
+            </a>
+            <span class="depth-carousel__veil" aria-hidden="true"></span>
+          </div>
+          <div class="depth-carousel__card" aria-roledescription="slide" aria-label="3 of 3">
+            <a href="/case-studies/upi-checkout/" class="work-card">
+              <div class="work-card__media">
+                <div class="work-card__panel">
+                  <strong class="work-card__panel-metric">~3×</strong>
+                  <span class="work-card__panel-label">conversion on the UPI cohort</span>
+                </div>
+              </div>
+              <div class="work-card__body">
+                <div class="work-card__meta">
+                  <span class="work-card__where">SpeakX · 2025</span>
+                  <span class="tag-row">
+                    <span class="tag tag--mini">Conversion</span>
+                    <span class="tag tag--mini">Payments</span>
+                    <span class="tag tag--mini">EdTech</span>
+                  </span>
+                </div>
+                <h3 class="work-card__title">UPI-first checkout: turning India's default payment habit into a 3× conversion lever</h3>
+                <p class="work-card__desc"><span>Overall checkout converted at ~5%. UPI users converted at 12–14%. I rebuilt the flow around UPI as the default: a short product video over the price, and two taps to a paid order.</span></p>
+                <div class="work-card__metrics">
+                  <span><strong>~3×</strong> conversion on UPI cohort</span>
+                  <span><strong>+10 points</strong> payment success rate</span>
+                </div>
+              </div>
+            </a>
+            <span class="depth-carousel__veil" aria-hidden="true"></span>
+          </div>
         </div>
-
+        <button type="button" class="depth-carousel__arrow depth-carousel__arrow--prev" aria-label="Previous case study">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="depth-carousel__arrow depth-carousel__arrow--next" aria-label="Next case study">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="depth-carousel__dots" role="tablist" aria-label="Featured case studies">
+          <button type="button" role="tab" class="depth-carousel__dot is-active" aria-selected="true" aria-label="Go to case study 1"></button>
+          <button type="button" role="tab" class="depth-carousel__dot" aria-selected="false" aria-label="Go to case study 2"></button>
+          <button type="button" role="tab" class="depth-carousel__dot" aria-selected="false" aria-label="Go to case study 3"></button>
+        </div>
       </div>
 
-      <div class="carousel__footer">
-        <div class="carousel__controls">
-          <button class="carousel__btn carousel__btn--prev" id="carouselPrev" aria-label="Previous" data-magnetic>←</button>
-          <button class="carousel__btn carousel__btn--next" id="carouselNext" aria-label="Next" data-magnetic>→</button>
-        </div>
-        <a href="/case-studies/" class="link-arrow">See all case studies →</a>
+      <div class="work-grid__footer">
+        <a href="/case-studies/" class="btn btn--ghost btn--lg" data-magnetic>View all case studies <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
     <!-- EXPERIENCE SNIPPET -->
+    <!-- HIDDEN: "The quick tour" experience/about section.
+         Restore by deleting this comment wrapper. Kept out while the
+         site shows a single case study. -->
+    <!--
+    
     <section class="section">
       <div class="section__head">
         <span class="eyebrow">The quick tour</span>
@@ -508,7 +658,7 @@
       <div class="panel">
         <span class="eyebrow">Experience</span>
         <h3>Five years. Four companies. One throughline.</h3>
-        <p>Currently designing <strong>Dalvoy</strong> 0&nbsp;→&nbsp;1, an EdTech product live with 1L+ downloads<!-- TEMPORARILY HIDDEN: Dalvoy DAU/MAU metric pending attribution validation. Do not delete. Original: " (12K DAU / 94K MAU)"-->. Previously at <strong>SpeakX</strong> I owned activation and paid checkout (+38.8% conversion), shipped exit-intent retention (−4% churn), and built the company's first design system<!-- TEMPORARILY HIDDEN: 80+ components claim pending final numbers/status confirmation. Do not delete. Original: " (80+ components)"-->. Earlier years at Vaipra Tech and Mobcoder shaped my systems and handoff discipline.</p>
+        <p>Currently designing <strong>Dalvoy</strong> 0&nbsp;→&nbsp;1, a UPSC and govt-exam prep product live with 4 lakh+ registered users. Previously at <strong>SpeakX</strong> I owned activation and paid checkout (+38.8% conversion), shipped exit-intent retention (−4% churn), and built the company's first design system. Earlier years at Vaipratech and Mobcoder shaped my systems and handoff discipline.</p>
         <a href="/work/" class="link-arrow">See full work history →</a>
       </div>
       <div class="panel">
@@ -519,8 +669,9 @@
       </div>
       </div>
     </section>
+    -->
 
-    <!-- CONTACT -->
+<!-- CONTACT -->
     <section id="contact" class="section contact">
       <span class="eyebrow">Contact</span>
       <h2 class="contact__title">Have a problem worth solving?</h2>
@@ -548,5 +699,8 @@
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
   <script src="/anime-fx.js" defer></script>
   <script src="/script.js" defer></script>
+  <script src="/darkveil.js" defer></script>
+  <script src="/depth-carousel.js" defer></script>
+  <script src="/text-loop.js" defer></script>
 </body>
 </html>

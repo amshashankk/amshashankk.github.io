@@ -293,7 +293,11 @@
       // of the original set. Pauses on hover / touch / tab hidden.
       // Manual arrow click or wheel scroll stops it.
       // ==========================================================
-      if (!reducedMotion) {
+      // A one-card carousel has nothing to cycle: cloning it just shows the
+      // same card three times scrolling past forever. Leave it as a static card.
+      var cardCount = carouselTrack.querySelectorAll('.carousel__card').length;
+
+      if (!reducedMotion && cardCount > 1) {
         // Disable snap so continuous pixel-level scrolling stays fluid
         carouselTrack.style.scrollSnapType = 'none';
         carouselTrack.style.scrollBehavior = 'auto';
@@ -449,13 +453,13 @@
     // ==========================================================
     // H. CASE STUDY FILTER CHIPS
     // Wires up .filter-chip buttons on case-studies.html.
-    // Tags are stored in data-tags on .case and .featured-card.
+    // Tags are stored in data-tags on .case, .featured-card and .work-card.
     // Active chip updates URL hash for bookmark/share support.
     // Newly shown items get a quick anime.js fade-in stagger.
     // ==========================================================
     (function () {
       var chips    = document.querySelectorAll('.filter-chip');
-      var cases    = document.querySelectorAll('.case[data-tags], .featured-card[data-tags]');
+      var cases    = document.querySelectorAll('.case[data-tags], .featured-card[data-tags], .work-card[data-tags]');
       if (!chips.length || !cases.length) return;
 
       function getActive() {

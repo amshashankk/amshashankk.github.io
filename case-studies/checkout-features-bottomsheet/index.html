@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4375120351284164" crossorigin="anonymous"></script>
@@ -20,6 +20,7 @@
   <meta name="twitter:title" content="Checkout Features Bottom Sheet at SpeakX" />
   <meta name="twitter:description" content="Case study: a non-blocking features bottom sheet on the SpeakX checkout that lifted order creation by 79.8% and payment success by 7%, scaled to 100%." />
   <meta name="twitter:image" content="https://www.shashankkesarwani.com/assets/og/checkout-features-bottomsheet.png" />
+  <meta name="robots" content="noindex,nofollow" />
   <link rel="canonical" href="https://www.shashankkesarwani.com/case-studies/checkout-features-bottomsheet/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -156,7 +157,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Business Context</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">A funnel with two leaks: the mechanism of payment, and the motivation to pay.</h2>
+        <h2>A funnel with two leaks: the mechanism of payment, and the motivation to pay.</h2>
         <p>The <a href="/case-studies/upi-checkout/">UPI-first checkout</a> case study covers the first leak: the gateway picker was fighting India's default payment habit. This case is about the second leak, sitting on the same screen. Even when the payment <em>mechanism</em> was clean, a meaningful chunk of users still hesitated at the price block. They had reached the most expensive screen in the funnel, with the strongest intent of any prior step, and the screen offered them no reason in that moment to remember why they'd come.</p>
         <p>The two pieces of work were complementary: UPI-first fixed the mechanism, the features bottom sheet fixed the motivation. Both attacked different parts of the same drop curve.</p>
       </div>
@@ -166,7 +167,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">The Problem, Quantified</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Users reached the price screen, and a large fraction never tapped Pay.</h2>
+        <h2>Users reached the price screen, and a large fraction never tapped Pay.</h2>
 
         <div class="callout-pair">
           <div class="callout-pair__item">
@@ -195,7 +196,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Constraints</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Add context without spending the user's attention budget.</h2>
+        <h2>Add context without spending the user's attention budget.</h2>
         <ul>
           <li><strong>The CTA had to stay above the fold.</strong> Anything that pushed Pay below the fold would directly cost clicks. The fix could not displace the primary action.</li>
           <li><strong>Bottom sheets are easy to abuse.</strong> Used carelessly they become noise: every screen pops one, users start dismissing them reflexively without reading. This sheet had to earn its space, appear at the right moment, and stay out of the way once dismissed.</li>
@@ -209,7 +210,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Research &amp; The One Insight</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Intent decays between the marketing screen and the price screen.</h2>
+        <h2>Intent decays between the marketing screen and the price screen.</h2>
         <!-- TEMPORARILY HIDDEN: unverified [X] placeholder (number of session recordings reviewed) pending validation. Do not delete.
         <p>I watched [X] session recordings of users who reached the checkout and dropped without paying. The pattern wasn't price shock. It wasn't a payment-method issue either (that was the parallel UPI investigation). It was a content gap: the user had been told, two minutes ago on a marketing surface, that they'd get AI practice, grammar coaching, video reels and daily routines. By the time they hit the price screen, that list had decayed in working memory. They were now staring at a number with no fresh reason to attach to it.</p>
         -->
@@ -228,7 +229,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">The Decision</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">A peek sheet that reminds, then disappears.</h2>
+        <h2>A peek sheet that reminds, then disappears.</h2>
         <p>The shipped behaviour was deliberately small:</p>
         <ul>
           <li>The sheet appeared in its peek state on first render of the checkout, anchored beneath the price card. The CTA remained above the fold and fully tappable.</li>
@@ -249,7 +250,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Shipping Reality</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What shipped, what got cut, and what made it to v2.</h2>
+        <h2>What shipped, what got cut, and what made it to v2.</h2>
         <p><strong>What shipped in v1.</strong> The peek-state bottom sheet on Android and iOS, with four static features, swipe-dismiss, and per-session persistence of dismissal. Released to a 50/50 A/B against the unmodified checkout, on production traffic, for a fixed window long enough to clear the analyst's significance bar.</p>
         <p><strong>What didn't.</strong> Personalised features by user-declared learning goal (interview prep vs. school vs. travel) was descoped to v2. The sheet was static across cohorts in v1, which meant we were leaving lift on the table for users whose primary motivation didn't match the headline feature.</p>
         <p><strong>v2 targets.</strong> Goal-personalised feature ordering, a "see all features" expansion that links to a deeper marketing surface for hesitant users, and a renewal-flow variant tuned for users who already know the product.</p>
@@ -259,7 +260,7 @@
     <!-- 10. IMPACT -->
     <section class="cs-section" data-reveal>
       <span class="eyebrow">Impact</span>
-      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;">Measured on the A/B cohort, scaled to 100%.</h2>
+      <h2>Measured on the A/B cohort, scaled to 100%.</h2>
 
       <div class="impact-grid">
         <div class="impact-grid__item">
@@ -292,7 +293,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Reflection</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
+        <h2>What I'd do differently. What I'll carry forward.</h2>
         <p><strong>What I'd do differently.</strong> I'd have shipped the goal-personalised variant in v1. The static four-feature sheet performed because <em>any</em> reminder beat <em>no</em> reminder, but the lift on a personalised version would almost certainly have been larger. We left a compounding lever on the v2 backlog because the personalisation pipeline wasn't ready, and the right answer was probably to delay v1 by a sprint, not to ship the static version.</p>
         <p><strong>What I underestimated.</strong> How well a non-blocking surface can do work that a blocking surface can't. Direction B was, on paper, the most "informative" option: a full-screen modal can show the most content. In practice, every additional unit of friction at the moment of commitment is taxed harder than I'd expected. The sheet won not because it said more, but because it cost less.</p>
         <p><strong>What I'll carry forward.</strong> Bottom sheets aren't a default tool. They earn their space when they're contextual, dismissible, and in the user's eyeline at exactly one moment. Used otherwise, they're noise. This one earned it because it answered a question the user was already silently asking on that screen.</p>

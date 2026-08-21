@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4375120351284164" crossorigin="anonymous"></script>
@@ -20,6 +20,7 @@
   <meta name="twitter:title" content="Home Page V2 at SpeakX" />
   <meta name="twitter:description" content="Redesigning the SpeakX home page from a catalogue into a launchpad: +62.1% lesson starts, +23.5% order creation, scaled to 100%." />
   <meta name="twitter:image" content="https://www.shashankkesarwani.com/assets/og/home-page-v2.png" />
+  <meta name="robots" content="noindex,nofollow" />
   <link rel="canonical" href="https://www.shashankkesarwani.com/case-studies/home-page-v2/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -156,7 +157,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Business Context</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">The home page was the most-loaded screen in the app, and the least directional.</h2>
+        <h2>The home page was the most-loaded screen in the app, and the least directional.</h2>
         <p>The SpeakX home page is the first surface every logged-in user lands on. It has more daily impressions than any other screen in the product. By mid-2024 it was doing what content-led homes tend to do: showing a long list of lessons, a row of categories, a generic recommendation block, and trusting users to figure out what to do next.</p>
         <p>That worked. People found lessons. The trial-to-paid funnel held. But the home page was over-indexed on browsing and under-indexed on starting. Every additional second a user spent scanning categories was a second they weren't in a lesson, and lesson starts were the single best leading indicator we had for both engagement and revenue.</p>
       </div>
@@ -166,7 +167,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">The Problem, Quantified</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Same real estate, much less work being done.</h2>
+        <h2>Same real estate, much less work being done.</h2>
 
         <div class="callout-pair">
           <div class="callout-pair__item">
@@ -193,7 +194,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Constraints</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">We could not lose browse. We could demote it.</h2>
+        <h2>We could not lose browse. We could demote it.</h2>
         <ul>
           <li><strong>Browse traffic was real.</strong> A non-trivial cohort genuinely came to the home page to explore. Removing categories outright would punish them and erode the discovery surface. The redesign had to demote browse, not delete it.</li>
           <li><strong>Recommendation quality was uneven.</strong> The ranking pipeline was good enough to be useful, not good enough to be the only thing on screen. We could lean on it, but not bet the entire surface on it.</li>
@@ -207,7 +208,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Research &amp; The One Insight</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">Users didn't want a catalogue. They wanted a place to land.</h2>
+        <h2>Users didn't want a catalogue. They wanted a place to land.</h2>
         <!-- TEMPORARILY HIDDEN: unverified [X] placeholders (number of days of session/heatmap data, and number of users in moderated sessions) pending validation. Do not delete.
         <p>I pulled session recordings and tap heatmaps for the home page across [X] days. The pattern was consistent: users opened the app with a vague intent ("do my English thing"), scrolled the home page once, and either tapped the most prominent thing they recognised or closed the app. Almost nobody used the home page to comparison-shop lessons. They used it to be told what to do next.</p>
         <p>I ran short [X]-user moderated sessions on a clickable V1 prototype, asking people to describe what they were looking at. The vocabulary was telling. People described V1 as "a list", "a menu", "options". Nobody described it as "my place" or "where I left off". The home page was not mine to the user. It was the product's catalogue, shown to me.</p>
@@ -233,7 +234,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">The Decision</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">One screen, two jobs, in priority order.</h2>
+        <h2>One screen, two jobs, in priority order.</h2>
         <p>The shipped V2 was deliberately structured around a hierarchy, not a layout:</p>
         <ul>
           <li>A primary "continue / start now" surface owning the first viewport. For returning users it resumed the last lesson. For new users it surfaced the most likely first lesson based on declared intent at onboarding. One CTA, no choice cost.</li>
@@ -249,7 +250,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Shipping Reality</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What shipped, what got cut, and what V2 still didn't solve.</h2>
+        <h2>What shipped, what got cut, and what V2 still didn't solve.</h2>
         <p><strong>What shipped.</strong> The two-tier home with continue/start surface, progress nudges, intent-tagged recommendation row, and a secondary browse tab. Same design across Android and iOS. The A/B test scaled to 100% on the strength of the lift.</p>
         <p><strong>What didn't.</strong> A richer "why are you seeing this" explainer on each recommendation card was descoped to the next iteration: the why-tags shipped, but the tap-to-expand reasoning didn't. Personalised progress nudges by goal type (exam vs. conversation vs. interview) were also descoped, because the goal-tagging pipeline was inconsistent at the time.</p>
         <p><strong>What V2 still didn't solve.</strong> Cold-start users with no declared intent and no history still got a generic first viewport. The recommendation row helped, but the primary "start now" surface was less load-bearing for them than for returning users. That cohort is the obvious next thing to design for, and the lift on V2 doesn't apply equally to them.</p>
@@ -259,7 +260,7 @@
     <!-- 10. IMPACT -->
     <section class="cs-section" data-reveal>
       <span class="eyebrow">Impact</span>
-      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:2rem;">Numbers from the A/B test, scaled to 100% on the back of them.</h2>
+      <h2>Numbers from the A/B test, scaled to 100% on the back of them.</h2>
 
       <div class="impact-grid">
         <div class="impact-grid__item">
@@ -290,7 +291,7 @@
     <section class="cs-section" data-reveal>
       <div class="cs-content">
         <span class="eyebrow">Reflection</span>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);letter-spacing:-0.02em;margin-bottom:1.5rem;">What I'd do differently. What I'll carry forward.</h2>
+        <h2>What I'd do differently. What I'll carry forward.</h2>
         <p><strong>What I'd do differently.</strong> I'd have designed for cold-start users in the same release, not punted them to the next one. The +62.1% lift is real, but it skews to returning users where "continue" is a strong default. The first-session experience still leans on a guess at intent, and that's the cohort where activation matters most. Splitting the design effort across the two cohorts from day one would have been more honest.</p>
         <p><strong>What I underestimated.</strong> How much of the lift came from the why-tags on recommendation cards rather than the structural change. In testing I had treated the tags as polish. Post-launch reads suggest they did meaningful trust work: a tagged recommendation read as reasoned, an untagged one read as random, even when the underlying ranking was identical.</p>
         <p><strong>What I'll carry forward.</strong> Hierarchy is a design decision, not a layout choice. A home page that asks the user to choose between action and exploration, with no priority signalled, will quietly cost you starts forever. Pick the one job the screen is for. Let everything else earn its place underneath.</p>
